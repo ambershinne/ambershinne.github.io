@@ -8,6 +8,183 @@
 <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/pages.css" />
 <link rel="icon" type="image/png" href="assets/images/avatar.png" />
+<style>
+/* ============================================================
+   WORK PAGE — Feature scroller
+   ============================================================ */
+.work-wrap { padding: 0 var(--gutter); }
+
+.work-head {
+  padding: 160px 0 64px;
+  border-bottom: 1px solid var(--line-2);
+}
+.work-head__eyebrow { margin-bottom: 28px; }
+.work-head__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin: 0 0 64px;
+  max-width: 18ch;
+}
+.work-head__title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.work-pr-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+.work-pr {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--fg);
+}
+.work-pr__num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.work-pr__title {
+  font-family: 'DM Sans', var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0;
+  line-height: 1.3;
+}
+.work-pr__body {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Strips */
+.work-strip {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  padding: 72px 0;
+  border-bottom: 1px solid var(--line-3);
+  align-items: stretch;
+}
+.work-strip:nth-child(even) .work-strip__media { order: 2; }
+.work-strip__media {
+  aspect-ratio: 16 / 10;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-soft);
+  cursor: not-allowed;
+}
+.work-strip__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 900ms var(--ease-out);
+}
+.work-strip:hover .work-strip__media img { transform: scale(1.025); }
+
+.work-strip__body {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100%;
+}
+.work-strip__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-3);
+}
+.work-strip__num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.work-strip__kind {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+.work-strip__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  margin: 0;
+}
+.work-strip__title em {
+  font-style: italic;
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+}
+.work-strip__desc {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--fg-3);
+  margin: 0;
+  max-width: 42ch;
+}
+
+/* Hash tags pinned to the bottom of the body column */
+.work-strip__hash {
+  margin-top: auto;
+  padding-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--muted-2);
+  letter-spacing: -0.005em;
+}
+.work-strip__hash span { white-space: nowrap; }
+
+/* Outro */
+.work-outro {
+  padding: 96px 0 120px;
+  text-align: center;
+}
+.work-outro__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+.work-outro__count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted-3);
+}
+
+@media (max-width: 1024px) {
+  .work-head { padding: 130px 0 48px; }
+  .work-pr-grid { grid-template-columns: 1fr; gap: 24px; }
+  .work-strip { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+  .work-strip:nth-child(even) .work-strip__media { order: 0; }
+  .work-strip__hash { padding-top: 16px; }
+}
+</style>
 </head>
 <body data-page="work">
 
@@ -20,112 +197,127 @@
     <span>Amber's Portfolio</span>
   </a>
   <nav class="nav__links">
-    <a href="index.html#about" class="nav__link">About me</a>
-    <a href="work.html" class="nav__link">Work</a>
+    <a href="work.html" class="nav__link is-active">Work</a>
   </nav>
 </header>
 
-<!-- ============ WORK LAYOUT ============ -->
-<section class="work-layout">
-  <!-- Sidebar: design principles -->
-  <aside class="work-sidebar reveal">
-    <div class="work-sidebar__corner" aria-hidden="true"></div>
-    <div class="work-sidebar__eyebrow">Design Principles</div>
-
-    <div class="principle">
-      <h3 class="principle__title">Understand the intent<br />before defining the solution</h3>
-      <p class="principle__body">
-        Every feature has a business purpose. Strong designers understand
-        why a product exists before deciding how it should work — preventing
-        teams from optimizing the wrong things.
-      </p>
+<!-- ============ HEAD ============ -->
+<section class="work-wrap">
+  <header class="work-head">
+    <div class="work-head__eyebrow eyebrow reveal">
+      <span>W/00</span><span class="dash"></span><span>Selected work</span>
     </div>
-
-    <div class="principle">
-      <h3 class="principle__title">Design for today,<br />anticipate tomorrow</h3>
-      <p class="principle__body">
-        Strong design balances current resources with future needs. When
-        they don't align, recognizing risks early reduces rework and
-        supports sustainable growth.
-      </p>
+    <h1 class="work-head__title reveal" data-delay="1">
+      Work that <em>shaped</em><br />products &amp; teams.
+    </h1>
+    <div class="work-pr-grid">
+      <div class="work-pr reveal">
+        <span class="work-pr__num">Principle 01</span>
+        <h4 class="work-pr__title">Understand intent first.</h4>
+        <p class="work-pr__body">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</p>
+      </div>
+      <div class="work-pr reveal" data-delay="1">
+        <span class="work-pr__num">Principle 02</span>
+        <h4 class="work-pr__title">Design for today, anticipate tomorrow.</h4>
+        <p class="work-pr__body">Balance current resources with future needs; recognize risks early.</p>
+      </div>
+      <div class="work-pr reveal" data-delay="2">
+        <span class="work-pr__num">Principle 03</span>
+        <h4 class="work-pr__title">Balance business with users.</h4>
+        <p class="work-pr__body">Thoughtful trade-offs over short-term convenience.</p>
+      </div>
     </div>
+  </header>
 
-    <div class="principle">
-      <h3 class="principle__title">Balance business goals<br />with user needs</h3>
-      <p class="principle__body">
-        User needs and business goals often align — but when they don't,
-        thoughtful trade-offs matter. Strong product decisions prioritize
-        long-term value over short-term convenience.
-      </p>
+  <!-- ============ STRIPS ============ -->
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-backoffice.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">01 / 05</span>
+        <span class="work-strip__kind">In-house · 2024–25</span>
+      </div>
+      <h2 class="work-strip__title"><em>Configurable</em><br />Checkup Platform.</h2>
+      <p class="work-strip__desc">Planned and designed a new in-house admin system — modular workflows, role-based access, and operations at scale.</p>
+      <div class="work-strip__hash">
+        <span>#B2B_SaaS</span>
+        <span>#Admin_Platform</span>
+        <span>#0-to-1</span>
+      </div>
     </div>
-  </aside>
+  </article>
 
-  <!-- Project grid -->
-  <div class="work-grid">
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-huers.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">02 / 05</span>
+        <span class="work-strip__kind">Personal · 2-hr sprint</span>
+      </div>
+      <h2 class="work-strip__title">How fast can <em>one designer</em><br />ship a branded app?</h2>
+      <p class="work-strip__desc">A personal experiment — feeding Claude a brief and seeing how far it goes. A full brand system in 120 minutes.</p>
+      <div class="work-strip__hash">
+        <span>#AI-assisted</span>
+        <span>#2hr-sprint</span>
+        <span>#Brand_System</span>
+      </div>
+    </div>
+  </article>
 
-    <article class="work-card reveal">
-      <div class="work-card__media">
-        <img src="assets/images/work-backoffice.png" alt="Configurable Checkup Platform" />
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-kindocapp.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">03 / 05</span>
+        <span class="work-strip__kind">In-house · 2022–24</span>
       </div>
-      <div class="work-card__body">
-        <span class="tag tag--inhouse"><span class="tag__icon">🏠</span> In-house</span>
-        <h3 class="work-card__title">Building a Configurable Checkup Platform</h3>
-        <p class="work-card__desc">Planned and designed a new in-house admin system</p>
-        <div class="work-card__hash">#B2B_SaaS  #Admin_Platform</div>
+      <h2 class="work-strip__title">Booking marketplace, built for <em>conversion</em>.</h2>
+      <p class="work-strip__desc">A core in-house B2C platform — home-screen architecture, content hierarchy, and conversion-driven UI.</p>
+      <div class="work-strip__hash">
+        <span>#HomeScreen_UI</span>
+        <span>#Interface_Design</span>
+        <span>#B2C</span>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <article class="work-card reveal" data-delay="1">
-      <div class="work-card__media work-card__media--contain">
-        <img src="assets/images/work-huers.png" alt="Huers Coffee App" />
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-kindocai.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">04 / 05</span>
+        <span class="work-strip__kind">In-house · 2023–24</span>
       </div>
-      <div class="work-card__body">
-        <div class="work-card__tags">
-          <span class="tag tag--personal"><span class="tag__icon">👤</span> Personal</span>
-          <span class="tag tag--claude"><span class="tag__icon">✻</span> Claude</span>
-        </div>
-        <h3 class="work-card__title">How fast can one designer ship a branded app?</h3>
-        <p class="work-card__desc">A personal experiment — feeding Claude a brief and seeing how far it goes. A full brand system.</p>
-        <div class="work-card__hash">#AI-assisted  #2hr-sprint</div>
+      <h2 class="work-strip__title">A <em>conversational</em><br />AI design system.</h2>
+      <p class="work-strip__desc">Generative AI health-checkup results assistant — language UX patterns and a token system for AI-generated content.</p>
+      <div class="work-strip__hash">
+        <span>#AI_UX</span>
+        <span>#Conversational_UI</span>
+        <span>#Design_System</span>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <article class="work-card reveal" data-delay="2">
-      <div class="work-card__media">
-        <img src="assets/images/work-kindocapp.png" alt="Kindoc B2C App" />
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-highcapa.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">05 / 05</span>
+        <span class="work-strip__kind">Partnership · 2021–22</span>
       </div>
-      <div class="work-card__body">
-        <span class="tag tag--inhouse"><span class="tag__icon">🏠</span> In-house</span>
-        <h3 class="work-card__title">Optimizing the Booking Marketplace for High Conversion</h3>
-        <p class="work-card__desc">A core in-house platform for B2C users</p>
-        <div class="work-card__hash">#HomeScreen_UI  #Interface_Design</div>
+      <h2 class="work-strip__title">Enterprise UX,<br /><em>scaled</em>.</h2>
+      <p class="work-strip__desc">External project with a major hospital — enterprise framework, complex workflows, and stakeholder alignment.</p>
+      <div class="work-strip__hash">
+        <span>#Enterprise_Framework</span>
+        <span>#Complex_Workflows</span>
+        <span>#Partnership</span>
       </div>
-    </article>
+    </div>
+  </article>
 
-    <article class="work-card reveal" data-delay="3">
-      <div class="work-card__media work-card__media--contain">
-        <img src="assets/images/work-kindocai.png" alt="Kindoc AI" />
-      </div>
-      <div class="work-card__body">
-        <span class="tag tag--inhouse"><span class="tag__icon">🏠</span> In-house</span>
-        <h3 class="work-card__title">Building a Conversational AI Design System</h3>
-        <p class="work-card__desc">Generative AI Health Checkup Results Assistant</p>
-        <div class="work-card__hash">#AI_UX  #Conversational_UI</div>
-      </div>
-    </article>
-
-    <article class="work-card reveal" data-delay="4">
-      <div class="work-card__media">
-        <img src="assets/images/work-highcapa.png" alt="Enterprise UX" />
-      </div>
-      <div class="work-card__body">
-        <span class="tag tag--partnership"><span class="tag__icon">👥</span> Partnership</span>
-        <h3 class="work-card__title">Scaling Enterprise UX for Complex Systems</h3>
-        <p class="work-card__desc">An external project in collaboration with a major hospital</p>
-        <div class="work-card__hash">#Enterprise_Framework  #Complex_Workflows</div>
-      </div>
-    </article>
-
+  <div class="work-outro">
+    <p class="work-outro__text">— end of selected work —</p>
+    <div class="work-outro__count">05 / 05  ·  More on request</div>
   </div>
 </section>
 
