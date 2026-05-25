@@ -6,7 +6,7 @@
 
 .hero {
   position: relative;
-  padding: 180px 0 100px;
+  padding: 144px 0 120px;
   overflow: hidden;
   z-index: 2;
 }
@@ -344,7 +344,7 @@
 /* =================== ABOUT (v2 — editorial) =================== */
 
 .about-hero-v2 {
-  padding: 180px 0 60px;
+  padding: 144px 0 104px;
   border-bottom: 1px solid var(--line-3);
 }
 .about-hero-v2__title {
