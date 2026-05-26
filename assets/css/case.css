@@ -832,12 +832,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 280px;
 }
 
 .levels__card--pills {
   background: #FBFAF9;
-  padding: 32px 24px;
+  padding: 24px 24px;
+  border: 1px solid var(--line-2);
+  border-radius: 0;
 }
 
 .levels__card--modal {
