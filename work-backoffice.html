@@ -204,7 +204,7 @@
           <div class="challenges">
           <div class="challenge">
             <span class="challenge__num">01</span>
-            <p class="challenge__body">Products were configured separately for each organization, leading to duplicated setup efforts and operational inefficiencies.</p>
+            <p class="challenge__body">Onboarding small B2O clients meant copying and reconfiguring existing packages each time — inefficient and error-prone, especially at scale.</p>
             <div class="challenge__by">
               <span class="challenge__name">Manager Shin</span>
               <span class="challenge__team">Sales Team</span>
@@ -212,15 +212,15 @@
           </div>
           <div class="challenge">
             <span class="challenge__num">02</span>
-            <p class="challenge__body">There was no way to control product availability without removing visibility, limiting operational flexibility.</p>
+            <p class="challenge__body">Checkup centers often wanted to add notes or guidance to specific tests, but there was no way to manage information at the test-item level.</p>
             <div class="challenge__by">
-              <span class="challenge__name">Manager Kim</span>
+              <span class="challenge__name">Manager Park</span>
               <span class="challenge__team">Operation Team</span>
             </div>
           </div>
           <div class="challenge">
             <span class="challenge__num">03</span>
-            <p class="challenge__body">Mandatory tests were priced at ₩0, but the system lacked the flexibility to support future price additions.</p>
+            <p class="challenge__body">Optional tests showed as ₩0 because they were bundled into the package price, but we needed room for paid add-ons in the future.</p>
             <div class="challenge__by">
               <span class="challenge__name">Manager Son</span>
               <span class="challenge__team">Operation Team</span>
@@ -228,37 +228,51 @@
           </div>
           <div class="challenge">
             <span class="challenge__num">04</span>
-            <p class="challenge__body">Products could not be selectively exposed to specific partner organizations, restricting business model expansion.</p>
+            <p class="challenge__body">Even for the same product, contract changes sometimes required hiding it from a single organization — and the system couldn't support that.</p>
             <div class="challenge__by">
               <span class="challenge__name">Manager Shin</span>
               <span class="challenge__team">Sales Team</span>
             </div>
           </div>
-          <div class="challenge">
-            <span class="challenge__num">05</span>
-            <p class="challenge__body">Test items had to be added manually, making package configuration time-consuming and difficult to scale.</p>
-            <div class="challenge__by">
-              <span class="challenge__name">Manager Jang</span>
-              <span class="challenge__team">Sales Manager</span>
-            </div>
-          </div>
-          <div class="challenge">
-            <span class="challenge__num">06</span>
-            <p class="challenge__body">Test items lacked user-facing descriptions, making it difficult to communicate important considerations before booking.</p>
-            <div class="challenge__by">
-              <span class="challenge__name">Manager Park</span>
-              <span class="challenge__team">Operation Team</span>
-            </div>
-          </div>
           </div>
         </div>
-        <p class="challenges-hint">← scroll for more  ·  06 of 06</p>
+        <p class="challenges-hint">← scroll for more  ·  04 of 04</p>
 
-        <p class="case-sect-lede reveal" style="margin-top: 32px;">
-          <strong style="color: var(--fg); font-weight: 600;">Design Direction.</strong>
-          To address these structural gaps, I focused on building a scalable operational model
-          that could support multiple platforms while reducing duplication in product configuration.
+        <div class="case-sect-eyebrow reveal" style="margin-top: 64px;">Design Direction</div>
+        <h3 class="case-sect-title reveal" data-delay="1" style="font-size: clamp(20px, 2.4vw, 26px);">A <em>modular</em> operational structure.</h3>
+        <p class="case-sect-lede reveal" data-delay="2" style="margin-top: 12px; margin-bottom: 40px;">
+          Each issue lived at a different layer. Rather than building one feature to solve them all, I designed four independent layers — each tied to a specific operational problem.
         </p>
+        <div class="direction-grid">
+          <div class="direction reveal">
+            <span class="direction__num">01</span>
+            <h4 class="direction__label">Package reuse</h4>
+            <p class="direction__body">
+              Connect one master package to multiple organizations instead of duplicating per organization.
+            </p>
+          </div>
+          <div class="direction reveal" data-delay="1">
+            <span class="direction__num">02</span>
+            <h4 class="direction__label">Test-item metadata</h4>
+            <p class="direction__body">
+              Manage guidance and notes at the test-item level, not just the package level.
+            </p>
+          </div>
+          <div class="direction reveal" data-delay="2">
+            <span class="direction__num">03</span>
+            <h4 class="direction__label">Pricing flexibility</h4>
+            <p class="direction__body">
+              Allow optional tests to be priced beyond ₩0, leaving room for future paid add-ons.
+            </p>
+          </div>
+          <div class="direction reveal" data-delay="3">
+            <span class="direction__num">04</span>
+            <h4 class="direction__label">Per-organization visibility</h4>
+            <p class="direction__body">
+              Override product visibility for specific organizations, independent of global availability.
+            </p>
+          </div>
+        </div>
       </section>
 
       <!-- ===== DESIGN STRATEGY ===== -->
