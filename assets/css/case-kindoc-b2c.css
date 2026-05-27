@@ -67,14 +67,14 @@ body[data-page="work-kindoc-b2c"] .case-logo::after {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 2px;                  /* border thickness */
+  padding: 1.5px;                  /* border thickness */
   border-radius: inherit;
   background: conic-gradient(
     from var(--logo-angle),
-    #FF43B1,                     /* color 1 */
-    #FF8383,                     /* color 2 */
+    #FF57B9,                     /* color 1 */
+    #FF9E8B,                     /* color 2 */
     #DA48FF,                     /* color 3 */
-    #FF43B1                      /* loop back to color 1 */
+    #DC51FF                      /* loop back to color 1 */
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
