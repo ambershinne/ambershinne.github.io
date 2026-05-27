@@ -293,3 +293,71 @@ body[data-page="work-kindoc-b2c"] .case-figure figcaption {
 body[data-page="work-kindoc-b2c"] .case-hero__eyebrow {
   margin-bottom: 16px;
 }
+
+/* ============================================================
+   FLOATING MOBILE MOCKUP — bigger, behind text
+   Naturally scrolls with hero section (no parallax/fixed).
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .case-hero {
+  position: relative;
+  isolation: isolate;       /* contain z-index stacking */
+}
+
+/* All text/content sits above the mockup */
+body[data-page="work-kindoc-b2c"] .case-hero__eyebrow,
+body[data-page="work-kindoc-b2c"] .case-hero .case-logo,
+body[data-page="work-kindoc-b2c"] .case-hero__title,
+body[data-page="work-kindoc-b2c"] .case-hero__lede,
+body[data-page="work-kindoc-b2c"] .case-hero .case-meta {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="work-kindoc-b2c"] .case-hero__mobile {
+  position: absolute;
+  top: -40px;
+  right: -120px;
+  width: 420px;
+  z-index: -1;              /* behind text */
+  pointer-events: none;
+}
+
+body[data-page="work-kindoc-b2c"] .case-hero__mobile img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 36px;
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.10),
+    0 12px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Constrain hero text on desktop so the mockup peeks out on the right */
+@media (min-width: 1025px) {
+  body[data-page="work-kindoc-b2c"] .case-hero__title { max-width: 18ch; }
+  body[data-page="work-kindoc-b2c"] .case-hero__lede  { max-width: 52ch; }
+}
+
+/* Tablet — smaller, less bleed */
+@media (max-width: 1024px) {
+  body[data-page="work-kindoc-b2c"] .case-hero__mobile {
+    top: -20px;
+    right: -40px;
+    width: 280px;
+  }
+}
+
+/* Mobile — small, tucked into top-right next to eyebrow + app icon */
+@media (max-width: 640px) {
+  body[data-page="work-kindoc-b2c"] .case-hero__mobile {
+    top: 0;
+    right: -8px;
+    width: 160px;
+  }
+  body[data-page="work-kindoc-b2c"] .case-hero__mobile img {
+    border-radius: 22px;
+    box-shadow:
+      0 18px 36px rgba(0, 0, 0, 0.10),
+      0 6px 12px rgba(0, 0, 0, 0.04);
+  }
+}
