@@ -79,8 +79,8 @@
           </div>
         </div>
 
-        <div class="case-cover reveal">
-          <img src="assets/images/kindoc-b2c/cover.png" alt="Kindoc main screen — before and after" />
+        <div class="case-hero__mobile">
+          <img src="assets/images/kindoc-b2c/hero-mobile.png" alt="Kindoc main screen mockup" />
         </div>
       </section>
 
@@ -336,5 +336,25 @@
 </main>
 
 <script src="assets/js/main.js"></script>
+<script>
+  /* Kindoc page — subtle hero mockup parallax */
+  (function () {
+    var mockup = document.querySelector('.case-hero__mobile');
+    if (!mockup) return;
+    if (window.matchMedia('(max-width: 1024px)').matches) return;
+
+    var ticking = false;
+    function update() {
+      mockup.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px)';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(update);
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+</script>
 </body>
 </html>
