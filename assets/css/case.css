@@ -859,6 +859,7 @@
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
   .case-shell { grid-template-columns: 1fr; gap: 32px; padding-top: 96px; }
+   .case-main { max-width: 100%; }
   .case-nav {
     position: relative; top: 0;
     flex-direction: row;
