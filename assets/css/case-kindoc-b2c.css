@@ -484,6 +484,39 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
+   RATIONALE — design "why" callout
+   ============================================================ */
+.rationale {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 16px 24px;
+  padding: 22px 24px;
+  background: var(--bg-soft);
+  border-radius: 8px;
+  margin: 24px 0;
+}
+.rationale__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 3px;
+}
+.rationale__body {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg-2);
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .rationale { grid-template-columns: 1fr; gap: 8px; padding: 20px; }
+}
+
+/* ============================================================
    UI FRAME (image with shadow)
    ============================================================ */
 .ui-frame {
