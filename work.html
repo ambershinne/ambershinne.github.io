@@ -39,10 +39,10 @@
   max-width: 24ch;
 }
 
-/* Main 30/70 layout */
+/* Main 25/75 layout */
 .work-feed {
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 25% 1fr;
   gap: 80px;
   padding-top: 48px;
 }
@@ -62,7 +62,7 @@
   flex-direction: column;
   gap: 10px;
   padding-top: 14px;
-  border-top: 1px solid var(--fg);
+  border-top: 1px solid var(--line-2);
 }
 .work-pr__num {
   font-family: var(--font-mono);
@@ -97,7 +97,7 @@
 
 .work-strip {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   gap: 32px;
   padding: 48px 0;
   border-bottom: 1px solid var(--line-3);
@@ -209,10 +209,13 @@
 }
 
 /* ============================================================
-   MEDIUM (769–1279px) — Sidebar stays 30/70, strips stack
+   MEDIUM (769–1279px) — Sidebar 35/65, strips stack
    ============================================================ */
 @media (max-width: 1279px) and (min-width: 769px) {
-  .work-feed { gap: 56px; }
+  .work-feed {
+    grid-template-columns: 35% 1fr;
+    gap: 56px;
+  }
   .work-strip {
     grid-template-columns: 1fr;
     gap: 20px;
