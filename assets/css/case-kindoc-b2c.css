@@ -9,7 +9,7 @@
    ============================================================ */
 body[data-page="work-kindoc-b2c"] {
   --bg:           #FBF9F8;       /* warm off-white page bg */
-  --bg-soft:      #F4EAE5;       /* warm pink-cream — image boxes */
+  --bg-soft:      #F6F1EE;       /* warm pink-cream — image boxes */
   --accent:       #9D8590;       /* dusty rose-gray — eyebrows/labels */
   --key:          #FF30A0;       /* Kindoc brand pink — used sparingly */
   --font-display: "Crimson Pro", "Times New Roman", serif;
