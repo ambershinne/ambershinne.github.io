@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindoc Main Screen — Amber Shin</title>
+  <meta name="description" content="Rebuilding a health checkup app's main screen to lift conversion to the core booking flow.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght,SOFT@9..144,400;9..144,500&family=Crimson+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/case-kindoc-b2c.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a href="index.html" class="site-header__brand">
+        <img src="assets/images/avatar.png" alt="Amber">
+        Amber's Portfolio
+      </a>
+      <nav class="site-header__nav">
+        <a href="work.html">Work</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="case">
+    <div class="case-shell">
+
+      <aside class="case-nav">
+        <div class="case-nav__label">Contents</div>
+        <a href="#why"        class="case-nav__link">Why It Mattered</a>
+        <a href="#problem"    class="case-nav__link">The Problem</a>
+        <a href="#decisions"  class="case-nav__link">Design Decisions</a>
+        <a href="#solution"   class="case-nav__link">Solution</a>
+        <a href="#handoff"    class="case-nav__link">Hand-Off</a>
+        <a href="#outcomes"   class="case-nav__link">Outcomes</a>
+        <a href="#takeaway"   class="case-nav__link">Takeaway</a>
+      </aside>
+
+      <main class="case-main">
+
+        <!-- HERO -->
+        <section>
+          <div class="case-tag">Kindoc / Main Screen</div>
+          <h1 class="case-hero__title">
+            Rebuilding the main screen for <em>core business.</em>
+          </h1>
+          <p class="case-hero__lede">
+            Kindoc had pivoted into an O2O health checkup booking platform, but the main screen still mirrored its earlier life as a hospital info app. I led the renewal — restructuring the visual hierarchy, repositioning the primary CTA, and introducing an entry point for the new Kindoc AI feature.
+          </p>
+
+          <dl class="case-meta">
+            <div class="case-meta__item">
+              <dt class="case-meta__label">Role</dt>
+              <dd class="case-meta__value">Lead Designer</dd>
+            </div>
+            <div class="case-meta__item">
+              <dt class="case-meta__label">Timeline</dt>
+              <dd class="case-meta__value">March — May 2024</dd>
+            </div>
+          </dl>
+
+          <div class="case-cover">
+            <img src="assets/images/kindoc-b2c/cover.png" alt="Kindoc main screen — before and after">
+          </div>
+        </section>
+
+        <!-- WHY IT MATTERED -->
+        <section class="case-section" id="why">
+          <div class="case-sect-eyebrow">Why It Mattered</div>
+          <h2 class="case-sect-title">Health checkups became the core business. The main screen didn't know that.</h2>
+          <div class="case-prose">
+            <p>By 2024, checkup bookings were Kindoc's primary revenue driver — but the main screen, untouched since launch, still treated them as one of many features.</p>
+          </div>
+
+          <div class="big-stats">
+            <div class="big-stat">
+              <div class="big-stat__num">30–40<small>%</small></div>
+              <div class="big-stat__label">conversion to the checkup feature, stuck for months</div>
+            </div>
+            <div class="big-stat">
+              <div class="big-stat__num">−14<small>pp</small></div>
+              <div class="big-stat__label">CTR drop Dec → Jan, beyond seasonal variance</div>
+            </div>
+            <div class="big-stat">
+              <div class="big-stat__num">4.4B<small> KRW</small></div>
+              <div class="big-stat__label">2024 GMV at stake across B2C + B2B</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- THE PROBLEM -->
+        <section class="case-section" id="problem">
+          <div class="case-sect-eyebrow">The Problem</div>
+          <h2 class="case-sect-title">Users couldn't find the booking flow.</h2>
+          <div class="case-prose">
+            <p>Four years of short-term requests had left the screen drifting — unclear hierarchy, oversized components, primary and secondary actions competing for the same space. The checkup button, the single most important action, was visually indistinguishable from secondary entries.</p>
+          </div>
+
+          <div class="problem-grid">
+            <div class="problem-card">
+              <div class="problem-card__media">
+                <img src="assets/images/kindoc-b2c/problem-design-drift.png" alt="Existing main screen showing design drift">
+              </div>
+              <div class="problem-card__caption">Existing main screen — accumulated drift</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-card__media">
+                <img src="assets/images/kindoc-b2c/problem-low-conversion.png" alt="Conversion data chart">
+              </div>
+              <div class="problem-card__caption">CTR drop — 46% (Dec) → 32% (Jan)</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- DESIGN DECISIONS -->
+        <section class="case-section" id="decisions">
+          <div class="case-sect-eyebrow">Design Decisions</div>
+          <h2 class="case-sect-title">Five objectives. Four directions. One that earned the CTA.</h2>
+          <div class="case-prose">
+            <p>Moving the CTA alone wouldn't fix it. The screen's hierarchy needed to reflect what the business had become. I set five objectives and explored four directions against them.</p>
+          </div>
+
+          <!-- 5 OBJECTIVES — visible decisions -->
+          <div class="directions">
+            <div class="direction">
+              <span class="direction__num">01</span>
+              <h3 class="direction__label">Lift CTR to the booking flow</h3>
+              <p class="direction__body">Prior rates: 46% (Dec) → 32% (Jan). The single most important number to move.</p>
+            </div>
+            <div class="direction">
+              <span class="direction__num">02</span>
+              <h3 class="direction__label">Introduce Kindoc AI</h3>
+              <p class="direction__body">Place the new generative AI assistant in a visible position without crowding the primary flow.</p>
+            </div>
+            <div class="direction">
+              <span class="direction__num">03</span>
+              <h3 class="direction__label">Clarify primary vs. secondary actions</h3>
+              <p class="direction__body">Re-establish hierarchy through size, color, and placement.</p>
+            </div>
+            <div class="direction">
+              <span class="direction__num">04</span>
+              <h3 class="direction__label">De-emphasize underdeveloped features</h3>
+              <p class="direction__body">The search bar's backend wasn't ready; it shouldn't read as a primary action.</p>
+            </div>
+            <div class="direction">
+              <span class="direction__num">05</span>
+              <h3 class="direction__label">Simplify the footer</h3>
+              <p class="direction__body">Reduce navigation noise at the bottom of the screen.</p>
+            </div>
+          </div>
+
+          <!-- 4 CONCEPTS -->
+          <div class="case-prose" style="margin-bottom: 0;">
+            <p>Four directions explored. Only one moved all five objectives at once.</p>
+          </div>
+
+          <div class="concepts">
+            <div class="concept">
+              <div class="concept__media"><img src="assets/images/kindoc-b2c/ideation-type-a.png" alt="Type A"></div>
+              <div class="concept__label">Type A</div>
+              <p class="concept__body">Direct list access. Not feasible under dev constraints.</p>
+            </div>
+            <div class="concept">
+              <div class="concept__media"><img src="assets/images/kindoc-b2c/ideation-type-b.png" alt="Type B"></div>
+              <div class="concept__label">Type B</div>
+              <p class="concept__body">Prominent CTA, but mid-screen ad competed with it.</p>
+            </div>
+            <div class="concept">
+              <div class="concept__media"><img src="assets/images/kindoc-b2c/ideation-type-c.png" alt="Type C"></div>
+              <div class="concept__label">Type C</div>
+              <p class="concept__body">Equal-weight squares flattened hierarchy.</p>
+            </div>
+            <div class="concept">
+              <div class="concept__media"><img src="assets/images/kindoc-b2c/ideation-type-d.png" alt="Type D — selected"></div>
+              <div class="concept__label is-selected">Type D · Selected</div>
+              <p class="concept__body">Full-width banner + right-aligned CTA. Zigzag scan.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- SOLUTION -->
+        <section class="case-section" id="solution">
+          <div class="case-sect-eyebrow">Solution</div>
+          <h2 class="case-sect-title">Three shifts that brought users back to the booking flow.</h2>
+          <div class="case-prose" style="margin-bottom: 40px;">
+            <p>Eight detailed changes anchored the renewal. These three carried the conversion gain.</p>
+          </div>
+
+          <div class="solution-block">
+            <div class="solution-block__label">Shift 01</div>
+            <h3 class="solution-block__title">A primary CTA that <em>earned its prominence.</em></h3>
+            <p class="solution-block__body">
+              Checkup button moved to the right edge of the thumb-reach zone, paired with a full-width, low-saturation banner. The ad area shrank — same text-to-image ratio, less screen real estate. Together they form a visual zigzag from top-left to bottom-right.
+            </p>
+            <div class="ui-frame">
+              <img src="assets/images/kindoc-b2c/final-design-main.png" alt="Final main screen design">
+            </div>
+          </div>
+
+          <div class="solution-block">
+            <div class="solution-block__label">Shift 02</div>
+            <h3 class="solution-block__title">A new entry for Kindoc AI, <em>without crowding the flow.</em></h3>
+            <p class="solution-block__body">
+              The AI assistant got the secondary band — noticeable, scrollable into view immediately, but never competing with the booking CTA.
+            </p>
+          </div>
+
+          <div class="solution-block">
+            <div class="solution-block__label">Shift 03</div>
+            <h3 class="solution-block__title">After-care features <em>replacing dead weight.</em></h3>
+            <p class="solution-block__body">
+              Demoted the empty search bar. Replaced the drifted chat entry with a direct call button. Surfaced after-care features that returning users actually used — finding hospitals, checking expenses, self-assessments.
+            </p>
+          </div>
+        </section>
+
+        <!-- HAND-OFF -->
+        <section class="case-section" id="handoff">
+          <div class="case-sect-eyebrow">Hand-Off</div>
+          <h2 class="case-sect-title">Documentation that scaled the design beyond me.</h2>
+          <div class="case-prose">
+            <p>Spec docs for front-end (component states, edge cases, motion notes) and a brand-designer guide (banner ratios, safe zones, tone). Renewal shipped without QA loops on UI fidelity.</p>
+          </div>
+
+          <div class="problem-grid" style="margin-top: 28px;">
+            <div class="problem-card">
+              <div class="problem-card__media">
+                <img src="assets/images/kindoc-b2c/handoff-frontend.png" alt="Front-end spec">
+              </div>
+              <div class="problem-card__caption">For front-end developers</div>
+            </div>
+            <div class="problem-card">
+              <div class="problem-card__media">
+                <img src="assets/images/kindoc-b2c/handoff-marketing.png" alt="Marketing spec">
+              </div>
+              <div class="problem-card__caption">For marketing designers</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- OUTCOMES -->
+        <section class="case-section" id="outcomes">
+          <div class="case-sect-eyebrow">Outcomes</div>
+          <h2 class="case-sect-title">+39% in one month, no campaign attached.</h2>
+          <div class="case-prose">
+            <p>Launched May 3, 2024. No push notifications, no in-app promotions, no marketing spend.</p>
+          </div>
+
+          <div class="big-stats" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="big-stat">
+              <div class="big-stat__num">+39<small>%</small></div>
+              <div class="big-stat__label">page conversion rate, May vs. April 2024</div>
+            </div>
+            <div class="big-stat">
+              <div class="big-stat__num">+14<small>%</small></div>
+              <div class="big-stat__label">booking (payment completed), month over month</div>
+            </div>
+          </div>
+
+          <figure class="case-figure">
+            <img src="assets/images/kindoc-b2c/outcome-chart.png" alt="Conversion chart Jan–May 2024">
+            <figcaption>Page conversion, Jan — May 2024. May reflects the post-launch period.</figcaption>
+          </figure>
+        </section>
+
+        <!-- TAKEAWAY -->
+        <section class="case-section" id="takeaway">
+          <div class="case-sect-eyebrow">Takeaway</div>
+          <h2 class="case-sect-title">Users didn't need new features. They needed the existing ones to <em>lead somewhere.</em></h2>
+          <div class="case-prose">
+            <p>The instinct in stuck-conversion situations is to add. The harder thing is to subtract — to ask which existing element is supposed to be doing the work, and why it isn't.</p>
+          </div>
+        </section>
+
+        <nav class="case-footnav">
+          <a href="work.html">← All projects</a>
+          <a href="work.html" class="case-footnav__next">Next project →</a>
+        </nav>
+
+      </main>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const links = document.querySelectorAll('.case-nav__link');
+      const sections = Array.from(links).map(a => document.querySelector(a.getAttribute('href')));
+      function onScroll() {
+        const y = window.scrollY + 140;
+        let active = 0;
+        sections.forEach((s, i) => { if (s && s.offsetTop <= y) active = i; });
+        links.forEach((a, i) => a.classList.toggle('is-current', i === active));
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
+</body>
+</html>
