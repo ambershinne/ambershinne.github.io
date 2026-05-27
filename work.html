@@ -10,53 +10,33 @@
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style>
 /* ============================================================
-   WORK PAGE — Editorial feed (principles sticky / cases scroll)
+   WORK PAGE — Feature scroller
    ============================================================ */
-.work-wrap {
-  padding: 0 var(--gutter);
-  max-width: 1600px;
-  margin: 0 auto;
-}
+.work-wrap { padding: 0 var(--gutter); max-width: 1280px; margin: 0 auto; }
 
-/* Top eyebrow + serif subtitle */
-.work-intro {
-  padding: 100px 0 36px;
+.work-head {
+  padding: 160px 0 64px;
   border-bottom: 1px solid var(--line-2);
 }
-.work-intro__eyebrow {
-  margin-bottom: 28px;
-}
-.work-intro__subtitle {
+.work-head__eyebrow { margin-bottom: 28px; }
+.work-head__title {
   font-family: var(--font-display);
   font-weight: 400;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -0.022em;
+  margin: 0 0 64px;
+  max-width: 18ch;
+}
+.work-head__title em {
   font-style: italic;
   font-variation-settings: "opsz" 144, "SOFT" 100;
-  font-size: clamp(28px, 3.4vw, 44px);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-  margin: 0;
-  max-width: 24ch;
 }
-
-/* Main 30/70 layout */
-.work-feed {
+.work-pr-grid {
   display: grid;
-  grid-template-columns: 30% 1fr;
-  gap: 80px;
-  padding-top: 48px;
-}
-
-/* LEFT — sticky principles column */
-.work-principles {
-  position: sticky;
-  top: 100px;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
-
 .work-pr {
   display: flex;
   flex-direction: column;
@@ -74,7 +54,7 @@
 .work-pr__title {
   font-family: 'DM Sans', var(--font-sans);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: -0.01em;
   color: var(--fg);
   margin: 0;
@@ -82,31 +62,22 @@
 }
 .work-pr__body {
   font-family: var(--font-sans);
-  font-size: 13px;
+  font-size: 12.5px;
   line-height: 1.6;
   color: var(--muted);
   margin: 0;
-  max-width: 34ch;
 }
 
-/* RIGHT — case strips column */
-.work-strips {
-  display: flex;
-  flex-direction: column;
-}
-
+/* Strips */
 .work-strip {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  padding: 48px 0;
+  gap: 64px;
+  padding: 72px 0;
   border-bottom: 1px solid var(--line-3);
   align-items: stretch;
 }
-.work-strip:first-child {
-  padding-top: 0;
-}
-
+.work-strip:nth-child(even) .work-strip__media { order: 2; }
 .work-strip__media {
   aspect-ratio: 16 / 10;
   border-radius: 8px;
@@ -136,26 +107,26 @@
 .work-strip__body {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
   min-height: 100%;
 }
 .work-strip__head {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 16px;
+  gap: 24px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--line-3);
 }
 .work-strip__num {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12px;
   color: var(--muted);
   letter-spacing: 0.04em;
 }
 .work-strip__kind {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--muted-2);
@@ -163,9 +134,9 @@
 .work-strip__title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(20px, 2vw, 26px);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
   color: var(--fg);
   margin: 0;
 }
@@ -175,21 +146,22 @@
 }
 .work-strip__desc {
   font-family: 'DM Sans', var(--font-sans);
-  font-size: 13.5px;
+  font-size: 14px;
   line-height: 1.6;
   color: var(--fg-3);
   margin: 0;
-  max-width: 52ch;
+  max-width: 42ch;
 }
 
+/* Hash tags pinned to the bottom of the body column */
 .work-strip__hash {
   margin-top: auto;
-  padding-top: 20px;
+  padding-top: 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 14px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 11.5px;
   color: var(--muted-2);
   letter-spacing: -0.005em;
 }
@@ -197,8 +169,16 @@
 
 /* Outro */
 .work-outro {
-  padding: 80px 0 120px;
+  padding: 96px 0 120px;
   text-align: center;
+}
+.work-outro__text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--muted);
+  margin: 0 0 8px;
 }
 .work-outro__count {
   font-family: var(--font-mono);
@@ -208,61 +188,11 @@
   color: var(--muted-3);
 }
 
-/* ============================================================
-   MEDIUM (769–1279px) — Sidebar stays 30/70, strips stack
-   ============================================================ */
-@media (max-width: 1279px) and (min-width: 769px) {
-  .work-feed { gap: 56px; }
-  .work-strip {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 40px 0;
-  }
-  .work-strip__hash { padding-top: 16px; }
-}
-
-/* ============================================================
-   MOBILE (≤768px) — Principles horizontal scroll, full stack
-   ============================================================ */
-@media (max-width: 768px) {
-  .work-intro { padding: 100px 0 16px; }
-  .work-feed {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding-top: 32px;
-  }
-
-  /* Principles: horizontal scroll, 80% width cards */
-  .work-principles {
-    position: static;
-    flex-direction: row;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    /* break out of container padding so cards peek edge-to-edge */
-    margin: 0 calc(-1 * var(--gutter));
-    padding: 0 var(--gutter);
-    /* FIX: first card needs left padding when snapped */
-    scroll-padding-inline: var(--gutter);
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .work-principles::-webkit-scrollbar { display: none; }
-
-  .work-pr {
-    flex: 0 0 80%;
-    scroll-snap-align: start;
-    min-height: 140px;
-  }
-  .work-pr__body { max-width: none; }
-
-  /* Case strips: stack image above text */
-  .work-strip {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 32px 0;
-  }
+@media (max-width: 1024px) {
+  .work-head { padding: 130px 0 48px; }
+  .work-pr-grid { grid-template-columns: 1fr; gap: 24px; }
+  .work-strip { grid-template-columns: 1fr; gap: 24px; padding: 48px 0; }
+  .work-strip:nth-child(even) .work-strip__media { order: 0; }
   .work-strip__hash { padding-top: 16px; }
 }
 </style>
@@ -282,21 +212,16 @@
   </nav>
 </header>
 
-<!-- ============ MAIN ============ -->
+<!-- ============ HEAD ============ -->
 <section class="work-wrap">
-  <!-- Eyebrow + serif italic subtitle -->
-  <div class="work-intro reveal">
-    <div class="eyebrow work-intro__eyebrow">
+  <header class="work-head">
+    <div class="work-head__eyebrow eyebrow reveal">
       <span>W/00</span><span class="dash"></span><span>Selected work</span>
     </div>
-    <p class="work-intro__subtitle">How I work, and what it built.</p>
-  </div>
-
-  <!-- 30/70 feed: sticky principles + scrolling cases -->
-  <div class="work-feed">
-
-    <!-- LEFT: Sticky principles -->
-    <aside class="work-principles">
+    <h1 class="work-head__title reveal" data-delay="1">
+      Work that <em>shaped</em><br />products &amp; teams.
+    </h1>
+    <div class="work-pr-grid">
       <div class="work-pr reveal">
         <span class="work-pr__num">Principle 01</span>
         <h4 class="work-pr__title">Understand intent first.</h4>
@@ -312,98 +237,93 @@
         <h4 class="work-pr__title">Balance business with users.</h4>
         <p class="work-pr__body">Thoughtful trade-offs over short-term convenience.</p>
       </div>
-    </aside>
-
-    <!-- RIGHT: Case strips -->
-    <div class="work-strips">
-
-      <a class="work-strip work-strip--link reveal" href="work-backoffice.html">
-        <div class="work-strip__media"><img src="assets/images/work-backoffice.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">01 / 05</span>
-            <span class="work-strip__kind">In-house · 2022-25</span>
-          </div>
-          <h2 class="work-strip__title"><em>From scattered to</em><br />one master system.</h2>
-          <p class="work-strip__desc">Designed and evolved a checkup operations platform into a single source of truth — scaling B2B revenue to 50% with no client loss.</p>
-          <div class="work-strip__hash">
-            <span>#B2B_SaaS</span>
-            <span>#Admin_Platform</span>
-            <span>#0-to-1</span>
-          </div>
-        </div>
-      </a>
-
-      <a class="work-strip work-strip--link reveal" href="work-kindoc-b2c.html">
-        <div class="work-strip__media"><img src="assets/images/work-kindocapp.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">02 / 05</span>
-            <span class="work-strip__kind">In-house · 2024</span>
-          </div>
-          <h2 class="work-strip__title">Booking marketplace, built for <em>conversion</em>.</h2>
-          <p class="work-strip__desc">A core in-house B2C platform — home-screen architecture, content hierarchy, and conversion-driven UI.</p>
-          <div class="work-strip__hash">
-            <span>#MobileApp</span>
-            <span>#ConversionDesign</span>
-            <span>#VisualHierarchy</span>
-          </div>
-        </div>
-      </a>
-
-      <article class="work-strip reveal">
-        <div class="work-strip__media"><img src="assets/images/work-huers.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">03 / 05</span>
-            <span class="work-strip__kind">Personal · 2-hr sprint</span>
-          </div>
-          <h2 class="work-strip__title">How fast can <em>one designer</em><br />ship a branded app?</h2>
-          <p class="work-strip__desc">A personal experiment — feeding Claude a brief and seeing how far it goes. A full brand system in 120 minutes.</p>
-          <div class="work-strip__hash">
-            <span>#AI-assisted</span>
-            <span>#2hr-sprint</span>
-            <span>#Brand_System</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-strip reveal">
-        <div class="work-strip__media"><img src="assets/images/work-kindocai.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">04 / 05</span>
-            <span class="work-strip__kind">In-house · 2023–24</span>
-          </div>
-          <h2 class="work-strip__title">A <em>conversational</em><br />AI design system.</h2>
-          <p class="work-strip__desc">Generative AI health-checkup results assistant — language UX patterns and a token system for AI-generated content.</p>
-          <div class="work-strip__hash">
-            <span>#AI_UX</span>
-            <span>#Conversational_UI</span>
-            <span>#Design_System</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="work-strip reveal">
-        <div class="work-strip__media"><img src="assets/images/work-highcapa.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">05 / 05</span>
-            <span class="work-strip__kind">Partnership · 2021–22</span>
-          </div>
-          <h2 class="work-strip__title">Enterprise UX,<br /><em>scaled</em>.</h2>
-          <p class="work-strip__desc">External project with a major hospital — enterprise framework, complex workflows, and stakeholder alignment.</p>
-          <div class="work-strip__hash">
-            <span>#Enterprise_Framework</span>
-            <span>#Complex_Workflows</span>
-            <span>#Partnership</span>
-          </div>
-        </div>
-      </article>
-
     </div>
-  </div>
+  </header>
+
+  <!-- ============ STRIPS ============ -->
+  <a class="work-strip work-strip--link reveal" href="work-backoffice.html">
+    <div class="work-strip__media"><img src="assets/images/work-backoffice.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">01 / 05</span>
+        <span class="work-strip__kind">In-house · 2022-25</span>
+      </div>
+      <h2 class="work-strip__title"><em>From scattered to</em><br />one master system.</h2>
+<p class="work-strip__desc">Designed and evolved a checkup operations platform into a single source of truth — scaling B2B revenue to 50% with no client loss.</p>
+      <div class="work-strip__hash">
+        <span>#B2B_SaaS</span>
+        <span>#Admin_Platform</span>
+        <span>#0-to-1</span>
+      </div>
+    </div>
+  </a>
+
+  <a class="work-strip work-strip--link reveal" href="work-kindoc-b2c.html">
+    <div class="work-strip__media"><img src="assets/images/work-kindocapp.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">02 / 05</span>
+        <span class="work-strip__kind">In-house · 2024</span>
+      </div>
+      <h2 class="work-strip__title">Booking marketplace, built for <em>conversion</em>.</h2>
+      <p class="work-strip__desc">A core in-house B2C platform — home-screen architecture, content hierarchy, and conversion-driven UI.</p>
+      <div class="work-strip__hash">
+        <span>#MobileApp</span>
+        <span>#ConversionDesign</span>
+        <span>#VisualHierarchy</span>
+      </div>
+    </div>
+  </a>
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-huers.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">03 / 05</span>
+        <span class="work-strip__kind">Personal · 2-hr sprint</span>
+      </div>
+      <h2 class="work-strip__title">How fast can <em>one designer</em><br />ship a branded app?</h2>
+      <p class="work-strip__desc">A personal experiment — feeding Claude a brief and seeing how far it goes. A full brand system in 120 minutes.</p>
+      <div class="work-strip__hash">
+        <span>#AI-assisted</span>
+        <span>#2hr-sprint</span>
+        <span>#Brand_System</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-kindocai.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">04 / 05</span>
+        <span class="work-strip__kind">In-house · 2023–24</span>
+      </div>
+      <h2 class="work-strip__title">A <em>conversational</em><br />AI design system.</h2>
+      <p class="work-strip__desc">Generative AI health-checkup results assistant — language UX patterns and a token system for AI-generated content.</p>
+      <div class="work-strip__hash">
+        <span>#AI_UX</span>
+        <span>#Conversational_UI</span>
+        <span>#Design_System</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="work-strip reveal">
+    <div class="work-strip__media"><img src="assets/images/work-highcapa.png" alt="" /></div>
+    <div class="work-strip__body">
+      <div class="work-strip__head">
+        <span class="work-strip__num">05 / 05</span>
+        <span class="work-strip__kind">Partnership · 2021–22</span>
+      </div>
+      <h2 class="work-strip__title">Enterprise UX,<br /><em>scaled</em>.</h2>
+      <p class="work-strip__desc">External project with a major hospital — enterprise framework, complex workflows, and stakeholder alignment.</p>
+      <div class="work-strip__hash">
+        <span>#Enterprise_Framework</span>
+        <span>#Complex_Workflows</span>
+        <span>#Partnership</span>
+      </div>
+    </div>
+  </article>
 
   <div class="work-outro">
     <div class="work-outro__count">05 / 05  ·  More on request</div>
