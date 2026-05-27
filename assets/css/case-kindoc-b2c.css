@@ -1,168 +1,23 @@
 /* ============================================================
    CASE STUDY — Kindoc B2C Main Renewal
-   Scoped styles for work-kindoc-b2c.html
+   Page-scoped additions + overrides for work-kindoc-b2c.html
+   (Relies on style.css + case.css for everything else)
    ============================================================ */
 
 /* ============================================================
-   TOKENS
+   TOKEN OVERRIDES — Kindoc pastel mood
    ============================================================ */
-:root {
-  --bg:           #FBF9F8;
-  --bg-soft:      #F4EAE5;       /* warm pink-cream — Kindoc pastel mood */
-  --fg:           #1A1814;
-  --fg-2:         #2E2C28;
-  --fg-3:         #555149;
-  --muted:        #84807A;
-  --muted-2:      #9B978F;
-  --muted-3:      #B6B2AA;
-  --line-2:       #DEDBD0;
-  --line-3:       #ECE9DE;
-  --accent:       #9D8590;       /* dusty rose-gray — eyebrows/labels (Kindoc mood) */
-  --key:          #FF30A0;
-  --ease:         cubic-bezier(0.4, 0, 0.2, 1);
-  --gutter:       24px;
-  --font-sans:    -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
-    --font-display: "Crimson Pro", "Times New Roman", serif;
-  --font-mono:    "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+body[data-page="work-kindoc-b2c"] {
+  --bg-soft: #F4EAE5;       /* warm pink-cream — image boxes */
+  --accent:  #9D8590;       /* dusty rose-gray — eyebrows/labels */
+  --key:     #FF30A0;       /* Kindoc brand pink — used sparingly */
+  --font-display: "Crimson Pro", "Times New Roman", serif;
 }
 
 /* ============================================================
-   RESET
+   APP LOGO BOX (hero)
    ============================================================ */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--fg);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-img { max-width: 100%; height: auto; display: block; }
-a { color: inherit; text-decoration: none; }
-
-/* ============================================================
-   SITE HEADER
-   ============================================================ */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(251, 249, 248, 0.88);
-  backdrop-filter: saturate(180%) blur(14px);
-  -webkit-backdrop-filter: saturate(180%) blur(14px);
-  border-bottom: 1px solid var(--line-3);
-}
-.site-header__inner {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 14px var(--gutter);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.site-header__brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'DM Sans', var(--font-sans);
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: -0.005em;
-}
-.site-header__brand img {
-  width: 26px; height: 26px;
-  border-radius: 50%;
-  background: var(--bg-soft);
-  object-fit: cover;
-}
-.site-header__nav a {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 13px;
-  color: var(--muted);
-  transition: color 200ms var(--ease);
-}
-.site-header__nav a:hover { color: var(--fg); }
-
-/* ============================================================
-   LAYOUT
-   ============================================================ */
-.case { background: var(--bg); }
-.case-shell {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 40px;
-  padding: 120px var(--gutter) 160px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-@media (min-width: 1025px) {
-  .case-shell { transform: translateX(-64px); }
-}
-
-/* Sidebar */
-.case-nav {
-  position: sticky;
-  top: 100px;
-  align-self: start;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.case-nav__label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted-3);
-  margin-bottom: 12px;
-}
-.case-nav__link {
-  display: flex;
-  align-items: baseline;
-  padding: 6px 0;
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 12.5px;
-  color: var(--muted-2);
-  letter-spacing: -0.005em;
-  transition: color 200ms var(--ease), padding 200ms var(--ease);
-  position: relative;
-}
-.case-nav__link::before {
-  content: '';
-  position: absolute;
-  left: -12px; top: 50%;
-  width: 2px; height: 0;
-  background: var(--fg);
-  transform: translateY(-50%);
-  transition: height 280ms var(--ease);
-}
-.case-nav__link:hover { color: var(--fg-2); }
-.case-nav__link.is-current { color: var(--fg); padding-left: 8px; font-weight: 500; }
-.case-nav__link.is-current::before { height: 14px; left: 0; }
-
-.case-main {
-  min-width: 0;
-  max-width: 800px;
-  margin-inline: auto;
-}
-
-/* ============================================================
-   HERO
-   ============================================================ */
-.case-tag {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-/* App logo box (Andrea-style) */
-.case-logo {
+body[data-page="work-kindoc-b2c"] .case-logo {
   display: grid;
   place-items: center;
   width: 68px;
@@ -170,141 +25,93 @@ a { color: inherit; text-decoration: none; }
   border-radius: 15px;
   border: 1px solid var(--line-2);
   background: #fff;
-  margin-bottom: 28px;
+  margin: 0 0 28px;
   overflow: hidden;
 }
-.case-logo img {
+body[data-page="work-kindoc-b2c"] .case-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.case-hero__title {
+/* ============================================================
+   HERO TITLE — Crimson Pro override (was DM Sans in case.css)
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .case-hero__title {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(32px, 4.2vw, 48px);
   line-height: 1.08;
   letter-spacing: -0.03em;
-  margin: 0 0 28px;
   max-width: 30ch;
   text-wrap: balance;
-  color: var(--fg);
 }
-.case-hero__title em {
+body[data-page="work-kindoc-b2c"] .case-hero__title em {
+  font-family: var(--font-display);
+  font-weight: 500;
   font-style: italic;
-  font-weight: 500;
+  font-variation-settings: normal;     /* drop Fraunces axes */
 }
-.case-hero__lede {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--fg-3);
-  letter-spacing: -0.005em;
-  margin: 0 0 48px;
-  max-width: 60ch;
-}
-
-/* Meta — Role + Timeline */
-.case-meta {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 56px;
-  padding: 22px 0;
-  border-top: 1px solid var(--line-2);
-  border-bottom: 1px solid var(--line-2);
-  margin-bottom: 56px;
-}
-.case-meta__item { display: flex; flex-direction: column; gap: 6px; }
-.case-meta__label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted-2);
-  font-weight: 500;
-}
-.case-meta__value {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 13px;
-  color: var(--fg);
-  font-weight: 500;
-  letter-spacing: -0.005em;
-}
-
-.case-cover {
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  background: var(--bg-soft);
-  margin-bottom: 80px;
-}
-.case-cover img { width: 100%; height: auto; display: block; }
 
 /* ============================================================
-   SECTIONS
+   SECTION TITLE — Crimson Pro override
    ============================================================ */
-.case-section {
-  padding: 64px 0;
-  border-top: 1px solid var(--line-3);
-  scroll-margin-top: 80px;
-}
-.case-section:first-of-type { border-top: 0; padding-top: 0; }
-
-/* Eyebrow — mono uppercase phrase (backoffice style + Andrea label) */
-.case-sect-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 24px;
-}
-
-/* Title — Crimson Pro serif, declarative */
-.case-sect-title {
+body[data-page="work-kindoc-b2c"] .case-sect-title {
   font-family: var(--font-display);
   font-weight: 500;
   font-size: clamp(26px, 3vw, 34px);
   line-height: 1.12;
   letter-spacing: -0.025em;
-  margin: 0 0 28px;
-  color: var(--fg);
   max-width: 34ch;
   text-wrap: balance;
 }
-.case-sect-title em {
-  font-style: italic;
+body[data-page="work-kindoc-b2c"] .case-sect-title em {
+  font-family: var(--font-display);
   font-weight: 500;
+  font-style: italic;
+  font-variation-settings: normal;
 }
-
-/* Body prose — short paragraphs */
-.case-prose {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--fg-3);
-  letter-spacing: -0.005em;
-  max-width: 60ch;
-}
-.case-prose p { margin-bottom: 16px; }
-.case-prose p:last-child { margin-bottom: 0; }
-.case-prose strong { color: var(--fg); font-weight: 600; }
 
 /* ============================================================
-   BIG STATS — boxed, smaller (Andrea style)
+   SOLUTION TITLE — Crimson Pro override
    ============================================================ */
-.big-stats {
+body[data-page="work-kindoc-b2c"] .solution__title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
+  max-width: 44ch;
+  text-wrap: balance;
+}
+body[data-page="work-kindoc-b2c"] .solution__title em {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-style: italic;
+  font-variation-settings: normal;
+}
+
+/* ============================================================
+   BIG STATS — Andrea-style boxed cards
+   (used in "Why It Mattered" and "Outcomes")
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .big-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
   margin: 32px 0 8px;
 }
-@media (max-width: 760px) {
-  .big-stats { grid-template-columns: 1fr; }
+body[data-page="work-kindoc-b2c"] .big-stats--2col {
+  grid-template-columns: repeat(2, 1fr);
 }
-.big-stat {
+@media (max-width: 760px) {
+  body[data-page="work-kindoc-b2c"] .big-stats,
+  body[data-page="work-kindoc-b2c"] .big-stats--2col {
+    grid-template-columns: 1fr;
+  }
+}
+body[data-page="work-kindoc-b2c"] .big-stat {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -313,7 +120,7 @@ a { color: inherit; text-decoration: none; }
   border: 1px solid var(--line-3);
   border-radius: 10px;
 }
-.big-stat__num {
+body[data-page="work-kindoc-b2c"] .big-stat__num {
   font-family: "Fraunces", "Times New Roman", serif;
   font-size: 34px;
   font-weight: 400;
@@ -321,7 +128,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.02em;
   color: var(--fg);
 }
-.big-stat__num small {
+body[data-page="work-kindoc-b2c"] .big-stat__num small {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 400;
@@ -330,7 +137,7 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
-.big-stat__label {
+body[data-page="work-kindoc-b2c"] .big-stat__label {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13px;
   line-height: 1.5;
@@ -340,124 +147,83 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   PROBLEM GRID — 2-up images
+   RATIONALE — design "why" callout
    ============================================================ */
-.problem-grid {
+body[data-page="work-kindoc-b2c"] .rationale {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
-  margin: 32px 0 0;
-}
-@media (max-width: 760px) {
-  .problem-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-.problem-card {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.problem-card__media {
-  width: 100%;
-  aspect-ratio: 4/3;
-  border-radius: 8px;
-  overflow: hidden;
+  grid-template-columns: 110px 1fr;
+  gap: 16px 24px;
+  padding: 22px 24px;
   background: var(--bg-soft);
-  border: 1px solid var(--line-3);
+  border-radius: 8px;
+  margin: 24px 0 0;
 }
-.problem-card__media img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-}
-.problem-card__caption {
+body[data-page="work-kindoc-b2c"] .rationale__label {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--muted-2);
-  letter-spacing: -0.005em;
-}
-
-/* ============================================================
-   DIRECTIONS — vertical row list (handles any odd count cleanly)
-   ============================================================ */
-.directions {
-  display: flex;
-  flex-direction: column;
-  margin: 28px 0 48px;
-}
-.direction {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  column-gap: 24px;
-  row-gap: 4px;
-  padding: 20px 0;
-  border-top: 1px solid var(--line-2);
-}
-.direction:last-child {
-  border-bottom: 1px solid var(--line-2);
-}
-.direction__num {
-  grid-row: 1 / 3;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
   padding-top: 3px;
 }
-.direction__label {
-  grid-column: 2;
-  grid-row: 1;
+body[data-page="work-kindoc-b2c"] .rationale__body {
   font-family: 'DM Sans', var(--font-sans);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: var(--fg);
-  margin: 0;
-}
-.direction__body {
-  grid-column: 2;
-  grid-row: 2;
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 13.5px;
-  line-height: 1.6;
-  color: var(--fg-3);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg-2);
   letter-spacing: -0.005em;
   margin: 0;
-  max-width: 60ch;
+}
+@media (max-width: 640px) {
+  body[data-page="work-kindoc-b2c"] .rationale {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px;
+  }
 }
 
 /* ============================================================
-   CONCEPTS — Type A/B/C/D
+   CONCEPTS — 2x2 mockup grid (Type A/B/C/D)
    ============================================================ */
-.concepts {
+body[data-page="work-kindoc-b2c"] .concepts {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin: 28px 0 0;
 }
 @media (max-width: 640px) {
-  .concepts { grid-template-columns: 1fr; }
+  body[data-page="work-kindoc-b2c"] .concepts { grid-template-columns: 1fr; }
 }
-.concept { display: flex; flex-direction: column; gap: 10px; }
-.concept__media {
+body[data-page="work-kindoc-b2c"] .concept {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+body[data-page="work-kindoc-b2c"] .concept__media {
   aspect-ratio: 3/4;
   background: var(--bg-soft);
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid var(--line-3);
 }
-.concept__media img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
+body[data-page="work-kindoc-b2c"] .concept__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
-.concept__label {
+body[data-page="work-kindoc-b2c"] .concept__label {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--muted);
 }
-.concept__label.is-selected { color: var(--key); }
-.concept__body {
+body[data-page="work-kindoc-b2c"] .concept__label.is-selected {
+  color: var(--key);
+}
+body[data-page="work-kindoc-b2c"] .concept__body {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13.5px;
   line-height: 1.55;
@@ -467,98 +233,53 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   SOLUTION BLOCKS
+   DIRECTION GRID OVERRIDE — vertical row list
+   (case.css ships a 2-col grid; override for 5-item odd count)
    ============================================================ */
-.solution-block { margin-bottom: 56px; }
-.solution-block:last-child { margin-bottom: 0; }
-.solution-block__label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 8px;
+body[data-page="work-kindoc-b2c"] .direction-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 28px 0 48px;
 }
-.solution-block__title {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 1.22;
-  letter-spacing: -0.02em;
-  color: var(--fg);
-  margin: 0 0 14px;
-  max-width: 44ch;
-  text-wrap: balance;
+body[data-page="work-kindoc-b2c"] .direction {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 24px;
+  row-gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-2);
 }
-.solution-block__title em { font-style: italic; }
-.solution-block__body {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--fg-3);
-  letter-spacing: -0.005em;
-  margin: 0 0 24px;
+body[data-page="work-kindoc-b2c"] .direction:last-child {
+  border-bottom: 1px solid var(--line-2);
+}
+body[data-page="work-kindoc-b2c"] .direction__num {
+  grid-row: 1 / 3;
+  padding-top: 3px;
+}
+body[data-page="work-kindoc-b2c"] .direction__label {
+  grid-column: 2;
+  grid-row: 1;
+}
+body[data-page="work-kindoc-b2c"] .direction__body {
+  grid-column: 2;
+  grid-row: 2;
   max-width: 60ch;
 }
 
 /* ============================================================
-   RATIONALE — design "why" callout
+   FIGURE (image + italic caption)
    ============================================================ */
-.rationale {
-  display: grid;
-  grid-template-columns: 110px 1fr;
-  gap: 16px 24px;
-  padding: 22px 24px;
-  background: var(--bg-soft);
-  border-radius: 8px;
-  margin: 24px 0;
+body[data-page="work-kindoc-b2c"] .case-figure {
+  margin: 32px 0 8px;
 }
-.rationale__label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-top: 3px;
-}
-.rationale__body {
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--fg-2);
-  letter-spacing: -0.005em;
-  margin: 0;
-}
-@media (max-width: 640px) {
-  .rationale { grid-template-columns: 1fr; gap: 8px; padding: 20px; }
-}
-
-/* ============================================================
-   UI FRAME (image with shadow)
-   ============================================================ */
-.ui-frame {
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.05), 0 2px 6px rgba(0,0,0,0.03);
-  border: 1px solid var(--line-3);
-  background: #fff;
-  margin: 0;
-}
-.ui-frame img { width: 100%; height: auto; display: block; }
-
-/* ============================================================
-   FIGURE
-   ============================================================ */
-.case-figure { margin: 32px 0 8px; }
-.case-figure img {
+body[data-page="work-kindoc-b2c"] .case-figure img {
   width: 100%;
   border-radius: 8px;
   background: var(--bg-soft);
   display: block;
 }
-.case-figure figcaption {
+body[data-page="work-kindoc-b2c"] .case-figure figcaption {
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--muted-2);
@@ -567,44 +288,8 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   FOOTER NAV
+   CASE-HERO__EYEBROW spacing tweak — logo follows immediately
    ============================================================ */
-.case-footnav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 80px;
-  padding-top: 28px;
-  border-top: 1px solid var(--line-2);
-  font-family: 'DM Sans', var(--font-sans);
-  font-size: 13px;
-}
-.case-footnav a { color: var(--muted); transition: color 200ms var(--ease); }
-.case-footnav a:hover { color: var(--fg); }
-.case-footnav__next { color: var(--fg); font-weight: 500; }
-
-/* ============================================================
-   Responsive
-   ============================================================ */
-@media (max-width: 1024px) {
-  .case-shell { grid-template-columns: 1fr; gap: 32px; padding-top: 96px; transform: none; }
-  .case-main { max-width: 100%; }
-  .case-nav {
-    position: relative; top: 0;
-    flex-direction: row;
-    overflow-x: auto;
-    border-bottom: 1px solid var(--line-3);
-    padding-bottom: 12px;
-    gap: 14px;
-    scrollbar-width: none;
-  }
-  .case-nav::-webkit-scrollbar { display: none; }
-  .case-nav__label { display: none; }
-  .case-nav__link { padding: 6px 0; white-space: nowrap; }
-  .case-nav__link::before, .case-nav__link.is-current::before { display: none; }
-  .case-nav__link.is-current { padding-left: 0; }
-}
-@media (max-width: 640px) {
-  .case-shell { padding-left: var(--gutter); padding-right: var(--gutter); }
-  .case-meta { grid-template-columns: 1fr; gap: 20px; }
+body[data-page="work-kindoc-b2c"] .case-hero__eyebrow {
+  margin-bottom: 16px;
 }
