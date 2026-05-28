@@ -582,3 +582,11 @@ body[data-page="work-kindoc-b2c"] .outcome-row .big-stat {
     grid-template-columns: 1fr;
   }
 }
+/* Solution 파이널 디자인 — 프레임 완전 제거 + 투명 */
+body[data-page="work-kindoc-b2c"] .ui-frame--auto {
+  box-shadow: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  margin: 24px 0 14px;
+}
