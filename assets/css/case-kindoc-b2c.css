@@ -590,3 +590,6 @@ body[data-page="work-kindoc-b2c"] .ui-frame--auto {
   background: transparent;
   margin: 24px 0 14px;
 }
+body[data-page="work-kindoc-b2c"] .ui-frame--auto .ui-frame__body {
+  background: transparent;   /* ← 안쪽 흰 배경 제거 */
+}
