@@ -598,7 +598,7 @@ img, svg { display: block; max-width: 100%; }
 /* graph floats top-right of the hero, inside the 1280 content box */
 .hero-graph-layer {
   position: absolute;
-  top: -24px;          /* 위에서 고정 거리 — 눈으로 맞춰 조정 */
+  top: -64px;          /* 위에서 고정 거리 — 눈으로 맞춰 조정 */
   right: 0;             /* sits at the inner edge of .wrap padding */
   width: clamp(290px, 29vw, 440px);
   z-index: 1;
