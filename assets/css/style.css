@@ -598,7 +598,8 @@ img, svg { display: block; max-width: 100%; }
 /* graph floats top-right of the hero, inside the 1280 content box */
 .hero-graph-layer {
   position: absolute;
-  bottom: 0;            /* nudge up/down to taste */
+  top: 50%;
+  transform: translateY(-50%);
   right: 0;             /* sits at the inner edge of .wrap padding */
   width: clamp(290px, 29vw, 440px);
   z-index: 1;
