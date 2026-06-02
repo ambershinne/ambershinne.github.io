@@ -607,7 +607,7 @@ img, svg { display: block; max-width: 100%; }
 
 /* the radar component itself */
 .skills-radar{
-  --sr-accent:#a78bfa;        /* graph color — swap to #3b2e53 to match site accent */
+  --sr-accent:#FF9C75;        /* graph color — swap to #3b2e53 to match site accent */
   --sr-ink:#141414;
   --sr-hair:#ececec;
   --sr-hair-strong:#dadada;
