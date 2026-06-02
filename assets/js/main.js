@@ -170,3 +170,37 @@
     init();
   }
 })();
+// ===== Zoomable UI screenshots =====
+(function () {
+  // 모달 한 번만 생성해서 재사용
+  const modal = document.createElement('div');
+  modal.className = 'img-modal';
+  modal.innerHTML =
+    '<button class="img-modal__close" aria-label="Close">&times;</button>' +
+    '<img alt="" />';
+  document.body.appendChild(modal);
+
+  const modalImg = modal.querySelector('img');
+
+  function open(src, alt) {
+    modalImg.src = src;
+    modalImg.alt = alt || '';
+    modal.classList.add('is-open');
+    document.body.classList.add('img-modal-open');
+  }
+  function close() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('img-modal-open');
+    modalImg.src = '';
+  }
+
+  document.querySelectorAll('img.zoomable').forEach(img => {
+    img.addEventListener('click', () => open(img.src, img.alt));
+  });
+
+  // 배경/이미지 클릭으로 닫기, X 버튼, ESC
+  modal.addEventListener('click', close);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
