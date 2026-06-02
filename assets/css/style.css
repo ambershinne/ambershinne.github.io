@@ -659,3 +659,12 @@ img, svg { display: block; max-width: 100%; }
   }
   .skills-radar .sr-lbl{ font-size: 10.5px; }
 }
+.hero-graph-caption {
+  margin: 16px auto 0;
+  max-width: 280px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--muted);
+}
