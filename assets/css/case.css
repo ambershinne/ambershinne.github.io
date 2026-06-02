@@ -961,3 +961,47 @@
 .raw-shot--narrow {
   max-width: 85%;
 }
+/* Zoomable UI screenshots */
+.zoomable { cursor: zoom-in; }
+
+.img-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(20, 18, 18, 0.88);
+  cursor: zoom-out;
+  padding: 4vh 4vw;
+  /* 가운데 정렬 + 스크롤 */
+  overflow: auto;
+}
+.img-modal.is-open {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.img-modal img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  animation: imgModalIn 0.22s ease;
+}
+.img-modal__close {
+  position: fixed;
+  top: 20px; right: 28px;
+  font-size: 34px;
+  line-height: 1;
+  color: #fff;
+  background: none; border: none;
+  cursor: pointer;
+  opacity: 0.7;
+  z-index: 2001;
+}
+.img-modal__close:hover { opacity: 1; }
+
+@keyframes imgModalIn {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+}
+body.img-modal-open { overflow: hidden; }
