@@ -111,6 +111,14 @@
 <span class="lt">business goals & technology.</span>
     </h1>
     <p class="about-hero-v2__caption reveal" data-delay="2">Eunhye (Amber) Shin · Product Designer & Builder · --- Jul 2026</p>
+
+    <!-- ===== SKILLS RADAR (hero overlay) ===== -->
+    <div class="hero-graph-layer reveal" data-delay="2">
+      <div class="skills-radar" data-skills-radar>
+        <svg class="sr-svg" viewBox="0 0 560 540" aria-label="Skills radar chart"></svg>
+      </div>
+    </div>
+    <!-- ===== /SKILLS RADAR ===== -->
   </div>
 </section>
 
@@ -400,6 +408,118 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ SKILLS RADAR SCRIPT ============ -->
+<script>
+(function(){
+  /* ============== CONFIG ============== */
+  var SKILLS = [
+    { name:"Product\nThinking",    value:95 },  // top, then clockwise →
+    { name:"Visual\nCraft",        value:75 },
+    { name:"Code &\nPrototyping",  value:55 },
+    { name:"AI\nLeverage",         value:90 },
+    { name:"Business &\nBranding", value:82 }
+  ];
+  var FILL_GRADIENT = true;   // false = flat translucent wash
+  // intro ripple timing (ms)
+  var REST = 1500, STAGGER = 360, UP = 620, DOWN = 820, START_DELAY = 1500;
+  var RIPPLE_ORDER = [3,2,1,0,4];   // AI Leverage first, then counter-clockwise
+  /* ==================================== */
+
+  var VB=560, VH=540, CX=280, CY=252, R=152, RINGS=5;
+
+  function init(root){
+    if(root.__srDone) return; root.__srDone = true;
+    var svg = root.querySelector(".sr-svg");
+    var uid = "sr-" + Math.random().toString(36).slice(2,8);
+
+    function pt(i, radius){
+      var ang = (-90 + i*72) * Math.PI/180;
+      return [ CX + radius*Math.cos(ang), CY + radius*Math.sin(ang) ];
+    }
+    function poly(radius){
+      return SKILLS.map(function(_,i){ return pt(i,radius).map(function(n){return n.toFixed(1);}).join(","); }).join(" ");
+    }
+    function accent(){ return getComputedStyle(root).getPropertyValue("--sr-accent").trim() || "#a78bfa"; }
+
+    // ---- build static chart ----
+    var g = "";
+    g += '<defs><radialGradient id="'+uid+'" cx="50%" cy="50%" r="65%">'
+       + '<stop offset="0%" stop-color="'+accent()+'" stop-opacity="0.32"/>'
+       + '<stop offset="100%" stop-color="'+accent()+'" stop-opacity="0.04"/>'
+       + '</radialGradient></defs>';
+    for(var r=1;r<=RINGS;r++){
+      g += '<polygon class="sr-ring'+(r===RINGS?' is-outer':'')+'" points="'+poly(R*r/RINGS)+'"/>';
+    }
+    for(var i=0;i<SKILLS.length;i++){
+      var p = pt(i,R);
+      g += '<line class="sr-spoke" x1="'+CX+'" y1="'+CY+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'"/>';
+    }
+    var dpts = SKILLS.map(function(s,i){ return pt(i, R*s.value/100); });
+    var fillVal = FILL_GRADIENT ? 'url(#'+uid+')'
+                : 'color-mix(in srgb, '+accent()+' 13%, transparent)';
+    g += '<g class="sr-grp">';
+    g += '<polygon class="sr-poly" points="'+dpts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" ")+'" style="fill:'+fillVal+'"/>';
+    dpts.forEach(function(p){ g += '<circle class="sr-vtx" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4.4"/>'; });
+    g += '</g>';
+    g += '<circle class="sr-center" cx="'+CX+'" cy="'+CY+'" r="2.2"/>';
+    svg.innerHTML = g;
+
+    // ---- labels ----
+    SKILLS.forEach(function(s,i){
+      var p = pt(i, R + 30);
+      var el = document.createElement("div");
+      el.className = "sr-lbl " + (p[0] < CX-8 ? "is-l" : p[0] > CX+8 ? "is-r" : "");
+      el.style.left = (p[0]/VB)*100 + "%";
+      el.style.top  = (p[1]/VH)*100 + "%";
+      el.innerHTML = s.name.replace(/\n/g,"<br>");
+      root.appendChild(el);
+    });
+
+    // ---- entrance settle (safe if clock is paused: never hides content) ----
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      void root.offsetWidth; root.classList.add("sr-in");
+    });});
+
+    // ---- looping ripple ----
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce) return;
+    var real = SKILLS.map(function(s){ return s.value; });
+    var ease = function(p){ return p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2; };
+    var cycle = (RIPPLE_ORDER.length-1)*STAGGER + UP + DOWN;
+    var polyEl = svg.querySelector(".sr-poly");
+    var dots = svg.querySelectorAll(".sr-vtx");
+    var t0 = null;
+
+    function apply(vals){
+      var pts = vals.map(function(v,i){ return pt(i, R*v/100); });
+      polyEl.setAttribute("points", pts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" "));
+      dots.forEach(function(d,i){ d.setAttribute("cx", pts[i][0].toFixed(1)); d.setAttribute("cy", pts[i][1].toFixed(1)); });
+    }
+    function frame(now){
+      if(t0===null) t0=now;
+      var t = (now - t0) % (cycle + REST);
+      var vals = real.slice();
+      RIPPLE_ORDER.forEach(function(vi, oi){
+        var s = oi*STAGGER, e = s + UP + DOWN;
+        if(t>=s && t<=e){
+          if(t<=s+UP){ vals[vi] = real[vi] + (100-real[vi])*ease((t-s)/UP); }
+          else       { vals[vi] = 100 + (real[vi]-100)*ease((t-(s+UP))/DOWN); }
+        }
+      });
+      apply(vals);
+      requestAnimationFrame(frame);
+    }
+    setTimeout(function(){ requestAnimationFrame(frame); }, START_DELAY);
+  }
+
+  function boot(){
+    document.querySelectorAll("[data-skills-radar]").forEach(init);
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
 
 <script src="assets/js/main.js"></script>
 </body>
