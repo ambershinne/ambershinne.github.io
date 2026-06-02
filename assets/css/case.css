@@ -981,11 +981,21 @@
   justify-content: center;
 }
 .img-modal img {
-  max-width: 100%;
+  max-width: 70%;        /* 데스크탑 */
+  max-height: 85vh;
+  width: auto;
   height: auto;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   animation: imgModalIn 0.22s ease;
+}
+
+/* 모바일에서는 거의 꽉 차게 */
+@media (max-width: 768px) {
+  .img-modal img {
+    max-width: 100%;
+    max-height: none;    /* 높이 제한 풀어서 세로 스크롤 허용 */
+  }
 }
 .img-modal__close {
   position: fixed;
