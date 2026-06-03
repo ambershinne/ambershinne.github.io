@@ -668,3 +668,4 @@ img, svg { display: block; max-width: 100%; }
   text-align: center;
   color: var(--muted);
 }
+.hero-cta { margin-top: 28px; }
