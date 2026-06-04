@@ -30,6 +30,7 @@
 }
 .ph--pink { background: #f1e2e4; }
 .ph img { width: 100%; height: auto; display: block; border-radius: 6px; }
+.ph:has(img) { min-height: 0; }
 .ph span { max-width: 30ch; line-height: 1.5; }
 
 /* ---- Full-bleed hero (height fixed, images flow horizontally) ---- */
@@ -67,8 +68,9 @@
   font-size: 11px;
 }
 .qa-hero__tile img { height: 100%; width: auto; display: block; }
-.qa-hero__tile--admin { aspect-ratio: 16 / 10; }   /* placeholder ratio until image dropped */
-.qa-hero__tile--mobile { aspect-ratio: 1 / 2; background: #faf9f7; }
+.qa-hero__tile:not(:has(img)) { aspect-ratio: 16 / 10; }   /* placeholder ratio until image dropped */
+.qa-hero__tile--mobile { background: #faf9f7; }
+.qa-hero__tile--mobile:not(:has(img)) { aspect-ratio: 1 / 2; }
 
 /* ---- Generic full-width media (Where this fits etc.) ---- */
 .qa-figure { margin: 0 0 8px; }
@@ -134,11 +136,13 @@
 }
 .qa-scroll__item .ph {
   height: 360px;
-  width: 480px;
+  width: auto;
   margin-bottom: 14px;
 }
-.qa-scroll__item--wide .ph { width: 600px; }
-.qa-scroll__item--narrow .ph { width: 290px; }
+.qa-scroll__item .ph img { height: 100%; width: auto; }
+.qa-scroll__item:not(:has(img)) .ph { width: 480px; }
+.qa-scroll__item--wide:not(:has(img)) .ph { width: 600px; }
+.qa-scroll__item--narrow:not(:has(img)) .ph { width: 290px; }
 .qa-scroll__cap {
   display: block;
   font-family: 'DM Sans', var(--font-sans);
@@ -318,9 +322,10 @@
    ============================================================ */
 @media (max-width: 1024px) {
   .qa-hero__rail { height: 380px; padding: 36px var(--gutter); }
-  .qa-scroll__item .ph { height: 300px; width: 420px; }
-  .qa-scroll__item--wide .ph { width: 520px; }
-  .qa-scroll__item--narrow .ph { width: 250px; }
+  .qa-scroll__item .ph { height: 300px; width: auto; }
+  .qa-scroll__item:not(:has(img)) .ph { width: 420px; }
+  .qa-scroll__item--wide:not(:has(img)) .ph { width: 520px; }
+  .qa-scroll__item--narrow:not(:has(img)) .ph { width: 250px; }
 }
 @media (max-width: 768px) {
   .qa-hero { margin-top: 56px; }
@@ -332,9 +337,10 @@
   .qa-chal__body { grid-column: 2; }
   .qa-media-100 { min-height: 220px; }
   .qa-media-lg { min-height: 300px; }
-  .qa-scroll__item .ph { height: 240px; width: 280px; }
-  .qa-scroll__item--wide .ph { width: 340px; }
-  .qa-scroll__item--narrow .ph { width: 190px; }
+  .qa-scroll__item .ph { height: 240px; width: auto; }
+  .qa-scroll__item:not(:has(img)) .ph { width: 280px; }
+  .qa-scroll__item--wide:not(:has(img)) .ph { width: 340px; }
+  .qa-scroll__item--narrow:not(:has(img)) .ph { width: 190px; }
   .qa-react__row { flex-direction: column; }
   .qa-react__btn { padding: 14px; }
 }
@@ -365,7 +371,7 @@
         <svg class="nav__chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
       </button>
       <div class="nav__menu">
-        <a href="/cdn-cgi/l/email-protection#90e3f5f8a3a9a8a8d0f7fdf1f9fcbef3fffd" class="nav__menu-item">
+        <a href="/cdn-cgi/l/email-protection#4330262b707a7b7b03242e222a2f6d202c2e" class="nav__menu-item">
           <span class="nav__menu-icon">E</span>
           <span class="nav__menu-text">
             <span class="nav__menu-title">Email</span>
@@ -394,11 +400,11 @@
 <!-- ============ FULL-BLEED HERO ============ -->
 <section class="qa-hero" aria-label="Project preview">
   <div class="qa-hero__rail">
-    <div class="qa-hero__tile qa-hero__tile--admin"><span>Admin editor</span></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><span>Mobile</span></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><span>Mobile</span></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><span>Mobile</span></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><span>Mobile</span></div>
+    <div class="qa-hero__tile qa-hero__tile--admin"><img src="assets/images/questionnaire/qa-hero-admin.png" alt="Admin editor" /></div>
+    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-1.png" alt="Mobile" /></div>
+    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-2.png" alt="Mobile" /></div>
+    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-3.png" alt="Mobile" /></div>
+    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-4.png" alt="Mobile" /></div>
   </div>
 </section>
 
@@ -461,7 +467,7 @@
         </p>
 
         <figure class="qa-figure reveal">
-          <div class="ph qa-media-100"><span>Full-width context image — admin ↔ mobile flow overview</span></div>
+          <div class="ph qa-media-100"><img src="assets/images/questionnaire/qa-context.png" alt="System overview — admin to mobile flow" /></div>
           <figcaption class="qa-figure__cap">System overview — how the questionnaire connects booking, triage &amp; results.</figcaption>
         </figure>
       </section>
@@ -479,11 +485,11 @@
 
         <div class="qa-two reveal">
           <div>
-            <div class="ph ph--pink"><span>Mobile — old long-scroll form</span></div>
+            <div class="ph ph--pink"><img src="assets/images/questionnaire/qa-problem-mobile.png" alt="Mobile — old long-scroll form" /></div>
             <p class="qa-two__cap">Mobile — the original stacked form</p>
           </div>
           <div>
-            <div class="ph ph--pink"><span>Title-area UI — fixed structure</span></div>
+            <div class="ph ph--pink"><img src="assets/images/questionnaire/qa-problem-title.png" alt="Old title/structure UI" /></div>
             <p class="qa-two__cap">Old title/structure UI</p>
           </div>
         </div>
@@ -530,8 +536,8 @@
         </p>
 
         <div class="qa-two reveal">
-          <div><div class="ph"><span>Admin — question &amp; answer builder</span></div></div>
-          <div><div class="ph"><span>Branching logic tree diagram</span></div></div>
+          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-builder.png" alt="Admin — question &amp; answer builder" /></div></div>
+          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-tree.png" alt="Branching logic tree diagram" /></div></div>
         </div>
 
         <h3 class="qa-subhead reveal">Mapping every way an answer could look</h3>
@@ -540,7 +546,7 @@
           had its own edge case and its own state in flow.
         </p>
         <figure class="qa-figure reveal">
-          <div class="ph qa-media-lg"><span>Answer-type matrix / edge-case map</span></div>
+          <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-logic-matrix.png" alt="Answer-type matrix / edge-case map" /></div>
         </figure>
       </section>
 
@@ -554,21 +560,21 @@
         </p>
 
         <figure class="qa-figure reveal">
-          <div class="ph qa-media-lg"><span>Editor + live mobile preview (split screen)</span></div>
+          <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-preview-split.png" alt="Editor + live mobile preview" /></div>
         </figure>
 
         <div class="qa-scroll reveal" aria-label="Editor states">
           <div class="qa-scroll__rail">
             <div class="qa-scroll__item qa-scroll__item--wide">
-              <div class="ph"><span>Editor state 01</span></div>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-01.png" alt="Editor state 01" /></div>
               <p class="qa-scroll__cap"><strong>Box 1</strong>The full question hierarchy stays visible at all times — operators never lose track of where they are in the structure.</p>
             </div>
             <div class="qa-scroll__item">
-              <div class="ph"><span>Editor state 02</span></div>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-02.png" alt="Editor state 02" /></div>
               <p class="qa-scroll__cap"><strong>Box 2</strong>Each question and answer maps cleanly to a branch — no hidden jumps, no orphaned routes, no tangled state.</p>
             </div>
             <div class="qa-scroll__item qa-scroll__item--narrow">
-              <div class="ph"><span>Editor state 03</span></div>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-03.png" alt="Editor state 03" /></div>
               <p class="qa-scroll__cap"><strong>Box 3</strong>The preview reflects every edit instantly, so the change is verified by the person who made it — in the same view.</p>
             </div>
           </div>
@@ -587,7 +593,7 @@
         </p>
 
         <figure class="qa-figure reveal">
-          <div class="ph qa-media-lg"><span>Mobile — one-question-at-a-time flow</span></div>
+          <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-mobile-flow.png" alt="Mobile — one-question-at-a-time flow" /></div>
         </figure>
 
         <h3 class="qa-subhead reveal">From one long scroll to one question at a time</h3>
@@ -614,7 +620,7 @@
               overwhelming by what's ahead.</p>
             </div>
           </div>
-          <div class="ph"><span>Mobile — step flow screens</span></div>
+          <div class="ph"><img src="assets/images/questionnaire/qa-mobile-steps.png" alt="Mobile — step flow screens" /></div>
         </div>
       </section>
 
@@ -629,9 +635,7 @@
 
         <figure class="qa-figure reveal">
           <div class="ph qa-media-lg qa-videobox">
-            <span>모바일 파이널디자인 화면 동영상</span>
-            <!-- When the file is ready, replace the line above with:
-            <video src="assets/images/questionnaire/qa-mobile-final.mp4" autoplay muted loop playsinline></video> -->
+            <video src="assets/images/questionnaire/qa-mobile-final.mp4" autoplay muted loop playsinline></video>
           </div>
         </figure>
 
@@ -642,7 +646,7 @@
           admin can generate.
         </p>
         <figure class="qa-figure reveal">
-          <div class="ph ph--pink qa-media-lg"><span>Mobile component set — per answer type</span></div>
+          <div class="ph ph--pink qa-media-lg"><img src="assets/images/questionnaire/qa-mobile-components.png" alt="Mobile component set — per answer type" /></div>
         </figure>
       </section>
 
