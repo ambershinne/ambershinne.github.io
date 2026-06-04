@@ -162,16 +162,23 @@
   scroll-snap-align: start;
   display: block;
 }
-/* 스크롤 아이템 — 이미지 비율 그대로, 높이는 이미지 따라감 */
+/* 스크롤 아이템 — 높이 고정, 너비는 이미지 비율에 따라 자동 */
 .qa-scroll__item .ph {
-  width: 480px;
-  height: auto;
+  height: 400px;
+  width: auto;
   margin-bottom: 14px;
+  overflow: hidden;
 }
-.qa-scroll__item--wide .ph { width: 600px; }
-.qa-scroll__item--narrow .ph { width: 290px; }
-/* 이미지 없을 때만 높이 고정 */
-.qa-scroll__item .ph:not(:has(img)) { height: 360px; }
+/* 이미지 — 높이 100% 채우고, 너비 자동(비율 유지) */
+.qa-scroll__item .ph img {
+  height: 100%;
+  width: auto;
+  border-radius: 10px;
+}
+/* 이미지 없을 때 폴백 너비 */
+.qa-scroll__item .ph:not(:has(img)) { width: 480px; }
+.qa-scroll__item--wide .ph:not(:has(img)) { width: 600px; }
+.qa-scroll__item--narrow .ph:not(:has(img)) { width: 290px; }
 .qa-scroll__cap {
   display: block;
   font-family: 'DM Sans', var(--font-sans);
@@ -351,9 +358,10 @@
    ============================================================ */
 @media (max-width: 1024px) {
   .qa-hero__rail { height: 380px; padding: 36px var(--gutter); }
-  .qa-scroll__item .ph { width: 420px; }
-  .qa-scroll__item--wide .ph { width: 520px; }
-  .qa-scroll__item--narrow .ph { width: 250px; }
+  .qa-scroll__item .ph { height: 320px; }
+  .qa-scroll__item .ph:not(:has(img)) { width: 420px; }
+  .qa-scroll__item--wide .ph:not(:has(img)) { width: 520px; }
+  .qa-scroll__item--narrow .ph:not(:has(img)) { width: 250px; }
 }
 @media (max-width: 768px) {
   .qa-hero { margin-top: 56px; }
@@ -363,11 +371,13 @@
   .qa-chal { grid-template-columns: 28px 1fr; gap: 6px 14px; }
   .qa-chal__tag { grid-column: 2; }
   .qa-chal__body { grid-column: 2; }
-  .qa-scroll__item .ph { width: 280px; }
-  .qa-scroll__item--wide .ph { width: 340px; }
-  .qa-scroll__item--narrow .ph { width: 190px; }
+  .qa-scroll__item .ph { height: 240px; }
+  .qa-scroll__item .ph:not(:has(img)) { width: 280px; }
+  .qa-scroll__item--wide .ph:not(:has(img)) { width: 340px; }
+  .qa-scroll__item--narrow .ph:not(:has(img)) { width: 190px; }
   .qa-react__row { flex-direction: column; }
   .qa-react__btn { padding: 14px; }
+  .case-hero__title em { white-space: normal; }
 }
 </style>
 
@@ -429,7 +439,7 @@
     <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-1.png" alt="Mobile" /></div>
     <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-2.png" alt="Mobile" /></div>
     <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-3.png" alt="Mobile" /></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-4.png" alt="Mobile" /></div>
+    <!-- <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-4.png" alt="Mobile" /></div> -->
   </div>
 </section>
 
@@ -457,7 +467,7 @@
           <span>Healthcare</span><span class="dash"></span><span>Admin + Mobile</span>
         </div>
         <h1 class="case-hero__title reveal" data-delay="1">
-          Questionnaire, rebuilt <em>from the logic up.</em>
+          Questionnaire, rebuilt <em>from&nbsp;the&nbsp;logic&nbsp;up.</em>
         </h1>
         <p class="case-hero__lede reveal" data-delay="2">
           A configurable pre-visit triage editor that replaces stacked forms — and a real-time
