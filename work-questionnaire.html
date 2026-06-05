@@ -258,6 +258,14 @@
   font-size: 14px;
   color: var(--accent);
 }
+/* 화살표 기호 통일 — 같은 크기/색/굵기 */
+.qa-note__num--sym {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--accent);
+  font-weight: 500;
+}
 .qa-note p {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13.5px;
@@ -650,18 +658,17 @@
         <figure class="qa-figure reveal">
           <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-mobile-flow.png" alt="Mobile — one-question-at-a-time flow" /></div>
         </figure>
-        <h3 class="qa-subhead reveal">From one long scroll to one question at a time</h3>
-        <!-- subbody 삭제됨 -->
+        <h3 class="qa-subhead reveal" style="margin-bottom: 28px;">From one long scroll to one question at a time</h3>
         <div class="qa-split reveal">
           <div class="qa-notes">
             <div class="qa-note">
-              <span class="qa-note__num">→</span>
+              <span class="qa-note__num qa-note__num--sym">→</span>
               <p>A single scrolling questionnaire put the full weight of the system on the patient.
               Splitting into one question per screen reframed the work — each step asks one thing,
               and the rest stays out of the way.</p>
             </div>
             <div class="qa-note">
-              <span class="qa-note__num qa-note__num--arrow">↓</span>
+              <span class="qa-note__num qa-note__num--sym">↓</span>
               <p>A clear step count and back-navigation let people move forward without anxiety
               about how far they had to go, or whether a question routed somewhere unexpected.</p>
             </div>
