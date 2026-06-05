@@ -153,17 +153,16 @@
   width: max-content;
   padding-bottom: 4px;
 }
-/* 아이템 너비 = 이미지 너비(min-content). 캡션은 그 안에서 줄바꿈 */
 .qa-scroll__item {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  width: min-content;
+  display: block;
 }
+/* 이미지: 높이 320px 고정, 너비는 비율 따라 자동 → 이 너비가 아이템 폭을 결정 */
 .qa-scroll__item .ph {
   height: 320px;
-  width: auto;
+  width: max-content;
+  max-width: none;
   margin-bottom: 14px;
   overflow: hidden;
 }
@@ -175,6 +174,7 @@
 .qa-scroll__item .ph:not(:has(img)) { width: 320px; }
 .qa-scroll__item--wide .ph:not(:has(img)) { width: 400px; }
 .qa-scroll__item--narrow .ph:not(:has(img)) { width: 220px; }
+/* 캡션은 위 이미지(.ph)와 같은 너비로 — JS로 동기화 */
 .qa-scroll__cap {
   display: block;
   font-family: 'DM Sans', var(--font-sans);
@@ -183,7 +183,6 @@
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin: 0;
-  max-width: 100%;
 }
 .qa-scroll__cap strong {
   display: block;
@@ -703,5 +702,35 @@
 </main>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/main.js"></script>
+<script>
+// 스크롤 갤러리: 캡션 너비를 위 이미지의 실제 렌더 너비에 맞춤
+(function () {
+  function syncCaps() {
+    document.querySelectorAll('.qa-scroll__item').forEach(function (item) {
+      var img = item.querySelector('.ph img');
+      var cap = item.querySelector('.qa-scroll__cap');
+      if (img && cap) {
+        var w = img.getBoundingClientRect().width;
+        if (w) cap.style.width = w + 'px';
+      }
+    });
+  }
+  function init() {
+    var imgs = document.querySelectorAll('.qa-scroll__item .ph img');
+    var pending = imgs.length;
+    if (!pending) return;
+    imgs.forEach(function (img) {
+      if (img.complete) { if (--pending === 0) syncCaps(); }
+      else img.addEventListener('load', function () { if (--pending === 0) syncCaps(); });
+    });
+    // 안전장치
+    setTimeout(syncCaps, 600);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+  window.addEventListener('resize', syncCaps);
+})();
+</script>
 </body>
 </html>
