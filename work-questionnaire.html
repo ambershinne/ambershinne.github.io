@@ -28,7 +28,6 @@
 }
 .ph--pink { background: #f1e2e4; }
 
-/* 이미지 있으면 패딩/배경 제거, 이미지 비율 그대로 */
 .ph:has(img) {
   padding: 0;
   background: transparent;
@@ -64,7 +63,6 @@
   width: max-content;
 }
 
-/* 히어로 타일 — 높이 고정, 너비는 이미지 비율에 따라 자동 */
 .qa-hero__tile {
   height: 100%;
   border-radius: 14px;
@@ -74,7 +72,6 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-/* 이미지 없을 때만 placeholder 비율 */
 .qa-hero__tile:not(:has(img)) {
   display: grid;
   place-items: center;
@@ -84,7 +81,6 @@
   aspect-ratio: 16 / 10;
 }
 .qa-hero__tile--mobile:not(:has(img)) { aspect-ratio: 1 / 2; }
-/* 이미지 있을 때 — 높이 100% 유지, 너비 자동(비율 유지) */
 .qa-hero__tile img {
   height: 100%;
   width: auto;
@@ -157,25 +153,25 @@
   width: max-content;
   padding-bottom: 4px;
 }
+/* 아이템 너비 = 이미지 너비(min-content). 캡션은 그 안에서 줄바꿈 */
 .qa-scroll__item {
   flex: 0 0 auto;
   scroll-snap-align: start;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
 }
-/* 스크롤 아이템 — 높이 고정, 너비는 이미지 비율에 따라 자동 */
 .qa-scroll__item .ph {
   height: 320px;
   width: auto;
   margin-bottom: 14px;
   overflow: hidden;
 }
-/* 이미지 — 높이 100% 채우고, 너비 자동(비율 유지) */
 .qa-scroll__item .ph img {
   height: 100%;
   width: auto;
   border-radius: 10px;
 }
-/* 이미지 없을 때 폴백 너비 */
 .qa-scroll__item .ph:not(:has(img)) { width: 320px; }
 .qa-scroll__item--wide .ph:not(:has(img)) { width: 400px; }
 .qa-scroll__item--narrow .ph:not(:has(img)) { width: 220px; }
@@ -678,12 +674,12 @@
         <div class="case-sect-eyebrow reveal">07 — Reflection</div>
         <h2 class="case-sect-title reveal" data-delay="1">What this project taught me.</h2>
         <p class="case-sect-lede reveal" data-delay="2">
-  Building logic this complex from scratch — with no reference to lean on — was the real
-  challenge. The admin was entirely requirements-driven; the mobile was about keeping it
-  effortless for patients, then making sure the components synced cleanly with the admin
-  to ease development. As a client project, the exact numbers aren't mine to know —
-  but the system is in active use, and that's enough.
-</p>
+          Building logic this complex from scratch — with no reference to lean on — was the real
+          challenge. The admin was entirely requirements-driven; the mobile was about keeping it
+          effortless for patients, then making sure the components synced cleanly with the admin
+          to ease development. As a client project, the exact numbers aren't mine to know —
+          but the system is in active use, and that's enough.
+        </p>
         <h3 class="qa-subhead reveal">Your reaction counts too</h3>
         <p class="qa-subbody reveal">
           If you'd approach this differently, or saw something worth pushing further — I'd welcome the thought.
