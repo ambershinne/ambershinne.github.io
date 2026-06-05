@@ -28,7 +28,6 @@
 }
 .ph--pink { background: #f1e2e4; }
 
-/* 이미지 있으면 패딩/배경 제거, 이미지 비율 그대로 */
 .ph:has(img) {
   padding: 0;
   background: transparent;
@@ -64,7 +63,6 @@
   width: max-content;
 }
 
-/* 히어로 타일 — 높이 고정, 너비는 이미지 비율에 따라 자동 */
 .qa-hero__tile {
   height: 100%;
   border-radius: 14px;
@@ -74,7 +72,6 @@
   overflow: hidden;
   flex-shrink: 0;
 }
-/* 이미지 없을 때만 placeholder 비율 */
 .qa-hero__tile:not(:has(img)) {
   display: grid;
   place-items: center;
@@ -84,7 +81,6 @@
   aspect-ratio: 16 / 10;
 }
 .qa-hero__tile--mobile:not(:has(img)) { aspect-ratio: 1 / 2; }
-/* 이미지 있을 때 — 높이 100% 유지, 너비 자동(비율 유지) */
 .qa-hero__tile img {
   height: 100%;
   width: auto;
@@ -156,26 +152,25 @@
   gap: 16px;
   width: max-content;
   padding-bottom: 4px;
+  padding-right: max(var(--gutter), (100vw - 1280px) / 2 + var(--gutter));
 }
 .qa-scroll__item {
   flex: 0 0 auto;
   scroll-snap-align: start;
   display: block;
 }
-/* 스크롤 아이템 — 높이 고정, 너비는 이미지 비율에 따라 자동 */
 .qa-scroll__item .ph {
   height: 320px;
-  width: auto;
+  width: max-content;
+  max-width: none;
   margin-bottom: 14px;
   overflow: hidden;
 }
-/* 이미지 — 높이 100% 채우고, 너비 자동(비율 유지) */
 .qa-scroll__item .ph img {
   height: 100%;
   width: auto;
   border-radius: 10px;
 }
-/* 이미지 없을 때 폴백 너비 */
 .qa-scroll__item .ph:not(:has(img)) { width: 320px; }
 .qa-scroll__item--wide .ph:not(:has(img)) { width: 400px; }
 .qa-scroll__item--narrow .ph:not(:has(img)) { width: 220px; }
@@ -187,7 +182,6 @@
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin: 0;
-  max-width: 300px;
 }
 .qa-scroll__cap strong {
   display: block;
@@ -261,6 +255,18 @@
   color: var(--muted);
   letter-spacing: 0.04em;
 }
+.qa-note__num--arrow {
+  font-size: 14px;
+  color: var(--accent);
+}
+/* 화살표 기호 통일 — 같은 크기/색/굵기 */
+.qa-note__num--sym {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--accent);
+  font-weight: 500;
+}
 .qa-note p {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13.5px;
@@ -271,6 +277,37 @@
 }
 .qa-notes { display: flex; flex-direction: column; gap: 22px; }
 .qa-split .ph:not(:has(img)) { min-height: 360px; }
+
+/* ---- Result block (full-width, below split) ---- */
+.qa-result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  margin: 32px 0 8px;
+  padding: 22px 24px;
+  background: var(--bg-2, #f6f5f2);
+  border-radius: 12px;
+  border: 1px solid var(--line-3);
+}
+.qa-result__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+.qa-result p {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
 
 /* ---- Sub-heading ---- */
 .qa-subhead {
@@ -371,6 +408,7 @@
   .qa-chal { grid-template-columns: 28px 1fr; gap: 6px 14px; }
   .qa-chal__tag { grid-column: 2; }
   .qa-chal__body { grid-column: 2; }
+  .qa-result { grid-template-columns: 1fr; gap: 8px; }
   .qa-scroll__item .ph { height: 240px; }
   .qa-scroll__item .ph:not(:has(img)) { width: 280px; }
   .qa-scroll__item--wide .ph:not(:has(img)) { width: 340px; }
@@ -501,7 +539,7 @@
         </p>
         <figure class="qa-figure reveal">
           <div class="ph qa-media-100"><img src="assets/images/questionnaire/qa-context.png" alt="System overview — admin to mobile flow" /></div>
-          <figcaption class="qa-figure__cap">System overview — how the questionnaire connects booking, triage &amp; results.</figcaption>
+          <figcaption class="qa-figure__cap">Existing booking system — the questionnaire was the last piece left to build.</figcaption>
         </figure>
       </section>
 
@@ -566,8 +604,8 @@
           could reason about without reading a tree.
         </p>
         <div class="qa-two reveal">
-          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-builder.png" alt="Admin — question &amp; answer builder" /></div></div>
-          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-tree.png" alt="Branching logic tree diagram" /></div></div>
+          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-builder.png" alt="Admin — question &amp; answer builder" class="zoomable" /></div></div>
+          <div><div class="ph"><img src="assets/images/questionnaire/qa-logic-tree.png" alt="Branching logic tree diagram" class="zoomable" /></div></div>
         </div>
         <h3 class="qa-subhead reveal">Mapping every way an answer could look</h3>
         <p class="qa-subbody reveal">
@@ -588,20 +626,20 @@
           change lands for the patient — no publishing, no guesswork.
         </p>
         <figure class="qa-figure reveal">
-          <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-preview-split.png" alt="Editor + live mobile preview" /></div>
+          <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-preview-split.png" alt="Editor + live mobile preview" class="zoomable" /></div>
         </figure>
         <div class="qa-scroll reveal" aria-label="Editor states">
           <div class="qa-scroll__rail">
             <div class="qa-scroll__item qa-scroll__item--wide">
-              <div class="ph"><img src="assets/images/questionnaire/qa-editor-01.png" alt="Editor state 01" /></div>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-01.png" alt="Editor state 01" class="zoomable" /></div>
               <p class="qa-scroll__cap"><strong>Panel 1</strong>The full question hierarchy stays visible at all times — operators never lose track of where they are in the structure.</p>
             </div>
             <div class="qa-scroll__item">
-              <div class="ph"><img src="assets/images/questionnaire/qa-editor-02.png" alt="Editor state 02" /></div>
-              <p class="qa-scroll__cap"><strong>Panel 2</strong>Each question and answer maps cleanly to a branch — no hidden jumps, no orphaned routes, no tangled state.</p>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-02.png" alt="Editor state 02" class="zoomable" /></div>
+              <p class="qa-scroll__cap"><strong>Panel 2</strong>OCS codes sync from the back-office and stay locked. On top of that, operators can add warning text, help copy, and exam code bindings — so certain questions only appear for patients scheduled for that test.</p>
             </div>
             <div class="qa-scroll__item qa-scroll__item--narrow">
-              <div class="ph"><img src="assets/images/questionnaire/qa-editor-03.png" alt="Editor state 03" /></div>
+              <div class="ph"><img src="assets/images/questionnaire/qa-editor-03.png" alt="Editor state 03" class="zoomable" /></div>
               <p class="qa-scroll__cap"><strong>Panel 3</strong>Codes on (right): every question and answer reveals its own unique code, so operators can trace exactly which item maps where.</p>
             </div>
           </div>
@@ -621,31 +659,27 @@
         <figure class="qa-figure reveal">
           <div class="ph qa-media-lg"><img src="assets/images/questionnaire/qa-mobile-flow.png" alt="Mobile — one-question-at-a-time flow" /></div>
         </figure>
-        <h3 class="qa-subhead reveal">From one long scroll to one question at a time</h3>
-        <p class="qa-subbody reveal">
-          The weight of the system stays in the back-end; the patient experience stays light.
-        </p>
+        <h3 class="qa-subhead reveal" style="margin-bottom: 28px;">From one long scroll to one question at a time</h3>
         <div class="qa-split reveal">
           <div class="qa-notes">
             <div class="qa-note">
-              <span class="qa-note__num">01</span>
+              <span class="qa-note__num qa-note__num--sym">→</span>
               <p>A single scrolling questionnaire put the full weight of the system on the patient.
               Splitting into one question per screen reframed the work — each step asks one thing,
               and the rest stays out of the way.</p>
             </div>
             <div class="qa-note">
-              <span class="qa-note__num">02</span>
-              <p>Progress restored: a clear step count and back-navigation let people move forward
-              without anxiety about how far they had to go, or whether a question routed somewhere.</p>
-            </div>
-            <div class="qa-note">
-              <span class="qa-note__num">03</span>
-              <p>The benefit was twofold: patients move through questions while only making one
-              choice at a time, and operators could move through the same screens facing nothing
-              overwhelming by what's ahead.</p>
+              <span class="qa-note__num qa-note__num--sym">↓</span>
+              <p>A clear step count and back-navigation let people move forward without anxiety
+              about how far they had to go, or whether a question routed somewhere unexpected.</p>
             </div>
           </div>
           <div class="ph"><img src="assets/images/questionnaire/qa-mobile-steps.png" alt="Mobile — step flow screens" /></div>
+        </div>
+
+        <div class="qa-result reveal">
+          <span class="qa-result__label">The payoff</span>
+          <p>Patients answer step by step — giving operators every piece of information they need, without ever feeling the weight of it.</p>
         </div>
       </section>
 
@@ -669,7 +703,7 @@
           admin can generate.
         </p>
         <figure class="qa-figure reveal">
-          <div class="ph ph--pink"><img src="assets/images/questionnaire/qa-mobile-components.png" alt="Mobile component set — per answer type" /></div>
+          <div class="ph ph--pink"><img src="assets/images/questionnaire/qa-mobile-components.png" alt="Mobile component set — per answer type" class="zoomable" /></div>
         </figure>
       </section>
 
@@ -678,22 +712,22 @@
         <div class="case-sect-eyebrow reveal">07 — Reflection</div>
         <h2 class="case-sect-title reveal" data-delay="1">What this project taught me.</h2>
         <p class="case-sect-lede reveal" data-delay="2">
-          Building a tool that other people use to build is a different kind of challenge. The
-          details that already mattered the most — the choices made about a small typo before the
-          system is shipped — those are the choices that make it into development. As a client
-          project, the scope was tight, and often a feature I built ended up exactly that.
+          Building logic this complex from scratch — with no reference to lean on — was the real
+          challenge. The admin was entirely requirements-driven; the mobile was about keeping it
+          effortless for patients, then making sure the components synced cleanly with the admin
+          to ease development. As a client project, the exact numbers aren't mine to know —
+          but the system is in active use, and that's enough.
         </p>
         <h3 class="qa-subhead reveal">Your reaction counts too</h3>
         <p class="qa-subbody reveal">
           If you'd approach this differently, or saw something worth pushing further — I'd welcome the thought.
         </p>
-        <form class="qa-react reveal" onsubmit="return false;">
-          <textarea class="qa-react__field qa-react__field--area" maxlength="500" placeholder="What would you have done differently? (This won't submit anywhere yet — just here for show.)"></textarea>
+        <form class="qa-react reveal" action="https://formspree.io/f/maqznagr" method="POST">
+          <textarea class="qa-react__field qa-react__field--area" name="message" maxlength="400" placeholder="What would you have done differently?"></textarea>
           <div class="qa-react__row">
-            <input type="email" class="qa-react__field" placeholder="Email (optional)" />
+            <input type="email" class="qa-react__field" name="email" placeholder="Email (optional)" />
             <button type="submit" class="qa-react__btn">Send</button>
           </div>
-          <p class="qa-react__note">Front-end only for now — wiring up later.</p>
         </form>
         <div class="case-footnav">
           <a href="work.html">←  All projects</a>
@@ -706,5 +740,34 @@
 </main>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/main.js"></script>
+<script>
+// 스크롤 갤러리: 캡션 너비를 위 이미지의 실제 렌더 너비에 맞춤
+(function () {
+  function syncCaps() {
+    document.querySelectorAll('.qa-scroll__item').forEach(function (item) {
+      var img = item.querySelector('.ph img');
+      var cap = item.querySelector('.qa-scroll__cap');
+      if (img && cap) {
+        var w = img.getBoundingClientRect().width;
+        if (w) cap.style.width = w + 'px';
+      }
+    });
+  }
+  function init() {
+    var imgs = document.querySelectorAll('.qa-scroll__item .ph img');
+    var pending = imgs.length;
+    if (!pending) return;
+    imgs.forEach(function (img) {
+      if (img.complete) { if (--pending === 0) syncCaps(); }
+      else img.addEventListener('load', function () { if (--pending === 0) syncCaps(); });
+    });
+    setTimeout(syncCaps, 600);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+  window.addEventListener('resize', syncCaps);
+})();
+</script>
 </body>
 </html>

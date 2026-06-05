@@ -471,7 +471,7 @@
 .photo-stack .photo--portrait-a { top: 50%;   left: 0;             width: calc(50% - 3px); height: 50%; }
 .photo-stack .photo--portrait-b { top: 50%;   left: calc(50% + 3px); width: calc(50% - 3px); height: 50%; }
 .about-intro__body {
-  max-width: 56ch;
+  max-width: 62ch;
   min-width: 0;
 }
 .about-intro__quote {
