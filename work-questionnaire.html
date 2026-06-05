@@ -139,7 +139,6 @@
 .qa-scroll {
   margin-left: 0;
   margin-top: 20px;
-  margin-right: calc(-1 * max(var(--gutter), (100vw - 1280px) / 2 + var(--gutter)));
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
@@ -152,6 +151,7 @@
   gap: 16px;
   width: max-content;
   padding-bottom: 4px;
+  padding-right: var(--gutter);
 }
 .qa-scroll__item {
   flex: 0 0 auto;
