@@ -158,7 +158,6 @@
   scroll-snap-align: start;
   display: block;
 }
-/* 이미지: 높이 320px 고정, 너비는 비율 따라 자동 → 이 너비가 아이템 폭을 결정 */
 .qa-scroll__item .ph {
   height: 320px;
   width: max-content;
@@ -174,7 +173,6 @@
 .qa-scroll__item .ph:not(:has(img)) { width: 320px; }
 .qa-scroll__item--wide .ph:not(:has(img)) { width: 400px; }
 .qa-scroll__item--narrow .ph:not(:has(img)) { width: 220px; }
-/* 캡션은 위 이미지(.ph)와 같은 너비로 — JS로 동기화 */
 .qa-scroll__cap {
   display: block;
   font-family: 'DM Sans', var(--font-sans);
@@ -256,6 +254,10 @@
   color: var(--muted);
   letter-spacing: 0.04em;
 }
+.qa-note__num--arrow {
+  font-size: 14px;
+  color: var(--accent);
+}
 .qa-note p {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13.5px;
@@ -266,6 +268,37 @@
 }
 .qa-notes { display: flex; flex-direction: column; gap: 22px; }
 .qa-split .ph:not(:has(img)) { min-height: 360px; }
+
+/* ---- Result block (full-width, below split) ---- */
+.qa-result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: start;
+  margin: 32px 0 8px;
+  padding: 22px 24px;
+  background: var(--bg-2, #f6f5f2);
+  border-radius: 12px;
+  border: 1px solid var(--line-3);
+}
+.qa-result__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  white-space: nowrap;
+  padding-top: 3px;
+}
+.qa-result p {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
 
 /* ---- Sub-heading ---- */
 .qa-subhead {
@@ -366,6 +399,7 @@
   .qa-chal { grid-template-columns: 28px 1fr; gap: 6px 14px; }
   .qa-chal__tag { grid-column: 2; }
   .qa-chal__body { grid-column: 2; }
+  .qa-result { grid-template-columns: 1fr; gap: 8px; }
   .qa-scroll__item .ph { height: 240px; }
   .qa-scroll__item .ph:not(:has(img)) { width: 280px; }
   .qa-scroll__item--wide .ph:not(:has(img)) { width: 340px; }
@@ -629,18 +663,17 @@
               and the rest stays out of the way.</p>
             </div>
             <div class="qa-note">
-              <span class="qa-note__num">02</span>
-              <p>Progress restored: a clear step count and back-navigation let people move forward
-              without anxiety about how far they had to go, or whether a question routed somewhere.</p>
-            </div>
-            <div class="qa-note">
-              <span class="qa-note__num">03</span>
-              <p>The benefit was twofold: patients move through questions while only making one
-              choice at a time, and operators could move through the same screens facing nothing
-              overwhelming by what's ahead.</p>
+              <span class="qa-note__num qa-note__num--arrow">↓</span>
+              <p>A clear step count and back-navigation let people move forward without anxiety
+              about how far they had to go, or whether a question routed somewhere unexpected.</p>
             </div>
           </div>
           <div class="ph"><img src="assets/images/questionnaire/qa-mobile-steps.png" alt="Mobile — step flow screens" /></div>
+        </div>
+
+        <div class="qa-result reveal">
+          <span class="qa-result__label">The payoff</span>
+          <p>Patients answer step by step — giving operators every piece of information they need, without ever feeling the weight of it.</p>
         </div>
       </section>
 
@@ -723,7 +756,6 @@
       if (img.complete) { if (--pending === 0) syncCaps(); }
       else img.addEventListener('load', function () { if (--pending === 0) syncCaps(); });
     });
-    // 안전장치
     setTimeout(syncCaps, 600);
   }
   if (document.readyState === 'loading') {
