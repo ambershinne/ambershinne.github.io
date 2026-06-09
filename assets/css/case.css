@@ -959,7 +959,7 @@
 }
 
 .raw-shot--narrow {
-  max-width: 100%;
+  max-width: 92%;
 }
 /* Zoomable UI screenshots */
 .zoomable { cursor: zoom-in; }
