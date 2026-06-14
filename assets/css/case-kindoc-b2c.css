@@ -259,6 +259,15 @@ body[data-page="work-kindoc-b2c"] .reference-marquee {
           mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
 }
 
+/* Desktop: keep left edge in the content column, bleed the right edge out
+   toward the viewport (lands ~64px from the right edge). No horizontal
+   scroll because the right edge is computed from the stable 1100px shell. */
+@media (min-width: 1100px) {
+  body[data-page="work-kindoc-b2c"] .reference-marquee {
+    width: calc(100% + 50vw - 486px);
+  }
+}
+
 body[data-page="work-kindoc-b2c"] .reference-marquee__track {
   display: flex;
   gap: 12px;
