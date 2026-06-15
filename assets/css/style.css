@@ -188,8 +188,8 @@ img, svg { display: block; max-width: 100%; }
 
 .h-serif {
   font-family: var(--font-display); /* match hero title typeface (Fraunces) */
-  font-weight: 600;
-  font-size: clamp(24px, 2.8vw, 36px);
+  font-weight: 500;
+  font-size: clamp(22px, 2.2vw, 32px); /* match work page "How I work" subtitle */
   line-height: 1.15;
   letter-spacing: -0.02em;
   margin: 0;
