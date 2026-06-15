@@ -600,7 +600,7 @@ img, svg { display: block; max-width: 100%; }
   position: absolute;
   top: -48px;          /* 위에서 고정 거리 — 눈으로 맞춰 조정 */
   right: 0;             /* sits at the inner edge of .wrap padding */
-  width: clamp(260px, 25vw, 380px);
+  width: clamp(260px, 25vw, 420px);
   z-index: 1;
   pointer-events: none; /* never blocks text selection / links */
 }

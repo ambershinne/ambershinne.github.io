@@ -350,7 +350,8 @@
 .about-hero-v2__title {
   margin: 32px 0 28px;
   max-width: 20ch;
-  font-size: clamp(32px, 5.4vw, 62px); /* smaller than .h-display so it clears the radar */
+  font-size: clamp(32px, 5.4vw, 68px); /* smaller than .h-display so it clears the radar */
+  letter-spacing: -0.04em; /* tighter than .h-display's -0.025em */
   font-variation-settings: normal; /* default optical size — chunkier text cut */
 }
 .about-hero-v2__title em { font-variation-settings: normal; }
