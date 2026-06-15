@@ -349,7 +349,7 @@
 }
 .about-hero-v2__title {
   margin: 32px 0 28px;
-  max-width: 18ch;
+  max-width: 20ch;
   font-variation-settings: normal; /* default optical size — chunkier text cut */
 }
 .about-hero-v2__title em { font-variation-settings: normal; }
