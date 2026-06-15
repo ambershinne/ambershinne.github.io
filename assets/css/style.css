@@ -187,7 +187,7 @@ img, svg { display: block; max-width: 100%; }
 }
 
 .h-serif {
-  font-family: var(--font-serif);
+  font-family: var(--font-display); /* match hero title typeface (Fraunces) */
   font-weight: 600;
   font-size: clamp(24px, 2.8vw, 36px);
   line-height: 1.15;
