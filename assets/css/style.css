@@ -602,7 +602,7 @@ img, svg { display: block; max-width: 100%; }
      so the shrinking graph drifts down instead of floating up — no jump at 1024 */
   top: clamp(-48px, calc(75px - 7.3vw), 0px);
   right: 0;             /* sits at the inner edge of .wrap padding */
-  width: clamp(340px, 25vw, 460px);
+  width: clamp(340px, 28vw, 480px);
   z-index: 1;
   pointer-events: none; /* never blocks text selection / links */
 }
