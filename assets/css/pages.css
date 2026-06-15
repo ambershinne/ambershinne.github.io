@@ -379,7 +379,7 @@
 .at-glance__num {
   font-family: var(--font-display);
   font-weight: 400;
-  font-variation-settings: "opsz" 144, "SOFT" 0;
+  font-variation-settings: normal; /* default optical size, matches case-study stats */
   font-size: 38px;
   line-height: 1;
   letter-spacing: -0.02em;
