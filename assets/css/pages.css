@@ -350,7 +350,9 @@
 .about-hero-v2__title {
   margin: 32px 0 28px;
   max-width: 18ch;
+  font-variation-settings: normal; /* default optical size — chunkier text cut */
 }
+.about-hero-v2__title em { font-variation-settings: normal; }
 .about-hero-v2__title .lt { display: block; }
 .about-hero-v2__caption {
   font-family: var(--font-mono);
