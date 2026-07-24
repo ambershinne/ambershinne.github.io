@@ -93,6 +93,7 @@
 .work-strips {
   display: flex;
   flex-direction: column;
+  min-width: 0; /* respect the grid track so the gallery marquee can clip instead of overflowing */
   border-left: 1px solid var(--line-2);
   padding: 32px 32px 0 32px;
 }
@@ -311,7 +312,9 @@
 .gallery-marquee {
   overflow: hidden;
   min-width: 0;
-  margin-right: calc(-1 * max(var(--gutter), (100vw - 1600px) / 2 + var(--gutter)));
+  /* bleed from the right column's content edge to the viewport edge
+     (+32px accounts for .work-strips padding-right) */
+  margin-right: calc(-1 * (max(var(--gutter), (100vw - 1600px) / 2 + var(--gutter)) + 32px));
   margin-bottom: 24px;
 }
 .gallery-marquee__track {
@@ -324,7 +327,7 @@
 .gallery-marquee:hover .gallery-marquee__track { animation-play-state: paused; }
 .gallery-item { margin: 0; flex-shrink: 0; }
 .gallery-item img {
-  height: 320px;
+  height: 272px;
   width: auto;
   display: block;
   border-radius: 10px;
@@ -344,8 +347,10 @@
   to   { transform: translateX(-50%); }
 }
 @media (max-width: 768px) {
-  .gallery-item img { height: 240px; }
+  .gallery-item img { height: 204px; }
   .gallery-marquee__track { gap: 14px; }
+  /* single-column here: .work-strips loses its side padding, so bleed just the gutter */
+  .gallery-marquee { margin-right: calc(-1 * var(--gutter)); }
 }
 @media (prefers-reduced-motion: reduce) {
   .gallery-marquee__track { animation: none; }
@@ -556,38 +561,38 @@ body.img-modal-open { overflow: hidden; }
       </article>
       -->
 
-    </div>
-  </div>
+      <!-- ===== GALLERY ===== -->
+      <div class="gallery-head reveal">Gallery</div>
+      <div class="gallery-marquee reveal" aria-label="Selected visuals">
+        <div class="gallery-marquee__track">
+          <figure class="gallery-item">
+            <img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" />
+            <figcaption>Personal Project: Designing Coffee as a Sensory Experience — Huers (2026)</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" />
+            <figcaption>Building the Foundation for AI Conversations — Kindoc AI (2024)</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" />
+            <figcaption>AI Health Results, Visualized — Innerpink (2024–2025)</figcaption>
+          </figure>
+          <!-- duplicate set for a seamless loop -->
+          <figure class="gallery-item" aria-hidden="true">
+            <img class="zoomable" src="assets/images/gallery/01-huers.png" alt="" />
+            <figcaption>Personal Project: Designing Coffee as a Sensory Experience — Huers (2026)</figcaption>
+          </figure>
+          <figure class="gallery-item" aria-hidden="true">
+            <img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="" />
+            <figcaption>Building the Foundation for AI Conversations — Kindoc AI (2024)</figcaption>
+          </figure>
+          <figure class="gallery-item" aria-hidden="true">
+            <img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="" />
+            <figcaption>AI Health Results, Visualized — Innerpink (2024–2025)</figcaption>
+          </figure>
+        </div>
+      </div>
 
-  <!-- ===== GALLERY ===== -->
-  <div class="gallery-head reveal">Gallery</div>
-  <div class="gallery-marquee reveal" aria-label="Selected visuals">
-    <div class="gallery-marquee__track">
-      <figure class="gallery-item">
-        <img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" />
-        <figcaption>Personal Project: Designing Coffee as a Sensory Experience — Huers (2026)</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" />
-        <figcaption>Building the Foundation for AI Conversations — Kindoc AI (2024)</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" />
-        <figcaption>AI Health Results, Visualized — Innerpink (2024–2025)</figcaption>
-      </figure>
-      <!-- duplicate set for a seamless loop -->
-      <figure class="gallery-item" aria-hidden="true">
-        <img class="zoomable" src="assets/images/gallery/01-huers.png" alt="" />
-        <figcaption>Personal Project: Designing Coffee as a Sensory Experience — Huers (2026)</figcaption>
-      </figure>
-      <figure class="gallery-item" aria-hidden="true">
-        <img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="" />
-        <figcaption>Building the Foundation for AI Conversations — Kindoc AI (2024)</figcaption>
-      </figure>
-      <figure class="gallery-item" aria-hidden="true">
-        <img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="" />
-        <figcaption>AI Health Results, Visualized — Innerpink (2024–2025)</figcaption>
-      </figure>
     </div>
   </div>
 </section>
