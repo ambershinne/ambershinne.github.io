@@ -310,20 +310,22 @@
 }
 
 .gallery-marquee {
-overflow: hidden;
+  overflow: hidden;
   min-width: 0;
-  /* 오른쪽 패딩(32px)만큼 음수 마진을 주어 수직 라인까지 딱 채웁니다 */
-  margin-right: -32px; 
+  /* 컨테이너 박스를 경계선 세로선 끝까지 확장 */
+  margin-left: -32px;
+  margin-right: -32px;
   margin-bottom: 24px;
   position: relative;
-  z-index: 1; /* 수직 그리드 선 위로 올림 */
+  z-index: 1;
 }
 
 .gallery-marquee__track {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 16px; /* 👈 데스크톱 이미지 간격: 16px */
   width: max-content;
+  padding-left: 32px; /* 시작할 때 타이틀 라인과 맞추는 좌측 여백 */
   animation: galleryMarquee 55s linear infinite;
 }
 
@@ -364,14 +366,15 @@ overflow: hidden;
   to   { transform: translateX(-50%); }
 }
 
-/* 2. 모바일 (768px 이하) 처리 */
 @media (max-width: 768px) {
   .gallery-item img { height: 204px; }
   .gallery-item figcaption { max-width: 300px; }
-  .gallery-marquee__track { gap: 12px; }
-  
-  /* 모바일에서는 사이드 여백을 가득 채우도록 음수 마진 적용 */
+  .gallery-marquee__track { 
+    gap: 12px; /* 👈 모바일 이미지 간격: 12px */
+    padding-left: var(--gutter); 
+  }
   .gallery-marquee { 
+    margin-left: calc(-1 * var(--gutter));
     margin-right: calc(-1 * var(--gutter)); 
   }
 }
