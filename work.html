@@ -310,6 +310,8 @@
 }
 /* full-bleed to the right edge of the viewport, left stays in the content column */
 .gallery-marquee {
+   position: relative; /* 👈 추가 */
+  z-index: 1;        /* 👈 추가 (그리드 선보다 위로 올려줌) */
   overflow: hidden;
   min-width: 0;
   /* bleed from the right column's content edge to the viewport edge
