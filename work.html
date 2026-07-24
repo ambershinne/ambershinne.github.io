@@ -308,17 +308,17 @@
   color: var(--muted);
   margin: 80px 0 22px;
 }
-/* full-bleed to the right edge of the viewport, left stays in the content column */
+
 .gallery-marquee {
-   position: relative; /* 👈 추가 */
-  z-index: 1;        /* 👈 추가 (그리드 선보다 위로 올려줌) */
   overflow: hidden;
   min-width: 0;
-  /* bleed from the right column's content edge to the viewport edge
-     (+32px accounts for .work-strips padding-right) */
-  margin-right: calc(-1 * (max(var(--gutter), (100vw - 1600px) / 2 + var(--gutter)) + 32px));
+  /* 1. 데스크톱: 오른쪽 음수 마진을 제거하여 그리드 컬럼 안쪽으로 고정 */
+  margin-right: 0;
   margin-bottom: 24px;
+  position: relative;
+  z-index: 1; /* 그리드 선 위로 올림 */
 }
+
 .gallery-marquee__track {
   display: flex;
   align-items: flex-start;
@@ -326,24 +326,26 @@
   width: max-content;
   animation: galleryMarquee 55s linear infinite;
 }
+
 .gallery-marquee:hover .gallery-marquee__track { animation-play-state: paused; }
 
-/* ⬇️ [수정됨] 갤러리 아이템 너비 및 여백 설정 ⬇️ */
 .gallery-item { 
   margin: 0; 
   flex-shrink: 0; 
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 80px;    /* 캡션 밑 하단 여백 공간 */
+  padding-bottom: 40px;
 }
+
 .gallery-item img {
   height: 272px;
-  width: auto;             /* 원본 가로 비율 고정 (찌그러짐 방지) */
+  width: auto;
   display: block;
   border-radius: 10px;
   cursor: zoom-in;
 }
+
 .gallery-item figcaption {
   font-family: 'DM Sans', var(--font-sans);
   font-size: 13px;
@@ -351,26 +353,33 @@
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin-top: 12px;
-  max-width: 420px;         /* 이미지 폭에 맞춘 가로 고정 */
+  max-width: 420px;
   white-space: normal;
-  word-break: keep-all;     /* 단어 단위 줄바꿈 */
+  word-break: keep-all;
   overflow-wrap: break-word;
 }
+
 @keyframes galleryMarquee {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* 2. 모바일 (768px 이하) 처리 */
 @media (max-width: 768px) {
   .gallery-item img { height: 204px; }
   .gallery-item figcaption { max-width: 300px; }
   .gallery-marquee__track { gap: 12px; }
-  /* single-column here: .work-strips loses its side padding, so bleed just the gutter */
-  .gallery-marquee { margin-right: calc(-1 * var(--gutter)); }
+  
+  /* 모바일에서는 사이드 여백을 가득 채우도록 음수 마진 적용 */
+  .gallery-marquee { 
+    margin-right: calc(-1 * var(--gutter)); 
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .gallery-marquee__track { animation: none; }
 }
-
+   
 /* ============ IMAGE ZOOM MODAL (click to enlarge) ============ */
 .img-modal {
   display: none;
