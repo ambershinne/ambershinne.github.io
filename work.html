@@ -327,8 +327,10 @@
   width: max-content;
   padding-left: 32px; /* 시작할 때 타이틀 라인과 맞추는 좌측 여백 */
   animation: galleryMarquee 55s linear infinite;
+  animation-play-state: paused; /* hold on the first frame until the gallery scrolls into view */
 }
 
+.gallery-marquee.is-playing .gallery-marquee__track { animation-play-state: running; }
 .gallery-marquee:hover .gallery-marquee__track { animation-play-state: paused; }
 
 .gallery-item { 
@@ -621,5 +623,19 @@ body.img-modal-open { overflow: hidden; }
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="assets/js/main.js"></script>
+<script>
+// Gallery marquee: hold on the first frame until it scrolls into view, then play.
+(function () {
+  var m = document.querySelector('.gallery-marquee');
+  if (!m) return;
+  if (!('IntersectionObserver' in window)) { m.classList.add('is-playing'); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { m.classList.add('is-playing'); io.disconnect(); }
+    });
+  }, { threshold: 0.2 });
+  io.observe(m);
+})();
+</script>
 </body>
 </html>
