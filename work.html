@@ -320,12 +320,17 @@
 .gallery-marquee__track {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
   width: max-content;
   animation: galleryMarquee 55s linear infinite;
 }
 .gallery-marquee:hover .gallery-marquee__track { animation-play-state: paused; }
-.gallery-item { margin: 0; flex-shrink: 0; }
+.gallery-item { 
+  margin: 0; 
+  flex-shrink: 0; 
+  width: min-content;      /* 1. 이미지 폭에 맞춰 카드를 고정 (글자 넘침 방지) */
+  padding-bottom: 80px;    /* 2. 캡션 하단 여백 추가 */
+}
 .gallery-item img {
   height: 272px;
   width: auto;
@@ -340,7 +345,9 @@
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin-top: 12px;
-  max-width: 460px;
+  white-space: normal;
+  word-break: keep-all;       /* 3. 단어 단위로 예쁘게 줄바꿈 */
+  overflow-wrap: break-word;
 }
 @keyframes galleryMarquee {
   from { transform: translateX(0); }
