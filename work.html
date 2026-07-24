@@ -320,20 +320,24 @@
 .gallery-marquee__track {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 20px;
   width: max-content;
   animation: galleryMarquee 55s linear infinite;
 }
 .gallery-marquee:hover .gallery-marquee__track { animation-play-state: paused; }
+
+/* ⬇️ [수정됨] 갤러리 아이템 너비 및 여백 설정 ⬇️ */
 .gallery-item { 
   margin: 0; 
   flex-shrink: 0; 
-  width: min-content;      /* 1. 이미지 폭에 맞춰 카드를 고정 (글자 넘침 방지) */
-  padding-bottom: 80px;    /* 2. 캡션 하단 여백 추가 */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-bottom: 40px;    /* 캡션 밑 하단 여백 공간 */
 }
 .gallery-item img {
   height: 272px;
-  width: auto;
+  width: auto;             /* 원본 가로 비율 고정 (찌그러짐 방지) */
   display: block;
   border-radius: 10px;
   cursor: zoom-in;
@@ -345,8 +349,9 @@
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin-top: 12px;
+  max-width: 420px;         /* 이미지 폭에 맞춘 가로 고정 */
   white-space: normal;
-  word-break: keep-all;       /* 3. 단어 단위로 예쁘게 줄바꿈 */
+  word-break: keep-all;     /* 단어 단위 줄바꿈 */
   overflow-wrap: break-word;
 }
 @keyframes galleryMarquee {
@@ -355,6 +360,7 @@
 }
 @media (max-width: 768px) {
   .gallery-item img { height: 204px; }
+  .gallery-item figcaption { max-width: 300px; }
   .gallery-marquee__track { gap: 14px; }
   /* single-column here: .work-strips loses its side padding, so bleed just the gutter */
   .gallery-marquee { margin-right: calc(-1 * var(--gutter)); }
@@ -546,27 +552,6 @@ body.img-modal-open { overflow: hidden; }
           </div>
         </div>
       </a>
-
-      <!-- HIDDEN — 04 chatbot AI case study (in progress). Unhide when ready: restore counts to /04 and update outro. -->
-      <!--
-      <article class="work-strip work-strip--soon reveal">
-        <div class="work-strip__media"><img src="assets/images/work-kindocai.png" alt="" /></div>
-        <div class="work-strip__body">
-          <div class="work-strip__head">
-            <span class="work-strip__num">04 / 04</span>
-            <span class="work-strip__kind">In-house · 2023–24</span>
-          </div>
-          <h2 class="work-strip__title">Designing a chatbot AI<br />for <em>sensitive data</em>.</h2>
-          <p class="work-strip__desc">A conversational AI assistant handling sensitive health information — language UX patterns and a token system for AI-generated content.</p>
-          <div class="work-strip__hash">
-            <span>#AI_UX</span>
-            <span>#Conversational_UI</span>
-            <span>#Design_System</span>
-          </div>
-          <span class="work-strip__badge">Case study in progress</span>
-        </div>
-      </article>
-      -->
 
       <!-- ===== GALLERY ===== -->
       <div class="gallery-head reveal">Gallery</div>
