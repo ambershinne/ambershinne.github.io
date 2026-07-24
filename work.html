@@ -320,7 +320,7 @@
 .gallery-marquee__track {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 16px;
   width: max-content;
   animation: galleryMarquee 55s linear infinite;
 }
@@ -333,7 +333,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-bottom: 40px;    /* 캡션 밑 하단 여백 공간 */
+  padding-bottom: 80px;    /* 캡션 밑 하단 여백 공간 */
 }
 .gallery-item img {
   height: 272px;
@@ -361,7 +361,7 @@
 @media (max-width: 768px) {
   .gallery-item img { height: 204px; }
   .gallery-item figcaption { max-width: 300px; }
-  .gallery-marquee__track { gap: 14px; }
+  .gallery-marquee__track { gap: 12px; }
   /* single-column here: .work-strips loses its side padding, so bleed just the gutter */
   .gallery-marquee { margin-right: calc(-1 * var(--gutter)); }
 }
