@@ -142,7 +142,9 @@
 .qa-scroll {
   margin-left: 0;
   margin-top: 20px;
-  margin-right: calc(-1 * max(var(--gutter), (100vw - 1280px) / 2 + var(--gutter)));
+  /* bleed the scroll rail to the viewport's right edge (measured for the
+     sidebar + 800px case column layout); floors at --gutter on small screens */
+  margin-right: calc(-1 * max(var(--gutter), 50vw - 454px));
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x proximity;
@@ -398,6 +400,8 @@
    ============================================================ */
 @media (max-width: 1024px) {
   .qa-hero__rail { height: 380px; padding: 36px var(--gutter); }
+  /* sidebar collapses here — bleed just the gutter, no viewport-edge math */
+  .qa-scroll { margin-right: calc(-1 * var(--gutter)); }
   .qa-scroll__item .ph { height: 290px; }
   .qa-scroll__item .ph:not(:has(img)) { width: 420px; }
   .qa-scroll__item--wide .ph:not(:has(img)) { width: 520px; }
