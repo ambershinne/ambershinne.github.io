@@ -127,8 +127,8 @@ img, svg { display: block; max-width: 100%; }
   background: var(--line);
   opacity: 0.6;
 }
-.grid-frame::before { left: var(--gutter); }
-.grid-frame::after { right: var(--gutter); }
+.grid-frame::before { left: calc(var(--gutter) - 20px); }
+.grid-frame::after { right: calc(var(--gutter) - 20px); }
 
 .section {
   position: relative;
