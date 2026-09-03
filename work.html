@@ -14,14 +14,25 @@
    ============================================================ */
 .work-wrap {
   padding: 0 var(--gutter);
-  max-width: 1600px;
+  max-width: 1920px;
   margin: 0 auto;
 }
 
 /* Top eyebrow + serif subtitle */
 .work-intro {
   padding: 100px 0 36px;
-  border-bottom: 1px solid var(--line-2);
+  position: relative;
+}
+/* full-viewport divider line (not capped by the body max-width) */
+.work-intro::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 1px;
+  background: var(--line-2);
 }
 .work-intro__eyebrow {
   margin-bottom: 20px;
@@ -315,9 +326,9 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;        /* Firefox: hide scrollbar */
   min-width: 0;
-  /* 컨테이너 박스를 경계선 세로선 끝까지 확장 */
+  /* 왼쪽은 경계선까지, 오른쪽은 뷰포트 끝까지 블리드 (+32px = work-strips 패딩) */
   margin-left: -32px;
-  margin-right: -32px;
+  margin-right: calc(-1 * (max(var(--gutter), (100vw - 1920px) / 2 + var(--gutter)) + 32px));
   margin-bottom: 48px;
   position: relative;
   z-index: 1;
