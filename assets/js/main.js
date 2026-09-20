@@ -172,6 +172,9 @@
 })();
 // ===== Zoomable UI screenshots =====
 (function () {
+  // 줌 대상이 없으면 모달을 만들지 않는다 (모달 CSS가 없는 페이지, 예: 홈에서
+  // 스타일 없는 빈 모달 + X 버튼이 하단에 노출되는 문제 방지)
+  if (!document.querySelector('img.zoomable')) return;
   // 모달 한 번만 생성해서 재사용
   const modal = document.createElement('div');
   modal.className = 'img-modal';
