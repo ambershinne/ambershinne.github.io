@@ -382,7 +382,7 @@ img, svg { display: block; max-width: 100%; }
   justify-content: center;
   gap: 8px;
   padding: 13px 20px;
-  border: 1px solid transparent; /* reserve border box so ghost/primary match height */
+  border: 1.5px solid transparent; /* reserve border box so ghost/primary match height */
   border-radius: 4px;
   font-family: var(--font-sans);
   font-weight: 500;
@@ -404,11 +404,11 @@ img, svg { display: block; max-width: 100%; }
 }
 .btn--ghost {
   background: transparent;
-  border: 1px solid rgba(122,111,140,0.5);
-  color: var(--fg);
+  border: 1.5px solid #c4c4c4;
+  color: var(--accent); /* text + arrow match the View Work fill color */
 }
 .btn--ghost:hover {
-  border-color: var(--fg);
+  border-color: var(--accent);
   background: rgba(0,0,0,0.02);
 }
 .btn .arrow {
