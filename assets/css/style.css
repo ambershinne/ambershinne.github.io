@@ -408,7 +408,7 @@ img, svg { display: block; max-width: 100%; }
   color: var(--accent); /* text + arrow match the View Work fill color */
 }
 .btn--ghost:hover {
-  background: rgba(0,0,0,0.02); /* keep the interaction, but don't change the border color */
+  transform: translateY(-1px); /* same lift as View Work — no color/background change */
 }
 .btn .arrow {
   transition: transform var(--t-fast) var(--ease);
