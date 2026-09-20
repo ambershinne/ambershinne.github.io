@@ -419,6 +419,7 @@
 /* Intro — photo + narrative */
 .about-intro {
   padding: 96px 0 80px;
+  scroll-margin-top: 64px; /* land below the fixed nav when jumped to via #about */
 }
 .about-intro__grid {
   display: grid;

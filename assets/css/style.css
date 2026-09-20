@@ -382,6 +382,7 @@ img, svg { display: block; max-width: 100%; }
   justify-content: center;
   gap: 8px;
   padding: 13px 20px;
+  border: 1px solid transparent; /* reserve border box so ghost/primary match height */
   border-radius: 4px;
   font-family: var(--font-sans);
   font-weight: 500;
@@ -670,4 +671,4 @@ img, svg { display: block; max-width: 100%; }
   text-align: center;
   color: var(--muted);
 }
-.hero-cta { margin-top: 28px; }
+.hero-cta { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
