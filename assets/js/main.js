@@ -126,41 +126,21 @@
     onScroll();
   }
 
-  // ---- 6. Contact dropdown (tap on mobile, click-outside to close) ----
-  function initNavDropdown() {
-    const dropdown = document.querySelector('.nav__dropdown');
-    if (!dropdown) return;
-    const trigger = dropdown.querySelector('.nav__dropdown-trigger');
-    if (!trigger) return;
-
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const open = dropdown.classList.toggle('is-open');
-      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
+  // ---- 5. Init ----------------------------------------------
+  function initStickyNav() {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  // ---- 5. Init ----------------------------------------------
   function init() {
     initReveal();
+    initStickyNav();
     initActiveNav();
     initSideToc();
     initFloatNav();
-    initNavDropdown();
     initPageTransitions();
   }
 
@@ -169,41 +149,4 @@
   } else {
     init();
   }
-})();
-// ===== Zoomable UI screenshots =====
-(function () {
-  // 줌 대상이 없으면 모달을 만들지 않는다 (모달 CSS가 없는 페이지, 예: 홈에서
-  // 스타일 없는 빈 모달 + X 버튼이 하단에 노출되는 문제 방지)
-  if (!document.querySelector('img.zoomable')) return;
-  // 모달 한 번만 생성해서 재사용
-  const modal = document.createElement('div');
-  modal.className = 'img-modal';
-  modal.innerHTML =
-    '<button class="img-modal__close" aria-label="Close">&times;</button>' +
-    '<img alt="" />';
-  document.body.appendChild(modal);
-
-  const modalImg = modal.querySelector('img');
-
-  function open(src, alt) {
-    modalImg.src = src;
-    modalImg.alt = alt || '';
-    modal.classList.add('is-open');
-    document.body.classList.add('img-modal-open');
-  }
-  function close() {
-    modal.classList.remove('is-open');
-    document.body.classList.remove('img-modal-open');
-    modalImg.src = '';
-  }
-
-  document.querySelectorAll('img.zoomable').forEach(img => {
-    img.addEventListener('click', () => open(img.src, img.alt));
-  });
-
-  // 배경/이미지 클릭으로 닫기, X 버튼, ESC
-  modal.addEventListener('click', close);
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
-  });
 })();
