@@ -23,7 +23,7 @@
 body[data-page="home"]{background-color:#fdfdfc;background-image:radial-gradient(circle,rgba(17,16,16,.13) 1px,transparent 1px);background-size:26px 26px;background-attachment:fixed}
 body[data-page="home"]::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(120% 80% at 50% 0%,rgba(253,253,252,0) 38%,rgba(253,253,252,.92) 100%)}
 body[data-page="home"]::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(17,16,16,.06) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);opacity:1;transition:opacity 300ms var(--ease)}
-body[data-page="home"]>*:not(.nav){position:relative;z-index:1}
+body[data-page="home"]>*:not(.nav):not(.img-modal){position:relative;z-index:1}
 body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,body[data-page="home"] .timeline-section,body[data-page="home"] .trio-section,body[data-page="home"] .cta-mini,body[data-page="home"] .site-footer{background-color:rgba(253,253,252,.82);backdrop-filter:blur(2px)}
 
 /* hero */
@@ -246,20 +246,6 @@ body.img-modal-open{overflow:hidden}
 (function(){var b=document.body,x=0,y=0,t=null;
  addEventListener('pointermove',function(e){x=e.clientX;y=e.clientY;if(t)return;t=requestAnimationFrame(function(){t=null;b.style.setProperty('--mx',x+'px');b.style.setProperty('--my',y+'px')})},{passive:true});
  addEventListener('pointerleave',function(){b.style.setProperty('--mx','-999px')});
-})();
-</script>
-<script>
-(function(){
-  var modal=document.createElement('div');modal.className='img-modal';
-  modal.innerHTML='<button class="img-modal__close" aria-label="Close">&times;</button><img alt="" />';
-  document.body.appendChild(modal);
-  var big=modal.querySelector('img');
-  document.addEventListener('click',function(e){
-    var z=e.target.closest('.zoomable');
-    if(z){e.preventDefault();big.src=z.currentSrc||z.src;modal.classList.add('is-open');document.body.classList.add('img-modal-open');return;}
-    if(modal.classList.contains('is-open')){modal.classList.remove('is-open');document.body.classList.remove('img-modal-open');}
-  });
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'){modal.classList.remove('is-open');document.body.classList.remove('img-modal-open');}});
 })();
 </script>
 </body>

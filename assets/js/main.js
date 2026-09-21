@@ -150,3 +150,33 @@
     init();
   }
 })();
+
+// ===== Zoomable image modal (gallery + case screenshots) =====
+(function () {
+  // no zoomable images → no modal (avoids an empty overlay swallowing clicks)
+  if (!document.querySelector('.zoomable')) return;
+  var modal = document.createElement('div');
+  modal.className = 'img-modal';
+  modal.innerHTML = '<button class="img-modal__close" aria-label="Close">&times;</button><img alt="" />';
+  document.body.appendChild(modal);
+  var big = modal.querySelector('img');
+  function close() {
+    modal.classList.remove('is-open');
+    document.body.classList.remove('img-modal-open');
+    big.removeAttribute('src');
+  }
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('.zoomable');
+    if (z) {
+      e.preventDefault();
+      big.src = z.currentSrc || z.src;
+      modal.classList.add('is-open');
+      document.body.classList.add('img-modal-open');
+      return;
+    }
+    if (modal.classList.contains('is-open')) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
+  });
+})();
