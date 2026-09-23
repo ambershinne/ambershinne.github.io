@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  // ---- 0. Don't restore scroll on reload (start at top) -----
+  // Otherwise a refresh keeps the previous scroll position, so content
+  // sits under the fixed nav and the top spacing looks like it shrank.
+  // Hash-anchor navigation still works.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) window.scrollTo(0, 0);
+
   // ---- 1. Scroll fade-in via IntersectionObserver -----------
   function initReveal() {
     const els = document.querySelectorAll('.reveal');
@@ -94,7 +101,7 @@
 
     const onScroll = () => {
       const offset = window.innerHeight * 0.35;
-      let current = targets[0].id;
+      let current = null; // nothing active until the first section is reached
       for (const t of targets) {
         const rect = t.el.getBoundingClientRect();
         if (rect.top - offset <= 0) current = t.id;
