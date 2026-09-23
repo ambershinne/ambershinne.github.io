@@ -180,3 +180,18 @@
     if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
 })();
+
+// ===== Footer local clock (Berlin) =====
+(function () {
+  var el = document.querySelector('[data-berlin-clock]');
+  if (!el) return;
+  function tick() {
+    try {
+      el.textContent = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'Europe/Berlin', hour: 'numeric', minute: '2-digit'
+      });
+    } catch (e) { el.textContent = ''; }
+  }
+  tick();
+  setInterval(tick, 30000);
+})();
