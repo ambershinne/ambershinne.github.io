@@ -576,10 +576,16 @@ img, svg { display: block; max-width: 100%; }
   white-space: nowrap;
 }
 @media (max-width: 768px) {
-  .site-footer__top { flex-direction: column; align-items: flex-start; gap: 28px; padding-top: 56px; }
-  .site-footer__mid { flex-direction: column; gap: 36px; padding-top: 48px; }
-  .site-footer__bottom { padding: 60px 0 32px; }
-  .site-footer__mark { font-size: clamp(44px, 16vw, 90px); }
+  .site-footer__top { flex-direction: column; align-items: flex-start; gap: 24px; padding-top: 56px; }
+  .site-footer__headline { font-size: 17px; }
+  .site-footer__cta { padding: 12px 22px; font-size: 11px; }
+  .site-footer__mid { flex-direction: column; gap: 32px; padding-top: 48px; }
+  .site-footer__label { font-size: 10px; margin-bottom: 14px; }
+  .site-footer__link, .site-footer__clock { font-size: 14px; }
+  .site-footer__links { gap: 22px; }
+  .site-footer__bottom { padding: 56px 0 30px; }
+  .site-footer__built { font-size: 10px; }
+  .site-footer__mark { font-size: clamp(40px, 15vw, 84px); }
 }
 /* ============================================================
    Nav — Contact dropdown
