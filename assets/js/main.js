@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  // ---- 0. Don't restore scroll on reload (start at top) -----
+  // Otherwise a refresh keeps the previous scroll position, so content
+  // sits under the fixed nav and the top spacing looks like it shrank.
+  // Hash-anchor navigation still works.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) window.scrollTo(0, 0);
+
   // ---- 1. Scroll fade-in via IntersectionObserver -----------
   function initReveal() {
     const els = document.querySelectorAll('.reveal');
@@ -94,7 +101,7 @@
 
     const onScroll = () => {
       const offset = window.innerHeight * 0.35;
-      let current = targets[0].id;
+      let current = null; // nothing active until the first section is reached
       for (const t of targets) {
         const rect = t.el.getBoundingClientRect();
         if (rect.top - offset <= 0) current = t.id;
@@ -126,41 +133,21 @@
     onScroll();
   }
 
-  // ---- 6. Contact dropdown (tap on mobile, click-outside to close) ----
-  function initNavDropdown() {
-    const dropdown = document.querySelector('.nav__dropdown');
-    if (!dropdown) return;
-    const trigger = dropdown.querySelector('.nav__dropdown-trigger');
-    if (!trigger) return;
-
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      const open = dropdown.classList.toggle('is-open');
-      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!dropdown.contains(e.target)) {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        dropdown.classList.remove('is-open');
-        trigger.setAttribute('aria-expanded', 'false');
-      }
-    });
+  // ---- 5. Init ----------------------------------------------
+  function initStickyNav() {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    const onScroll = () => nav.classList.toggle('is-stuck', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
-  // ---- 5. Init ----------------------------------------------
   function init() {
     initReveal();
+    initStickyNav();
     initActiveNav();
     initSideToc();
     initFloatNav();
-    initNavDropdown();
     initPageTransitions();
   }
 
@@ -170,40 +157,48 @@
     init();
   }
 })();
-// ===== Zoomable UI screenshots =====
+
+// ===== Zoomable image modal (gallery + case screenshots) =====
 (function () {
-  // 줌 대상이 없으면 모달을 만들지 않는다 (모달 CSS가 없는 페이지, 예: 홈에서
-  // 스타일 없는 빈 모달 + X 버튼이 하단에 노출되는 문제 방지)
-  if (!document.querySelector('img.zoomable')) return;
-  // 모달 한 번만 생성해서 재사용
-  const modal = document.createElement('div');
+  // no zoomable images → no modal (avoids an empty overlay swallowing clicks)
+  if (!document.querySelector('.zoomable')) return;
+  var modal = document.createElement('div');
   modal.className = 'img-modal';
-  modal.innerHTML =
-    '<button class="img-modal__close" aria-label="Close">&times;</button>' +
-    '<img alt="" />';
+  modal.innerHTML = '<button class="img-modal__close" aria-label="Close">&times;</button><img alt="" />';
   document.body.appendChild(modal);
-
-  const modalImg = modal.querySelector('img');
-
-  function open(src, alt) {
-    modalImg.src = src;
-    modalImg.alt = alt || '';
-    modal.classList.add('is-open');
-    document.body.classList.add('img-modal-open');
-  }
+  var big = modal.querySelector('img');
   function close() {
     modal.classList.remove('is-open');
     document.body.classList.remove('img-modal-open');
-    modalImg.src = '';
+    big.removeAttribute('src');
   }
-
-  document.querySelectorAll('img.zoomable').forEach(img => {
-    img.addEventListener('click', () => open(img.src, img.alt));
+  document.addEventListener('click', function (e) {
+    var z = e.target.closest('.zoomable');
+    if (z) {
+      e.preventDefault();
+      big.src = z.currentSrc || z.src;
+      modal.classList.add('is-open');
+      document.body.classList.add('img-modal-open');
+      return;
+    }
+    if (modal.classList.contains('is-open')) close();
   });
-
-  // 배경/이미지 클릭으로 닫기, X 버튼, ESC
-  modal.addEventListener('click', close);
-  document.addEventListener('keydown', e => {
+  document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
   });
+})();
+
+// ===== Footer local clock (Berlin) =====
+(function () {
+  var el = document.querySelector('[data-berlin-clock]');
+  if (!el) return;
+  function tick() {
+    try {
+      el.textContent = new Date().toLocaleTimeString('en-US', {
+        timeZone: 'Europe/Berlin', hour: 'numeric', minute: '2-digit'
+      });
+    } catch (e) { el.textContent = ''; }
+  }
+  tick();
+  setInterval(tick, 30000);
 })();

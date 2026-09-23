@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Amber Shin</title>
+<meta name="description" content="Eunhye 'Amber' Shin, Product Designer. Seven years across consumer mobile, B2B SaaS, and enterprise systems. Berlin." />
+<meta property="og:title" content="About · Amber Shin" />
+<meta property="og:description" content="Product designer working on admin tooling, operations platforms, and mobile products in B2B SaaS and healthcare." />
+<meta property="og:image" content="https://ambershin.com/assets/images/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://ambershin.com/assets/images/og-image.png" />
+<meta property="og:url" content="https://ambershin.com" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+<link rel="stylesheet" href="assets/css/pages.css" />
+<link rel="icon" type="image/png" href="assets/images/favicon.png" />
+<style id="about-renew">
+body[data-page="about"] .wrap{max-width:1152px}
+body[data-page="about"]{background-color:#fdfdfc;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23111010'%20stroke-width='1'%20stroke-opacity='.08'/%3E%3C/svg%3E");background-size:32px 32px;background-attachment:fixed}
+body[data-page="about"] .grid-frame{display:none}
+body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23111010'%20stroke-width='1'%20stroke-opacity='.05'/%3E%3C/svg%3E");background-size:32px 32px;-webkit-mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);opacity:1;transition:opacity 300ms var(--ease)}
+
+/* headings match the home page */
+.about-intro__quote,.timeline-section__title,.h-serif{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;letter-spacing:.002em}
+.timeline-section__title,.h-serif{font-size:clamp(23px,2.3vw,32px);line-height:1.2}
+.about-intro__quote em{font-style:normal;font-variation-settings:var(--vf-soft)}
+
+/* wider body column */
+.about-intro__grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);column-gap:clamp(8px,0.85vw,15px)}
+.about-intro__body{max-width:none}
+.about-greet{margin:0 0 14px;font-family:'DM Sans',var(--font-sans);font-size:15px;line-height:1.6;letter-spacing:-.005em;color:var(--muted)}
+.about-greet b{font-weight:500;color:var(--fg)}
+.about-intro__quote{max-width:none;white-space:nowrap;margin-top:24px;display:flex;align-items:center;gap:.31em}
+.wave{display:inline-grid;place-items:center;width:1.63em;height:1.63em;flex:none;color:#f5876f}
+.wave svg{width:100%;height:100%}
+.bubble{position:relative;flex:none;margin-left:.34em;transform:rotate(-2.6deg);font-family:'DM Sans',var(--font-sans);font-style:normal;font-weight:500;font-size:.5em;letter-spacing:-.01em;line-height:1;color:var(--fg);background:rgba(154,214,94,.07);border:1px solid rgba(154,214,94,.4);border-radius:999px;padding:.62em 1.05em;background-clip:padding-box;display:inline-flex;align-items:center;gap:.42em;white-space:nowrap;transition:transform 420ms var(--ease)}
+.bubble::after{content:"";position:absolute;left:-8px;top:50%;margin-top:-6px;width:10px;height:12px;background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'10'%20height%3D'12'%20viewBox%3D'0%200%2010%2012'%3E%3Cpath%20d%3D'M9.4%201.4%20L1.4%206%20L9.4%2010.6'%20fill%3D'%23f8fcf4'%20stroke%3D'%23dcedcb'%20stroke-width%3D'1'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E");background-repeat:no-repeat;background-size:100% 100%}
+.about-intro__quote:hover .bubble{transform:rotate(1.4deg) translateY(-2px)}
+.about-intro__paragraph{max-width:520px;font-family:'DM Sans',var(--font-sans);font-size:15px;font-weight:400;line-height:1.6;letter-spacing:-.005em;color:var(--fg-3);text-wrap:pretty;hyphens:none;overflow-wrap:normal}
+
+/* polaroids */
+.polastack{position:relative;display:block;aspect-ratio:1/0.92}
+.pola{position:absolute;background:#fff;padding:9px 9px 34px;border:1px solid rgba(17,16,16,.07);box-shadow:0 10px 26px -12px rgba(17,16,16,.3),0 2px 4px rgba(17,16,16,.05);transition:transform 520ms var(--ease),box-shadow 520ms var(--ease)}
+.pola img{display:block;width:100%;height:auto}
+.pola--1{width:60%;left:2%;top:0;z-index:2;transform:rotate(-3.4deg)}
+.pola--2{width:42%;right:1%;top:14%;z-index:3;transform:rotate(4.2deg)}
+.pola--3{width:40%;left:26%;bottom:2.5%;z-index:1;transform:rotate(-6.5deg)}
+.pola--1:hover{transform:rotate(-1.4deg) scale(1.03)}
+.pola--2:hover{transform:rotate(1.8deg) scale(1.03)}
+.pola--3:hover{transform:rotate(-2.6deg) scale(1.03)}
+.pola:hover{z-index:5;box-shadow:0 18px 40px -14px rgba(17,16,16,.36)}
+.about-intro__media{padding-top:52px}
+.about-intro{padding-top:168px}
+.about-intro__media figcaption{display:block;width:100%;margin-top:22px;text-align:center}
+
+.trio__title{display:flex;align-items:center;gap:8px}
+.trio__mark{display:inline-grid;place-items:center;width:17px;height:17px;flex:none;color:var(--fg-3)}
+.trio__mark svg,.trio__mark img{width:100%;height:100%;object-fit:contain;display:block}
+.trio__mark--txt{font-family:var(--font-mono);font-size:8px;line-height:1;font-weight:500;letter-spacing:0;border:1px solid var(--line-2);border-radius:3px;color:var(--fg-3);background:#fff;overflow:visible}
+
+/* open to work + strengths as marker underlines */
+.eyebrow--otw span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#00c8ff;box-shadow:0 0 7px rgba(0,200,255,.85);margin-right:8px;vertical-align:1px;animation:pulseNeonAbout 2.6s ease-in-out infinite}
+@keyframes pulseNeonAbout{0%,100%{opacity:1}50%{opacity:.35}}
+.about-intro__strengths{border:none;background:none;padding:26px 0 0;margin-top:14px;border-top:1px solid var(--line-3)}
+.about-intro__strengths-label{display:block;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:17px;letter-spacing:.002em;text-transform:none;color:var(--muted);margin-bottom:18px}
+.about-intro__pills{display:flex;flex-wrap:wrap;gap:8px 22px}
+.pill{display:inline-flex;align-items:baseline;gap:7px;border:none;background:none;border-radius:0;padding:1px 0 2px;font-family:'DM Sans',var(--font-sans);font-size:14.5px;font-weight:500;color:var(--fg)}
+.pill__num{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--fg-3)}
+.pill--pink,.pill--blue{padding:1px .12em 2px;background-repeat:no-repeat;background-size:100% 42%;background-position:0 84%}
+.pill--pink{background-image:linear-gradient(rgba(255,45,139,.26),rgba(255,45,139,.26))}
+.pill--blue{background-image:linear-gradient(rgba(154,214,94,.38),rgba(154,214,94,.38))}
+
+@media (max-width:900px){.about-intro__grid{grid-template-columns:1fr}.polastack{padding-bottom:40px}}
+@media (max-width:640px){.about-intro{padding-top:96px}.about-intro__media{padding-top:22px}}
+</style>
+
+
+  
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ERWKJBLX22"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ERWKJBLX22');
+</script>
+</head>
+<body data-page="about">
+
+<div class="grid-frame" aria-hidden="true"></div>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <nav class="nav__links">
+    <a href="index.html" class="nav__link"><span class="nav__ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.4 7.2 8 2.6l5.6 4.6"/><path d="M3.8 8.3v4.6a.7.7 0 0 0 .7.7h7a.7.7 0 0 0 .7-.7V8.3"/></svg></span>Home</a>
+    <a href="index.html#work" class="nav__link"><span class="nav__ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="5" width="11.6" height="8.2" rx="1.2"/><path d="M5.8 5V3.8a1 1 0 0 1 1-1h2.4a1 1 0 0 1 1 1V5"/></svg></span>Work</a>
+    <a href="about.html" class="nav__link"><span class="nav__ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="6" r="2.5"/><path d="M3 13.2c0-2.2 2.2-3.8 5-3.8s5 1.6 5 3.8"/></svg></span>About</a>
+    <div class="nav__dropdown">
+      <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span class="nav__ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="3.6" width="11.6" height="8.8" rx="1.4"/><path d="m2.8 5 5.2 3.6L13.2 5"/></svg></span>Contact<svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 4.8 3 3 3-3"/></svg></button>
+      <div class="nav__menu">
+        <a href="mailto:seh3988@gmail.com" class="nav__menu-item">
+          <span class="nav__menu-icon">E</span>
+          <span class="nav__menu-text"><span class="nav__menu-title">Email</span><span class="nav__menu-sub">Shoot me a message</span></span>
+        </a>
+        <a href="https://www.linkedin.com/in/eunhyeshin" target="_blank" rel="noopener" class="nav__menu-item">
+          <span class="nav__menu-icon">in</span>
+          <span class="nav__menu-text"><span class="nav__menu-title">LinkedIn</span><span class="nav__menu-sub">Let's connect</span></span>
+        </a>
+        <a href="assets/eunhye-amber-shin_CV_2026.pdf" target="_blank" rel="noopener" class="nav__menu-item">
+          <span class="nav__menu-icon">CV</span>
+          <span class="nav__menu-text"><span class="nav__menu-title">Resume</span><span class="nav__menu-sub">Download PDF</span></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- ============ INTRO ============ -->
+<section class="about-intro" id="about">
+  <div class="wrap">
+    <div class="about-intro__grid">
+      <figure class="about-intro__media reveal" style="padding-right: 0">
+        <div class="polastack" aria-label="Photo collage">
+          <div class="pola pola--1"><img src="assets/images/aboutme-01.png" alt="Working at laptop" /></div>
+          <div class="pola pola--2"><img src="assets/images/aboutme-02.png" alt="HBD cake" /></div>
+          <div class="pola pola--3"><img src="assets/images/aboutme-03.png" alt="Pink muhly grass field" /></div>
+        </div>
+        <figcaption>Life off-screen · 2022–2025</figcaption>
+      </figure>
+
+      <div class="about-intro__body">
+        <div class="eyebrow eyebrow--otw reveal">
+          <span>Open to work · Berlin</span>
+        </div>
+
+        <h2 class="about-intro__quote reveal" data-delay="1">
+          <em>Hi, I'm Eunhye.</em><span class="bubble">Call me Amber!<span class="wave" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M18.4 5.6l-2.1 2.1M21 12h-3M5.6 5.6l2.1 2.1M3 12h3"/><circle cx="12" cy="15" r="5.2"/><path d="M9.8 14.2h.01M14.2 14.2h.01M9.9 17c.6.6 1.3.9 2.1.9s1.5-.3 2.1-.9"/></svg></span></span>
+       </h2>
+        <p class="about-intro__paragraph reveal" data-delay="2">
+  I care about doing things right, not just fast. Before I open Figma, I want to know what the organization actually needs, and whether the problem is worth solving at&nbsp;all.
+</p>
+<p class="about-intro__paragraph reveal" data-delay="3">
+  I joined a Korean healthcare startup as its third team member, back when it was still an MVP. I stayed through Series&nbsp;B, grew into Design Lead, and became a shareholder along the way. The work split between our own products and large&#8209;scale systems built with hospital partners. It taught me that the best work happens when people think together. I&nbsp;can work alone, but I do my best work on a team that pushes&nbsp;back.
+</p>
+<p class="about-intro__paragraph reveal" data-delay="4">
+  If anything, I'm a generalist, and in the AI era that has become my edge. I can take an idea from 0 to 1&nbsp;on my own, prototyping in code, while keeping the parts that should stay human: strategy, ideation, and deciding what to build&nbsp;first.
+</p>
+
+        <div class="about-intro__strengths reveal" data-delay="4">
+          <div class="about-intro__strengths-label">Top 5 strengths · CliftonStrengths</div>
+          <div class="about-intro__pills">
+            <span class="pill pill--pink"><span class="pill__num">01</span> Ideation</span>
+            <span class="pill pill--blue"><span class="pill__num">02</span> Strategic</span>
+            <span class="pill"><span class="pill__num">03</span> Individualization</span>
+            <span class="pill"><span class="pill__num">04</span> Responsibility</span>
+            <span class="pill"><span class="pill__num">05</span> Analytical</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CAPABILITIES ============ -->
+<section class="trio-section" id="capabilities" style="padding-top: 100px; padding-bottom: 96px;">
+  <div class="wrap">
+    <div class="timeline-section__head" style="margin-bottom: 56px;">
+      <div class="eyebrow reveal">
+        <span>Capabilities</span>
+      </div>
+      <h2 class="timeline-section__title h-serif reveal" data-delay="1">
+        <em>A comprehensive approach</em><br />to product design.
+      </h2>
+    </div>
+
+    <div class="cap-grid">
+      <article class="cap-card reveal">
+        <div class="cap-card__num">01</div>
+        <h3 class="cap-card__title">Product Thinking</h3>
+        <ul class="cap-card__list">
+          <li>0-to-1 product development</li>
+          <li>Conversion &amp; retention optimization</li>
+          <li>User research &amp; journey design</li>
+          <li>Business-driven design decisions</li>
+        </ul>
+      </article>
+
+      <article class="cap-card reveal" data-delay="1">
+        <div class="cap-card__num">02</div>
+        <h3 class="cap-card__title">Platform &amp; Systems</h3>
+        <ul class="cap-card__list">
+          <li>B2B SaaS product design</li>
+          <li>Admin &amp; operational tools</li>
+          <li>Information architecture</li>
+          <li>AI-assisted prototyping &amp; deployment</li>
+          <li>HTML/CSS editing &amp; GitHub deployment</li>
+        </ul>
+      </article>
+
+      <article class="cap-card reveal" data-delay="2">
+        <div class="cap-card__num">03</div>
+        <h3 class="cap-card__title">Execution &amp; Ownership</h3>
+        <ul class="cap-card__list">
+          <li>Lead team projects as design leader</li>
+          <li>Owned the product lifecycle from 0-1 to scale</li>
+          <li>Led cross-functional team in an Agile environment</li>
+          <li>Built systems to support operational growth</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="timeline-section" id="experience">
+  <div class="wrap">
+    <div class="timeline-section__head">
+      <div class="eyebrow reveal">
+        <span>Experience</span>
+      </div>
+      <h2 class="timeline-section__title h-serif reveal" data-delay="1">
+        Career &amp; Projects
+      </h2>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Oct 2025 – Nov 2025</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">Samsung Kangbuk Hospital · Booking System for Mobile v.2</h3>
+          <div class="timeline__role">Product Management · Product Design</div>
+        </div>
+        <div class="timeline__meta">Partnership</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Nov 2018 – Apr 2025</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">Kindoc · Health Checkup Platform</h3>
+          <div class="timeline__role">Head Manager, Product Design Team · App · Web · Backoffice</div>
+        </div>
+        <div class="timeline__meta">In-house lead</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Sep 2022 – Apr 2025</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">Samsung Kangbuk Hospital · Test Reservation System</h3>
+          <div class="timeline__role">PM (5 months) · Product Design Lead</div>
+        </div>
+        <div class="timeline__meta">Partnership</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Dec 2023 – May 2024</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">Kindoc AI</h3>
+          <div class="timeline__role">Generative AI Chatbot · PM / PD</div>
+        </div>
+        <div class="timeline__meta">In-house</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Jul 2023 – Aug 2023</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">Inthepink Checkup Center Management System</h3>
+          <div class="timeline__role">Tablet &amp; LG Cloi (Robot) Connected Device · Planning &amp; Design Lead</div>
+        </div>
+        <div class="timeline__meta">Partnership</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">Jan 2021 – Oct 2022</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">LG Electronics · Bio-data Linked Smart Health Project</h3>
+          <div class="timeline__role">Native app for Bluetooth device integration, employee-dedicated</div>
+        </div>
+        <div class="timeline__meta">Partnership</div>
+      </div>
+
+      <div class="timeline__row reveal">
+        <div class="timeline__date">May 2020 – Jul 2021</div>
+        <div class="timeline__body">
+          <h3 class="timeline__title">"Doctrue" (Kindoc Aftercare) · Global Telemedicine Service</h3>
+          <div class="timeline__role">Product Strategy · Planning &amp; Design</div>
+        </div>
+        <div class="timeline__meta">In-house</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION + CERT + SKILLS ============ -->
+<section class="trio-section" id="education">
+  <div class="wrap">
+    <div class="trio">
+      <div class="trio__col reveal">
+        <div class="eyebrow"><span>Education</span></div>
+        <div class="trio__entry">
+          <div class="trio__title"><span class="trio__mark" aria-hidden="true"><img src="assets/images/logo-ewha.png" alt="" /></span>Ewha Womans University</div>
+          <div class="trio__sub">College of Fine Arts · BFA, Fiber Arts</div>
+          <div class="trio__date">Mar 2011 – Aug 2016</div>
+        </div>
+        <div class="trio__entry">
+          <div class="trio__title"><span class="trio__mark" aria-hidden="true"><img src="assets/images/logo-kah.png" alt="" /></span>Korea Animation High School</div>
+          <div class="trio__sub">Department of Animation</div>
+          <div class="trio__date">Mar 2008 – Feb 2011</div>
+        </div>
+      </div>
+
+      <div class="trio__col reveal" data-delay="1">
+        <div class="eyebrow"><span>Certification</span></div>
+        <div class="trio__entry">
+          <div class="trio__title"><span class="trio__mark" aria-hidden="true"><svg viewBox="0 0 16 16" fill="none"><path d="M8 1.6c-3.5 0-6.4 2.7-6.4 6s2.9 6 6.4 6c.9 0 1.5-.6 1.5-1.3 0-.4-.2-.7-.4-.9-.2-.2-.3-.5-.3-.8 0-.7.6-1.2 1.3-1.2h1.1c2 0 3.2-1.3 3.2-3.2 0-2.7-2.7-4.6-6.4-4.6Z" stroke="currentColor" stroke-width="1.1"/><circle cx="4.7" cy="7.6" r="1" fill="#ff2d8b"/><circle cx="6.6" cy="4.8" r="1" fill="#00c8ff"/><circle cx="9.8" cy="4.6" r="1" fill="#ffd166"/><circle cx="11.7" cy="7" r="1" fill="#7fd1a8"/></svg></span>Colorist Engineer</div>
+          <div class="trio__sub">National Technical Qualification · HRD Service of Korea</div>
+          <div class="trio__date">May 2016</div>
+        </div>
+      </div>
+
+      <div class="trio__col reveal" data-delay="2">
+        <div class="eyebrow"><span>Skill set</span></div>
+        <ul class="skills-list">
+          <li>Figma · Auto layout, variables, prototyping</li>
+          <li>Sketch · Symbol-based systems</li>
+          <li>Illustrator · Photoshop · Brand assets</li>
+          <li>Framer · Claude Design · Interaction prototyping</li>
+          <li>Zeplin · Handoff &amp; specs</li>
+          <li>Notion · Asana · Documentation</li>
+          <li>HTML · CSS · GitHub deployment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__top">
+      <p class="site-footer__headline">Open to diverse product design opportunities.</p>
+      <a href="mailto:seh3988@gmail.com" class="site-footer__cta">
+        Get in touch
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+
+    <div class="site-footer__mid">
+      <div class="site-footer__group">
+        <div class="site-footer__label">Elsewhere</div>
+        <div class="site-footer__links">
+          <a href="https://www.linkedin.com/in/eunhyeshin" target="_blank" rel="noopener" class="site-footer__link">
+            <span class="site-footer__ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="7" r="0.6" fill="currentColor"/><path d="M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span>LinkedIn
+          </a>
+          <a href="https://www.instagram.com/shin_neon3.0/" target="_blank" rel="noopener" class="site-footer__link">
+            <span class="site-footer__ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></span>Instagram
+          </a>
+        </div>
+      </div>
+      <div class="site-footer__group">
+        <div class="site-footer__label">Local time</div>
+        <div class="site-footer__clock">Berlin · <span data-berlin-clock>—</span></div>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <p class="site-footer__built">Built with HTML, CSS &amp; Claude Code · © 2026</p>
+    </div>
+
+    <div class="site-footer__mark" aria-hidden="true">Eunhye Shin</div>
+  </div>
+</footer>
+
+<!-- ============ SKILLS RADAR SCRIPT ============ -->
+<script>
+(function(){
+  /* ============== CONFIG ============== */
+  var SKILLS = [
+    { name:"Product\nThinking",    value:95 },  // top, then clockwise →
+    { name:"Visual\nCraft",        value:75 },
+    { name:"Builds in\nCode",  value:65 },
+    { name:"AI\nLeverage",         value:90 },
+    { name:"Business &\nBranding", value:82 }
+  ];
+  var FILL_GRADIENT = true;   // false = flat translucent wash
+  // intro ripple timing (ms)
+  var REST = 1500, STAGGER = 360, UP = 620, DOWN = 820, START_DELAY = 1500;
+  var RIPPLE_ORDER = [3,2,1,0,4];   // AI Leverage first, then counter-clockwise
+  /* ==================================== */
+
+  var VB=560, VH=540, CX=280, CY=252, R=152, RINGS=5;
+
+  function init(root){
+    if(root.__srDone) return; root.__srDone = true;
+    var svg = root.querySelector(".sr-svg");
+    var uid = "sr-" + Math.random().toString(36).slice(2,8);
+
+    function pt(i, radius){
+      var ang = (-90 + i*72) * Math.PI/180;
+      return [ CX + radius*Math.cos(ang), CY + radius*Math.sin(ang) ];
+    }
+    function poly(radius){
+      return SKILLS.map(function(_,i){ return pt(i,radius).map(function(n){return n.toFixed(1);}).join(","); }).join(" ");
+    }
+    function accent(){ return getComputedStyle(root).getPropertyValue("--sr-accent").trim() || "#a78bfa"; }
+
+    // ---- build static chart ----
+    var g = "";
+    g += '<defs><radialGradient id="'+uid+'" cx="50%" cy="50%" r="65%">'
+       + '<stop offset="0%" stop-color="'+accent()+'" stop-opacity="0.32"/>'
+       + '<stop offset="100%" stop-color="'+accent()+'" stop-opacity="0.04"/>'
+       + '</radialGradient></defs>';
+    for(var r=1;r<=RINGS;r++){
+      g += '<polygon class="sr-ring'+(r===RINGS?' is-outer':'')+'" points="'+poly(R*r/RINGS)+'"/>';
+    }
+    for(var i=0;i<SKILLS.length;i++){
+      var p = pt(i,R);
+      g += '<line class="sr-spoke" x1="'+CX+'" y1="'+CY+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'"/>';
+    }
+    var dpts = SKILLS.map(function(s,i){ return pt(i, R*s.value/100); });
+    var fillVal = FILL_GRADIENT ? 'url(#'+uid+')'
+                : 'color-mix(in srgb, '+accent()+' 13%, transparent)';
+    g += '<g class="sr-grp">';
+    g += '<polygon class="sr-poly" points="'+dpts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" ")+'" style="fill:'+fillVal+'"/>';
+    dpts.forEach(function(p){ g += '<circle class="sr-vtx" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4.4"/>'; });
+    g += '</g>';
+    g += '<circle class="sr-center" cx="'+CX+'" cy="'+CY+'" r="2.2"/>';
+    svg.innerHTML = g;
+
+    // ---- labels ----
+    SKILLS.forEach(function(s,i){
+      var p = pt(i, R + 30);
+      var el = document.createElement("div");
+      el.className = "sr-lbl " + (p[0] < CX-8 ? "is-l" : p[0] > CX+8 ? "is-r" : "");
+      el.style.left = (p[0]/VB)*100 + "%";
+      el.style.top  = (p[1]/VH)*100 + "%";
+      el.innerHTML = s.name.replace(/\n/g,"<br>");
+      root.appendChild(el);
+    });
+
+    // ---- entrance settle (safe if clock is paused: never hides content) ----
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){
+      void root.offsetWidth; root.classList.add("sr-in");
+    });});
+
+    // ---- looping ripple ----
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if(reduce) return;
+    var real = SKILLS.map(function(s){ return s.value; });
+    var ease = function(p){ return p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2; };
+    var cycle = (RIPPLE_ORDER.length-1)*STAGGER + UP + DOWN;
+    var polyEl = svg.querySelector(".sr-poly");
+    var dots = svg.querySelectorAll(".sr-vtx");
+    var t0 = null;
+
+    function apply(vals){
+      var pts = vals.map(function(v,i){ return pt(i, R*v/100); });
+      polyEl.setAttribute("points", pts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" "));
+      dots.forEach(function(d,i){ d.setAttribute("cx", pts[i][0].toFixed(1)); d.setAttribute("cy", pts[i][1].toFixed(1)); });
+    }
+    function frame(now){
+      if(t0===null) t0=now;
+      var t = (now - t0) % (cycle + REST);
+      var vals = real.slice();
+      RIPPLE_ORDER.forEach(function(vi, oi){
+        var s = oi*STAGGER, e = s + UP + DOWN;
+        if(t>=s && t<=e){
+          if(t<=s+UP){ vals[vi] = real[vi] + (100-real[vi])*ease((t-s)/UP); }
+          else       { vals[vi] = 100 + (real[vi]-100)*ease((t-(s+UP))/DOWN); }
+        }
+      });
+      apply(vals);
+      requestAnimationFrame(frame);
+    }
+    setTimeout(function(){ requestAnimationFrame(frame); }, START_DELAY);
+  }
+
+  function boot(){
+    document.querySelectorAll("[data-skills-radar]").forEach(init);
+  }
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+})();
+</script>
+
+<script src="assets/js/main.js"></script>
+<script>
+(function(){var b=document.body,x=0,y=0,t=null;
+ addEventListener('pointermove',function(e){x=e.clientX;y=e.clientY;if(t)return;t=requestAnimationFrame(function(){t=null;b.style.setProperty('--mx',x+'px');b.style.setProperty('--my',y+'px')})},{passive:true});
+ addEventListener('pointerleave',function(){b.style.setProperty('--mx','-999px')});
+})();
+</script>
+</body>
+</html>
