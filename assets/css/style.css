@@ -473,7 +473,7 @@ img, svg { display: block; max-width: 100%; }
   z-index: 2;
   overflow: hidden;
   background: #191615;
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23ffffff'%20stroke-width='1'%20stroke-opacity='.08'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23ffffff'%20stroke-width='1'%20stroke-opacity='.04'/%3E%3C/svg%3E");
   background-size: 32px 32px;
   color: #d9d5d2;
 }
