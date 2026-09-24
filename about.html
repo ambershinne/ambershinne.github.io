@@ -7,25 +7,29 @@
 <meta name="description" content="Eunhye 'Amber' Shin, Product Designer. Seven years across consumer mobile, B2B SaaS, and enterprise systems. Berlin." />
 <meta property="og:title" content="About · Amber Shin" />
 <meta property="og:description" content="Product designer working on admin tooling, operations platforms, and mobile products in B2B SaaS and healthcare." />
-<meta property="og:image" content="https://ambershin.com/assets/images/og-image.png" />
+<meta property="og:image" content="https://ambershin.com/assets/images/og-preview.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://ambershin.com/assets/images/og-image.png" />
+<meta name="twitter:image" content="https://ambershin.com/assets/images/og-preview.png" />
 <meta property="og:url" content="https://ambershin.com" />
   <link rel="stylesheet" href="assets/css/style.css" />
 <link rel="stylesheet" href="assets/css/pages.css" />
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style id="about-renew">
 body[data-page="about"] .wrap{max-width:1152px}
-body[data-page="about"]{background-color:#fdfdfc;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23111010'%20stroke-width='1'%20stroke-opacity='.08'/%3E%3C/svg%3E");background-size:32px 32px;background-attachment:fixed}
+body[data-page="about"]{background-color:#fdfdfc;background-image:url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20width%3D'32'%20height%3D'32'%20viewBox%3D'0%200%2032%2032'%3E%3Cpath%20d%3D'M16%2013.5v5M13.5%2016h5'%20stroke%3D'rgba(17%2C16%2C16%2C0.1)'%20stroke-width%3D'0.8'%20stroke-linecap%3D'round'%2F%3E%3C%2Fsvg%3E");background-size:32px 32px;background-attachment:fixed}
 body[data-page="about"] .grid-frame{display:none}
-body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%3E%3Cpath%20d='M13.5%2016h5M16%2013.5v5'%20stroke='%23111010'%20stroke-width='1'%20stroke-opacity='.05'/%3E%3C/svg%3E");background-size:32px 32px;-webkit-mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);opacity:1;transition:opacity 300ms var(--ease)}
+.side-rails{position:fixed;inset:0;pointer-events:none;z-index:0}
+.side-rails::before,.side-rails::after{content:"";position:absolute;top:0;bottom:0;width:max(0px,(100% - 1152px) / 2);background-image:repeating-linear-gradient(135deg,rgba(17,16,16,.035) 0 1px,transparent 1px 9px);background-color:rgba(17,16,16,.012)}
+body[data-page="about"]>*:not(.nav):not(.side-rails){position:relative;z-index:1}
+body[data-page="about"]{overflow-x:hidden}
+body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(circle,rgba(17,16,16,.06) 1px,transparent 1px);background-size:26px 26px;-webkit-mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);mask-image:radial-gradient(120px 120px at var(--mx,-999px) var(--my,-999px),#000 0%,rgba(0,0,0,.45) 55%,transparent 100%);opacity:1;transition:opacity 300ms var(--ease)}
 
 /* headings match the home page */
-.about-intro__quote,.timeline-section__title,.h-serif{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;letter-spacing:.002em}
-.timeline-section__title,.h-serif{font-size:clamp(23px,2.3vw,32px);line-height:1.2}
-.about-intro__quote em{font-style:normal;font-variation-settings:var(--vf-soft)}
+.about-intro__quote,.timeline-section__title,.h-serif{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;letter-spacing:-0.035em}
+.timeline-section__title,.h-serif{font-size:clamp(22px,2vw,28px);line-height:1.2}
+.about-intro__quote em{font-style:italic;font-variation-settings:var(--vf-soft)}
 
 /* wider body column */
 .about-intro__grid{grid-template-columns:minmax(0,.94fr) minmax(0,1.06fr);column-gap:clamp(8px,0.85vw,15px)}
@@ -52,7 +56,7 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
 .pola--3:hover{transform:rotate(-2.6deg) scale(1.03)}
 .pola:hover{z-index:5;box-shadow:0 18px 40px -14px rgba(17,16,16,.36)}
 .about-intro__media{padding-top:52px}
-.about-intro{padding-top:168px}
+.about-intro{padding-top:196px}
 .about-intro__media figcaption{display:block;width:100%;margin-top:22px;text-align:center}
 
 .trio__title{display:flex;align-items:center;gap:8px}
@@ -64,7 +68,7 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
 .eyebrow--otw span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#00c8ff;box-shadow:0 0 7px rgba(0,200,255,.85);margin-right:8px;vertical-align:1px;animation:pulseNeonAbout 2.6s ease-in-out infinite}
 @keyframes pulseNeonAbout{0%,100%{opacity:1}50%{opacity:.35}}
 .about-intro__strengths{border:none;background:none;padding:26px 0 0;margin-top:14px;border-top:1px solid var(--line-3)}
-.about-intro__strengths-label{display:block;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:17px;letter-spacing:.002em;text-transform:none;color:var(--muted);margin-bottom:18px}
+.about-intro__strengths-label{display:block;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:17px;letter-spacing:-0.035em;text-transform:none;color:var(--muted);margin-bottom:18px}
 .about-intro__pills{display:flex;flex-wrap:wrap;gap:8px 22px}
 .pill{display:inline-flex;align-items:baseline;gap:7px;border:none;background:none;border-radius:0;padding:1px 0 2px;font-family:'DM Sans',var(--font-sans);font-size:14.5px;font-weight:500;color:var(--fg)}
 .pill__num{font-family:var(--font-mono);font-size:12px;font-weight:500;letter-spacing:.06em;color:var(--fg-3)}
@@ -73,7 +77,7 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
 .pill--blue{background-image:linear-gradient(rgba(154,214,94,.38),rgba(154,214,94,.38))}
 
 @media (max-width:900px){.about-intro__grid{grid-template-columns:1fr}.polastack{padding-bottom:40px}}
-@media (max-width:640px){.about-intro{padding-top:96px}.about-intro__media{padding-top:22px}}
+@media (max-width:640px){.about-intro{padding-top:104px}.about-intro__media{padding-top:22px}}
 </style>
 
 
@@ -101,7 +105,7 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
     <div class="nav__dropdown">
       <button type="button" class="nav__link nav__dropdown-trigger" aria-haspopup="true" aria-expanded="false"><span class="nav__ico"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.2" y="3.6" width="11.6" height="8.8" rx="1.4"/><path d="m2.8 5 5.2 3.6L13.2 5"/></svg></span>Contact<svg class="nav__chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3 4.8 3 3 3-3"/></svg></button>
       <div class="nav__menu">
-        <a href="mailto:seh3988@gmail.com" class="nav__menu-item">
+        <a href="#" data-mail="seh3988|gmail.com" class="nav__menu-item">
           <span class="nav__menu-icon">E</span>
           <span class="nav__menu-text"><span class="nav__menu-title">Email</span><span class="nav__menu-sub">Shoot me a message</span></span>
         </a>
@@ -336,40 +340,31 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="site-footer__top">
-      <p class="site-footer__headline">Open to diverse product design opportunities.</p>
-      <a href="mailto:seh3988@gmail.com" class="site-footer__cta">
-        Get in touch
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
 
-    <div class="site-footer__mid">
-      <div class="site-footer__group">
-        <div class="site-footer__label">Elsewhere</div>
-        <div class="site-footer__links">
-          <a href="https://www.linkedin.com/in/eunhyeshin" target="_blank" rel="noopener" class="site-footer__link">
-            <span class="site-footer__ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="8" y1="10" x2="8" y2="17"/><circle cx="8" cy="7" r="0.6" fill="currentColor"/><path d="M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg></span>LinkedIn
-          </a>
-          <a href="https://www.instagram.com/shin_neon3.0/" target="_blank" rel="noopener" class="site-footer__link">
-            <span class="site-footer__ico"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.7" fill="currentColor"/></svg></span>Instagram
-          </a>
+<!-- ============ FOOTER ============ -->
+<footer class="footer footer--dark">
+  <div class="wrap">
+    <div class="footer__cta">
+      <p class="footer__cta-text">Open to diverse product design opportunities.</p>
+      <a class="footer__cta-link" href="#" data-mail="seh3988|gmail.com">Get in touch <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M7 3l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="footer__row">
+      <div class="footer__col">
+        <span class="footer__label">Elsewhere</span>
+        <div class="footer__links">
+          <a href="https://www.linkedin.com/in/eunhyeshin" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="2.4"/><path d="M4.4 6.6h1.6v5H4.4zM5.2 4.1a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8zM7.3 6.6h1.5v.7c.3-.5.9-.8 1.6-.8 1.3 0 1.9.8 1.9 2.2v2.9h-1.6V9c0-.7-.2-1.1-.8-1.1-.6 0-1 .4-1 1.2v2.5H7.3z" fill="#1c1b1b"/></svg>LinkedIn</a>
+          <a href="https://www.instagram.com/shin_neon3.0/" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="4"/><circle cx="8" cy="8" r="2.9" fill="none" stroke="#1c1b1b" stroke-width="1.4"/><circle cx="11.6" cy="4.4" r=".8" fill="#1c1b1b"/></svg>Instagram</a>
         </div>
       </div>
-      <div class="site-footer__group">
-        <div class="site-footer__label">Local time</div>
-        <div class="site-footer__clock">Berlin · <span data-berlin-clock>—</span></div>
+      <div class="footer__col">
+        <span class="footer__label">Local time</span>
+        <p class="footer__now">Berlin · <span data-berlin-time>--:--</span></p>
       </div>
     </div>
-
-    <div class="site-footer__bottom">
-      <p class="site-footer__built">Built with HTML, CSS &amp; Claude Code · © 2026</p>
+    <div class="footer__bottom">
+      <p class="footer__built">Built with HTML, CSS &amp; Claude Code · © 2026</p>
+      <div class="footer__name" aria-hidden="true">Eunhye Shin</div>
     </div>
-
-    <div class="site-footer__mark" aria-hidden="true">Eunhye Shin</div>
   </div>
 </footer>
 
@@ -487,10 +482,17 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
 
 <script src="assets/js/main.js"></script>
 <script>
+(function(){var el=document.querySelector('[data-berlin-time]');if(!el)return;
+function t(){try{el.textContent=new Date().toLocaleTimeString('en-US',{timeZone:'Europe/Berlin',hour:'numeric',minute:'2-digit'})}catch(e){}}
+t();setInterval(t,30000);})();
+</script>
+
+<script>
 (function(){var b=document.body,x=0,y=0,t=null;
  addEventListener('pointermove',function(e){x=e.clientX;y=e.clientY;if(t)return;t=requestAnimationFrame(function(){t=null;b.style.setProperty('--mx',x+'px');b.style.setProperty('--my',y+'px')})},{passive:true});
  addEventListener('pointerleave',function(){b.style.setProperty('--mx','-999px')});
 })();
 </script>
+<script>document.addEventListener('click',function(e){var m=e.target.closest('[data-mail]');if(!m)return;e.preventDefault();var p=m.getAttribute('data-mail').split('|');location.href='mai'+'lto:'+p[0]+'@'+p[1];});</script>
 </body>
 </html>
