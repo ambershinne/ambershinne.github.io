@@ -597,3 +597,62 @@ body[data-page="work-kindoc-b2c"] .ui-frame--auto {
 body[data-page="work-kindoc-b2c"] .ui-frame--auto .ui-frame__body {
   background: transparent;   /* ← 안쪽 흰 배경 제거 */
 }
+
+/* ============================================================
+   OUTCOME — indexed line chart + insight panel
+   ============================================================ */
+.outcome-viz { margin: 32px 0 8px; }
+.outcome-viz .ov-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 14px;
+}
+.ov-chart {
+  background: #fff;
+  border: 1px solid var(--line-3);
+  border-radius: 14px;
+  padding: 26px 30px 20px;
+}
+.ov-chart__title {
+  font-family: 'DM Sans', var(--font-sans);
+  font-weight: 600; font-size: 16px; letter-spacing: -0.01em;
+  color: var(--fg); margin: 0 0 16px;
+}
+.ov-legend { display: flex; flex-wrap: wrap; gap: 9px 20px; margin-bottom: 20px; }
+.ov-leg {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'DM Sans', var(--font-sans); font-size: 13px;
+  color: var(--fg-2); letter-spacing: -0.005em;
+}
+.ov-sw { width: 16px; height: 3px; border-radius: 2px; flex: none; }
+.ov-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.ov-svg text { font-family: var(--font-mono); }
+.ov-svg .ov-ax { font-size: 15px; fill: var(--muted); }
+.ov-svg .ov-ax--hl { fill: var(--fg); font-weight: 500; }
+.ov-svg .ov-base { font-size: 14px; fill: var(--muted-2); }
+.ov-svg .ov-rel { font-size: 14px; fill: #e0559a; letter-spacing: 0.03em; }
+
+.ov-insight {
+  background: #191615;
+  border-radius: 14px;
+  padding: 30px 30px;
+  display: flex; flex-direction: column;
+}
+.ov-insight__label {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(255,255,255,.42); margin-bottom: 22px;
+}
+.ov-insight__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
+.ov-insight__list li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; }
+.ov-insight__n { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: #ff2d8b; padding-top: 1px; }
+.ov-insight__tx { font-family: 'DM Sans', var(--font-sans); font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.88); letter-spacing: -0.005em; }
+
+@media (max-width: 760px) {
+  .outcome-viz .ov-grid { grid-template-columns: 1fr; gap: 16px; }
+  .ov-chart { padding: 22px 20px 16px; }
+  .ov-insight { padding: 26px 22px; }
+  .ov-svg .ov-ax, .ov-svg .ov-base, .ov-svg .ov-rel { font-size: 19px; }
+  .ov-sw { height: 3px; }
+}
