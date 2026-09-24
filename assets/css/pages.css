@@ -383,7 +383,7 @@
   font-variation-settings: "opsz" 144, "SOFT" 0;
   font-size: 38px;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.035em;
   color: var(--fg);
   display: inline-flex;
   align-items: baseline;
@@ -478,14 +478,14 @@
 .about-intro__quote {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(22px, 2.4vw, 30px);
+  font-size: clamp(21px, 2vw, 28px);
   line-height: 1.25;
-  letter-spacing: 0.002em;
+  letter-spacing: -0.035em;
   color: var(--fg);
   margin: 24px 0 36px;
 }
 .about-intro__quote em {
-  font-style: normal;
+  font-style: italic;
   font-variation-settings: normal;
 }
 .about-intro__paragraph {
