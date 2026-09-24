@@ -635,19 +635,22 @@ body[data-page="work-kindoc-b2c"] .ui-frame--auto .ui-frame__body {
 .ov-svg .ov-rel { font-size: 14px; fill: #e0559a; letter-spacing: 0.03em; }
 
 .ov-insight {
-  background: #191615;
+  background: var(--bg-tint);
+  border: 1px solid var(--line-2);
   border-radius: 14px;
   padding: 30px 30px;
   display: flex; flex-direction: column;
 }
 .ov-insight__label {
+  display: inline-flex; align-items: center; gap: 7px;
   font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
-  text-transform: uppercase; color: rgba(255,255,255,.42); margin-bottom: 22px;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 22px;
 }
+.ov-insight__ico { width: 13px; height: 13px; flex: none; color: #f26b84; }
 .ov-insight__list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 20px; }
 .ov-insight__list li { display: grid; grid-template-columns: 26px 1fr; gap: 14px; align-items: start; }
-.ov-insight__n { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: #ff2d8b; padding-top: 1px; }
-.ov-insight__tx { font-family: 'DM Sans', var(--font-sans); font-size: 14px; line-height: 1.5; color: rgba(255,255,255,.88); letter-spacing: -0.005em; }
+.ov-insight__n { font-family: var(--font-mono); font-size: 13px; font-weight: 500; color: #f26b84; padding-top: 1px; }
+.ov-insight__tx { font-family: 'DM Sans', var(--font-sans); font-size: 14px; line-height: 1.5; color: var(--fg-2); letter-spacing: -0.005em; }
 
 @media (max-width: 760px) {
   .outcome-viz .ov-grid { grid-template-columns: 1fr; gap: 16px; }
