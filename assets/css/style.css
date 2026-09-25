@@ -668,10 +668,10 @@ img, svg { display: block; max-width: 100%; }
   .nav__chevron { width: 10px; height: 10px; }
 }
 @media (max-width: 560px) {
-  .nav { top: 10px; width: calc(100% - 24px); padding: 3px; }
+  .nav { top: 10px; width: calc(100% - 24px); padding: 3px 10px; }
   .nav__links { width: 100%; justify-content: space-between; }
-  .nav__link { padding: 8px; font-size: 11px; gap: 4px; line-height: 1.25; }
-  .nav__ico { width: 13px; height: 13px; }
+  .nav__link { padding: 10px 10px; font-size: 13px; gap: 5px; line-height: 1.25; }
+  .nav__ico { width: 14px; height: 14px; }
   .nav__chevron { width: 10px; height: 10px; }
 }
 

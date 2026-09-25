@@ -93,6 +93,7 @@ body.img-modal-open{overflow:hidden}
 
 /* gallery */
 .gallery-block{margin-top:clamp(64px,6vw,96px)}
+@media (min-width:1025px){.gallery-block{margin-bottom:80px}}
 .gallery-head{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2);display:flex;align-items:center;gap:12px;padding-bottom:18px;border-bottom:1px solid var(--line-2);margin-bottom:22px}
 .gallery-hint{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted-2);opacity:.7}
 .gallery-marquee{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;margin-right:calc(-1 * max(var(--gutter), (100vw - var(--max-w)) / 2 + var(--gutter)));-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 96px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 96px),transparent)}
