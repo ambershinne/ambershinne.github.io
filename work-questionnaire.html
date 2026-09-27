@@ -47,16 +47,38 @@
 
 /* ---- Full-bleed hero ---- */
 .qa-hero {
+  position: relative;
   width: 100%;
-  background: #F0F1F6;
+  background: #22242e;
   padding-top: 96px;
   border-bottom: 1px solid var(--line-2);
+  overflow: hidden;
+}
+.qa-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+}
+.qa-hero__bg::before,
+.qa-hero__bg::after {
+  content: "";
+  flex: 1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.qa-hero__bg::before { background-image: url("assets/images/questionnaire/hero-bg-admin.webp"); }
+.qa-hero__bg::after  { background-image: url("assets/images/questionnaire/hero-bg-user.webp"); }
+.qa-hero__scroll {
+  position: relative;
+  z-index: 1;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
-.qa-hero::-webkit-scrollbar { display: none; }
+.qa-hero__scroll::-webkit-scrollbar { display: none; }
 .qa-hero__rail {
   display: flex;
   gap: 20px;
@@ -468,12 +490,15 @@
 
 <!-- ============ FULL-BLEED HERO ============ -->
 <section class="qa-hero" aria-label="Project preview">
-  <div class="qa-hero__rail">
-    <div class="qa-hero__tile qa-hero__tile--admin"><img src="assets/images/questionnaire/qa-hero-admin.png" alt="Admin editor" /></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-1.png" alt="Mobile" /></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-2.png" alt="Mobile" /></div>
-    <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-3.png" alt="Mobile" /></div>
-    <!-- <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-4.png" alt="Mobile" /></div> -->
+  <div class="qa-hero__bg" aria-hidden="true"></div>
+  <div class="qa-hero__scroll">
+    <div class="qa-hero__rail">
+      <div class="qa-hero__tile qa-hero__tile--admin"><img src="assets/images/questionnaire/qa-hero-admin.png" alt="Admin editor" /></div>
+      <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-1.png" alt="Mobile" /></div>
+      <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-2.png" alt="Mobile" /></div>
+      <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-3.png" alt="Mobile" /></div>
+      <!-- <div class="qa-hero__tile qa-hero__tile--mobile"><img src="assets/images/questionnaire/qa-hero-mobile-4.png" alt="Mobile" /></div> -->
+    </div>
   </div>
 </section>
 
