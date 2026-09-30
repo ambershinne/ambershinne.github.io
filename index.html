@@ -18,10 +18,11 @@
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style id="home-renew">
 :root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34);--pt-orange:#ff5a00;--pt-blue:#1f3dff}
-/* hero point underlines (italic + colored underline, drawn on load) */
-.about-hero-v2__title .pt-u{font-style:italic}
-.about-hero-v2__title .pt-u--o{color:var(--pt-orange)}
-.about-hero-v2__title .pt-u--b{color:var(--pt-blue)}
+/* hero title: all black (italic accents kept), written in sequence on load */
+.about-hero-v2__title .pt-u{font-style:italic;color:inherit}
+html.js-hero .about-hero-v2__title .w{display:inline-block;opacity:0;transform:translateY(.28em);filter:blur(5px);transition:opacity .5s ease,transform .62s cubic-bezier(.2,.72,.2,1),filter .5s ease;transition-delay:calc(var(--i,0) * 58ms)}
+html.js-hero .about-hero-v2__title.is-writing .w{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){html.js-hero .about-hero-v2__title .w{opacity:1;transform:none;filter:none;transition:none}}
 
 /* graph paper */
 body[data-page="home"]{background-color:#fdfdfc}
@@ -57,7 +58,7 @@ body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,bo
 
 /* featured work */
 .home-work{padding:0 0 110px;scroll-margin-top:96px}
-.hw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,1.8vw,26px);row-gap:clamp(52px,5.4vw,78px)}
+.hw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,1.8vw,26px);row-gap:clamp(78px,8.1vw,117px)}
 .hw{display:flex;flex-direction:column;text-decoration:none;color:inherit}
 .hw__media{position:relative;border-radius:12px;overflow:hidden;background:var(--bg-tint);border:1px solid var(--line-3);aspect-ratio:16/10}
 .hw__media img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform 900ms var(--ease-out)}
@@ -69,7 +70,7 @@ body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,bo
 .hw__title em{font-style:italic;font-weight:500;font-variation-settings:var(--vf-soft)}
 
 .hw__desc{font-family:'DM Sans',var(--font-sans);font-size:13.5px;line-height:1.55;color:var(--fg-3);margin:0;max-width:54ch}
-.hw__tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:15px}
+.hw__tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:37px}
 .hw__tags span{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:4px 9px}
 
 /* principles card — fills the 4th case slot */
@@ -153,7 +154,7 @@ body.img-modal-open{overflow:hidden}
 @media (max-width:640px){.about-hero-v2{padding:120px 0 48px}}
 @media (max-width:760px){.about-hero-v2 .hero-graph-layer{margin-top:64px}.v1-work-h{margin-top:24px!important}}
 </style>
-<!-- highlighter sweeps in on load: 'once' at 0.5s, then 'all day' — see .hl / .hl--2 -->
+<script>try{document.documentElement.classList.add('js-hero')}catch(e){}</script>
 </head>
 <body data-page="home">
 
@@ -195,7 +196,34 @@ body.img-modal-open{overflow:hidden}
   <div class="wrap">
     
     <div class="eyebrow v1-eyebrow reveal"><span>Eunhye (Amber) Shin · Product Designer</span></div>
-   <h1 class="about-hero-v2__title h-display reveal" data-delay="1">Some people use it <span class="pt-u pt-u--o">once</span>.<br />Some use it <span class="pt-u pt-u--b">all day</span>.<br class="br-m" /> I design for both.</h1>
+   <h1 class="about-hero-v2__title h-display" data-hero-write>Some people use it <span class="pt-u pt-u--o">once</span>.<br />Some use it <span class="pt-u pt-u--b">all day</span>.<br class="br-m" /> I design for both.</h1>
+<script>
+(function(){
+  var h=document.querySelector('[data-hero-write]');
+  if(!h || !document.documentElement.classList.contains('js-hero')) return;
+  var i=0;
+  function wrap(node){
+    for(var c=Array.prototype.slice.call(node.childNodes),k=0;k<c.length;k++){
+      var n=c[k];
+      if(n.nodeType===3){
+        var parts=n.nodeValue.split(/(\s+)/);
+        var frag=document.createDocumentFragment();
+        parts.forEach(function(p){
+          if(p==='') return;
+          if(/^\s+$/.test(p)){ frag.appendChild(document.createTextNode(p)); return; }
+          var s=document.createElement('span'); s.className='w'; s.style.setProperty('--i', i++); s.textContent=p;
+          frag.appendChild(s);
+        });
+        node.replaceChild(frag,n);
+      } else if(n.nodeType===1 && n.tagName!=='BR'){
+        wrap(n);
+      }
+    }
+  }
+  wrap(h);
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ h.classList.add('is-writing'); }); });
+})();
+</script>
     <div class="hero-sub v1-sub reveal" data-delay="2"><p>7 years across consumer mobile, B2B SaaS, and enterprise systems, designing against <b>business goals</b> as much as user needs. I prototype in code and work with AI daily, from <b>first sketch to shipped product</b>. Based in <b>Berlin</b>.</p></div>
 
     <!-- ===== SKILLS RADAR (hero overlay) ===== -->

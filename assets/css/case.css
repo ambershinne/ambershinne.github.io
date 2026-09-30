@@ -125,7 +125,7 @@
   line-height: 1.7;
   color: var(--fg-3);
   letter-spacing: -0.005em;
-  margin: 0 0 96px;
+  margin: 0 0 48px;
   max-width: 64ch;
 }
 
@@ -137,7 +137,7 @@
   padding: 22px 0;
   border-top: 1px solid var(--line-2);
   border-bottom: 1px solid var(--line-2);
-  margin-bottom: 84px;
+  margin-bottom: 56px;
   align-items: start;
 }
 .case-meta__item {
