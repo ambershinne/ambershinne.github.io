@@ -19,11 +19,9 @@
 <style id="home-renew">
 :root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34);--pt-orange:#ff5a00;--pt-blue:#1f3dff}
 /* hero point underlines (italic + colored underline, drawn on load) */
-.about-hero-v2__title .pt-u{font-style:italic;background-repeat:no-repeat;background-size:0% 84%;background-position:0 64%;padding:0 .06em;border-radius:.08em;animation:ptDraw 780ms cubic-bezier(.3,.85,.35,1) 500ms forwards}
-.about-hero-v2__title .pt-u--o{background-image:linear-gradient(rgba(255,90,0,.24),rgba(255,90,0,.24))}
-.about-hero-v2__title .pt-u--b{background-image:linear-gradient(rgba(31,61,255,.22),rgba(31,61,255,.22));animation-delay:1250ms}
-@keyframes ptDraw{to{background-size:100% 84%}}
-@media (prefers-reduced-motion:reduce){.about-hero-v2__title .pt-u{animation:none;background-size:100% 84%}}
+.about-hero-v2__title .pt-u{font-style:italic}
+.about-hero-v2__title .pt-u--o{color:var(--pt-orange)}
+.about-hero-v2__title .pt-u--b{color:var(--pt-blue)}
 
 /* graph paper */
 body[data-page="home"]{background-color:#fdfdfc}
