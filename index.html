@@ -297,115 +297,108 @@ body.img-modal-open{overflow:hidden}
   </div>
 </footer>
 
-<!-- ============ SKILLS RADAR SCRIPT ============ -->
+<!-- ============ SKILLS LIQUID SCRIPT ============ -->
+<style>
+.skills-radar .sr-svg{overflow:visible}
+.sr-guide{fill:none;stroke:rgba(20,20,20,.07);stroke-width:1}
+.sr-guide--d{stroke-dasharray:2 5}
+.skills-radar .sr-lbl{font-size:10px!important;line-height:1.35!important;color:rgba(20,20,20,.42)!important;font-weight:400!important}
+</style>
 <script>
 (function(){
-  /* ============== CONFIG ============== */
   var SKILLS = [
-    { name:"Product\nThinking",    value:95 },  // top, then clockwise →
+    { name:"Product\nThinking",    value:95 },
     { name:"Visual\nCraft",        value:84 },
-    { name:"Builds in\nCode",  value:73 },
+    { name:"Builds in\nCode",      value:73 },
     { name:"AI\nLeverage",         value:90 },
     { name:"Business &\nBranding", value:82 }
   ];
-  var FILL_GRADIENT = true;   // false = flat translucent wash
-  // intro ripple timing (ms)
-  var REST = 1500, STAGGER = 360, UP = 620, DOWN = 820, START_DELAY = 1500;
-  var RIPPLE_ORDER = [3,2,1,0,4];   // AI Leverage first, then counter-clockwise
-  /* ==================================== */
-
-  var VB=560, VH=540, CX=280, CY=252, R=152, RINGS=5;
-
+  var VB=560, VH=540, CX=280, CY=252, R=152, N=120;
+  function pt(i, radius){ var a=(-90+i*72)*Math.PI/180; return [CX+radius*Math.cos(a), CY+radius*Math.sin(a)]; }
+  function smooth(ps){
+    var n=ps.length, d="M"+ps[0][0].toFixed(1)+" "+ps[0][1].toFixed(1);
+    for(var i=0;i<n;i++){
+      var p0=ps[(i-1+n)%n],p1=ps[i],p2=ps[(i+1)%n],p3=ps[(i+2)%n];
+      d+="C"+(p1[0]+(p2[0]-p0[0])/6).toFixed(1)+" "+(p1[1]+(p2[1]-p0[1])/6).toFixed(1)+" "+(p2[0]-(p3[0]-p1[0])/6).toFixed(1)+" "+(p2[1]-(p3[1]-p1[1])/6).toFixed(1)+" "+p2[0].toFixed(1)+" "+p2[1].toFixed(1);
+    }
+    return d+"Z";
+  }
   function init(root){
-    if(root.__srDone) return; root.__srDone = true;
-    var svg = root.querySelector(".sr-svg");
-    var uid = "sr-" + Math.random().toString(36).slice(2,8);
+    if(root.__srDone) return; root.__srDone=true;
+    var svg=root.querySelector(".sr-svg"), u="lq"+Math.random().toString(36).slice(2,7);
+    var g='<defs>'
+      +'<filter id="'+u+'m" x="-20%" y="-20%" width="140%" height="140%" color-interpolation-filters="sRGB">'
+      +  '<feGaussianBlur in="SourceGraphic" stdDeviation="8" result="b"/>'
+      +  '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10" result="goo"/>'
+      +  '<feGaussianBlur in="goo" stdDeviation="7" result="bump"/>'
+      +  '<feDiffuseLighting in="bump" surfaceScale="7" diffuseConstant="1.05" lighting-color="#ffffff" result="diff"><feDistantLight azimuth="235" elevation="38"/></feDiffuseLighting>'
+      +  '<feSpecularLighting in="bump" surfaceScale="8" specularConstant="1.7" specularExponent="26" lighting-color="#ffffff" result="spec"><fePointLight x="150" y="40" z="260"/></feSpecularLighting>'
+      +  '<feSpecularLighting in="bump" surfaceScale="8" specularConstant=".5" specularExponent="12" lighting-color="#dfe6ee" result="spec2"><fePointLight x="470" y="520" z="160"/></feSpecularLighting>'
+      +  '<feComposite in="diff" in2="goo" operator="in" result="diffIn"/>'
+      +  '<feComposite in="spec" in2="goo" operator="in" result="specIn"/>'
+      +  '<feComposite in="spec2" in2="goo" operator="in" result="spec2In"/>'
+      +  '<feComposite in="goo" in2="diffIn" operator="arithmetic" k1="1.3" k2="0" k3="0" k4="0" result="shaded"/>'
+      +  '<feComposite in="specIn" in2="shaded" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" result="lit"/>'
+      +  '<feComposite in="spec2In" in2="lit" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>'
+      +'</filter>'
+      +'<linearGradient id="'+u+'env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9dde2"/><stop offset=".38" stop-color="#9aa1a9"/><stop offset=".52" stop-color="#4c535b"/><stop offset=".7" stop-color="#8a9199"/><stop offset="1" stop-color="#c4c9cf"/></linearGradient>'
+      +'<filter id="'+u+'soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>'
+      +'</defs>';
+    g+='<circle class="sr-guide" cx="'+CX+'" cy="'+CY+'" r="'+R+'"/>';
+    g+='<circle class="sr-guide sr-guide--d" cx="'+CX+'" cy="'+CY+'" r="'+(R*.62)+'"/>';
+    g+='<path class="lq-shadow" fill="#2b3036" opacity=".22" filter="url(#'+u+'soft)"/>';
+    g+='<g filter="url(#'+u+'m)"><path class="lq-main" fill="url(#'+u+'env)"/>'
+      +'<circle class="lq-d" fill="#1f3dff"/><circle class="lq-d" fill="#ff5a00"/><circle class="lq-d" fill="#3d57ff"/><circle class="lq-d" fill="#ff7a2e"/></g>';
+    svg.innerHTML=g;
 
-    function pt(i, radius){
-      var ang = (-90 + i*72) * Math.PI/180;
-      return [ CX + radius*Math.cos(ang), CY + radius*Math.sin(ang) ];
-    }
-    function poly(radius){
-      return SKILLS.map(function(_,i){ return pt(i,radius).map(function(n){return n.toFixed(1);}).join(","); }).join(" ");
-    }
-    function accent(){ return getComputedStyle(root).getPropertyValue("--sr-accent").trim() || "#a78bfa"; }
-
-    // ---- build static chart ----
-    var g = "";
-    g += '<defs><radialGradient id="'+uid+'" cx="50%" cy="50%" r="65%">'
-       + '<stop offset="0%" stop-color="'+accent()+'" stop-opacity="0.32"/>'
-       + '<stop offset="100%" stop-color="'+accent()+'" stop-opacity="0.04"/>'
-       + '</radialGradient></defs>';
-    for(var r=1;r<=RINGS;r++){
-      g += '<polygon class="sr-ring'+(r===RINGS?' is-outer':'')+'" points="'+poly(R*r/RINGS)+'"/>';
-    }
-    for(var i=0;i<SKILLS.length;i++){
-      var p = pt(i,R);
-      g += '<line class="sr-spoke" x1="'+CX+'" y1="'+CY+'" x2="'+p[0].toFixed(1)+'" y2="'+p[1].toFixed(1)+'"/>';
-    }
-    var dpts = SKILLS.map(function(s,i){ return pt(i, R*s.value/100); });
-    var fillVal = FILL_GRADIENT ? 'url(#'+uid+')'
-                : 'color-mix(in srgb, '+accent()+' 13%, transparent)';
-    g += '<g class="sr-grp">';
-    g += '<polygon class="sr-poly" points="'+dpts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" ")+'" style="fill:'+fillVal+'"/>';
-    dpts.forEach(function(p){ g += '<circle class="sr-vtx" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4.4"/>'; });
-    g += '</g>';
-    g += '<circle class="sr-center" cx="'+CX+'" cy="'+CY+'" r="2.2"/>';
-    svg.innerHTML = g;
-
-    // ---- labels ----
     SKILLS.forEach(function(s,i){
-      var p = pt(i, R + 30);
-      var el = document.createElement("div");
-      el.className = "sr-lbl " + (p[0] < CX-8 ? "is-l" : p[0] > CX+8 ? "is-r" : "");
-      el.style.left = (p[0]/VB)*100 + "%";
-      el.style.top  = (p[1]/VH)*100 + "%";
-      el.innerHTML = s.name.replace(/\n/g,"<br>");
-      root.appendChild(el);
+      var p=pt(i,R+34), el=document.createElement("div");
+      el.className="sr-lbl "+(p[0]<CX-8?"is-l":p[0]>CX+8?"is-r":"");
+      el.style.left=(p[0]/VB)*100+"%"; el.style.top=(p[1]/VH)*100+"%";
+      el.innerHTML=s.name.replace(/\n/g,"<br>"); root.appendChild(el);
     });
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ void root.offsetWidth; root.classList.add("sr-in"); }); });
 
-    // ---- entrance settle (safe if clock is paused: never hides content) ----
-    requestAnimationFrame(function(){ requestAnimationFrame(function(){
-      void root.offsetWidth; root.classList.add("sr-in");
-    });});
-
-    // ---- looping ripple ----
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if(reduce) return;
-    var real = SKILLS.map(function(s){ return s.value; });
-    var ease = function(p){ return p<0.5 ? 2*p*p : 1-Math.pow(-2*p+2,2)/2; };
-    var cycle = (RIPPLE_ORDER.length-1)*STAGGER + UP + DOWN;
-    var polyEl = svg.querySelector(".sr-poly");
-    var dots = svg.querySelectorAll(".sr-vtx");
-    var t0 = null;
-
-    function apply(vals){
-      var pts = vals.map(function(v,i){ return pt(i, R*v/100); });
-      polyEl.setAttribute("points", pts.map(function(p){return p.map(function(n){return n.toFixed(1);}).join(",");}).join(" "));
-      dots.forEach(function(d,i){ d.setAttribute("cx", pts[i][0].toFixed(1)); d.setAttribute("cy", pts[i][1].toFixed(1)); });
+    var main=svg.querySelector(".lq-main"), sh=svg.querySelector(".lq-shadow"), drops=svg.querySelectorAll(".lq-d");
+    var vals=SKILLS.map(function(s){return s.value/100;});
+    function radiusAt(th,t){
+      var k=((th*180/Math.PI+90)/72%5+5)%5, i=Math.floor(k), f=k-i, w=(1-Math.cos(f*Math.PI))/2;
+      var base=vals[i]*(1-w)+vals[(i+1)%5]*w;
+      var wob=Math.sin(th*3+t*.8)*.05+Math.sin(th*5-t*1.2)*.035+Math.sin(th*2+t*.45)*.045;
+      return R*(.2+.6*base)*(1+wob);
     }
-    function frame(now){
-      if(t0===null) t0=now;
-      var t = (now - t0) % (cycle + REST);
-      var vals = real.slice();
-      RIPPLE_ORDER.forEach(function(vi, oi){
-        var s = oi*STAGGER, e = s + UP + DOWN;
-        if(t>=s && t<=e){
-          if(t<=s+UP){ vals[vi] = real[vi] + (100-real[vi])*ease((t-s)/UP); }
-          else       { vals[vi] = 100 + (real[vi]-100)*ease((t-(s+UP))/DOWN); }
-        }
+    var mx=0,my=0,tx=0,ty=0,hot=0,thot=0,ang=0;
+    window.addEventListener("pointermove",function(e){
+      var b=svg.getBoundingClientRect(); if(!b.width) return;
+      var x=(e.clientX-b.left)*(VB/b.width)-CX, y=(e.clientY-b.top)*(VH/b.height)-CY, d=Math.hypot(x,y);
+      if(d<R*2.2){ var c=Math.min(1,(R*1.3)/Math.max(d,1)); tx=x*c; ty=y*c; thot=1; } else { thot=0; tx=0; ty=0; }
+    },{passive:true});
+    document.addEventListener("pointerleave",function(){thot=0;tx=0;ty=0;});
+    var DR=[[.34,.8,17,0],[-.26,.9,12,2.1],[.42,.66,9,4.2],[-.31,.74,7,1.1]];
+    var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function draw(ms){
+      var t=ms/1000, ps=[];
+      mx+=(tx-mx)*.03; my+=(ty-my)*.03; hot+=(thot-hot)*.025;
+      var dist=Math.min(1,Math.hypot(mx,my)/(R*1.4)); ang=Math.atan2(my,mx);
+      var cx=CX+Math.sin(t*.4)*6+mx*.22*hot, cy=CY+Math.cos(t*.33)*5+my*.22*hot;
+      for(var j=0;j<N;j++){ var th=j/N*Math.PI*2-Math.PI/2, r=radiusAt(th,t);
+        var dd=Math.cos(th-ang); r*=1+hot*Math.max(dist,.35)*(dd>0?Math.pow(dd,3)*.45:dd*.1);
+        ps.push([cx+r*Math.cos(th), cy+r*Math.sin(th)]); }
+      var d=smooth(ps); main.setAttribute("d",d);
+      sh.setAttribute("d",d); sh.setAttribute("transform","translate(10 16)");
+      DR.forEach(function(o,i){
+        var th=t*o[0]+o[3], r=R*(o[1]+.16*Math.sin(t*.7+i*1.3));
+        var px=cx+r*Math.cos(th), py=cy+r*Math.sin(th), k=hot*(.18+i*.06);
+        px+=(CX+mx-px)*k; py+=(CY+my-py)*k;
+        drops[i].setAttribute("cx",px.toFixed(1)); drops[i].setAttribute("cy",py.toFixed(1));
+        drops[i].setAttribute("r",(o[2]*(1+.12*Math.sin(t*1.5+i))).toFixed(1));
       });
-      apply(vals);
-      requestAnimationFrame(frame);
+      if(!reduce) requestAnimationFrame(draw);
     }
-    setTimeout(function(){ requestAnimationFrame(frame); }, START_DELAY);
+    requestAnimationFrame(draw);
   }
-
-  function boot(){
-    document.querySelectorAll("[data-skills-radar]").forEach(init);
-  }
-  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
-  else boot();
+  function boot(){ document.querySelectorAll("[data-skills-radar]").forEach(init); }
+  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded", boot); else boot();
 })();
 </script>
 
