@@ -18,11 +18,16 @@
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style id="home-renew">
 :root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34);--pt-orange:#ff5a00;--pt-blue:#1f3dff}
-/* hero title: all black; only the accents (once / all day) write in, in sequence */
-.about-hero-v2__title .pt-u{font-style:italic;color:inherit}
-html.js-hero .about-hero-v2__title .pt-u{display:inline-block;opacity:0;transform:translateY(.24em);filter:blur(5px);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.72,.2,1),filter .8s ease;transition-delay:calc(420ms + var(--i,0) * 680ms)}
-html.js-hero .about-hero-v2__title.is-writing .pt-u{opacity:1;transform:none;filter:none}
-@media (prefers-reduced-motion:reduce){html.js-hero .about-hero-v2__title .pt-u{opacity:1;transform:none;filter:none;transition:none}}
+/* hero accents (once / all day): liquid gradient text, always flowing */
+@property --x1{syntax:'<percentage>';inherits:false;initial-value:20%}
+@property --y1{syntax:'<percentage>';inherits:false;initial-value:30%}
+@property --x2{syntax:'<percentage>';inherits:false;initial-value:80%}
+@property --y2{syntax:'<percentage>';inherits:false;initial-value:70%}
+.about-hero-v2__title .pt-u{--base:#141414;--hi:#ff5a00;--mid:rgba(255,122,46,.75);font-style:italic;color:transparent!important;-webkit-text-fill-color:transparent;padding:.06em .18em .14em .06em;margin:0 -.18em 0 -.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone;background:radial-gradient(circle at var(--x1) var(--y1),var(--hi) 0,rgba(20,20,20,0) 26%),radial-gradient(circle at var(--x2) var(--y2),var(--mid) 0,rgba(20,20,20,0) 20%),var(--base);-webkit-background-clip:text;background-clip:text;background-size:100% 100%;animation:lqA 7.3s ease-in-out infinite alternate,lqB 11.7s ease-in-out infinite alternate}
+.about-hero-v2__title .pt-u--b{--hi:#1f3dff;--mid:rgba(90,115,255,.75);animation-duration:8.6s,13.2s;animation-delay:-3s,-5s}
+@keyframes lqA{0%{--x1:8%;--y1:20%}35%{--x1:46%;--y1:80%}70%{--x1:72%;--y1:15%}100%{--x1:95%;--y1:65%}}
+@keyframes lqB{0%{--x2:92%;--y2:85%}40%{--x2:30%;--y2:40%}100%{--x2:10%;--y2:90%}}
+@media (prefers-reduced-motion:reduce){.about-hero-v2__title .pt-u{animation:none}}
 
 /* graph paper */
 body[data-page="home"]{background-color:#fdfdfc}
@@ -73,35 +78,23 @@ body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,bo
 .hw__tags{display:flex;flex-wrap:wrap;gap:6px;padding-top:37px}
 .hw__tags span{font-family:var(--font-mono);font-size:10px;letter-spacing:.04em;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:4px 9px}
 
-/* ===== How I work — index-card principles ===== */
-.prin-block{margin-top:clamp(44px,5vw,80px)}
-.prin-block .v1-work-h{margin-top:0}
-.prin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,40px);margin:clamp(20px,2vw,30px) 0 0}
-.prin__card{--r:0deg;position:relative;border-radius:10px;padding:clamp(26px,2.2vw,36px);min-height:clamp(236px,20vw,286px);background:#fff;border:1px solid var(--line-3);box-shadow:0 1px 2px rgba(17,16,16,.05);transform:rotate(var(--r));transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
-.prin__card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none}
-/* 01 — ruled (yellow) */
-.prin__card--a{--r:-1.1deg;background:#fdfbe8;border-color:#efe9c4}
-.prin__card--a::before{background-image:repeating-linear-gradient(to bottom,transparent 0 27px,rgba(150,140,60,.16) 27px 28px)}
-/* 02 — grid (pink) */
-.prin__card--b{--r:.5deg;background:#fdeef0;border-color:#f3d7dd}
-.prin__card--b::before{background-image:repeating-linear-gradient(to bottom,transparent 0 23px,rgba(190,90,110,.12) 23px 24px),repeating-linear-gradient(to right,transparent 0 23px,rgba(190,90,110,.12) 23px 24px)}
-/* 03 — dotted (blue) */
-.prin__card--c{--r:1deg;background:#eef1fb;border-color:#d6ddf4}
-.prin__card--c::before{background-image:radial-gradient(rgba(70,95,190,.2) 1px,transparent 1.4px);background-size:18px 18px}
-.prin__tab{position:absolute;top:-9px;left:50%;transform:translateX(-50%) rotate(calc(var(--r) * -1));width:clamp(56px,6vw,76px);height:16px;border-radius:4px;background:rgba(255,255,255,.72);border:1px solid rgba(17,16,16,.07);box-shadow:0 1px 2px rgba(17,16,16,.05)}
-.prin__card>*{position:relative;z-index:1}
-.prin__n{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--muted-2)}
-.prin__title{font-family:'DM Sans',var(--font-sans);font-weight:700;font-size:clamp(18px,1.55vw,22px);line-height:1.22;letter-spacing:-0.02em;color:var(--fg);margin:clamp(22px,2vw,30px) 0 clamp(12px,1vw,16px)}
-.prin__desc{font-family:'DM Sans',var(--font-sans);font-weight:400;font-size:clamp(13.5px,1.05vw,15px);line-height:1.6;letter-spacing:-0.003em;color:var(--fg-3);margin:0;max-width:34ch}
-.prin__desc em{font-style:italic}
-@media (hover:hover){.prin__card:hover{transform:rotate(var(--r)) translateY(-7px);box-shadow:0 20px 38px rgba(17,16,16,.14)}}
-/* one-time pop as the row scrolls in (sequential) */
-@keyframes prinPop{0%{transform:rotate(var(--r)) translateY(0);box-shadow:0 1px 2px rgba(17,16,16,.05)}42%{transform:rotate(var(--r)) translateY(-11px);box-shadow:0 22px 40px rgba(17,16,16,.15)}100%{transform:rotate(var(--r)) translateY(0);box-shadow:0 1px 2px rgba(17,16,16,.05)}}
-.prin.is-pop .prin__card{animation:prinPop .92s var(--ease) both}
-.prin.is-pop .prin__card--b{animation-delay:.16s}
-.prin.is-pop .prin__card--c{animation-delay:.32s}
-@media (prefers-reduced-motion:reduce){.prin.is-pop .prin__card{animation:none}}
-@media (max-width:820px){.prin{grid-template-columns:1fr;gap:26px}.prin__card{--r:0deg!important;min-height:0}}
+/* ===== How I work — post-it steps ===== */
+.hiw{margin-top:clamp(48px,5.5vw,88px)}
+.hiw .v1-work-h{margin:0 0 clamp(16px,1.7vw,24px)}
+.hiw__steps{list-style:none;margin:0;padding:10px 4px 14px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,2.4vw,36px)}
+.hiw__s{position:relative;display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.2vw,32px) clamp(20px,2vw,28px) clamp(26px,2.6vw,36px);border-radius:3px;background-color:var(--pi);background-image:var(--pat);box-shadow:0 1px 1px rgba(40,36,30,.04),0 14px 24px -14px rgba(40,36,30,.18),0 30px 50px -28px rgba(40,36,30,.16);transform:rotate(var(--rot));transition:transform .35s cubic-bezier(.3,.7,.3,1),box-shadow .35s}
+.hiw__s::before{content:"";position:absolute;left:50%;top:-9px;width:64px;height:18px;transform:translateX(-50%) rotate(calc(var(--rot) * -2));background:rgba(255,255,255,.55);box-shadow:0 1px 2px rgba(0,0,0,.06);border-left:1px dashed rgba(0,0,0,.05);border-right:1px dashed rgba(0,0,0,.05)}
+.hiw__s:hover,.hiw__s.is-lift{transform:rotate(0) translateY(-6px);box-shadow:0 2px 2px rgba(40,36,30,.04),0 22px 34px -16px rgba(40,36,30,.2),0 44px 70px -34px rgba(40,36,30,.18)}
+.hiw__s:nth-child(1){--pi:#fefbea;--pat:repeating-linear-gradient(to bottom,transparent 0 25px,rgba(120,110,70,.10) 25px 26px);--rot:-1.6deg}
+.hiw__s:nth-child(2){--pi:#fef4ef;--pat:linear-gradient(rgba(140,90,70,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(140,90,70,.07) 1px,transparent 1px);background-size:16px 16px;--rot:1.2deg;margin-top:-4px}
+.hiw__s:nth-child(3){--pi:#f0f5fd;--pat:radial-gradient(circle,rgba(60,90,130,.14) 1px,transparent 1.3px);background-size:14px 14px;--rot:-.7deg;margin-top:10px}
+.hiw__n{display:inline-flex;align-items:center;gap:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.hiw__t{margin-top:2px;font-family:'DM Sans',var(--font-sans);font-optical-sizing:auto;font-weight:500;font-size:clamp(15px,1.15vw,18px);line-height:1.3;letter-spacing:-.02em;color:var(--fg);word-break:keep-all;text-wrap:balance}
+.hiw__d{margin-top:2px;font-family:'DM Sans',var(--font-sans);font-size:14px;line-height:1.6;color:var(--fg-3);text-wrap:pretty}
+.hiw__d em{font-style:italic}
+.hiw__dot,.hiw__bar{display:none}
+@media (max-width:760px){.hiw__steps{grid-template-columns:1fr;gap:26px}.hiw__s{transform:none;margin-top:0!important}.hiw__s.is-lift,.hiw__s:hover{transform:translateY(-6px)}}
+@media (prefers-reduced-motion:reduce){.hiw__s{transition:none}}
 /* image zoom modal */
 .img-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(18,17,17,.92);cursor:zoom-out;padding:4vh 4vw;overflow:auto}
 .img-modal.is-open{display:flex;align-items:flex-start;justify-content:center}
@@ -168,7 +161,6 @@ body.img-modal-open{overflow:hidden}
 @media (max-width:640px){.about-hero-v2{padding:120px 0 48px}}
 @media (max-width:760px){.about-hero-v2 .hero-graph-layer{margin-top:64px}.v1-work-h{margin-top:24px!important}}
 </style>
-<script>try{document.documentElement.classList.add('js-hero')}catch(e){}</script>
 </head>
 <body data-page="home">
 
@@ -210,15 +202,7 @@ body.img-modal-open{overflow:hidden}
   <div class="wrap">
     
     <div class="eyebrow v1-eyebrow reveal"><span>Eunhye (Amber) Shin · Product Designer</span></div>
-   <h1 class="about-hero-v2__title h-display" data-hero-write>Some people use it <span class="pt-u pt-u--o">once</span>.<br />Some use it <span class="pt-u pt-u--b">all day</span>.<br class="br-m" /> I design for both.</h1>
-<script>
-(function(){
-  var h=document.querySelector('[data-hero-write]');
-  if(!h || !document.documentElement.classList.contains('js-hero')) return;
-  h.querySelectorAll('.pt-u').forEach(function(el,i){ el.style.setProperty('--i', i); });
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ h.classList.add('is-writing'); }); });
-})();
-</script>
+   <h1 class="about-hero-v2__title h-display reveal" data-delay="1">Some people use it <span class="pt-u pt-u--o">once</span>.<br />Some use it <span class="pt-u pt-u--b">all day</span>.<br class="br-m" /> I design for both.</h1>
     <div class="hero-sub v1-sub reveal" data-delay="2"><p>7 years across consumer mobile, B2B SaaS, and enterprise systems, designing against <b>business goals</b> as much as user needs. I prototype in code and work with AI daily, from <b>first sketch to shipped product</b>. Based in <b>Berlin</b>.</p></div>
 
     <!-- ===== SKILLS RADAR (hero overlay) ===== -->
@@ -268,28 +252,13 @@ body.img-modal-open{overflow:hidden}
 
     </div>
 
-    <div class="prin-block">
-      <h2 class="v1-work-h reveal">How I work</h2>
-      <div class="prin" data-prin>
-        <article class="prin__card prin__card--a">
-          <span class="prin__tab" aria-hidden="true"></span>
-          <span class="prin__n">01</span>
-          <h3 class="prin__title">Understand intent first.</h3>
-          <p class="prin__desc">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</p>
-        </article>
-        <article class="prin__card prin__card--b">
-          <span class="prin__tab" aria-hidden="true"></span>
-          <span class="prin__n">02</span>
-          <h3 class="prin__title">Design for today,<br />anticipate tomorrow.</h3>
-          <p class="prin__desc">Balance current resources with future needs; recognize risks early.</p>
-        </article>
-        <article class="prin__card prin__card--c">
-          <span class="prin__tab" aria-hidden="true"></span>
-          <span class="prin__n">03</span>
-          <h3 class="prin__title">Balance business with users.</h3>
-          <p class="prin__desc">Thoughtful trade-offs over short-term convenience.</p>
-        </article>
-      </div>
+    <div class="hiw reveal" id="how" data-screen-label="How I work">
+      <h2 class="v1-work-h">How I work</h2>
+      <ol class="hiw__steps">
+        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>01</span><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span><i class="hiw__bar"><b></b></i></li>
+        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>02</span><span class="hiw__t">Design for today, anticipate tomorrow.</span><span class="hiw__d">Balance current resources with future needs; recognize risks early.</span><i class="hiw__bar"><b></b></i></li>
+        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>03</span><span class="hiw__t">Balance business with users.</span><span class="hiw__d">Thoughtful trade-offs over short-term convenience.</span><i class="hiw__bar"><b></b></i></li>
+      </ol>
     </div>
 
     <div class="gallery-block">
@@ -438,6 +407,24 @@ body.img-modal-open{overflow:hidden}
 })();
 </script>
 
+<!-- How I work — sequential post-it lift on scroll-in (one-time) -->
+<script>
+(function(){
+  var root=document.querySelector('.hiw'); if(!root) return;
+  var s=[].slice.call(root.querySelectorAll('.hiw__s')), DUR=460, i=-1, timer=null;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function step(){
+    i++;
+    if(i>=s.length) return;
+    s.forEach(function(e,k){ e.classList.toggle('is-done',k<i); e.classList.remove('is-on','is-lift'); });
+    void s[i].offsetWidth; s[i].classList.add('is-on','is-lift');
+    timer=setTimeout(function(){ s[i].classList.remove('is-on','is-lift'); s[i].classList.add('is-done'); step(); },DUR);
+  }
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting && !timer){ step(); io.disconnect(); } },{threshold:.35});
+  io.observe(root);
+})();
+</script>
 <script src="assets/js/main.js"></script>
 <script>
 (function(){var el=document.querySelector('[data-berlin-time]');if(!el)return;
