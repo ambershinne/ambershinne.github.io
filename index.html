@@ -18,11 +18,11 @@
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style id="home-renew">
 :root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34);--pt-orange:#ff5a00;--pt-blue:#1f3dff}
-/* hero title: all black (italic accents kept), written in sequence on load */
+/* hero title: all black; only the accents (once / all day) write in, in sequence */
 .about-hero-v2__title .pt-u{font-style:italic;color:inherit}
-html.js-hero .about-hero-v2__title .w{display:inline-block;opacity:0;transform:translateY(.28em);filter:blur(5px);transition:opacity .5s ease,transform .62s cubic-bezier(.2,.72,.2,1),filter .5s ease;transition-delay:calc(var(--i,0) * 58ms)}
-html.js-hero .about-hero-v2__title.is-writing .w{opacity:1;transform:none;filter:none}
-@media (prefers-reduced-motion:reduce){html.js-hero .about-hero-v2__title .w{opacity:1;transform:none;filter:none;transition:none}}
+html.js-hero .about-hero-v2__title .pt-u{display:inline-block;opacity:0;transform:translateY(.24em);filter:blur(5px);transition:opacity .6s ease,transform .68s cubic-bezier(.2,.72,.2,1),filter .6s ease;transition-delay:calc(var(--i,0) * 300ms)}
+html.js-hero .about-hero-v2__title.is-writing .pt-u{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){html.js-hero .about-hero-v2__title .pt-u{opacity:1;transform:none;filter:none;transition:none}}
 
 /* graph paper */
 body[data-page="home"]{background-color:#fdfdfc}
@@ -201,26 +201,7 @@ body.img-modal-open{overflow:hidden}
 (function(){
   var h=document.querySelector('[data-hero-write]');
   if(!h || !document.documentElement.classList.contains('js-hero')) return;
-  var i=0;
-  function wrap(node){
-    for(var c=Array.prototype.slice.call(node.childNodes),k=0;k<c.length;k++){
-      var n=c[k];
-      if(n.nodeType===3){
-        var parts=n.nodeValue.split(/(\s+)/);
-        var frag=document.createDocumentFragment();
-        parts.forEach(function(p){
-          if(p==='') return;
-          if(/^\s+$/.test(p)){ frag.appendChild(document.createTextNode(p)); return; }
-          var s=document.createElement('span'); s.className='w'; s.style.setProperty('--i', i++); s.textContent=p;
-          frag.appendChild(s);
-        });
-        node.replaceChild(frag,n);
-      } else if(n.nodeType===1 && n.tagName!=='BR'){
-        wrap(n);
-      }
-    }
-  }
-  wrap(h);
+  h.querySelectorAll('.pt-u').forEach(function(el,i){ el.style.setProperty('--i', i); });
   requestAnimationFrame(function(){ requestAnimationFrame(function(){ h.classList.add('is-writing'); }); });
 })();
 </script>
