@@ -681,14 +681,14 @@ img, svg { display: block; max-width: 100%; }
 /* Petrona: secondary headings sit one step lighter than the hero */
 .h-serif, .timeline-section__title, .about-intro__quote, .at-glance__num,
 .cta-mini__text, .principle__title, .career-section-title, .chart-section__title, .cta-headline, .cta-link,
-.case-hero__title, .case-sect-title, .case-stat__num, .work-strip__title, .hw__title {
+.case-hero__title, .case-sect-title, .case-stat__num, .work-strip__title {
   font-family: var(--font-display);
   font-variation-settings: var(--vf-soft);
   font-weight: 500;
   letter-spacing: -0.035em;
 }
 .h-serif em, .timeline-section__title em, .about-intro__quote em, .case-hero__title em,
-.case-sect-title em, .work-strip__title em, .hw__title em {
+.case-sect-title em, .work-strip__title em {
   font-family: var(--font-display);
   font-variation-settings: var(--vf-soft);
   font-weight: 500;
