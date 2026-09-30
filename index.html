@@ -332,7 +332,7 @@ body.img-modal-open{overflow:hidden}
       +  '<feColorMatrix in="b" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10" result="goo"/>'
       +  '<feGaussianBlur in="goo" stdDeviation="7" result="bump"/>'
       +  '<feDiffuseLighting in="bump" surfaceScale="7" diffuseConstant="1.05" lighting-color="#ffffff" result="diff"><feDistantLight azimuth="235" elevation="38"/></feDiffuseLighting>'
-      +  '<feSpecularLighting in="bump" surfaceScale="8" specularConstant="1.7" specularExponent="26" lighting-color="#ffffff" result="spec"><fePointLight x="150" y="40" z="260"/></feSpecularLighting>'
+      +  '<feSpecularLighting in="bump" surfaceScale="8" specularConstant="1.7" specularExponent="26" lighting-color="#ffffff" result="spec"><fePointLight class="lq-lite" x="150" y="40" z="260"/></feSpecularLighting>'
       +  '<feSpecularLighting in="bump" surfaceScale="8" specularConstant=".5" specularExponent="12" lighting-color="#dfe6ee" result="spec2"><fePointLight x="470" y="520" z="160"/></feSpecularLighting>'
       +  '<feComposite in="diff" in2="goo" operator="in" result="diffIn"/>'
       +  '<feComposite in="spec" in2="goo" operator="in" result="specIn"/>'
@@ -344,8 +344,6 @@ body.img-modal-open{overflow:hidden}
       +'<linearGradient id="'+u+'env" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#d9dde2"/><stop offset=".38" stop-color="#9aa1a9"/><stop offset=".52" stop-color="#4c535b"/><stop offset=".7" stop-color="#8a9199"/><stop offset="1" stop-color="#c4c9cf"/></linearGradient>'
       +'<filter id="'+u+'soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>'
       +'</defs>';
-    g+='<circle class="sr-guide" cx="'+CX+'" cy="'+CY+'" r="'+R+'"/>';
-    g+='<circle class="sr-guide sr-guide--d" cx="'+CX+'" cy="'+CY+'" r="'+(R*.62)+'"/>';
     g+='<path class="lq-shadow" fill="#2b3036" opacity=".22" filter="url(#'+u+'soft)"/>';
     g+='<g filter="url(#'+u+'m)"><path class="lq-main" fill="url(#'+u+'env)"/>'
       +'<circle class="lq-d" fill="#1f3dff"/><circle class="lq-d" fill="#ff5a00"/><circle class="lq-d" fill="#3d57ff"/><circle class="lq-d" fill="#ff7a2e"/></g>';
@@ -359,7 +357,7 @@ body.img-modal-open{overflow:hidden}
     });
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ void root.offsetWidth; root.classList.add("sr-in"); }); });
 
-    var main=svg.querySelector(".lq-main"), sh=svg.querySelector(".lq-shadow"), drops=svg.querySelectorAll(".lq-d");
+    var main=svg.querySelector(".lq-main"), sh=svg.querySelector(".lq-shadow"), drops=svg.querySelectorAll(".lq-d"), lite=svg.querySelector(".lq-lite");
     var vals=SKILLS.map(function(s){return s.value/100;});
     function radiusAt(th,t){
       var k=((th*180/Math.PI+90)/72%5+5)%5, i=Math.floor(k), f=k-i, w=(1-Math.cos(f*Math.PI))/2;
@@ -381,6 +379,8 @@ body.img-modal-open{overflow:hidden}
       mx+=(tx-mx)*.03; my+=(ty-my)*.03; hot+=(thot-hot)*.025;
       var dist=Math.min(1,Math.hypot(mx,my)/(R*1.4)); ang=Math.atan2(my,mx);
       var cx=CX+Math.sin(t*.4)*6+mx*.22*hot, cy=CY+Math.cos(t*.33)*5+my*.22*hot;
+      if(lite){ lite.setAttribute("x",(150+Math.sin(t*.5)*150+Math.sin(t*.17)*40+mx*.45*hot).toFixed(0));
+                lite.setAttribute("y",(55+Math.cos(t*.68)*60+my*.25*hot).toFixed(0)); }
       for(var j=0;j<N;j++){ var th=j/N*Math.PI*2-Math.PI/2, r=radiusAt(th,t);
         var dd=Math.cos(th-ang); r*=1+hot*Math.max(dist,.35)*(dd>0?Math.pow(dd,3)*.45:dd*.1);
         ps.push([cx+r*Math.cos(th), cy+r*Math.sin(th)]); }
