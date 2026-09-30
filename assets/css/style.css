@@ -716,5 +716,5 @@ img, svg { display: block; max-width: 100%; }
 .footer--dark .footer__bottom{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-top:clamp(72px,8vw,120px)}
 .footer--dark .footer__built{margin:0 0 .6em;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.28)}
 .footer--dark .footer__name{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(44px,6.8vw,106px);line-height:.9;letter-spacing:-.01em;color:rgba(255,255,255,.08);white-space:nowrap;user-select:none;margin:0}
-.footer--dark ::selection{background:rgba(154,214,94,.35);color:#fff}
+.footer--dark ::selection{background:#1F3DFF;color:#fff}
 @media (max-width:760px){.footer--dark .footer__cta{flex-direction:column;align-items:flex-start}.footer--dark .footer__bottom{flex-direction:column-reverse;align-items:flex-start;gap:18px}}
