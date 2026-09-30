@@ -17,7 +17,13 @@
 <link rel="stylesheet" href="assets/css/pages.css" />
 <link rel="icon" type="image/png" href="assets/images/favicon.png" />
 <style id="home-renew">
-:root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34)}
+:root{--neon-pink:#ff2d8b;--neon-blue:#00c8ff;--neon-pink-wash:rgba(255,45,139,.20);--neon-blue-wash:rgba(154,214,94,.34);--pt-orange:#ff5a1e;--pt-blue:#2b46f5}
+/* hero point underlines (italic + colored underline, drawn on load) */
+.about-hero-v2__title .pt-u{font-style:italic;background-repeat:no-repeat;background-size:0% .09em;background-position:0 100%;padding-bottom:.1em;animation:ptDraw 700ms cubic-bezier(.3,.85,.35,1) 500ms forwards}
+.about-hero-v2__title .pt-u--o{background-image:linear-gradient(var(--pt-orange),var(--pt-orange))}
+.about-hero-v2__title .pt-u--b{background-image:linear-gradient(var(--pt-blue),var(--pt-blue));animation-delay:1250ms}
+@keyframes ptDraw{to{background-size:100% .09em}}
+@media (prefers-reduced-motion:reduce){.about-hero-v2__title .pt-u{animation:none;background-size:100% .09em}}
 
 /* graph paper */
 body[data-page="home"]{background-color:#fdfdfc}
@@ -29,7 +35,7 @@ body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,bo
 
 /* hero */
 .about-hero-v2{padding:172px 0 34px;border-bottom:none}
-.about-hero-v2 .eyebrow span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--neon-blue);box-shadow:0 0 7px rgba(0,200,255,.85);margin-right:8px;vertical-align:1px;animation:pulseNeon 2.6s ease-in-out infinite}
+.about-hero-v2 .eyebrow span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--pt-blue);box-shadow:0 0 7px rgba(43,70,245,.7);margin-right:8px;vertical-align:1px;animation:pulseNeon 2.6s ease-in-out infinite}
 @keyframes pulseNeon{0%,100%{opacity:1}50%{opacity:.35}}
 .about-hero-v2__title{margin-top:30px;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:400;font-size:clamp(28px,3vw,44px);letter-spacing:-0.035em;line-height:1.12;max-width:none;margin:30px 0 22px}
 .about-hero-v2__title em{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:400;font-style:italic;color:var(--fg-2)}
@@ -98,9 +104,19 @@ body.img-modal-open{overflow:hidden}
 .gallery-hint{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--muted-2);opacity:.7}
 .gallery-marquee{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;margin-right:calc(-1 * max(var(--gutter), (100vw - var(--max-w)) / 2 + var(--gutter)));-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 96px),transparent);mask-image:linear-gradient(to right,#000 calc(100% - 96px),transparent)}
 .side-rails{position:fixed;inset:0;pointer-events:none;z-index:0}
-.side-rails::before,.side-rails::after{content:"";position:absolute;top:0;bottom:0;width:min(200px,max(0px,(100% - var(--max-w)) / 2));background-size:11px 11px}
-.side-rails::before{left:0;background-image:radial-gradient(circle,rgba(70,110,235,.55) 1.4px,transparent 1.7px);-webkit-mask-image:linear-gradient(to right,#000 20%,transparent 92%);mask-image:linear-gradient(to right,#000 20%,transparent 92%)}
-.side-rails::after{right:0;background-image:radial-gradient(circle,rgba(255,125,45,.55) 1.4px,transparent 1.7px);-webkit-mask-image:linear-gradient(to left,#000 20%,transparent 92%);mask-image:linear-gradient(to left,#000 20%,transparent 92%)}
+.side-rails::before,.side-rails::after{content:"";position:absolute;top:0;bottom:0;width:min(200px,max(0px,(100% - var(--max-w)) / 2));background-size:9px 9px}
+.side-rails::before{left:0;background-image:radial-gradient(circle,rgba(43,70,245,.62) 1.1px,transparent 1.5px);-webkit-mask-image:linear-gradient(to right,#000 20%,transparent 92%);mask-image:linear-gradient(to right,#000 20%,transparent 92%)}
+.side-rails::after{right:0;background-image:radial-gradient(circle,rgba(255,90,30,.62) 1.1px,transparent 1.5px);-webkit-mask-image:linear-gradient(to left,#000 20%,transparent 92%);mask-image:linear-gradient(to left,#000 20%,transparent 92%)}
+.rail{position:fixed;top:0;bottom:0;z-index:2;width:30px;display:flex;flex-direction:column;align-items:center;padding:100px 0 46px;gap:18px;pointer-events:none;font-family:var(--font-mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-3)}
+.rail--l{left:18px}.rail--r{right:18px}
+.rail__txt{writing-mode:vertical-rl;white-space:nowrap}
+.rail--l .rail__txt{transform:rotate(180deg)}
+.rail__pct{writing-mode:vertical-rl;white-space:nowrap;color:var(--pt-orange);font-weight:500;letter-spacing:.1em}
+.rail__bar{flex:1;min-height:60px;width:2px;background:rgba(17,16,16,.08);border-radius:2px;position:relative;overflow:hidden}
+.rail__bar-fill{position:absolute;top:0;left:0;width:100%;height:0;border-radius:2px;transition:height 120ms linear}
+.rail__bar-fill--b{background:var(--pt-blue)}
+.rail__bar-fill--o{background:var(--pt-orange)}
+@media (max-width:1180px){.rail{display:none}}
 .gallery-marquee::-webkit-scrollbar{display:none}
 .gallery-marquee__track{display:flex;align-items:flex-start;gap:clamp(14px,1.5vw,22px);padding-right:120px}
 .gallery-item{margin:0;flex-shrink:0;display:flex;flex-direction:column;gap:11px}
@@ -127,7 +143,7 @@ body.img-modal-open{overflow:hidden}
 .about-hero-v2{padding:172px 0 clamp(64px,6vw,96px);position:relative}
 .v1-work-h{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-0.035em;color:var(--fg);margin:96px 0 clamp(16px,1.7vw,24px)}
 .v1-eyebrow{margin-bottom:26px;letter-spacing:0.04em}
-.v1-eyebrow span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#00c8ff;box-shadow:0 0 7px rgba(0,200,255,.85);margin-right:8px;vertical-align:1px;animation:pulseNeon 2.6s ease-in-out infinite}
+.v1-eyebrow span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--pt-blue);box-shadow:0 0 7px rgba(43,70,245,.7);margin-right:8px;vertical-align:1px;animation:pulseNeon 2.6s ease-in-out infinite}
 .v1-sub{margin:0!important;max-width:calc(100% - clamp(290px,29vw,440px) - 64px)!important}
 @media (max-width:760px){.v1-sub{max-width:none!important}}
 .about-hero-v2 .about-hero-v2__title{font-family:var(--font-display);font-variation-settings:normal;font-optical-sizing:auto;font-weight:400;font-size:clamp(28px,3.4vw,50px);line-height:1.1;letter-spacing:-.05em;color:rgb(26,26,26);text-rendering:optimizeLegibility;-webkit-font-smoothing:antialiased;max-width:calc(100% - clamp(290px,29vw,440px) - 64px);margin:0 0 22px}
@@ -148,7 +164,10 @@ body.img-modal-open{overflow:hidden}
 <body data-page="home">
 
 <div class="grid-frame" aria-hidden="true"></div>
-<div class="side-rails" aria-hidden="true"></div>
+<div class="side-rails" aria-hidden="true">
+  <div class="rail rail--l"><span class="rail__txt">Eunhye (Amber) Shin · Product Designer</span><span class="rail__bar"><i class="rail__bar-fill rail__bar-fill--b" data-scroll-fill></i></span></div>
+  <div class="rail rail--r"><span class="rail__txt">Vol.07 · 2026</span><span class="rail__pct"><span data-scroll-pct>000</span>%</span><span class="rail__bar"><i class="rail__bar-fill rail__bar-fill--o" data-scroll-fill></i></span></div>
+</div>
 
 <!-- ============ NAV ============ -->
 <header class="nav">
@@ -180,7 +199,7 @@ body.img-modal-open{overflow:hidden}
   <div class="wrap">
     
     <div class="eyebrow v1-eyebrow reveal"><span>Eunhye (Amber) Shin · Product Designer</span></div>
-   <h1 class="about-hero-v2__title h-display reveal" data-delay="1">Some people use it <span class="hl">once</span>.<br />Some use it <span class="hl hl--2">all day</span>.<br class="br-m" /> I design for both.</h1>
+   <h1 class="about-hero-v2__title h-display reveal" data-delay="1">Some people use it <span class="pt-u pt-u--o">once</span>.<br />Some use it <span class="pt-u pt-u--b">all day</span>.<br class="br-m" /> I design for both.</h1>
     <div class="hero-sub v1-sub reveal" data-delay="2"><p>7 years across consumer mobile, B2B SaaS, and enterprise systems, designing against <b>business goals</b> as much as user needs. I prototype in code and work with AI daily, from <b>first sketch to shipped product</b>. Based in <b>Berlin</b>.</p></div>
 
     <!-- ===== SKILLS RADAR (hero overlay) ===== -->
