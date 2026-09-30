@@ -146,10 +146,10 @@
   function initHighlighters() {
     const marks = document.querySelectorAll('.case-hl');
     if (!marks.length) return;
-    if (!('IntersectionObserver' in window)) {
-      marks.forEach((m) => m.classList.add('is-drawn'));
-      return;
-    }
+    // opt into the draw-in effect only now that JS runs (keeps marks visible
+    // if this script is missing/cached-old, so highlights never vanish)
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js-draw');
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -159,7 +159,7 @@
           }
         });
       },
-      { rootMargin: '0px 0px -12% 0px', threshold: 0.6 }
+      { rootMargin: '0px 0px -18% 0px', threshold: 0.5 }
     );
     marks.forEach((m) => io.observe(m));
   }
