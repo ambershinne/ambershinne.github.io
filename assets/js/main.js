@@ -181,8 +181,27 @@
     update();
   }
 
+  // ---- One-time "pop" for the How-I-work cards on scroll-in ----
+  function initPrinciples() {
+    const el = document.querySelector('[data-prin]');
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-pop');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.35 }
+    );
+    io.observe(el);
+  }
+
   function init() {
     initReveal();
+    initPrinciples();
     initScrollRails();
     initStickyNav();
     initActiveNav();
