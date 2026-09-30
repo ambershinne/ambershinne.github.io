@@ -1016,3 +1016,21 @@
   to   { opacity: 1; transform: scale(1); }
 }
 body.img-modal-open { overflow: hidden; }
+
+/* ============================================================
+   Body highlighter — coral marker with a visible ink gradient
+   (darker on the left, fading right). Static, wraps per line.
+   ============================================================ */
+.case-hl {
+  background-image: linear-gradient(90deg,
+    rgba(146,212,48,.31) 0%,
+    rgba(146,212,48,.23) 50%,
+    rgba(146,212,48,.31) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 90%;
+  background-position: 0 60%;
+  padding: 0 .15em;
+  border-radius: .22em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
