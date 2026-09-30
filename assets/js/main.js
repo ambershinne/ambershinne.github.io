@@ -166,14 +166,14 @@
 
   // ---- Side-rail scroll progress (fill bars + percent) ----
   function initScrollRails() {
-    const fills = document.querySelectorAll('[data-scroll-fill]');
+    const progs = document.querySelectorAll('.rail-prog');
     const pcts = document.querySelectorAll('[data-scroll-pct]');
-    if (!fills.length && !pcts.length) return;
+    if (!progs.length && !pcts.length) return;
     const h = document.documentElement;
     const update = () => {
       const max = h.scrollHeight - h.clientHeight;
       const p = max > 0 ? Math.min(1, Math.max(0, h.scrollTop / max)) : 0;
-      fills.forEach((f) => { f.style.height = (p * 100).toFixed(1) + '%'; });
+      progs.forEach((el) => { el.style.setProperty('--p', p); });
       pcts.forEach((el) => { el.textContent = String(Math.round(p * 100)).padStart(3, '0'); });
     };
     window.addEventListener('scroll', update, { passive: true });
