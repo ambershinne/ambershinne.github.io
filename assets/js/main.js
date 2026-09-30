@@ -142,12 +142,35 @@
     onScroll();
   }
 
+  // ---- Draw body highlighters when they scroll into view ----
+  function initHighlighters() {
+    const marks = document.querySelectorAll('.case-hl');
+    if (!marks.length) return;
+    if (!('IntersectionObserver' in window)) {
+      marks.forEach((m) => m.classList.add('is-drawn'));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-drawn');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.6 }
+    );
+    marks.forEach((m) => io.observe(m));
+  }
+
   function init() {
     initReveal();
     initStickyNav();
     initActiveNav();
     initSideToc();
     initFloatNav();
+    initHighlighters();
     initPageTransitions();
   }
 
