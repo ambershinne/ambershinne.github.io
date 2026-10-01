@@ -161,6 +161,54 @@ body.img-modal-open{overflow:hidden}
 @media (max-width:640px){.about-hero-v2{padding:120px 0 48px}}
 @media (max-width:760px){.about-hero-v2 .hero-graph-layer{margin-top:64px}.v1-work-h{margin-top:24px!important}}
 </style>
+<style id="home-boards">
+/* Selected Work → small mono eyebrow heading */
+.sect-eyebrow{display:flex;align-items:center;gap:10px;margin:96px 0 clamp(18px,2vw,26px);font-family:var(--font-mono);font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
+.sect-eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:#b9bec5}
+@media (max-width:760px){.sect-eyebrow{margin-top:24px}}
+
+/* board box + mono header — same as the About page (.bd / .bd__top) */
+.board-wrap{margin-top:clamp(88px,10vw,160px)}
+.bd{border:1px solid var(--line-2);border-radius:10px;background:#fff;overflow:hidden}
+.bd__top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-bottom:1px solid var(--line-2);background:#f7f7f5;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
+.bd__top span{display:flex;align-items:center;gap:10px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.bd__top>span:last-child{flex:none;color:var(--muted-2)}
+.bd__sq{width:5px;height:5px;border-radius:50%;background:#b9bec5;flex:none}
+/* dotted pin-board body */
+.bd__body{padding:clamp(26px,3vw,46px) clamp(20px,2.4vw,40px);background-image:radial-gradient(rgba(20,20,20,.07) 1px,transparent 1.4px);background-size:22px 22px}
+
+/* principles: 4 columns inside the board (3 notes + add) */
+.bd .hiw__steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.8vw,26px);padding:4px 2px 6px;background:none;align-items:start}
+.bd .hiw__s{min-height:clamp(230px,19vw,250px)}
+
+/* 4th box: placeholder → input → pinned */
+.hiw__add{--rot:0deg!important;cursor:pointer;justify-content:flex-start;gap:12px;background:transparent!important;background-image:none!important;border:1.5px dashed var(--line-2);box-shadow:none}
+.hiw__add::before{display:none!important}
+.hiw__add:hover{transform:none!important;box-shadow:none;border-color:var(--muted-2)}
+.hiw__add .add__q{font-family:'DM Sans',var(--font-sans);font-weight:500;font-size:clamp(15px,1.15vw,18px);line-height:1.3;letter-spacing:-.02em;color:var(--muted-2)}
+.hiw__add .add__input,.hiw__add .add__foot,.hiw__add .add__text,.hiw__add .add__del{display:none}
+.hiw__add.is-input,.hiw__add.is-pinned{cursor:default;border:0;background-color:#fefbea!important;background-image:repeating-linear-gradient(to bottom,transparent 0 25px,rgba(120,110,70,.10) 25px 26px)!important;box-shadow:0 1px 1px rgba(40,36,30,.04),0 14px 24px -14px rgba(40,36,30,.18),0 30px 50px -28px rgba(40,36,30,.16)}
+.hiw__add.is-input::before,.hiw__add.is-pinned::before{display:block!important}
+.hiw__add.is-input .add__q{color:var(--fg)}
+.hiw__add.is-input .add__input{display:block;width:100%;flex:1;min-height:60px;margin-top:2px;border:0;background:transparent;resize:none;font-family:'DM Sans',var(--font-sans);font-size:14px;line-height:1.55;color:var(--fg);outline:none}
+.hiw__add.is-input .add__foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto}
+.add__note{font-family:'DM Sans',var(--font-sans);font-size:11px;line-height:1.45;color:var(--muted-2)}
+.add__pin{flex:none;font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;padding:9px 16px;border-radius:7px;border:0;background:#b7b1a0;color:#fff;cursor:pointer;transition:background .2s}
+.add__pin:hover{background:#a39d8c}
+.hiw__add.is-pinned .add__text{display:block;margin-top:2px;font-family:'DM Sans',var(--font-sans);font-size:14px;line-height:1.55;color:var(--fg);text-wrap:pretty}
+.hiw__add.is-pinned .add__del{display:flex;align-items:center;justify-content:center;position:absolute;top:7px;right:9px;width:22px;height:22px;border:0;background:transparent;color:var(--muted-2);font-size:18px;line-height:1;cursor:pointer}
+.hiw__add.is-pinned .add__del:hover{color:var(--fg)}
+
+/* gallery → polaroids inside the board */
+.bd .gallery-marquee{-webkit-mask-image:none;mask-image:none;margin:0;overflow-x:auto}
+.bd .gallery-marquee__track{gap:clamp(18px,2vw,30px);padding:4px 2px 8px}
+.pola-item{flex:0 0 auto;margin:0;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-3);padding:12px 12px 0;border-radius:2px;box-shadow:0 1px 1px rgba(40,36,30,.05),0 14px 24px -14px rgba(40,36,30,.16);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
+.pola-item:hover{transform:translateY(-4px);box-shadow:0 2px 2px rgba(40,36,30,.05),0 22px 34px -16px rgba(40,36,30,.2)}
+.pola-item img{display:block;height:clamp(200px,20vw,248px);width:auto;background:#f2f1ee;cursor:zoom-in}
+.pola-item figcaption{padding:13px 2px 15px;max-width:34ch;font-family:'DM Sans',var(--font-sans);font-size:12px;line-height:1.5;color:var(--fg-3);text-wrap:pretty}
+
+@media (max-width:760px){.bd .hiw__steps{grid-template-columns:1fr;gap:22px}.bd .hiw__s{min-height:0}}
+</style>
 </head>
 <body data-page="home">
 
@@ -220,7 +268,7 @@ body.img-modal-open{overflow:hidden}
 <!-- ============ SELECTED WORK ============ -->
 <section class="home-work" id="work">
   <div class="wrap">
-    <h2 class="v1-work-h reveal">Selected Work</h2>
+    <div class="sect-eyebrow reveal">Selected Work</div>
     <div class="hw-grid">
 
       <a class="hw" href="work-questionnaire.html" data-screen-label="Case 01">
@@ -252,22 +300,38 @@ body.img-modal-open{overflow:hidden}
 
     </div>
 
-    <div class="hiw reveal" id="how" data-screen-label="How I work">
-      <h2 class="v1-work-h">My Principles</h2>
-      <ol class="hiw__steps">
-        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>01</span><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span><i class="hiw__bar"><b></b></i></li>
-        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>02</span><span class="hiw__t">Design for today, anticipate tomorrow.</span><span class="hiw__d">Balance current resources with future needs; recognize risks early.</span><i class="hiw__bar"><b></b></i></li>
-        <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>03</span><span class="hiw__t">Balance business with users.</span><span class="hiw__d">Thoughtful trade-offs over short-term convenience.</span><i class="hiw__bar"><b></b></i></li>
-      </ol>
+    <div class="board-wrap reveal" id="how" data-screen-label="Principles">
+      <div class="bd">
+        <div class="bd__top"><span><i class="bd__sq"></i>Principles Board</span><span>3 Notes</span></div>
+        <div class="bd__body">
+          <ol class="hiw__steps">
+            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 01</span><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span></li>
+            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 02</span><span class="hiw__t">Design for today, anticipate tomorrow.</span><span class="hiw__d">Balance current resources with future needs; recognize risks early.</span></li>
+            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 03</span><span class="hiw__t">Balance business with users.</span><span class="hiw__d">Thoughtful trade-offs over short-term convenience.</span></li>
+            <li class="hiw__s hiw__add" data-add>
+              <span class="hiw__n">You · 04</span>
+              <span class="add__q">What's your principle?</span>
+              <textarea class="add__input" rows="2" maxlength="140" placeholder="Type yours…" aria-label="Your principle"></textarea>
+              <div class="add__foot"><span class="add__note">Only you see this.<br />Nothing is saved.</span><button type="button" class="add__pin">Pin it</button></div>
+              <span class="add__text"></span>
+              <button type="button" class="add__del" aria-label="Remove">&times;</button>
+            </li>
+          </ol>
+        </div>
+      </div>
     </div>
 
-    <div class="gallery-block">
-      <div class="gallery-head reveal">Gallery<span class="gallery-hint">scroll →</span></div>
-      <div class="gallery-marquee reveal" aria-label="Selected visuals">
-        <div class="gallery-marquee__track">
-          <figure class="gallery-item"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /><figcaption>Personal Project: Designing Coffee as a Sensory Experience — Huers (2026)</figcaption></figure>
-          <figure class="gallery-item"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /><figcaption>Building the Foundation for AI Conversations — Kindoc AI (2024)</figcaption></figure>
-          <figure class="gallery-item"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /><figcaption>AI Health Results, Visualized — Innerpink (2024–2025)</figcaption></figure>
+    <div class="board-wrap reveal">
+      <div class="bd">
+        <div class="bd__top"><span><i class="bd__sq"></i>Gallery</span><span>Scroll →</span></div>
+        <div class="bd__body">
+          <div class="gallery-marquee" aria-label="Selected visuals">
+            <div class="gallery-marquee__track">
+              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /><figcaption>Personal Project: Designing Coffee as a Sensory Experience · Huers (2026)</figcaption></figure>
+              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /><figcaption>Building the Foundation for AI Conversations · Kindoc AI (2024)</figcaption></figure>
+              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /><figcaption>AI Health Results, Visualized · Innerpink (2024–2025)</figcaption></figure>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -428,8 +492,8 @@ body.img-modal-open{overflow:hidden}
 <!-- How I work — sequential post-it lift on scroll-in (one-time) -->
 <script>
 (function(){
-  var root=document.querySelector('.hiw'); if(!root) return;
-  var s=[].slice.call(root.querySelectorAll('.hiw__s')), DUR=460, i=-1, timer=null;
+  var root=document.querySelector('.hiw__steps'); if(!root) return;
+  var s=[].slice.call(root.querySelectorAll('.hiw__s:not(.hiw__add)')), DUR=460, i=-1, timer=null;
   if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   function step(){
     i++;
@@ -441,6 +505,22 @@ body.img-modal-open{overflow:hidden}
   if(!('IntersectionObserver' in window)) return;
   var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting && !timer){ step(); io.disconnect(); } },{threshold:.35});
   io.observe(root);
+})();
+</script>
+<!-- principles board: the "You · 04" add-your-own note (ephemeral, nothing saved) -->
+<script>
+(function(){
+  var add=document.querySelector('[data-add]'); if(!add) return;
+  var input=add.querySelector('.add__input'), pin=add.querySelector('.add__pin'),
+      text=add.querySelector('.add__text'), del=add.querySelector('.add__del');
+  function toInput(){ add.classList.remove('is-pinned'); add.classList.add('is-input'); setTimeout(function(){ try{input.focus();}catch(e){} },40); }
+  function toPinned(v){ text.textContent=v; add.classList.remove('is-input'); add.classList.add('is-pinned'); }
+  function reset(){ add.classList.remove('is-input','is-pinned'); input.value=''; }
+  add.addEventListener('click', function(){ if(!add.classList.contains('is-input') && !add.classList.contains('is-pinned')) toInput(); });
+  input.addEventListener('click', function(e){ e.stopPropagation(); });
+  pin.addEventListener('click', function(e){ e.stopPropagation(); var v=input.value.trim(); if(v) toPinned(v); });
+  input.addEventListener('keydown', function(e){ if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ var v=input.value.trim(); if(v) toPinned(v); } });
+  del.addEventListener('click', function(e){ e.stopPropagation(); reset(); });
 })();
 </script>
 <script src="assets/js/main.js"></script>
