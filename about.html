@@ -154,14 +154,24 @@ body[data-page="about"]::after{display:none!important}
 .ab__galhint{display:flex;justify-content:flex-end;margin-top:12px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
 .ab__ph--slot{width:calc(var(--w) * 160px);display:grid;place-items:center;background:repeating-linear-gradient(135deg,#f4f3f0 0 8px,#efeeea 8px 9px)}
 .ab__ph--slot span{white-space:nowrap;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
-.ab__str{margin-top:clamp(28px,3vw,40px);padding-top:22px;border-top:1px solid var(--line-2);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-.ab__str .about-intro__strengths-label{margin:0;white-space:nowrap;font-family:'DM Sans',var(--font-sans)!important;font-style:normal!important;font-weight:600!important;font-size:15px!important;letter-spacing:-.01em!important;text-transform:none!important;color:#141414!important;font-variation-settings:normal!important}
-.ab__str .about-intro__strengths-label::before,.ab__str .about-intro__strengths-label::after{font-family:inherit!important}
-.ab__str .about-intro__pills{margin:0}
-.ab__str-head{display:flex;align-items:center;gap:11px}
-.ab__str-doc{flex:none;display:inline-grid;place-items:center;width:24px;height:24px;border:1px solid var(--line-2);border-radius:6px;background:#fff;color:var(--fg-3);cursor:pointer;transition:border-color .2s var(--ease),color .2s var(--ease),transform .2s var(--ease)}
-.ab__str-doc:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px)}
-.ab__str-doc svg{width:13px;height:13px}
+/* Top 5 strengths — 5-column board */
+.ab__str{margin-top:clamp(40px,5vw,72px)}
+.str5__head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(16px,1.6vw,22px)}
+.str5__title{margin:0;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(24px,2.3vw,32px);line-height:1.1;letter-spacing:-.035em;color:#141414;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.str5__eyebrow{font-family:var(--font-mono);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.str5__report{border-radius:999px;padding:8px 15px 8px 13px;font-size:13px;gap:7px;flex:none}
+.str5__report svg{width:15px;height:15px}
+.str5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line-2);border-radius:10px;overflow:hidden;background:#fff}
+.str5__col{padding:clamp(22px,2vw,30px) clamp(16px,1.5vw,24px);border-left:1px solid var(--line-2)}
+.str5__col:first-child{border-left:0}
+.str5__n{display:block;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-style:italic;font-weight:500;font-size:clamp(30px,2.6vw,38px);line-height:1;color:var(--muted-2)}
+.str5__name{margin-top:clamp(16px,1.6vw,22px);font-family:'DM Sans',var(--font-sans);font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--fg)}
+.str5__hl{background-repeat:no-repeat;background-size:100% 42%;background-position:0 84%;padding:1px .1em 2px}
+.str5__hl--o{background-image:linear-gradient(rgba(255,90,0,.2),rgba(255,90,0,.2))}
+.str5__hl--b{background-image:linear-gradient(rgba(31,61,255,.16),rgba(31,61,255,.16))}
+.str5__desc{margin:10px 0 0;font-family:'DM Sans',var(--font-sans);font-size:12.5px;line-height:1.5;letter-spacing:-.003em;color:var(--fg-3);text-wrap:pretty}
+@media (max-width:900px){.str5{grid-template-columns:1fr 1fr}.str5__col{border-left:0;border-top:1px solid var(--line-2)}.str5__col:first-child,.str5__col:nth-child(2){border-top:0}.str5__col:nth-child(odd){border-right:1px solid var(--line-2)}}
+@media (max-width:560px){.str5{grid-template-columns:1fr}.str5__col{border-right:0!important;border-top:1px solid var(--line-2)}.str5__col:first-child{border-top:0}.str5__col:nth-child(2){border-top:1px solid var(--line-2)}}
 .str-modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(18,17,17,.92);cursor:zoom-out;padding:4vh 4vw;overflow:auto}
 .str-modal.is-open{display:flex;align-items:flex-start;justify-content:center}
 .str-modal img{max-width:min(720px,94%);max-height:92vh;width:auto;height:auto;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
@@ -230,18 +240,19 @@ body[data-page="about"] .rail,body[data-page="about"] .rail-prog{position:fixed!
       <figure class="ab__ph"><img src="assets/images/aboutme-05.webp" alt="Fashion styling" /><figcaption class="ab__cap">Tried fashion styling during my break, turns out it was super fun.</figcaption></figure>
     </div>
     <div class="ab__str reveal" data-delay="3">
-      <div class="ab__str-head">
-        <div class="about-intro__strengths-label">Top 5 strengths · CliftonStrengths</div>
-        <button class="ab__str-doc" type="button" aria-label="Open CliftonStrengths report" data-str-open>
+      <div class="str5__head">
+        <h2 class="str5__title">My top 5 strengths <span class="str5__eyebrow">CliftonStrengths</span></h2>
+        <button class="btn btn--ghost str5__report" type="button" data-str-open>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 6.5v12A1.5 1.5 0 0 0 6.5 20H14" opacity=".5"/><path d="M9.5 3.5h4.6l3.9 3.9V17.5A1.5 1.5 0 0 1 16.5 19H9.5A1.5 1.5 0 0 1 8 17.5V5A1.5 1.5 0 0 1 9.5 3.5Z"/><path d="M14 3.6V7.5h3.9"/><path d="M10.7 12h4M10.7 14.6h3"/></svg>
+          View report
         </button>
       </div>
-      <div class="about-intro__pills">
-        <span class="pill pill--pink"><span class="pill__num">01</span> Ideation</span>
-        <span class="pill pill--blue"><span class="pill__num">02</span> Strategic</span>
-        <span class="pill"><span class="pill__num">03</span> Individualization</span>
-        <span class="pill"><span class="pill__num">04</span> Responsibility</span>
-        <span class="pill"><span class="pill__num">05</span> Analytical</span>
+      <div class="str5">
+        <div class="str5__col"><span class="str5__n">01</span><div class="str5__name"><span class="str5__hl str5__hl--o">Ideation</span></div><p class="str5__desc">Finds connections between ideas others see as unrelated.</p></div>
+        <div class="str5__col"><span class="str5__n">02</span><div class="str5__name"><span class="str5__hl str5__hl--b">Strategic</span></div><p class="str5__desc">Spots patterns fast and picks the best path forward.</p></div>
+        <div class="str5__col"><span class="str5__n">03</span><div class="str5__name">Individualization</div><p class="str5__desc">Notices what makes each person different, and designs for it.</p></div>
+        <div class="str5__col"><span class="str5__n">04</span><div class="str5__name">Responsibility</div><p class="str5__desc">Owns what I commit to and follows it through.</p></div>
+        <div class="str5__col"><span class="str5__n">05</span><div class="str5__name">Analytical</div><p class="str5__desc">Asks for the reasons and evidence behind things.</p></div>
       </div>
     </div>
   </div>
@@ -250,7 +261,7 @@ body[data-page="about"] .rail,body[data-page="about"] .rail-prog{position:fixed!
 <!-- ============ CAPABILITIES ============ -->
 <section class="trio-section" id="capabilities" style="padding-top: 100px; padding-bottom: 96px;">
   <div class="wrap">
-    <div class="bd reveal"><div class="bd__top"><span><i class="bd__sq"></i>Capabilities<span class="bd__sub"> · A comprehensive approach to product design</span></span></div>
+    <div class="bd reveal"><div class="bd__top"><span><i class="bd__sq"></i>Capabilities</span></div>
     <div class="cap-grid">
       <article class="cap-card reveal">
         <div class="cap-card__num">01</div>
@@ -292,7 +303,7 @@ body[data-page="about"] .rail,body[data-page="about"] .rail-prog{position:fixed!
 <!-- ============ EXPERIENCE ============ -->
 <section class="timeline-section" id="experience">
   <div class="wrap">
-    <div class="bd reveal"><div class="bd__top"><span><i class="bd__sq bd__sq--o"></i>Experience<span class="bd__sub"> · Career &amp; projects</span></span></div>
+    <div class="bd reveal"><div class="bd__top"><span><i class="bd__sq bd__sq--o"></i>Career &amp; Projects</span></div>
     <div class="timeline">
       <div class="timeline__row reveal">
         <div class="timeline__date">Oct 2025 – Nov 2025</div>
