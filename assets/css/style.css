@@ -30,8 +30,9 @@
   --line-3: #ededed;
 
   /* Accents */
-  --accent: #1F3DFF;
-  --accent-hover: #FF5A00;
+  --accent: #514E67;       /* reserved for real accents — violet purple-gray */
+  --accent-hover: #3f3b52; /* darker violet for accent hover states */
+  --eyebrow: #86868f;      /* calm cool-gray for eyebrows / labels / numbers */
   --tag-green: #56c283;
   --tag-pink: #e31675;
   --tag-blue: #4b41d0;

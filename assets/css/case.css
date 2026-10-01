@@ -154,7 +154,7 @@
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--eyebrow);
   font-weight: 500;
 }
 .case-meta__value {
@@ -336,7 +336,7 @@
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--eyebrow);
   margin-bottom: 28px;
 }
 .case-sect-title {
@@ -448,7 +448,7 @@
   font-family: 'DM Sans', var(--font-sans);
   font-style: italic;
   font-size: 13px;
-  color: var(--accent);
+  color: var(--eyebrow);
   margin: 0;
 }
 
@@ -494,7 +494,7 @@
   font-size: 11px;
   font-style: italic;
   letter-spacing: 0.04em;
-  color: var(--accent);
+  color: var(--eyebrow);
 }
 .challenge__body {
   font-family: 'DM Sans', var(--font-sans);
@@ -523,7 +523,7 @@
 }
 .challenge__team {
   font-size: 11.5px;
-  color: var(--accent);
+  color: var(--eyebrow);
   letter-spacing: -0.005em;
 }
 .challenges-hint {
@@ -552,7 +552,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--eyebrow);
 }
 .direction__label {
   font-family: 'DM Sans', var(--font-sans);
@@ -645,7 +645,7 @@
   font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--eyebrow);
 }
 .solution__title {
   font-family: 'DM Sans', var(--font-sans);
@@ -811,7 +811,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
-  color: var(--accent);
+  color: var(--eyebrow);
 }
 .outcome__headline {
   font-family: 'DM Sans', var(--font-sans);
