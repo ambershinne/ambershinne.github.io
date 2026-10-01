@@ -167,49 +167,56 @@ body.img-modal-open{overflow:hidden}
 .sect-eyebrow::before{content:"";width:5px;height:5px;border-radius:50%;background:#b9bec5}
 @media (max-width:760px){.sect-eyebrow{margin-top:24px}}
 
-/* board box + mono header — same as the About page (.bd / .bd__top) */
-.board-wrap{margin-top:clamp(88px,10vw,160px)}
-.bd{border:1px solid var(--line-2);border-radius:10px;background:#fff;overflow:hidden}
-.bd__top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-bottom:1px solid var(--line-2);background:#f7f7f5;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
-.bd__top span{display:flex;align-items:center;gap:10px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
-.bd__top>span:last-child{flex:none;color:var(--muted-2)}
-.bd__sq{width:5px;height:5px;border-radius:50%;background:#b9bec5;flex:none}
-/* dotted, colour-tinted pin-board body */
-.bd__body{padding:clamp(26px,3vw,46px) clamp(20px,2.4vw,40px);background-color:#faf9f4;background-image:radial-gradient(rgba(70,60,44,.07) 1px,transparent 1.5px);background-size:24px 24px}
-/* solid post-its — no inner texture (reference look) */
-.bd .hiw__s{background-image:none!important}
+/* ===== Pin-boards (principles + gallery) — reference style ===== */
+.hiw{margin-top:clamp(88px,10vw,160px)}
+.hiw__steps{display:none!important}
+.pb{position:relative;border:1px solid var(--line-2);border-radius:10px;background:#faf9f6 radial-gradient(circle,rgba(20,20,20,.11) 1px,transparent 1.2px) 0 0/22px 22px;overflow:hidden}
+.pb__top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-bottom:1px solid var(--line-2);background:#f7f7f5;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
+.pb__top>span:first-child{display:flex;align-items:center;gap:10px}
+.pb__top>span:first-child::before{content:"";width:5px;height:5px;border-radius:50%;background:#b9bec5;flex:none}
+.pb__top span{white-space:nowrap;flex:none}
+.pb__top span:last-child{color:var(--muted-2)}
+.pb__area{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:flex-start;gap:clamp(36px,4.4vw,64px) clamp(30px,4vw,60px);padding:clamp(44px,5vw,76px) clamp(24px,5vw,80px) clamp(52px,5.6vw,84px);min-height:300px}
+.pn{position:relative;width:clamp(200px,17vw,236px);min-height:clamp(180px,15vw,210px);padding:30px 22px 22px;background:var(--pi);border-radius:2px;transform:rotate(var(--rot)) translateY(var(--dy,0));box-shadow:0 1px 1px rgba(40,36,30,.04),0 14px 24px -14px rgba(40,36,30,.2),0 30px 50px -28px rgba(40,36,30,.16);display:flex;flex-direction:column;gap:10px;transition:transform .35s cubic-bezier(.3,.7,.3,1),box-shadow .35s}
+.pn::before{content:"";position:absolute;left:50%;top:-9px;width:62px;height:18px;transform:translateX(-50%) rotate(calc(var(--rot) * -2));background:rgba(255,255,255,.6);box-shadow:0 1px 2px rgba(0,0,0,.06)}
+.pn:hover{transform:rotate(0) translateY(-5px);box-shadow:0 2px 2px rgba(40,36,30,.04),0 22px 34px -16px rgba(40,36,30,.22),0 44px 70px -34px rgba(40,36,30,.18)}
+.pn__n{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
+.pn__t{font-family:'DM Sans',var(--font-sans);font-weight:600;font-size:clamp(16px,1.3vw,18px);line-height:1.28;letter-spacing:-.01em;color:#141414;text-wrap:pretty;overflow-wrap:anywhere}
+.pn__d{font-family:'DM Sans',var(--font-sans);font-size:13.5px;line-height:1.55;color:var(--fg-3);text-wrap:pretty}
+.pn__d em{font-style:italic}
+.pn--y{--pi:#fefae6}.pn--p{--pi:#fef1ea}.pn--b{--pi:#edf3fd}.pn--g{--pi:#f0f7e9}
+.pn--you .pn__n{color:#1f3dff}
+.pn__x{position:absolute;right:6px;top:6px;width:26px;height:26px;border:0;border-radius:50%;background:transparent;color:var(--muted-2);font-size:15px;line-height:1;cursor:pointer;opacity:0;transition:opacity .2s,background .2s}
+.pn:hover .pn__x,.pn__x:focus-visible{opacity:1}.pn__x:hover{background:rgba(20,20,20,.06);color:#141414}
+.pn--blank{background:rgba(255,255,255,.55);border:1.5px dashed rgba(20,20,20,.22);box-shadow:none;cursor:text;transition:background .25s,border-color .25s,box-shadow .35s,transform .35s cubic-bezier(.3,.7,.3,1)}
+.pn--blank::before{display:none}
+.pn--blank:hover{background:rgba(255,255,255,.8);border-color:rgba(20,20,20,.35);box-shadow:none;transform:rotate(0) translateY(-3px)}
+.pn--blank.is-on{background:#fefae6;border:1.5px solid transparent;transform:rotate(0) translateY(-5px);box-shadow:0 2px 2px rgba(40,36,30,.04),0 22px 34px -16px rgba(40,36,30,.22),0 44px 70px -34px rgba(40,36,30,.18)}
+.pn--blank.is-on::before{display:block}
+.pn__ta{flex:1;width:100%;min-height:84px;padding:0;border:0;outline:none;resize:none;background:transparent;font-family:'DM Sans',var(--font-sans);font-weight:600;font-size:clamp(16px,1.3vw,18px);line-height:1.28;letter-spacing:-.01em;color:#141414;cursor:text}
+.pn__ta::placeholder{color:rgba(20,20,20,.32);font-weight:500}
+.pn__foot{display:flex;align-items:center;justify-content:space-between;gap:8px;opacity:0;transform:translateY(4px);transition:opacity .25s,transform .25s;pointer-events:none}
+.pn--blank.is-on .pn__foot{opacity:1;transform:none;pointer-events:auto}
+.pn__hint{font-family:'DM Sans',var(--font-sans);font-size:11px;line-height:1.3;color:var(--muted-2)}
+.pn__pin{flex:none;height:30px;padding:0 12px;border:0;border-radius:6px;background:#141414;color:#fff;font:600 12.5px/1 'DM Sans',var(--font-sans);cursor:pointer;transition:opacity .2s,background .2s}
+.pn__pin:hover{background:#1f3dff}.pn__pin:disabled{opacity:.3;cursor:default;background:#141414}
+.pn--new{animation:pnDrop .6s cubic-bezier(.2,.9,.3,1.25) both}
+@keyframes pnDrop{from{opacity:0;transform:rotate(calc(var(--rot) * 4)) translateY(-28px) scale(.92)}to{opacity:1;transform:rotate(var(--rot)) translateY(var(--dy,0))}}
 
-/* principles: 4 columns inside the board (3 notes + add) */
-.bd .hiw__steps{grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.8vw,26px);padding:4px 2px 6px;background:none;align-items:start}
-.bd .hiw__s{min-height:clamp(230px,19vw,250px)}
+/* gallery board: polaroids, flex-wrap (no horizontal scroll) */
+.gboard{margin-top:20px}
+.pb--gal .pb__area{gap:clamp(30px,3.4vw,46px) clamp(24px,2.8vw,40px);padding:clamp(40px,4.4vw,60px) clamp(22px,3vw,44px) clamp(44px,4.8vw,64px)}
+.gpola{--gh:clamp(146px,11vw,172px);position:relative;flex:none;margin:0;padding:11px 11px 0;background:#fff;border-radius:2px;transform:rotate(var(--rot,0deg)) translateY(var(--dy,0));box-shadow:0 1px 1px rgba(40,36,30,.05),0 14px 24px -14px rgba(40,36,30,.22),0 30px 50px -28px rgba(40,36,30,.16);transition:transform .35s cubic-bezier(.3,.7,.3,1),box-shadow .35s}
+.gpola::before{content:"";position:absolute;left:50%;top:-9px;width:64px;height:18px;transform:translateX(-50%) rotate(calc(var(--rot) * -2));background:rgba(255,255,255,.62);box-shadow:0 1px 2px rgba(0,0,0,.07);z-index:2}
+.gpola:hover{transform:translateY(-4px);box-shadow:0 2px 2px rgba(40,36,30,.05),0 22px 34px -16px rgba(40,36,30,.24),0 44px 70px -34px rgba(40,36,30,.18)}
+.gpola img{display:block;height:var(--gh);width:calc(var(--gh) * 1.6);object-fit:cover;max-width:none;border-radius:0;background:#f2f2f0;cursor:zoom-in}
+.gpola figcaption{display:block;max-width:0;min-width:100%;box-sizing:border-box;margin:0;padding:14px 4px 18px;font-family:'DM Sans',var(--font-sans);font-size:13px;line-height:1.45;color:var(--fg-2);text-wrap:pretty}
+.gpola:nth-child(1){--rot:-1.6deg;--dy:0}
+.gpola:nth-child(2){--rot:1.4deg;--dy:16px}
+.gpola:nth-child(3){--rot:-.8deg;--dy:-6px}
 
-/* 4th box: placeholder → input → pinned */
-.hiw__add{--rot:0deg!important;cursor:pointer;justify-content:flex-start;gap:12px;background:transparent!important;background-image:none!important;border:1.5px dashed var(--line-2);box-shadow:none}
-.hiw__add::before{display:none!important}
-.hiw__add:hover{transform:none!important;box-shadow:none;border-color:var(--muted-2)}
-.hiw__add .add__q{font-family:'DM Sans',var(--font-sans);font-weight:500;font-size:clamp(15px,1.15vw,18px);line-height:1.3;letter-spacing:-.02em;color:var(--muted-2)}
-.hiw__add .add__input,.hiw__add .add__foot,.hiw__add .add__text,.hiw__add .add__del{display:none}
-.hiw__add.is-input,.hiw__add.is-pinned{cursor:default;border:0;background-color:#fdf7df!important;background-image:none!important;box-shadow:0 1px 1px rgba(40,36,30,.04),0 14px 24px -14px rgba(40,36,30,.18),0 30px 50px -28px rgba(40,36,30,.16)}
-.hiw__add.is-input::before,.hiw__add.is-pinned::before{display:block!important}
-.hiw__add.is-input .add__q{color:var(--fg)}
-.hiw__add.is-input .add__input{display:block;width:100%;flex:1;min-height:60px;margin-top:2px;border:0;background:transparent;resize:none;font-family:'DM Sans',var(--font-sans);font-size:14px;line-height:1.55;color:var(--fg);outline:none}
-.hiw__add.is-input .add__foot{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-top:auto}
-.add__note{font-family:'DM Sans',var(--font-sans);font-size:11px;line-height:1.45;color:var(--muted-2)}
-.add__pin{flex:none;font-family:var(--font-mono);font-size:11px;letter-spacing:.03em;padding:9px 16px;border-radius:7px;border:0;background:#b7b1a0;color:#fff;cursor:pointer;transition:background .2s}
-.add__pin:hover{background:#a39d8c}
-.hiw__add.is-pinned .add__text{display:block;margin-top:2px;font-family:'DM Sans',var(--font-sans);font-size:14px;line-height:1.55;color:var(--fg);text-wrap:pretty}
-.hiw__add.is-pinned .add__del{display:flex;align-items:center;justify-content:center;position:absolute;top:7px;right:9px;width:22px;height:22px;border:0;background:transparent;color:var(--muted-2);font-size:18px;line-height:1;cursor:pointer}
-.hiw__add.is-pinned .add__del:hover{color:var(--fg)}
-
-/* gallery → polaroids inside the board */
-.bd .gallery-marquee{-webkit-mask-image:none;mask-image:none;margin:0;overflow-x:auto}
-.bd .gallery-marquee__track{gap:clamp(18px,2vw,30px);padding:4px 2px 8px}
-.pola-item{flex:0 0 auto;margin:0;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line-3);padding:12px 12px 0;border-radius:2px;box-shadow:0 1px 1px rgba(40,36,30,.05),0 14px 24px -14px rgba(40,36,30,.16);transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.pola-item:hover{transform:translateY(-4px);box-shadow:0 2px 2px rgba(40,36,30,.05),0 22px 34px -16px rgba(40,36,30,.2)}
-.pola-item img{display:block;height:clamp(200px,20vw,248px);width:auto;background:#f2f1ee;cursor:zoom-in}
-.pola-item figcaption{padding:13px 2px 15px;max-width:34ch;font-family:'DM Sans',var(--font-sans);font-size:12px;line-height:1.5;color:var(--fg-3);text-wrap:pretty}
-
-@media (max-width:760px){.bd .hiw__steps{grid-template-columns:1fr;gap:22px}.bd .hiw__s{min-height:0}}
+@media (max-width:640px){.pb__area{padding:clamp(28px,8vw,44px) clamp(18px,6vw,28px);justify-content:center}.pn{width:100%;max-width:300px}.gpola{--gh:160px;transform:none}.gpola img{width:auto;max-width:100%}}
+@media (prefers-reduced-motion:reduce){.pn,.pn--new,.gpola{animation:none;transition:none}}
 </style>
 </head>
 <body data-page="home">
@@ -302,38 +309,21 @@ body.img-modal-open{overflow:hidden}
 
     </div>
 
-    <div class="board-wrap reveal" id="how" data-screen-label="Principles">
-      <div class="bd">
-        <div class="bd__top"><span><i class="bd__sq"></i>Principles Board</span><span>3 Notes</span></div>
-        <div class="bd__body">
-          <ol class="hiw__steps">
-            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 01</span><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span></li>
-            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 02</span><span class="hiw__t">Design for today, anticipate tomorrow.</span><span class="hiw__d">Balance current resources with future needs; recognize risks early.</span></li>
-            <li class="hiw__s"><span class="hiw__n"><i class="hiw__dot"></i>Amber · 03</span><span class="hiw__t">Balance business with users.</span><span class="hiw__d">Thoughtful trade-offs over short-term convenience.</span></li>
-            <li class="hiw__s hiw__add" data-add>
-              <span class="hiw__n">You · 04</span>
-              <span class="add__q">What's your principle?</span>
-              <textarea class="add__input" rows="2" maxlength="140" placeholder="Type yours…" aria-label="Your principle"></textarea>
-              <div class="add__foot"><span class="add__note">Only you see this.<br />Nothing is saved.</span><button type="button" class="add__pin">Pin it</button></div>
-              <span class="add__text"></span>
-              <button type="button" class="add__del" aria-label="Remove">&times;</button>
-            </li>
-          </ol>
-        </div>
-      </div>
+    <div class="hiw reveal" id="how" data-screen-label="Principles">
+      <ol class="hiw__steps">
+        <li class="hiw__s"><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span></li>
+        <li class="hiw__s"><span class="hiw__t">Design for today, anticipate tomorrow.</span><span class="hiw__d">Balance current resources with future needs; recognize risks early.</span></li>
+        <li class="hiw__s"><span class="hiw__t">Balance business with users.</span><span class="hiw__d">Thoughtful trade-offs over short-term convenience.</span></li>
+      </ol>
     </div>
 
-    <div class="board-wrap reveal">
-      <div class="bd">
-        <div class="bd__top"><span><i class="bd__sq"></i>Gallery</span><span>Scroll →</span></div>
-        <div class="bd__body">
-          <div class="gallery-marquee" aria-label="Selected visuals">
-            <div class="gallery-marquee__track">
-              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /><figcaption>Personal Project: Designing Coffee as a Sensory Experience · Huers (2026)</figcaption></figure>
-              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /><figcaption>Building the Foundation for AI Conversations · Kindoc AI (2024)</figcaption></figure>
-              <figure class="pola-item"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /><figcaption>AI Health Results, Visualized · Innerpink (2024–2025)</figcaption></figure>
-            </div>
-          </div>
+    <div class="gboard reveal">
+      <div class="pb pb--gal">
+        <div class="pb__top"><span>Gallery</span><span>3 shots</span></div>
+        <div class="pb__area">
+          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /><figcaption>Personal Project: Designing Coffee as a Sensory Experience · Huers (2026)</figcaption></figure>
+          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /><figcaption>Building the Foundation for AI Conversations · Kindoc AI (2024)</figcaption></figure>
+          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /><figcaption>AI Health Results, Visualized · Innerpink (2024–2025)</figcaption></figure>
         </div>
       </div>
     </div>
@@ -491,39 +481,48 @@ body.img-modal-open{overflow:hidden}
 })();
 </script>
 
-<!-- How I work — sequential post-it lift on scroll-in (one-time) -->
+<!-- Principles pin-board: builds notes from .hiw__steps + the "You · 04" add-your-own (ephemeral) -->
 <script>
-(function(){
-  var root=document.querySelector('.hiw__steps'); if(!root) return;
-  var s=[].slice.call(root.querySelectorAll('.hiw__s:not(.hiw__add)')), DUR=460, i=-1, timer=null;
-  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  function step(){
-    i++;
-    if(i>=s.length) return;
-    s.forEach(function(e,k){ e.classList.toggle('is-done',k<i); e.classList.remove('is-on','is-lift'); });
-    void s[i].offsetWidth; s[i].classList.add('is-on','is-lift');
-    timer=setTimeout(function(){ s[i].classList.remove('is-on','is-lift'); s[i].classList.add('is-done'); step(); },DUR);
+document.addEventListener('DOMContentLoaded',function(){
+  var ol=document.querySelector('.hiw__steps'); if(!ol) return;
+  var cols=['y','p','b','g'], rots=[-2.2,1.6,-1.1,2.4,-1.8,1.1,-.6,2], dys=[0,14,-6,10,-10,6];
+  var board=document.createElement('div'); board.className='pb';
+  board.innerHTML='<div class="pb__top"><span>Principles board</span><span id="pbCount"></span></div><div class="pb__area" id="pbArea"></div>';
+  ol.parentNode.insertBefore(board, ol.nextSibling);
+  var area=board.querySelector('#pbArea'), n=0;
+  function note(o){ var el=document.createElement('div'), i=n++;
+    el.className='pn pn--'+(o.c||cols[i%cols.length])+(o.you?' pn--you':'');
+    el.style.setProperty('--rot',(o.rot!=null?o.rot:rots[i%rots.length])+'deg'); el.style.setProperty('--dy',dys[i%dys.length]+'px');
+    var t=document.createElement('span'); t.className='pn__t'; t.textContent=o.t;
+    var nb=document.createElement('span'); nb.className='pn__n'; nb.textContent=o.n;
+    el.appendChild(nb); el.appendChild(t);
+    if(o.d){ var d=document.createElement('span'); d.className='pn__d'; d.innerHTML=o.d; el.appendChild(d); }
+    if(o.you){ var x=document.createElement('button'); x.type='button'; x.className='pn__x'; x.setAttribute('aria-label','Remove note'); x.textContent='×'; x.onclick=function(){ el.remove(); upd(); }; el.appendChild(x); }
+    return el; }
+  [].slice.call(ol.querySelectorAll('.hiw__s')).forEach(function(li,i){
+    var t=li.querySelector('.hiw__t'), d=li.querySelector('.hiw__d');
+    area.appendChild(note({n:'Amber · 0'+(i+1), t:t?t.textContent:'', d:d?d.innerHTML:'', c:['y','p','b'][i], rot:[-2.2,1.6,-1.1][i]}));
+  });
+  var cnt=board.querySelector('#pbCount');
+  function upd(){ var k=area.querySelectorAll('.pn--you').length; cnt.textContent='■ '+(3+k)+' notes'; }
+  var blank=document.createElement('div'); blank.className='pn pn--blank';
+  blank.style.setProperty('--rot','1.4deg'); blank.style.setProperty('--dy','8px');
+  blank.innerHTML='<span class="pn__n">You · 04</span><textarea class="pn__ta" maxlength="80" rows="4" placeholder="What’s your principle?" aria-label="Write your design principle"></textarea><div class="pn__foot"><span class="pn__hint">Only you see this. Nothing is saved.</span><button type="button" class="pn__pin" disabled>Pin it</button></div>';
+  area.appendChild(blank);
+  var ta=blank.querySelector('.pn__ta'), pin=blank.querySelector('.pn__pin');
+  blank.addEventListener('click',function(e){ if(e.target!==pin) ta.focus(); });
+  ta.addEventListener('focus',function(){ blank.classList.add('is-on'); });
+  ta.addEventListener('blur',function(){ if(!ta.value.trim()) blank.classList.remove('is-on'); });
+  ta.addEventListener('input',function(){ pin.disabled=!ta.value.trim(); });
+  function add(){ var v=ta.value.trim(); if(!v) return;
+    var el=note({n:'You · just now', t:v, you:true, c:'y', rot:1.4});
+    el.classList.add('pn--new'); area.replaceChild(el, blank); upd();
+    el.querySelector('.pn__x').onclick=function(){ el.remove(); ta.value=''; pin.disabled=true; blank.classList.remove('is-on'); area.appendChild(blank); upd(); };
   }
-  if(!('IntersectionObserver' in window)) return;
-  var io=new IntersectionObserver(function(en){ if(en[0].isIntersecting && !timer){ step(); io.disconnect(); } },{threshold:.35});
-  io.observe(root);
-})();
-</script>
-<!-- principles board: the "You · 04" add-your-own note (ephemeral, nothing saved) -->
-<script>
-(function(){
-  var add=document.querySelector('[data-add]'); if(!add) return;
-  var input=add.querySelector('.add__input'), pin=add.querySelector('.add__pin'),
-      text=add.querySelector('.add__text'), del=add.querySelector('.add__del');
-  function toInput(){ add.classList.remove('is-pinned'); add.classList.add('is-input'); setTimeout(function(){ try{input.focus();}catch(e){} },40); }
-  function toPinned(v){ text.textContent=v; add.classList.remove('is-input'); add.classList.add('is-pinned'); }
-  function reset(){ add.classList.remove('is-input','is-pinned'); input.value=''; }
-  add.addEventListener('click', function(){ if(!add.classList.contains('is-input') && !add.classList.contains('is-pinned')) toInput(); });
-  input.addEventListener('click', function(e){ e.stopPropagation(); });
-  pin.addEventListener('click', function(e){ e.stopPropagation(); var v=input.value.trim(); if(v) toPinned(v); });
-  input.addEventListener('keydown', function(e){ if((e.metaKey||e.ctrlKey) && e.key==='Enter'){ var v=input.value.trim(); if(v) toPinned(v); } });
-  del.addEventListener('click', function(e){ e.stopPropagation(); reset(); });
-})();
+  pin.addEventListener('click',add);
+  ta.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); add(); } });
+  upd();
+});
 </script>
 <script src="assets/js/main.js"></script>
 <script>
