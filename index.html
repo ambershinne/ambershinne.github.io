@@ -62,7 +62,7 @@ body[data-page="home"] .at-glance-section,body[data-page="home"] .about-intro,bo
 .hero-sub .k{font-weight:500;color:var(--fg)}
 
 /* featured work */
-.home-work{padding:0 0 110px;scroll-margin-top:96px}
+.home-work{padding:0 0 220px;scroll-margin-top:96px}
 .hw-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(16px,1.8vw,26px);row-gap:clamp(78px,8.1vw,117px)}
 .hw{display:flex;flex-direction:column;text-decoration:none;color:inherit}
 .hw__media{position:relative;border-radius:12px;overflow:hidden;background:var(--bg-tint);border:1px solid var(--line-3);aspect-ratio:16/10}
@@ -170,6 +170,7 @@ body.img-modal-open{overflow:hidden}
 /* ===== Pin-boards (principles + gallery) — reference style ===== */
 .board-sect-title{margin:clamp(92px,10.5vw,168px) 0 clamp(20px,2.2vw,30px);font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.36;letter-spacing:-0.035em;color:var(--fg);text-wrap:pretty}
 .board-sect-title__muted{color:var(--muted-2)}
+.board-sect-title--gal{font-size:clamp(18px,1.6vw,22px)}
 @media (max-width:760px){.board-sect-title{margin-top:56px}}
 .hiw{margin-top:0}
 .hiw__steps{display:none!important}
@@ -210,14 +211,14 @@ body.img-modal-open{overflow:hidden}
 .gal2__scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;margin-right:calc(-1 * max(var(--gutter),(100vw - var(--max-w)) / 2 + var(--gutter)));padding:4px max(var(--gutter),(100vw - var(--max-w)) / 2 + var(--gutter)) 8px 0}
 .gal2__scroll::-webkit-scrollbar{display:none}
 .gal2__track{display:flex;gap:clamp(18px,2vw,30px);width:max-content}
-.gal2__card{flex:0 0 auto;width:clamp(300px,27vw,420px);margin:0}
+.gal2__card{flex:0 0 auto;width:clamp(255px,23vw,360px);margin:0}
 .gal2__media{border-radius:14px;overflow:hidden;background:#efeeea;border:1px solid var(--line-3);aspect-ratio:16/11}
 .gal2__media img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s var(--ease-out)}
 .gal2__card:hover .gal2__media img{transform:scale(1.03)}
 .gal2__card figcaption{display:block;padding:16px 2px 0}
 .gal2__title{display:block;font-family:'DM Sans',var(--font-sans);font-weight:600;font-size:clamp(15px,1.25vw,18px);line-height:1.3;letter-spacing:-.01em;color:var(--fg)}
 .gal2__meta{display:block;margin-top:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
-@media (max-width:640px){.gal2__card{width:78vw;max-width:340px}}
+@media (max-width:640px){.gal2__card{width:66vw;max-width:290px}}
 @media (prefers-reduced-motion:reduce){.pn,.pn--new{animation:none;transition:none}}
 </style>
 </head>
@@ -320,7 +321,7 @@ body.img-modal-open{overflow:hidden}
       </ol>
     </div>
 
-    <h2 class="board-sect-title reveal">Beyond the case studies.<br /><span class="board-sect-title__muted">More products, in-house and personal.</span></h2>
+    <h2 class="board-sect-title board-sect-title--gal reveal">Beyond the case studies.<br /><span class="board-sect-title__muted">More products, in-house and personal.</span></h2>
     <div class="gal2 reveal" aria-label="Selected visuals">
       <div class="gal2__scroll">
         <div class="gal2__track">
