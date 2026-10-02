@@ -206,17 +206,19 @@ body.img-modal-open{overflow:hidden}
 .pn--new{animation:pnDrop .6s cubic-bezier(.2,.9,.3,1.25) both}
 @keyframes pnDrop{from{opacity:0;transform:rotate(calc(var(--rot) * 4)) translateY(-28px) scale(.92)}to{opacity:1;transform:rotate(var(--rot)) translateY(var(--dy,0))}}
 
-/* gallery board: polaroids, flex-wrap (no horizontal scroll) */
-.gboard{margin-top:clamp(92px,10.5vw,168px)}
-.pb--gal .pb__area{gap:clamp(30px,3.4vw,46px) clamp(24px,2.8vw,40px);padding:clamp(40px,4.4vw,60px) clamp(22px,3vw,44px) clamp(44px,4.8vw,64px)}
-.gpola{--gh:clamp(146px,11vw,172px);position:relative;flex:none;margin:0;padding:11px 11px 0;background:#fff;border-radius:2px;box-shadow:0 1px 1px rgba(40,36,30,.05),0 14px 24px -14px rgba(40,36,30,.22),0 30px 50px -28px rgba(40,36,30,.16);transition:transform .35s cubic-bezier(.3,.7,.3,1),box-shadow .35s}
-.gpola::before{content:"";position:absolute;left:50%;top:-9px;width:64px;height:18px;transform:translateX(-50%);background:rgba(255,255,255,.62);box-shadow:0 1px 2px rgba(0,0,0,.07);z-index:2}
-.gpola:hover{transform:translateY(-4px);box-shadow:0 2px 2px rgba(40,36,30,.05),0 22px 34px -16px rgba(40,36,30,.24),0 44px 70px -34px rgba(40,36,30,.18)}
-.gpola img{display:block;height:var(--gh);width:calc(var(--gh) * 1.6);object-fit:cover;max-width:none;border-radius:0;background:#f2f2f0;cursor:zoom-in}
-.gpola figcaption{display:block;max-width:0;min-width:100%;box-sizing:border-box;margin:0;padding:14px 4px 18px;font-family:'DM Sans',var(--font-sans);font-size:13px;line-height:1.45;color:var(--fg-2);text-wrap:pretty}
-
-@media (max-width:640px){.pb__area{padding:clamp(28px,8vw,44px) clamp(18px,6vw,28px);justify-content:center}.pn{width:100%;max-width:300px}.gpola{--gh:160px;transform:none}.gpola img{width:auto;max-width:100%}}
-@media (prefers-reduced-motion:reduce){.pn,.pn--new,.gpola{animation:none;transition:none}}
+/* gallery — no board: title + side-scrolling cards (title / subtitle) */
+.gal2__scroll{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch;overscroll-behavior-x:contain;margin-right:calc(-1 * max(var(--gutter),(100vw - var(--max-w)) / 2 + var(--gutter)));padding:4px max(var(--gutter),(100vw - var(--max-w)) / 2 + var(--gutter)) 8px 0}
+.gal2__scroll::-webkit-scrollbar{display:none}
+.gal2__track{display:flex;gap:clamp(18px,2vw,30px);width:max-content}
+.gal2__card{flex:0 0 auto;width:clamp(300px,27vw,420px);margin:0}
+.gal2__media{border-radius:14px;overflow:hidden;background:#efeeea;border:1px solid var(--line-3);aspect-ratio:16/11}
+.gal2__media img{width:100%;height:100%;object-fit:cover;display:block;cursor:zoom-in;transition:transform .7s var(--ease-out)}
+.gal2__card:hover .gal2__media img{transform:scale(1.03)}
+.gal2__card figcaption{display:block;padding:16px 2px 0}
+.gal2__title{display:block;font-family:'DM Sans',var(--font-sans);font-weight:600;font-size:clamp(15px,1.25vw,18px);line-height:1.3;letter-spacing:-.01em;color:var(--fg)}
+.gal2__meta{display:block;margin-top:9px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+@media (max-width:640px){.gal2__card{width:78vw;max-width:340px}}
+@media (prefers-reduced-motion:reduce){.pn,.pn--new{animation:none;transition:none}}
 </style>
 </head>
 <body data-page="home">
@@ -318,13 +320,22 @@ body.img-modal-open{overflow:hidden}
       </ol>
     </div>
 
-    <div class="gboard reveal">
-      <div class="pb pb--gal">
-        <div class="pb__top"><span>Gallery</span></div>
-        <div class="pb__area">
-          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /><figcaption>Personal Project: Designing Coffee as a Sensory Experience · Huers (2026)</figcaption></figure>
-          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /><figcaption>Building the Foundation for AI Conversations · Kindoc AI (2024)</figcaption></figure>
-          <figure class="gpola"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /><figcaption>AI Health Results, Visualized · Innerpink (2024–2025)</figcaption></figure>
+    <h2 class="board-sect-title reveal">Beyond the case studies.<br /><span class="board-sect-title__muted">More products, in-house and personal.</span></h2>
+    <div class="gal2 reveal" aria-label="Selected visuals">
+      <div class="gal2__scroll">
+        <div class="gal2__track">
+          <figure class="gal2__card">
+            <div class="gal2__media"><img class="zoomable" src="assets/images/gallery/01-huers.png" alt="Huers — coffee taste app UI kit" /></div>
+            <figcaption><span class="gal2__title">Designing Coffee as a Sensory Experience</span><span class="gal2__meta">Huers · Personal · 2026</span></figcaption>
+          </figure>
+          <figure class="gal2__card">
+            <div class="gal2__media"><img class="zoomable" src="assets/images/gallery/02-kindoc-ai.png" alt="Kindoc AI — conversational health assistant screens" /></div>
+            <figcaption><span class="gal2__title">Building the Foundation for AI Conversations</span><span class="gal2__meta">Kindoc AI · 2024</span></figcaption>
+          </figure>
+          <figure class="gal2__card">
+            <div class="gal2__media"><img class="zoomable" src="assets/images/gallery/03-innerpink.png" alt="Innerpink — AI health results visualization" /></div>
+            <figcaption><span class="gal2__title">AI Health Results, Visualized</span><span class="gal2__meta">Innerpink · 2024–25</span></figcaption>
+          </figure>
         </div>
       </div>
     </div>
