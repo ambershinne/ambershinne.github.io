@@ -168,7 +168,9 @@ body.img-modal-open{overflow:hidden}
 @media (max-width:760px){.sect-eyebrow{margin-top:24px}}
 
 /* ===== Pin-boards (principles + gallery) — reference style ===== */
-.hiw{margin-top:clamp(88px,10vw,160px)}
+.board-sect-title{margin:clamp(92px,10.5vw,168px) 0 clamp(20px,2.2vw,30px);font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.24;letter-spacing:-0.035em;color:var(--fg);text-wrap:pretty}
+@media (max-width:760px){.board-sect-title{margin-top:56px}}
+.hiw{margin-top:0}
 .hiw__steps{display:none!important}
 .pb{position:relative;border:1px solid var(--line-2);border-radius:10px;background:#faf9f6 radial-gradient(circle,rgba(20,20,20,.11) 1px,transparent 1.2px) 0 0/22px 22px;overflow:hidden}
 .pb__top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-bottom:1px solid var(--line-2);background:#f7f7f5;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
@@ -204,7 +206,7 @@ body.img-modal-open{overflow:hidden}
 @keyframes pnDrop{from{opacity:0;transform:rotate(calc(var(--rot) * 4)) translateY(-28px) scale(.92)}to{opacity:1;transform:rotate(var(--rot)) translateY(var(--dy,0))}}
 
 /* gallery board: polaroids, flex-wrap (no horizontal scroll) */
-.gboard{margin-top:20px}
+.gboard{margin-top:clamp(92px,10.5vw,168px)}
 .pb--gal .pb__area{gap:clamp(30px,3.4vw,46px) clamp(24px,2.8vw,40px);padding:clamp(40px,4.4vw,60px) clamp(22px,3vw,44px) clamp(44px,4.8vw,64px)}
 .gpola{--gh:clamp(146px,11vw,172px);position:relative;flex:none;margin:0;padding:11px 11px 0;background:#fff;border-radius:2px;box-shadow:0 1px 1px rgba(40,36,30,.05),0 14px 24px -14px rgba(40,36,30,.22),0 30px 50px -28px rgba(40,36,30,.16);transition:transform .35s cubic-bezier(.3,.7,.3,1),box-shadow .35s}
 .gpola::before{content:"";position:absolute;left:50%;top:-9px;width:64px;height:18px;transform:translateX(-50%);background:rgba(255,255,255,.62);box-shadow:0 1px 2px rgba(0,0,0,.07);z-index:2}
@@ -306,6 +308,7 @@ body.img-modal-open{overflow:hidden}
 
     </div>
 
+    <h2 class="board-sect-title reveal">Every project starts the same way.<br />With these three.</h2>
     <div class="hiw reveal" id="how" data-screen-label="Principles">
       <ol class="hiw__steps">
         <li class="hiw__s"><span class="hiw__t">Understand intent first.</span><span class="hiw__d">Every feature has a business purpose. Know <em>why</em> before deciding <em>how</em>.</span></li>
