@@ -97,6 +97,13 @@ button {
   padding: 0;
 }
 img, svg { display: block; max-width: 100%; }
+/* Soft image-save deterrent: block drag-to-save, long-press callout, selection */
+img {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 ::selection { background: var(--accent); color: #fff; }
 

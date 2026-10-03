@@ -181,6 +181,20 @@
     update();
   }
 
+  // ---- Soft image-save deterrent (images only) --------------
+  // Not real protection — files stay public — just discourages
+  // casual right-click save, drag-to-desktop, and long-press save.
+  function initImageGuard() {
+    const isImg = (t) => t && t.closest && t.closest('img, picture');
+    document.addEventListener('contextmenu', (e) => {
+      if (isImg(e.target)) e.preventDefault();
+    });
+    document.addEventListener('dragstart', (e) => {
+      if (e.target && e.target.tagName === 'IMG') e.preventDefault();
+    });
+    document.querySelectorAll('img').forEach((im) => { im.draggable = false; });
+  }
+
   function init() {
     initReveal();
     initScrollRails();
@@ -190,6 +204,7 @@
     initFloatNav();
     initHighlighters();
     initPageTransitions();
+    initImageGuard();
   }
 
   if (document.readyState === 'loading') {
