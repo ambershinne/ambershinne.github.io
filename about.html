@@ -44,6 +44,14 @@ body[data-page] .rail2-cv{position:fixed!important;inset:0;width:100vw;height:10
 .bubble::after{content:"";position:absolute;left:-6px;top:50%;width:8px;height:8px;transform:translateY(-50%) rotate(45deg);background:#fdf6f0;border-left:1.5px solid rgba(255,90,0,.18);border-bottom:1.5px solid rgba(255,90,0,.18)}
 .bubble::before{content:none}
 .about-intro__quote:hover .bubble{transform:rotate(1.4deg) translateY(-2px)}
+/* "Call me Amber" CRT terminal tag (replaces .bubble on .ab__greet) */
+.crt{position:relative;display:inline-flex;align-items:center;gap:.7em;padding:7px 14px 7px 12px;background:#161513;color:#ff7a2e;font-family:'Geist Mono',ui-monospace,monospace;font-size:11.5px;font-weight:500;letter-spacing:.16em;line-height:1;text-shadow:0 0 6px rgba(255,110,30,.55);clip-path:polygon(7px 0,100% 0,100% calc(100% - 7px),calc(100% - 7px) 100%,0 100%,0 7px);transform:rotate(-1.5deg);overflow:hidden}
+.crt::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,rgba(255,255,255,.035) 0 1px,transparent 1px 3px);pointer-events:none}
+.crt__p{opacity:.85}
+.crt__t{display:inline-block;min-width:13ch;white-space:pre}
+.crt__c{width:2px;height:1.1em;margin-left:-.35em;background:#ff7a2e;box-shadow:0 0 6px rgba(255,110,30,.6);animation:crtBlink 1.1s steps(1) infinite}
+@keyframes crtBlink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.crt__c{animation:none}}
 .about-intro__paragraph{max-width:520px;font-family:'DM Sans',var(--font-sans);font-size:15px;font-weight:400;line-height:1.6;letter-spacing:-.005em;color:var(--fg-3);text-wrap:pretty;hyphens:none;overflow-wrap:normal}
 
 /* polaroids */
@@ -232,7 +240,7 @@ body[data-page="about"] .rail,body[data-page="about"] .rail-prog{position:fixed!
   <div class="wrap">
     <div class="ab__head">
       <div class="ab__left">
-        <p class="ab__greet reveal"><span>Hi, I'm Eunhye.</span><span class="bubble">Call me Amber!<span class="wave" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M18.4 5.6l-2.1 2.1M21 12h-3M5.6 5.6l2.1 2.1M3 12h3"/><circle cx="12" cy="15" r="5.2"/><path d="M9.8 14.2h.01M14.2 14.2h.01M9.9 17c.6.6 1.3.9 2.1.9s1.5-.3 2.1-.9"/></svg></span></span></p>
+        <p class="ab__greet reveal"><span>Hi, I'm Eunhye</span><span class="crt" aria-label="Call me Amber"><span class="crt__p">&gt;</span><span class="crt__t" data-t="CALL ME AMBER"></span><i class="crt__c"></i></span></p>
         <h1 class="ab__title reveal" data-delay="1">Joined a startup as hire #3,<br />stayed through Series&nbsp;B<br />to become a shareholder,<br /><span class="ab__muted">and led product from 0&nbsp;to&nbsp;1.</span></h1>
       </div>
       <p class="ab__sub reveal" data-delay="2">I thrive in ambiguity and naturally find what needs to be done with strong ownership. If anything, I'm a generalist, and in the AI era, that has become my edge. While I can prototype quickly in code, I believe human judgment remains essential for strategy, ideation, and deciding what to build first. That's how a generalist turns complex chaos into clear, meaningful&nbsp;outcomes.</p>
@@ -519,5 +527,6 @@ d.act=Math.abs(d.vx)+Math.abs(d.vy)+Math.abs(d.x-d.ox)+Math.abs(d.y-d.oy)>.05;if
 if(d.act){var off=Math.min(1,(Math.abs(d.x-d.ox)+Math.abs(d.y-d.oy))/10);x.fillStyle='rgba('+d.rgb+','+Math.min(.9,d.g?d.al*off*2.8:d.al*(1+off*2.0)).toFixed(3)+')';}else{if(d.g)continue;x.fillStyle=d.c;}x.fillRect(d.x-1.1,d.y-1.1,2.2,2.2);}
 requestAnimationFrame(f);}
 requestAnimationFrame(f);})();</script>
+<script>(function(){var t=document.querySelector('.crt__t');if(!t)return;var s=t.dataset.t,i=0;if(matchMedia('(prefers-reduced-motion:reduce)').matches){t.textContent=s;return;}setTimeout(function step(){t.textContent=s.slice(0,++i);if(i<s.length)setTimeout(step,70+Math.random()*60);},700);})();</script>
 </body>
 </html>
