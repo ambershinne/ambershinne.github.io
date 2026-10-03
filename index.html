@@ -124,7 +124,7 @@ body.img-modal-open{overflow:hidden}
 </script>
 <style id="v1-hero">
 .about-hero-v2{padding:196px 0 clamp(64px,6vw,96px);position:relative}
-.v1-work-h{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-0.035em;color:var(--fg);margin:96px 0 clamp(16px,1.7vw,24px)}
+.v1-work-h{font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:normal;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-0.035em;color:var(--fg);margin:96px 0 clamp(16px,1.7vw,24px)}
 .v1-eyebrow{margin-bottom:26px}
 .v1-eyebrow span:first-child::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#00c8ff;box-shadow:0 0 7px rgba(0,200,255,.85);margin-right:8px;vertical-align:1px;animation:pulseNeon 2.6s ease-in-out infinite}
 .v1-sub{margin:0!important;max-width:calc(100% - clamp(290px,29vw,440px) - 64px)!important}
@@ -250,7 +250,7 @@ box-shadow:none!important}
 .hw .hw__title em{color:inherit!important;font-weight:600!important}
 </style>
 <style id="sec2-gallery">
-.sec2{margin:0 0 clamp(28px,3vw,44px);font-family:var(--font-display);font-variation-settings:normal;font-weight:500;font-style:italic;font-size:clamp(24px,2.4vw,34px);line-height:1.16;letter-spacing:-0.035em;color:var(--fg);text-wrap:balance}
+.sec2{margin:0 0 clamp(28px,3vw,44px);font-family:var(--font-display);font-variation-settings:normal;font-weight:500;font-style:normal;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-0.035em;color:var(--fg);text-wrap:balance}
 .sec2 span{display:block;color:#9a9a96}
 .hiw .sec2{margin-top:0}
 body .gallery-block.gx{margin-top:clamp(96px,9vw,144px)!important;border:0!important;background:none!important;border-radius:0!important;overflow:visible!important}
@@ -783,7 +783,7 @@ document.addEventListener('DOMContentLoaded',function(){
   var ol=document.querySelector('.hiw__steps'); if(!ol) return;
   var cols=['y','p','b','g'], rots=[-2.2,1.6,-1.1,2.4,-1.8,1.1,-.6,2], dys=[0,14,-6,10,-10,6];
   var board=document.createElement('div'); board.className='pb';
-  board.innerHTML='<div class="pb__top"><span>'+(document.body.classList.contains('st-bar')?'Principles board':'Principles board')+'</span><span id="pbCount"></span></div><div class="pb__area" id="pbArea"></div>'
+  board.innerHTML='<div class="pb__top"><span>'+(document.body.classList.contains('st-bar')?'Principles board':'Principles board')+'</span></div><div class="pb__area" id="pbArea"></div>'
 ;
   ol.parentNode.insertBefore(board, ol.nextSibling);
   var area=board.querySelector('#pbArea'), n=0;
@@ -801,7 +801,7 @@ document.addEventListener('DOMContentLoaded',function(){
     area.appendChild(note({n:'Amber · 0'+(i+1), t:t?t.textContent:'', d:d?d.innerHTML:'', c:['y','p','b'][i], rot:[-2.2,1.6,-1.1][i]}));
   });
   var cnt=board.querySelector('#pbCount');
-  function upd(){ var k=area.querySelectorAll('.pn--you').length; cnt.textContent='■ '+(3+k)+' notes'; }
+  function upd(){}
   var blank=document.createElement('div'); blank.className='pn pn--blank';
   blank.style.setProperty('--rot','1.4deg'); blank.style.setProperty('--dy','8px');
   blank.innerHTML='<span class="pn__n">You · 0'+(4)+'</span><textarea class="pn__ta" maxlength="80" rows="4" placeholder="What\u2019s your principle?" aria-label="Write your design principle"></textarea><div class="pn__foot"><span class="pn__hint">Only you see this. Nothing is saved.</span><button type="button" class="pn__pin" disabled>Pin it</button></div>';

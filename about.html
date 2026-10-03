@@ -93,14 +93,14 @@ body[data-page="about"]::after{content:"";position:fixed;inset:0;z-index:0;point
   gtag('config', 'G-ERWKJBLX22');
 </script>
 <style id="about-board">
-.bd{border:1px solid var(--line-2);border-radius:10px;background:#fff;overflow:hidden}
+.bd{border:1px solid rgba(0,0,0,.09);border-radius:10px;background:#f8f8f8 radial-gradient(circle,rgba(0,0,0,.08) 1px,transparent 1.2px) 0 0/22px 22px;overflow:hidden}
 .bd__top{display:flex;align-items:center;justify-content:space-between;gap:16px;height:44px;padding:0 20px;border-bottom:1px solid var(--line-2);background:#f7f7f5;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-3)}
 .bd__top span{display:flex;align-items:center;gap:10px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .bd__top>span:last-child:not(:first-child){flex:none;color:var(--muted-2)}
 .bd__top .bd__sub{display:inline;gap:0;overflow:visible}
 .bd__sq{width:5px;height:5px;border-radius:50%;background:#b9bec5;flex:none}.bd__sq--o{background:#b9bec5}
 .bd .cap-grid{margin:0!important;gap:0!important;background:radial-gradient(circle,rgba(20,20,20,.1) 1px,transparent 1.2px) 0 0/22px 22px}
-.bd .cap-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(28px,3vw,40px) clamp(22px,2.4vw,34px)!important}
+.bd .cap-card{border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important;padding:clamp(20px,2.6vw,32px) clamp(18px,2.1vw,30px)!important;gap:10px!important}
 .bd .cap-card+.cap-card{border-top:1px solid var(--line-2)!important}
 @media (min-width:1025px){.bd .cap-card+.cap-card{border-top:0!important;border-left:1px solid var(--line-2)!important}}
 .bd .cap-card:hover{transform:none!important;background:rgba(247,247,245,.7)!important}
@@ -150,17 +150,17 @@ body[data-page="about"]{background-image:none!important}
 .ab__ph img{height:clamp(220px,24vw,320px);width:auto;display:block;border-radius:8px;border:1px solid var(--line-3);background:#f2f1ee}
 .ab__cap{max-width:96%;font-family:'DM Sans',var(--font-sans);font-size:11px;line-height:1.5;letter-spacing:-.003em;color:var(--muted);text-wrap:pretty}
 body[data-page="about"]::before{display:none!important}
-body[data-page="about"]::after{display:none!important}
+body[data-page="about"]::after{display:block!important}
 .ab__gal{margin-right:0;padding-right:0}
 .ab__galhint{display:flex;justify-content:flex-end;margin-top:12px;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
 .ab__ph--slot{width:calc(var(--w) * 160px);display:grid;place-items:center;background:repeating-linear-gradient(135deg,#f4f3f0 0 8px,#efeeea 8px 9px)}
 .ab__ph--slot span{white-space:nowrap;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
 /* section title (Experience & Skills) */
-.ab__secttitle{margin:0 0 clamp(20px,2vw,28px);font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.035em;color:#141414}
+.ab__secttitle{margin:0 0 clamp(20px,2vw,28px);font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:normal;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.035em;color:#141414}
 /* Top 5 strengths — 5-column board */
 .ab__str{margin-top:clamp(80px,10vw,144px)}
 .str5__head{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:clamp(20px,2vw,28px)}
-.str5__title{margin:0;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:italic;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.035em;color:#141414;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.str5__title{margin:0;font-family:var(--font-display);font-variation-settings:var(--vf-soft);font-weight:500;font-style:normal;font-size:clamp(22px,2vw,28px);line-height:1.2;letter-spacing:-.035em;color:#141414;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
 .str5__eyebrow{font-family:var(--font-mono);font-style:normal;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted-2)}
 .str5__report{border-radius:999px;padding:8px 15px 8px 13px;font-size:13px;gap:7px;flex:none}
 .str5__report svg{width:15px;height:15px}
