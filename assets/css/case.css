@@ -473,7 +473,7 @@
   padding-right: max(var(--gutter), 32px);
 }
 .challenge {
-  flex: 0 0 300px;
+  flex: 0 0 272px;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;
