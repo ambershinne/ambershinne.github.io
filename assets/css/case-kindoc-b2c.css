@@ -311,7 +311,7 @@ body[data-page="work-kindoc-b2c"] .reference-marquee:hover .reference-marquee__t
    REFERENCE ANALYSIS — block under the marquee
    ============================================================ */
 body[data-page="work-kindoc-b2c"] .ref-analysis {
-  max-width: 62ch;
+  max-width: none;
   margin: 0;
 }
 body[data-page="work-kindoc-b2c"] .ref-analysis__title {
@@ -329,6 +329,7 @@ body[data-page="work-kindoc-b2c"] .ref-analysis__body {
   letter-spacing: -0.005em;
   color: var(--fg-3);
   margin: 0 0 24px;
+  max-width: 62ch;
 }
 body[data-page="work-kindoc-b2c"] .ref-analysis__obs {
   padding: 20px 24px;
