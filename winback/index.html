@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Win-back Case Study · Amber Shin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#f6f5f2;color:#17151c;-webkit-font-smoothing:antialiased;}
+a{color:#6331d9;text-decoration:none;}
+a:hover{color:#2e2547;text-decoration:underline;}
+input[type=range]{accent-color:#7b3af5;width:100%;}
+</style>
+</helmet>
+<div style="font-family:'Manrope',sans-serif;background:#f6f5f2;color:#17151c;min-height:100vh;zoom:0.88;">
+
+<header data-screen-label="Hero" style="max-width:1280px;margin:0 auto;padding:64px 28px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:48px 56px;align-items:center;">
+  <div style="display:flex;flex-direction:column;gap:28px;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6b6874;">CASE STUDY · PRODUCT DESIGN CHALLENGE · 2026</span>
+    <h1 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:380;font-size:clamp(32px,3.6vw,56px);white-space:nowrap;line-height:1;letter-spacing:-0.045em;max-width:none;">Protection never paused.<br>Only removal did.</h1>
+    <p style="margin:0;font-size:19px;line-height:1.55;max-width:50ch;color:#3d3a45;text-wrap:pretty;">A take-home challenge for an AI brand-protection company. When users return, they see what scanning found while they were away and one clear path to restart takedowns. Designed for creators and agencies, tested against every data case from zero to a spike. The brief asked for designs. I went further and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">built a working prototype</mark> you can play with below.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;border-top:1px solid #dedbe3;padding-top:18px;">
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">ROLE</span><span style="font-size:14px;font-weight:600;">Design + prototype (solo)</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">TIME</span><span style="font-size:14px;font-weight:600;">Figma 1 day<br>Prototype 1 day</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">GOAL</span><span style="font-size:14px;font-weight:600;">Reactivation and long-term trust</span></div>
+    </div>
+  </div>
+  <div>
+    <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(46,37,71,0.08);box-shadow:0 1px 2px rgba(30,15,60,0.04),0 8px 20px -8px rgba(30,15,60,0.10),0 40px 80px -32px rgba(60,30,140,0.28);">
+      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;text-align:center;padding:8px 36px;background:#f3fad9;color:#33410c;font-size:11px;border-bottom:1px solid #e3efb8;"><span>Your plan ended on 6 July 2026. Takedowns are paused.</span><span style="color:#4b22b8;font-weight:700;text-decoration:underline;">Reactivate</span><span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.6;">✕</span></div>
+      <div style="padding:20px 18px;display:flex;flex-direction:column;gap:16px;background:#fbfafc;">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;">
+          <span style="font-size:clamp(17px,1.8vw,22px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;max-width:22ch;">We still found 233 infringing links. None could be removed.</span>
+          <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:12px;padding:9px 16px;border-radius:999px;white-space:nowrap;">Restart takedowns</span>
+        </div>
+        <div style="background:#fff;border:1px solid #eeecf1;border-radius:10px;padding:14px;">
+          <dc-import name="BacklogChart" c="{{ heroChart }}" hint-size="100%,270px"></dc-import>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;">
+          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">233</span><span style="font-size:11px;color:#6b6874;">Still online</span></div>
+          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">52</span><span style="font-size:11px;color:#6b6874;">High risk</span></div>
+          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">~68</span><span style="font-size:11px;color:#6b6874;">Added weekly</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="brief" data-screen-label="01 Brief" style="background:#fff;border-top:1px solid #e8e5ec;border-bottom:1px solid #e8e5ec;">
+  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:36px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px 64px;margin-bottom:24px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">01 / THE BRIEF</span>
+        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Design a win-back experience for returning users.</h2>
+      </div>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;text-wrap:pretty;align-self:end;">Subscriptions lapse, but detection keeps running in the background, and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">the user never sees what was found</mark>. When they log back in: show what was found, and give a clear path to reactivate.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;padding:28px;border:1px solid #e8e5ec;border-radius:18px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px;align-items:stretch;">
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 1</span>
+          <span style="font-size:17px;font-weight:800;">Subscribed</span>
+          <span style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3d3a45;">
+            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Scanning · on</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Removing · on</span>
+          </span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 2</span>
+          <span style="font-size:17px;font-weight:800;">Plan lapses</span>
+          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Cancelled, or payment fails.</span>
+        </div>
+        <div style="position:relative;display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:rgba(214,255,58,0.28);border:1.5px dashed #9cc21a;">
+          <span style="position:absolute;top:-16px;right:16px;width:32px;height:32px;border-radius:50%;background:#2e2547;color:#d6ff3a;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;">?</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4d6100;">STEP 3 · THE GAP</span>
+          <span style="font-size:17px;font-weight:800;">Still scanning, not removing</span>
+          <span style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3d3a45;">
+            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Scanning · on</span>
+            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #8a8794;box-sizing:border-box;"></span>Removing · off</span>
+          </span>
+          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Links pile up. The user never sees them.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#2e2547;color:#fff;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#d6ff3a;">STEP 4 · THIS PROJECT</span>
+          <span style="font-size:17px;font-weight:800;">The win-back screen</span>
+          <span style="font-size:13px;line-height:1.5;color:#ddd3fb;">Reveal what happened in the gap, then one path back.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 5</span>
+          <span style="font-size:17px;font-weight:800;">Reactivated</span>
+          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Removals resume on the backlog.</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;padding-top:6px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;white-space:nowrap;">THE TASK</span>
+        <span style="font-size:18px;font-weight:700;color:#17151c;">How might we get users who cancelled to subscribe again?</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;">
+      <sc-for list="{{ briefItems }}" as="b" hint-placeholder-count="2">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;background:#f6f5f2;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6331d9;">{{ b.k }}</span>
+          <span style="font-size:15px;line-height:1.55;color:#17151c;">{{ b.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="approach" data-screen-label="02 How I read it" style="max-width:1280px;margin:0 auto;padding:88px 28px 96px;display:flex;flex-direction:column;gap:32px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px 64px;margin-bottom:24px;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">02 / HOW I READ IT</span>
+      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Show the track record, not a warning.</h2>
+    </div>
+    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;text-wrap:pretty;align-self:end;">I read this screen as two things at once: a landing page that has to win users back, and a dashboard they still rely on. That raised my question: how do we bring people in the gap back without scaring them? My answer: <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">design for a moment of loss without exploiting the fear</mark>. Build trust by showing the work already done.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;">
+    <sc-for list="{{ readings }}" as="r" hint-placeholder-count="3">
+      <div style="position:relative;display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:16px;background:{{ r.bg }};border:1.5px solid {{ r.border }};box-shadow:0 1px 3px rgba(20,10,40,0.06),0 10px 24px -12px rgba(20,10,40,0.12);">
+        <sc-if value="{{ r.tag }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;padding:4px 8px;border-radius:999px;background:#d6ff3a;color:#2e2547;">{{ r.tag }}</span></sc-if>
+        
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <span style="font-size:15px;color:#8a8794;text-decoration:line-through;text-decoration-color:rgba(123,58,245,0.5);">{{ r.said }}</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#7b3af5;">↓</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6331d9;">MY TAKE</span>
+          <span style="font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:420;font-size:26px;line-height:1.15;letter-spacing:-0.03em;white-space:pre-line;">{{ r.read }}</span>
+          <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ r.d }}</span>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;margin-right:4px;white-space:nowrap;">THE STORY</span>
+    <sc-for list="{{ arc }}" as="a" hint-placeholder-count="3">
+      <span style="display:flex;align-items:center;gap:10px;font-size:14px;white-space:nowrap;"><span style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:#2e2547;color:#fff;"><span style="font-weight:700;">{{ a.t }}</span><span style="opacity:0.6;">·</span><span style="font-weight:400;color:#ddd3fb;">{{ a.d }}</span></span><span style="color:#8a8794;">{{ a.sep }}</span></span>
+    </sc-for>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:#4a4752;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;margin-right:4px;white-space:nowrap;">ASSUMED</span>
+    <sc-for list="{{ assumptions }}" as="t" hint-placeholder-count="3">
+      <span style="padding:6px 12px;border:1px solid #dedbe3;border-radius:999px;background:#fff;white-space:nowrap;">{{ t }}</span>
+    </sc-for>
+  </div>
+</section>
+
+<section id="creator" data-screen-label="03 Creator view" style="background:#fff;border-top:1px solid #e8e5ec;border-bottom:1px solid #e8e5ec;">
+  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">03 / CREATOR (B2C)</span>
+        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Four data states, <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">one screen</mark>.</h2>
+      </div>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Pick a case. Scroll inside the screen.</p>
+    </div>
+
+    <div style="display:flex;flex-direction:column;">
+    <div style="display:flex;gap:4px;overflow-x:auto;">
+      <sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="4">
+        <button onClick="{{ t.on }}" style="flex:1 1 0;min-width:170px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px 12px 0 0;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
+          <span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
+          <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span>
+        </button>
+      </sc-for>
+    </div>
+    <div style="padding:13px 18px;margin-top:-1px;background:#2e2547;color:#ddd3fb;font-size:14px;"><strong style="color:#fff;">{{ b.tabLabel }}:</strong> {{ b.why }}</div>
+    <div style="background:#fff;border-radius:0 0 14px 14px;overflow:hidden;border:1px solid #e4e1ea;border-top:none;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:856px;">
+      <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
+        <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">{{ b.inactive }}<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
+      </div>
+      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
+        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.banner }}</span>
+        <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
+      </div>
+      <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fbfafc;position:relative;">
+        <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:8px;max-width:600px;">
+              <span style="font-size:13px;color:#6b6874;">Welcome back, Amber Shin</span>
+              <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;">{{ b.headline }}</span>
+              <span style="font-size:14px;color:#5d5a66;">{{ b.sub }}</span>
+            </div>
+            <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;white-space:nowrap;">{{ b.cta }}</span>
+          </div>
+          <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+              <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:15px;font-weight:700;">{{ b.chartTitle }}</span><span style="font-size:12px;color:#6b6874;">{{ b.chartSub }}</span></div>
+              <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:11px;color:#5d5a66;">
+                <div style="display:flex;gap:16px;">
+                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#b9bdf2;"></span>Found per scan · removed</span>
+                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#ee8f87;"></span>Found per scan · not removed</span>
+                </div>
+                <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:14px;height:2.5px;background:#c8322b;"></span>Unremoved backlog (cumulative)</span>
+              </div>
+            </sc-if>
+            </div>
+            <dc-import name="BacklogChart" c="{{ b.chart }}" hint-size="100%,270px"></dc-import>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px 24px;border-top:1px solid #f1eff4;padding-top:14px;margin-top:4px;font-size:12px;line-height:1.55;color:#5d5a66;">
+              <span><strong style="color:#17151c;">{{ b.beforeT }}:</strong> {{ b.beforeD }}</span>
+              <span><strong style="color:#17151c;">{{ b.afterT }}:</strong> {{ b.afterD }}</span>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;">
+            <sc-for list="{{ b.stats }}" as="s" hint-placeholder-count="3">
+              <div style="grid-column:{{ s.span }};background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+                <div style="display:flex;flex-direction:column;gap:4px;">
+                  <span style="font-size:26px;font-weight:800;color:{{ s.color }};">{{ s.v }}</span>
+                  <span style="font-size:13px;font-weight:700;">{{ s.label }}</span>
+                  <span style="font-size:12px;color:{{ s.subColor }};font-weight:{{ s.subWeight }};">{{ s.sub }}</span>
+                </div>
+                <sc-if value="{{ s.action }}" hint-placeholder-val="{{ false }}"><span style="border:1.5px solid #7b3af5;color:#6331d9;font-size:14px;font-weight:700;padding:9px 20px;border-radius:999px;white-space:nowrap;">{{ s.action }}</span></sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;overflow:hidden;">
+            <div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #eeecf1;"><span style="font-size:15px;font-weight:700;">{{ b.tableTitle }}</span><span style="font-size:12px;color:#6b6874;">Ranked by risk, most urgent first.</span></div>
+            <sc-if value="{{ b.hasLinks }}" hint-placeholder-val="{{ true }}">
+              <div style="position:relative;">
+              <div style="overflow-x:auto;padding-bottom:40px;">
+                <div style="min-width:620px;">
+                  <div style="display:grid;grid-template-columns:52px minmax(0,1.4fr) minmax(0,1.2fr) 56px 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Preview</span><span>Where it is live</span><span>What it is</span><span>Match</span><span>Removal</span></div>
+                  <sc-for list="{{ b.links }}" as="l" hint-placeholder-count="5">
+                    <div style="display:grid;grid-template-columns:52px minmax(0,1.4fr) minmax(0,1.2fr) 56px 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
+                      <span style="width:42px;height:30px;border-radius:6px;background:repeating-linear-gradient(135deg,#e7e3ee 0 4px,#f1eef6 4px 8px);"></span>
+                      <span style="display:flex;flex-direction:column;gap:2px;min-width:0;"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;">{{ l.site }}</span><span style="font-size:11px;color:#8a8794;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ l.path }}</span></span>
+                      <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-weight:600;">{{ l.what }}</span><span style="font-size:11px;color:#8a8794;">found {{ l.date }}</span></span>
+                      <span style="font-weight:700;">{{ l.match }}</span>
+                      <span style="justify-self:start;background:#fdf1dc;color:#8a4b00;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;">Pending removal</span>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.85) 55%,#fff 100%);pointer-events:none;"></div>
+                <div style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:min(88%,420px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px;background:#fff;border:1px solid #eeecf1;border-radius:12px;box-shadow:0 2px 4px rgba(20,10,40,0.05),0 12px 28px -10px rgba(20,10,40,0.18);text-align:center;">
+                  <span style="font-size:13px;font-weight:700;color:#17151c;">{{ b.footer }}</span>
+                  <span style="font-size:15px;font-weight:700;color:#7b3af5;cursor:pointer;">Unlocks on reactivation →</span>
+                </div>
+              </div>
+            </sc-if>
+            <sc-if value="{{ b.noLinks }}" hint-placeholder-val="{{ false }}">
+              <div style="padding:36px 18px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;"><span style="font-size:15px;font-weight:700;">Nothing new found since 15 Jul</span><span style="font-size:13px;color:#6b6874;">Free scanning stops after 6 more scans.</span><span style="font-size:13px;color:#6b6874;">{{ b.footer }}</span></div>
+            </sc-if>
+            
+          </div>
+        </div>
+        <sc-if value="{{ b2cBar }}" hint-placeholder-val="{{ false }}">
+          <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px clamp(20px,5vw,64px);background:#17151c;color:#fff;font-size:13px;">
+            <span style="display:flex;align-items:center;gap:10px;"><span style="color:#c8f53a;">⚠</span>{{ b.bar }}</span>
+            <span style="background:#7b3af5;font-weight:700;padding:8px 18px;border-radius:999px;">Reactivate</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px;">
+      <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;">{{ n.n }}</span>
+          <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
+          <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="agency" data-screen-label="04 Agency view" style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">04 / AGENCY (B2B)</span>
+      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Same story, portfolio scale.</h2>
+    </div>
+    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;"><mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">Admins think in clients, not links.</mark> No zero case: across 25 accounts it doesn't realistically occur.</p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;">
+    <div style="display:flex;gap:4px;overflow-x:auto;">
+    <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="3">
+      <button onClick="{{ t.on }}" style="flex:1 1 0;min-width:170px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px 12px 0 0;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
+        <span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
+        <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span>
+      </button>
+    </sc-for>
+  </div>
+    <div style="padding:13px 18px;margin-top:-1px;background:#2e2547;color:#ddd3fb;font-size:14px;"><strong style="color:#fff;">{{ a.tabLabel }}:</strong> {{ a.why }}</div>
+    <div style="background:#fff;border-radius:0 0 14px 14px;overflow:hidden;border:1px solid #e4e1ea;border-top:none;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:856px;">
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
+        <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
+        <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">Agency · 26 seats<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
+      </div>
+    <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
+      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;"><strong>Your plan ended on 6 July 2026</strong> · Pro · 26 seats</span>
+      <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
+    </div>
+    <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fbfafc;">
+      <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
+          <div style="display:flex;flex-direction:column;gap:8px;max-width:620px;">
+            <span style="font-size:13px;color:#6b6874;">Welcome back, Amber Shin</span>
+            <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;">{{ a.headline }}</span>
+            <span style="font-size:14px;color:#5d5a66;">{{ a.sub }}</span>
+          </div>
+          <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;white-space:nowrap;">Restart takedowns</span>
+        </div>
+        <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
+            <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:15px;font-weight:700;">Still detected · no longer removed</span><span style="font-size:12px;color:#6b6874;">24 days without removals · 6 Jul to 30 Jul 2026</span></div>
+            <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:11px;color:#5d5a66;">
+                <div style="display:flex;gap:16px;">
+                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#b9bdf2;"></span>Found per scan · removed</span>
+                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#ee8f87;"></span>Found per scan · not removed</span>
+                </div>
+                <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:14px;height:2.5px;background:#c8322b;"></span>Unremoved backlog (cumulative)</span>
+              </div>
+            </sc-if>
+          </div>
+          <dc-import name="BacklogChart" c="{{ a.chart }}" hint-size="100%,270px"></dc-import>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px 24px;border-top:1px solid #f1eff4;padding-top:14px;margin-top:4px;font-size:12px;line-height:1.55;color:#5d5a66;">
+              <span><strong style="color:#17151c;">{{ a.beforeT }}:</strong> {{ a.beforeD }}</span>
+              <span><strong style="color:#17151c;">{{ a.afterT }}:</strong> {{ a.afterD }}</span>
+            </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
+          <sc-for list="{{ a.stats }}" as="s" hint-placeholder-count="4">
+            <div style="background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:16px;display:flex;flex-direction:column;gap:4px;">
+              <span style="font-size:26px;font-weight:800;color:{{ s.color }};">{{ s.v }}</span>
+              <span style="font-size:13px;font-weight:700;">{{ s.label }}</span>
+              <span style="font-size:12px;color:#6b6874;">{{ s.sub }}</span>
+            </div>
+          </sc-for>
+        </div>
+        <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;overflow:hidden;">
+          <div style="padding:16px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #eeecf1;">
+            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Most at-risk clients</span><span style="font-size:12px;color:#6b6874;">Ranked by risk, most exposed first</span></span>
+            <span style="border:1px solid #d9ccfb;color:#6331d9;font-size:12px;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap;">Export client report (PDF)</span>
+          </div>
+          <div style="position:relative;">
+          <div style="overflow-x:auto;padding-bottom:40px;">
+            <div style="min-width:560px;">
+              <div style="display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr)) 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
+              <sc-for list="{{ a.clients }}" as="c" hint-placeholder-count="5">
+                <div style="display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr)) 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
+                  <span style="font-weight:700;">{{ c.name }}</span><span style="font-weight:700;">{{ c.risk }}</span><span>{{ c.det }}</span><span>{{ c.sites }}</span>
+                  <span style="justify-self:start;background:#fdf1dc;color:#8a4b00;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;">Pending removal</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.85) 55%,#fff 100%);pointer-events:none;"></div>
+                <div style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:min(88%,420px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px;background:#fff;border:1px solid #eeecf1;border-radius:12px;box-shadow:0 2px 4px rgba(20,10,40,0.05),0 12px 28px -10px rgba(20,10,40,0.18);text-align:center;">
+                  <span style="font-size:13px;font-weight:700;color:#17151c;">{{ a.footer }}</span>
+                  <span style="font-size:15px;font-weight:700;color:#7b3af5;cursor:pointer;">Unlock full ranking →</span>
+                </div>
+          </div>
+        </div>
+      </div>
+      <sc-if value="{{ agBar }}" hint-placeholder-val="{{ false }}">
+        <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px clamp(20px,5vw,64px);background:#17151c;color:#fff;font-size:13px;">
+          <span style="display:flex;align-items:center;gap:10px;"><span style="color:#c8f53a;">⚠</span>{{ a.bar }}</span>
+          <span style="background:#7b3af5;font-weight:700;padding:8px 18px;border-radius:999px;">Reactivate</span>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+  </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px;">
+    <sc-for list="{{ agencyNotes }}" as="n" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:6px;padding:18px;background:#fff;border:1px solid #e8e5ec;border-radius:12px;">
+        <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
+        <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section id="prototype" data-screen-label="05 Chart prototype" style="border-top:1px solid #e8e5ec;">
+  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:28px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">05 / PROTOTYPE</span>
+        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">The chart logic, working.</h2>
+      </div>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">This wasn’t part of the brief. Static screens could show four cases, but not prove the chart holds up between them. So I built it. Change the inputs: the y-axis rescales, and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">the copy switches case on its own</mark>.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;align-items:stretch;">
+      <div style="background:#2e2547;color:#fff;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:20px;">
+        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+          <sc-for list="{{ presets }}" as="p" hint-placeholder-count="4">
+            <button onClick="{{ p.on }}" style="border:1px solid #6b52b3;background:transparent;color:#fff;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer;">{{ p.label }}</button>
+          </sc-for>
+        </div>
+        <sc-for list="{{ sliders }}" as="s" hint-placeholder-count="4">
+          <label style="display:flex;flex-direction:column;gap:8px;">
+            <span style="display:flex;justify-content:space-between;gap:12px;font-size:13px;"><span style="color:#ddd3fb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ s.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-weight:500;">{{ s.display }}</span></span>
+            <input type="range" min="{{ s.min }}" max="{{ s.max }}" step="{{ s.step }}" value="{{ s.value }}" onChange="{{ s.on }}">
+          </label>
+        </sc-for>
+        <div style="display:flex;flex-direction:column;gap:4px;border-top:1px solid #5a428f;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c4adff;line-height:1.7;">
+          <span>zero → 0 links after lapse</span>
+          <span>low → 1–10 links</span>
+          <span>1 bar = 1 scan (2× / week)</span>
+                    <span>before lapse → fixed 6 weeks (after ≈ 40% at 4 weeks)</span>
+          <span>scan window → 60 − days since lapse (shown when zero / low)</span>
+          <span>spike → one scan ≥ 5× average</span>
+          <span>y-max → smallest nice step (1 · 2 · 2.5 · 5) × 4–5 ticks</span>
+          <span>spike → y-axis pinned to ~110% of peak scan; backlog line on its own scale</span>
+        </div>
+      </div>
+      <div style="position:relative;background:#fff;color:#17151c;border:1px solid #e4e1ea;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0;">
+        <span style="position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">y-max {{ pg.yMax }}</span>
+        <span style="font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;text-wrap:balance;min-height:2.4em;display:flex;align-items:flex-start;padding-right:90px;">{{ pg.headline }}</span>
+        <dc-import name="BacklogChart" c="{{ pg.chart }}" hint-size="100%,270px"></dc-import>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto;padding-top:12px;">
+          <sc-for list="{{ pg.stats }}" as="s" hint-placeholder-count="3">
+            <div style="display:flex;flex-direction:column;gap:2px;padding:12px;border:1px solid #eeecf1;border-radius:10px;">
+              <span style="font-size:20px;font-weight:800;">{{ s.v }}</span>
+              <span style="font-size:12px;color:#6b6874;white-space:nowrap;">{{ s.label }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="next" data-screen-label="06 Reflection" style="background:#17151c;color:#f6f5f2;">
+  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:48px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#c4adff;">06 / REFLECTION</span>
+        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Why this is in my portfolio.</h2>
+        <p style="margin:8px 0 0;font-size:16px;line-height:1.65;color:#bdb9c6;max-width:44ch;text-wrap:pretty;">I've always loved designing charts and data. This project is less about the result and more about an experiment: how far can I get on my own, in a short time, with AI?</p>
+      </div>
+      <div style="display:flex;flex-direction:column;">
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">Before</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">Chart work used to be slow. I set the display rules and values, then reviewed and fixed them with developers over many rounds.</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">Now</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">With AI, I can test edge cases and catch rule errors on my own, much faster.</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">The experiment</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">The challenge only asked for Figma screens. I built the prototype to prove I can use that speed well.</span></div>
+      </div>
+    </div>
+    <p style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:350;font-size:clamp(26px,3.4vw,40px);line-height:1.3;letter-spacing:-0.03em;max-width:none;text-wrap:pretty;">Faster checks lead to <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">better decisions</mark>.</p>
+  </div>
+</section>
+
+<footer style="max-width:1280px;margin:0 auto;padding:32px 28px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:#8a8794;">
+  <span>Amber Shin · 2026</span>
+  <span>Take-home challenge. Company, brand and UI anonymized. All data fictional.</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;brandName&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Vigil&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const fmt = n => Math.round(n).toLocaleString('en-US');
+function scale(v) {
+  v = Math.max(v, 4);
+  const mag = Math.pow(10, Math.floor(Math.log10(v / 4)));
+  let best = null;
+  for (const cnt of [4, 5]) for (const m of [mag, mag * 10]) for (const f of [1, 2, 2.5, 5]) {
+    const s = f * m, top = s * cnt;
+    if (top >= v && (!best || top < best.top)) best = { s, cnt, top };
+  }
+  const { s, cnt } = best;
+  return { max: s * cnt * 1.1, ticks: Array.from({ length: cnt }, (_, k) => +((k + 1) * s).toFixed(2)) };
+}
+const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const dlabel = (m, d, off) => { const t = new Date(Date.UTC(2026, m - 1, d + Math.round(off))); return t.getUTCDate() + ' ' + MON[t.getUTCMonth()]; };
+const wk = (avg, n, seed = 1) => Array.from({ length: n }, (_, i) => Math.round(avg * (1 + 0.08 * Math.sin(i * 2.1 + seed))));
+const dist = (total, n, seed = 1) => { const w = Array.from({ length: n }, (_, i) => 1 + 0.18 * Math.sin(i * 2.3 + seed)); const sw = w.reduce((a, b) => a + b, 0); const o = w.map(x => Math.floor(x / sw * total)); let r = total - o.reduce((a, b) => a + b, 0); for (let i = 0; r > 0; i = (i + 1) % n) { o[i]++; r--; } return o; };
+// beforeW: weekly values before lapse; after: per-scan values (2 scans / week); pad: remaining free scans
+function chart({ beforeW, after, pad = 0, plan = [7, 6], days, endVal, yFloor = 0, todayLabel }) {
+  const bBars = beforeW.flatMap(v => [{ v: Math.ceil(v / 2), w: 1, r: 1 }, { v: Math.floor(v / 2), w: 1, r: 1 }]);
+  const aBars = after.map(v => ({ v, w: 1, r: 0 }));
+  const all = [...bBars, ...aBars];
+  const bU = beforeW.length * 2, aU = after.length, U = bU + aU + pad;
+  const total = after.reduce((a, b) => a + b, 0);
+  const peak = Math.max(0, ...after);
+  const bAvg = bBars.length ? bBars.reduce((a, b) => a + b.v, 0) / bBars.length : 1;
+  const spike = peak >= Math.max(bAvg, 1) * 5 && peak > 10;
+  let { max, ticks } = scale(spike ? peak : Math.max(yFloor, total, ...all.map(b => b.v)));
+  if (spike) { max = peak * 1.1; ticks = ticks.filter(t => t <= max); }
+  const lineMax = spike ? total * 1.08 : max;
+  const pct = v => (v * 100).toFixed(2) + '%';
+  let cum = 0, x = 0; const pts = [];
+  const bars = all.map(b => {
+    if (!b.r) cum += b.v;
+    pts.push(((x + b.w / 2) / U * 100).toFixed(2) + ',' + (100 - cum / lineMax * 100).toFixed(2));
+    x += b.w;
+    return { w: b.w, h: pct(Math.min(b.v / max, 1)), bg: b.r ? '#b9bdf2' : (spike && b.v !== peak ? '#f3b7b1' : '#ee8f87') };
+  });
+  for (let i = 0; i < pad; i++) bars.push({ w: 1, h: '0%', bg: 'transparent' });
+  const lastX = ((bU + aU - 0.5) / U * 100).toFixed(2);
+  const area = total > 0 ? [pts[bBars.length - 1].split(',')[0] + ',100', ...pts.slice(bBars.length - 1), lastX + ',100'].join(' ') : '';
+  const [m, d] = plan;
+  const xl = [[0, dlabel(m, d, -beforeW.length * 7), '0%'], [bU, dlabel(m, d, 0), '-50%'], [bU + aU, todayLabel || dlabel(m, d, days), pad ? '-50%' : '-100%']];
+  if (pad) xl.push([U, dlabel(m, d, 60), '-100%']);
+  return {
+    bars, points: pts.join(' '), area, spike, yMax: fmt(ticks[ticks.length - 1]),
+    split: pct(bU / U), showWin: pad > 0, winL: pct((bU + aU) / U), winW: pct(pad / U),
+    yTicks: ticks.map(t => ({ label: t >= 1000 ? (t / 1000) + 'k' : t, bottom: pct(t / max) })),
+    xLabels: xl.map(([u, t, tx]) => ({ t, tx, left: pct(u / U) })),
+    endVal: endVal ? endVal + (spike ? ' ↗' : '') : '', endL: lastX + '%', endB: pct(cum / lineMax)
+  };
+}
+const WK = ['13 Apr', '4 May', '25 May', '15 Jun', '6 Jul', '27 Jul', '17 Aug'].map((t, k) => [k * 3, t]);
+const WIN = [[0, '8 Apr'], [7, '27 May'], [14, '15 Jul'], [19, 'Today'], [22, '13 Sep']];
+const BEFORE = [57, 62, 59, 64, 55, 61, 58, 63, 60, 56, 62, 59];
+const LINKS = [
+  { site: 'fo**********.to', path: '/threads/leak-pack-3', what: 'Paid content leak', date: '28 Jul', match: '97%' },
+  { site: 't***********.cc', path: '/watch/8fj20d', what: 'Full clip re-upload', date: '24 Jul', match: '96%' },
+  { site: '******· @********l', path: 'profile impersonation', what: 'Fake profile, paid DMs', date: '19 Jul', match: '94%' },
+  { site: 'l************.net', path: '/u/album', what: 'Image set, 41 files', date: '13 Jul', match: '94%' },
+  { site: 'g********.com', path: 'search result · 3 keywords', what: 'Indexed leak page', date: '9 Jul', match: '97%' }
+];
+const P = '#7b3af5', N = '#eeecf1', RED = '#c2261f', AMB = '#c77d12', INK = '#17151c';
+const st = (v, label, sub, o = {}) => ({ v, label, sub, border: o.border || N, color: o.color || INK, action: o.action || '', span: o.action ? 'span 2' : 'span 1', subColor: o.alert ? '#b42318' : '#6b6874', subWeight: o.alert ? 700 : 400 });
+
+const ZB = wk(10.3, 5, 4);
+const ZB_SUM = 144;
+const B2C = {
+  normal: { beforeT: 'Before 6 July', beforeD: '~68 found per week, all of them removed. The backlog line stayed flat on the floor.', afterT: 'After 6 July', afterD: 'the same ~68 a week found, none removed. Week one alone became backlog, and it never came down.', note: 'Stat cards lead with links still online, high risk and the weekly rate. The table lists every pending link.', tabLabel: 'Normal', why: 'Steady ~68 links a week before and after the lapse. The baseline.',
+    banner: 'Your plan ended on 6 July 2026. Takedowns are paused.', inactive: 'Inactive · 24 days',
+    headline: 'We still found 233 infringing links. None could be removed.', sub: 'Detection kept running for 24 days.', cta: 'Restart takedowns',
+    chartTitle: 'Still detected · no longer removed', chartSub: '24 days without removals · 6 Jul to 30 Jul 2026',
+    chart: chart({ beforeW: wk(68, 6), after: dist(233, 7), plan: [7, 6], days: 24, endVal: '233 still up' }),
+    stats: [st('52', 'High risk', 'Needs immediate action'), st('~68', 'Added every week', 'None removed since 6 Jul'), st('233', 'Still online today', 'Across 34 platforms', { border: P, action: 'Remove now' })],
+    tableTitle: '233 links', links: LINKS, footer: '228 more links still up, ready to queue.', bar: '233 links still up, none removed since 6 Jul' },
+  zero: { beforeT: 'Before 15 July', beforeD: '~10 found per week, all of them removed.', afterT: 'After 15 July', afterD: 'nothing new found. Free scanning keeps watching until 13 Sep, then coverage stops.', note: 'Nothing to remove, so the cards switch to links scanned, removed while active and scans remaining, with Extend scanning.', tabLabel: 'Edge · Zero', why: 'Nothing found after the lapse. The story shifts from loss to coverage ending.',
+    banner: 'Your plan ended on 15 July 2026. We\'re still watching, for now.', inactive: 'Inactive · 39 days',
+    headline: `${fmt(ZB_SUM)} links removed while you were covered. Now we only watch, and that ends soon.`, sub: 'No detections isn\'t safety. It\'s just nothing yet.', cta: 'Reactivate protection',
+    chartTitle: 'Coverage ends in 6 scans', chartSub: 'Free scanning runs 60 days after the plan ends',
+    chart: chart({ beforeW: ZB, after: Array(11).fill(0), pad: 6, plan: [7, 15], days: 39, yFloor: 20 }),
+    stats: [st('48,201', 'Links scanned', 'Since 15 Jul'), st(fmt(ZB_SUM), 'Removed while active', 'Now stopped'), st('6', 'Scans remaining', 'Then coverage stops entirely', { alert: true, action: 'Extend scanning' })],
+    tableTitle: '0 new links', links: [], footer: 'Removals resume the moment you reactivate.', bar: 'Only 6 scans left before monitoring stops' },
+  low: { beforeT: 'Before 15 July', beforeD: 'a handful found per week, all of them removed.', afterT: 'After 15 July', afterD: '3 links surfaced and stayed up. Scanning ends on 13 Sep.', note: 'Only 3 links, so the table stays short and a scans-remaining card shows when coverage ends.', tabLabel: 'Edge · Low', why: 'Just 3 links surfaced. Too small for a backlog story, so it\'s framed with the scan-end point.',
+    banner: 'Your plan ended on 15 July 2026. Takedowns are paused.', inactive: 'Inactive · 39 days',
+    headline: '3 links slipped through while you were away.', sub: 'Small now, but none are being removed, and scanning ends soon.', cta: 'Remove all 3',
+    chartTitle: 'A few links, and coverage ending', chartSub: '3 found since 15 Jul · 6 scans left',
+    chart: chart({ beforeW: wk(5, 5, 2), after: [0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0], pad: 6, plan: [7, 15], days: 39, endVal: '3 still up', yFloor: 16 }),
+    stats: [st('1', 'High risk', 'Paid content leak'), st('6', 'Scans remaining', 'Then coverage stops', { alert: true }), st('3', 'Still online today', 'Across 3 platforms', { border: P, action: 'Remove now' })],
+    tableTitle: '3 links', links: LINKS.slice(0, 3), footer: 'All 3 ready to queue for removal.', bar: '3 links still up, scanning ends in 6 scans' },
+  high: { beforeT: 'Before 6 July', beforeD: '~68 found per week, all of them removed.', afterT: 'After 6 July', afterD: '1,420 surfaced in a single scan on 13 Jul. Re-posts kept coming, and none were removed.', note: 'The spike gets its own card with the date and multiple. The y-axis pins to the peak scan.', tabLabel: 'Edge · Spike', why: 'A one-scan leak spike. The y-axis pins to ~110% of the peak scan, so every bar stays readable and the backlog line floats above on its own scale.',
+    banner: 'Your plan ended on 6 July 2026. Takedowns are paused.', inactive: 'Inactive · 24 days',
+    headline: '2,912 infringing links found since your plan ended.', sub: '1,420 surfaced in a single scan (13 Jul). None could be removed.', cta: 'Restart takedowns',
+    chartTitle: 'Spike detected · no longer removed', chartSub: '24 days without removals · 6 Jul to 30 Jul 2026',
+    chart: chart({ beforeW: wk(68, 6), after: [34, 33, 1420, 560, 420, 260, 185], plan: [7, 6], days: 24, endVal: '2,912 still up' }),
+    stats: [st('684', 'High risk', 'Needs immediate action'), st('1,420', 'Spike · scan of 13 Jul', '42× a usual scan'), st('2,912', 'Still online today', 'Across 112 platforms', { border: P, action: 'Remove now' })],
+    tableTitle: '2,912 links', links: LINKS, footer: '2,907 more links still up, ready to queue.', bar: '2,912 links still up, none removed since 6 Jul' }
+};
+const AG = {
+  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across 25 clients. One aggregated number frames the risk.',
+    headline: '4,028 infringing links are still up across 25 client accounts.', sub: 'Our system kept scanning for 24 days.',
+    chart: chart({ beforeW: wk(1175, 6, 3), after: dist(4028, 7, 2), plan: [7, 6], days: 24, endVal: '4,028 still up' }),
+    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
+    clients: [['Andrea Lin', 121, 569, 78], ['Kai Deniz', 108, 437, 76], ['***** ****', 78, 344, 72], ['*******', 59, 265, 69], ['*******', 38, 209, 70]],
+    footer: 'Ranked across all 25 clients', bar: '4,028 links still up across 25 clients' },
+  low: { beforeT: 'Before 6 July', beforeD: 'a few dozen detections a week across all clients, all removed.', afterT: 'After 6 July', afterD: 'only 11 links surfaced, concentrated in 4 clients.', tabLabel: 'Edge · Low', why: 'Only a handful of links, concentrated in a few clients. The table does the work.',
+    headline: '11 links are still up across 4 client accounts.', sub: 'Most clients are clear. These four aren\'t.',
+    chart: chart({ beforeW: wk(30, 6, 2), after: [1, 2, 1, 2, 1, 2, 2], plan: [7, 6], days: 24, endVal: '11 still up' }),
+    stats: [st('11', 'Still online today', 'As of 30 Jul', { border: P }), st('2', 'High risk', 'Needs action'), st('4 / 25', 'Clients affected', ''), st('3', 'Regions', 'Spread across regions')],
+    clients: [['Andrea Lin', 1, 4, 3], ['Kai Deniz', 1, 3, 2], ['***** ****', 0, 2, 2], ['*******', 0, 2, 1]],
+    footer: 'Only 4 of 25 clients affected', bar: '11 links still up across 4 clients' },
+  high: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week.', afterT: 'After 6 July', afterD: 'a coordinated leak on 13 Jul added 9,800 links in one scan. 20,010 are now up.', tabLabel: 'Edge · Spike', why: 'A spike hits several clients at once. Scale and ranking matter most here.',
+    headline: '20,010 links surfaced across 25 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
+    chart: chart({ beforeW: wk(1175, 6, 3), after: [600, 580, 9800, 4200, 2600, 1500, 730], plan: [7, 6], days: 24, endVal: '20,010 still up' }),
+    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
+    clients: [['Andrea Lin', '1,240', '5,860', 212], ['Kai Deniz', 690, '3,120', 184], ['***** ****', 410, '2,470', 151], ['*******', 288, '1,930', 133], ['*******', 196, '1,410', 120]],
+    footer: 'Ranked across all 25 clients', bar: '20,010 links still up across 25 clients' }
+};
+const B2C_TABS = [['normal', 'Normal', 'Steady ~68/week'], ['zero', 'Edge · Zero', 'Nothing found'], ['low', 'Edge · Low', 'A few links'], ['high', 'Edge · Spike', 'One-scan spike']];
+const AG_TABS = [['normal', 'Normal', 'Steady detections'], ['low', 'Edge · Low', 'A handful of links'], ['high', 'Edge · Spike', 'Spike across clients']];
+const PRESETS = { Normal: { before: 60, after: 60, days: 24, spike: 0 }, Zero: { before: 10, after: 0, days: 39, spike: 0 }, Low: { before: 3, after: 0.5, days: 39, spike: 0 }, Spike: { before: 60, after: 60, days: 24, spike: 1400 } };
+
+class Component extends DCLogic {
+  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, pg: PRESETS.Normal };
+  componentDidMount() { this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  b2cRef = React.createRef();
+  agRef = React.createRef();
+  tabs(list, cur, key, ref) {
+    return list.map(([id, label, sub], i) => {
+      const on = id === cur;
+      return { n: i + 1, label, sub, bg: on ? '#2e2547' : '#ebe8ef', fg: on ? '#fff' : '#3d3a45', numBg: on ? '#c8f53a' : '#fff', numFg: '#2e2547', shadow: 'none',
+        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); } };
+    });
+  }
+  playground() {
+    const { before, after, days, spike } = this.state.pg;
+    const scans = Math.max(1, Math.round(days / 3.5));
+    const aRate = after / 2;
+    const a = Array.from({ length: scans }, (_, i) => (aRate >= 5 ? Math.round(aRate * (1 + 0.1 * Math.sin(i * 1.7 + 1))) : Math.floor((i + 1) * aRate) - Math.floor(i * aRate)) + (i === Math.min(4, scans - 1) ? spike : 0));
+    const total = a.reduce((x, y) => x + y, 0);
+    const left = Math.max(0, 60 - days);
+    const caseName = total === 0 ? 'ZERO' : total <= 10 ? 'LOW' : spike >= Math.max(aRate, 1) * 5 ? 'SPIKE' : 'NORMAL';
+    const pad = (caseName === 'ZERO' || caseName === 'LOW') ? Math.round(left / 3.5) : 0;
+    const bWeeks = 6;
+    const b = wk(before, bWeeks).map(v => before >= 10 ? v : before);
+    const c = chart({ beforeW: b, after: a, pad, plan: [7, 6], days, todayLabel: 'Today', endVal: total ? fmt(total) + ' still up' : '', yFloor: caseName === 'ZERO' ? before * 1.5 : caseName === 'LOW' ? Math.max(before, total) * 2.5 : 0 });
+    const headline = {
+      ZERO: `Nothing new in ${days} days. Free scanning ends in ${left} days.`,
+      LOW: `${total} link${total > 1 ? 's' : ''} slipped through in ${days} days. Scanning ends in ${left} days.`,
+      SPIKE: `${fmt(total)} links in ${days} days, ${fmt(Math.max(...a))} in a single scan.`,
+      NORMAL: `In ${days} days we found ${fmt(total)} links. None could be removed.`
+    }[caseName];
+    return { chart: { ...c, legendBottom: true, legendMt: '14px' }, caseName, headline, yMax: c.yMax,
+      stats: [{ v: fmt(total), label: 'Still online' }, { v: fmt(total / (days / 7)), label: 'Avg per week' }, { v: left + 'd', label: 'Free scanning left' }] };
+  }
+
+  renderVals() {
+    const brand = this.props.brandName ?? 'Vigil';
+    const pg = this.state.pg;
+    const set = k => e => this.setState(s => ({ pg: { ...s.pg, [k]: +e.target.value } }));
+    const a = AG[this.state.ag];
+    return {
+      brand, brandLower: brand.toLowerCase(), heroChart: { ...B2C.normal.chart, legendBottom: true },
+      briefItems: [
+        { k: 'TWO USERS', v: 'A single creator with a handful of detections, or thousands. And an agency managing dozens of client accounts across sites and regions.' },
+        { k: 'THE USER', v: 'Not a data expert. Volume can be large, so legibility and prioritisation matter as much as what is shown.' },
+      ],
+      readings: [
+        { said: 'One big warning number', read: 'Show the track record.', d: 'The chart leads with weeks of links found and removed, then marks the moment removal stopped. The record comes first, the gap second.', bg: '#fff', border: 'transparent', tag: '' },
+        { said: 'A pure sales page, or a pure dashboard', read: 'Part landing page,\npart dashboard.', d: 'One clear path back at the top. Real data, ranked by urgency, below it.', bg: '#fff', border: 'transparent', tag: '' },
+        { said: 'Design the average case, patch the rest', read: 'Built for every case.', d: 'Normal and spike share one structure. Zero and low swap the backlog for a scan-end countdown. Agencies add a client layer.', bg: '#fff', border: 'transparent', tag: '' }
+      ],
+      arc: [
+        { t: 'Past value', d: 'what we removed', sep: '→', bg: '#2e2547', fg: '#fff' },
+        { t: 'Unseen effort', d: 'what kept scanning', sep: '→', bg: '#2e2547', fg: '#fff' },
+        { t: 'Impending loss', d: 'what ends soon', sep: '', bg: '#2e2547', fg: '#fff' }
+      ],
+      assumptions: ['60-day free scan window', 'Self-expiring links excluded', 'Clients ranked by risk', 'Single plan, no seat roles', 'Scan end shown only when results are low'],
+      b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef),
+      agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef),
+      wide: this.state.wide,
+      b: { ...B2C[this.state.b2c], chart: { ...B2C[this.state.b2c].chart, legendBottom: !this.state.wide }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
+      a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites })) },
+      b2cRef: this.b2cRef, agRef: this.agRef,
+      b2cBar: this.state.b2cBar, agBar: this.state.agBar,
+      onB2cScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.b2cBar) this.setState({ b2cBar: v }); },
+      onAgScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.agBar) this.setState({ agBar: v }); },
+      notes: [
+        { n: '01', t: 'Build trust, not alarm', d: 'Instead of loud urgency, the screen shows the work already done. Trust comes from the track record, not from warnings.' },
+        { n: '02', t: 'The lapse sits on top', d: 'Losing coverage matters, so it\u2019s stated first in a slim banner above the page. Clear, but never in the way.' },
+        { n: '03', t: 'Removed and piling up, side by side', d: 'A count of infringing links alone doesn\u2019t land. The chart shows both: what we removed before, and what has been piling up since.' },
+        { n: '04', t: 'Same goal, words that fit the moment', d: 'Every button leads back to the plan, but each is named for where it sits. \u201cRemove now\u201d next to the live count, \u201cRestart takedowns\u201d in the hero, \u201cReactivate\u201d in the banner.' }
+      ],
+      agencyNotes: [
+        { t: 'Portfolio metrics', d: 'Clients affected and regions replace weekly growth.' },
+        { t: 'Risk-ranked clients', d: 'No tier data, so exposure decides the order.' },
+        { t: 'Client report (exploratory)', d: 'A soft touchpoint. Exports resume on reactivation.' }
+      ],
+      presets: Object.keys(PRESETS).map(label => ({ label, on: () => this.setState({ pg: PRESETS[label] }) })),
+      sliders: [
+        { label: 'Per week, before lapse', min: 0, max: 200, step: 1, value: pg.before, display: pg.before, on: set('before') },
+        { label: 'Per week, after lapse', min: 0, max: 200, step: 0.5, value: pg.after, display: pg.after, on: set('after') },
+        { label: 'Days since lapse', min: 1, max: 60, step: 1, value: pg.days, display: pg.days + ' days', on: set('days') },
+        { label: 'One-scan spike', min: 0, max: 2000, step: 50, value: pg.spike, display: fmt(pg.spike), on: set('spike') }
+      ],
+      pg: this.playground()
+    };
+  }
+}
+</script>
+</body>
+</html>
