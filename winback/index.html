@@ -22,8 +22,10 @@ input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 5px 11px rgba(0,0,0,0
 input[type=range]:active::-webkit-slider-thumb{transform:scale(1.1);box-shadow:0 2px 5px rgba(0,0,0,0.5),0 0 0 7px rgba(123,58,245,0.38);}
 input[type=range]::-moz-range-track{height:8px;border-radius:999px;background:#4a3a7a;box-shadow:inset 0 1px 3px rgba(0,0,0,0.55);}
 input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#ffffff,#cdbcf4);border:1px solid rgba(123,58,245,0.85);box-shadow:0 3px 6px rgba(0,0,0,0.42),0 0 0 4px rgba(123,58,245,0.22);cursor:pointer;}
-.wb-nav a{color:#6b6874;text-decoration:none;transition:color .2s ease,background .2s ease;}
-.wb-nav a:hover{color:#17151c;background:#f3f1f6;text-decoration:none;}
+.wb-nav a{color:#737373;text-decoration:none;transition:color .2s ease;}
+.wb-nav a:hover{color:#383839;text-decoration:none;}
+.wb-back{color:#737373;text-decoration:none;transition:color .2s ease;}
+.wb-back:hover{color:#0a0a0a;text-decoration:none;}
 @media (max-width:560px){.wb-nav{top:12px!important;}.wb-nav a{padding:6px 11px!important;font-size:12px!important;}}
 </style>
 </helmet>
@@ -472,7 +474,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 </section>
 
 <div style="max-width:1280px;margin:0 auto;padding:40px 28px;border-top:1px solid #e8e5ec;display:flex;justify-content:center;">
-  <a href="../index.html#work" style="display:inline-flex;align-items:center;gap:10px;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;color:#6331d9;padding:12px 26px;border:1.5px solid #d9ccfb;border-radius:999px;">← All projects</a>
+  <a href="../index.html#work" class="wb-back" style="font-family:'DM Sans',sans-serif;font-size:13px;">← All projects</a>
 </div>
 <footer style="max-width:1280px;margin:0 auto;padding:32px 28px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:#8a8794;">
   <span>Amber Shin · 2026</span>
