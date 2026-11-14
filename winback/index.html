@@ -237,9 +237,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;position:relative;">
         <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
-            <div style="display:flex;flex-direction:column;gap:8px;max-width:600px;">
+            <div style="display:flex;flex-direction:column;gap:8px;max-width:680px;">
               <span style="font-size:13px;color:#6b6874;">Welcome back, Amber Shin</span>
-              <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;">{{ b.headline }}</span>
+              <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;white-space:pre-line;">{{ b.headline }}</span>
               <span style="font-size:14px;color:#5d5a66;">{{ b.sub }}</span>
             </div>
             <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;white-space:nowrap;">{{ b.cta }}</span>
@@ -316,7 +316,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     </div>
 
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(260px,calc(50% - 6px))),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
       <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
         <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
           <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;">{{ n.n }}</span>
@@ -328,7 +328,8 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   </div>
 </section>
 
-<section id="agency" data-screen-label="04 Agency view" style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
+<section id="agency" data-screen-label="04 Agency view" style="background:#fff;border-bottom:1px solid #e8e5ec;">
+<div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
     <div style="display:flex;flex-direction:column;gap:10px;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">04 / AGENCY (B2B)</span>
@@ -355,7 +356,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">Agency · 26 seats<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
     <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
-      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;"><strong>Your plan ended on 6 July 2026</strong> · Pro · 26 seats</span>
+      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026. Takedowns are paused.</span>
       <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
     </div>
     <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;">
@@ -430,14 +431,15 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     </div>
   </div>
   </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;margin-top:16px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
     <sc-for list="{{ agencyNotes }}" as="n" hint-placeholder-count="3">
-      <div style="display:flex;flex-direction:column;gap:6px;padding:18px;background:#fff;border:1px solid #e8e5ec;border-radius:12px;">
+      <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
         <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
         <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
       </div>
     </sc-for>
   </div>
+</div>
 </section>
 
 <section id="prototype" data-screen-label="05 Chart prototype" style="border-top:1px solid #e8e5ec;">
@@ -590,40 +592,40 @@ const ZB_SUM = 144;
 const B2C = {
   normal: { beforeT: 'Before 6 July', beforeD: '~68 found per week, all of them removed. The backlog line stayed flat on the floor.', afterT: 'After 6 July', afterD: 'the same ~68 a week found, none removed. Week one alone became backlog, and it never came down.', note: 'Stat cards lead with links still online, high risk and the weekly rate. The table lists every pending link.', tabLabel: 'Normal', why: 'Steady ~68 links a week before and after the lapse. The baseline.',
     banner: 'Your plan ended on 6 July 2026. Takedowns are paused.', inactive: 'Inactive · 24 days',
-    headline: 'We still found 233 infringing links. None could be removed.', sub: 'Detection kept running for 24 days.', cta: 'Restart takedowns',
+    headline: 'We still found 233 infringing links.\nNone could be removed.', sub: 'Detection kept running for 24 days.', cta: 'Restart takedowns',
     chartTitle: 'Still detected · no longer removed', chartSub: '24 days without removals · 6 Jul to 30 Jul 2026',
     chart: chart({ beforeW: wk(68, 6), after: dist(233, 7), plan: [7, 6], days: 24, endVal: '233 still up' }),
     stats: [st('52', 'High risk', 'Needs immediate action'), st('~68', 'Added every week', 'None removed since 6 Jul'), st('233', 'Still online today', 'Across 34 platforms', { border: P, action: 'Remove now' })],
     tableTitle: '233 links', links: LINKS, footer: '228 more links still up, ready to queue.', bar: '233 links still up, none removed since 6 Jul' },
   zero: { beforeT: 'Before 15 July', beforeD: '~10 found per week, all of them removed.', afterT: 'After 15 July', afterD: 'nothing new found. Free scanning keeps watching until 13 Sep, then coverage stops.', note: 'Nothing to remove, so the cards switch to links scanned, removed while active and scans remaining, with Extend scanning.', tabLabel: 'Edge · Zero', why: 'Nothing found after the lapse. The story shifts from loss to coverage ending.',
-    banner: 'Your plan ended on 15 July 2026. We\'re still watching, for now.', inactive: 'Inactive · 39 days',
-    headline: `${fmt(ZB_SUM)} links removed while you were covered. Now we only watch, and that ends soon.`, sub: 'No detections isn\'t safety. It\'s just nothing yet.', cta: 'Reactivate protection',
+    banner: 'Your plan ended on 15 July 2026. Takedowns are paused.', inactive: 'Inactive · 39 days',
+    headline: `${fmt(ZB_SUM)} links removed while you were covered.\nNow we only watch, and that ends soon.`, sub: 'No detections isn\'t safety. It\'s just nothing yet.', cta: 'Reactivate protection',
     chartTitle: 'Coverage ends in 6 scans', chartSub: 'Free scanning runs 60 days after the plan ends',
     chart: chart({ beforeW: ZB, after: Array(11).fill(0), pad: 6, plan: [7, 15], days: 39, yFloor: 20 }),
     stats: [st('48,201', 'Links scanned', 'Since 15 Jul'), st(fmt(ZB_SUM), 'Removed while active', 'Now stopped'), st('6', 'Scans remaining', 'Then coverage stops entirely', { alert: true, action: 'Extend scanning' })],
     tableTitle: '0 new links', links: [], footer: 'Removals resume the moment you reactivate.', bar: 'Only 6 scans left before monitoring stops' },
   low: { beforeT: 'Before 15 July', beforeD: 'a handful found per week, all of them removed.', afterT: 'After 15 July', afterD: '3 links surfaced and stayed up. Scanning ends on 13 Sep.', note: 'Only 3 links, so the table stays short and a scans-remaining card shows when coverage ends.', tabLabel: 'Edge · Low', why: 'Just 3 links surfaced. Too small for a backlog story, so it\'s framed with the scan-end point.',
     banner: 'Your plan ended on 15 July 2026. Takedowns are paused.', inactive: 'Inactive · 39 days',
-    headline: '3 links slipped through while you were away.', sub: 'Small now, but none are being removed, and scanning ends soon.', cta: 'Remove all 3',
+    headline: 'We still found 3 infringing links.\nNone could be removed.', sub: 'Small now, but none are being removed, and scanning ends soon.', cta: 'Remove all 3',
     chartTitle: 'A few links, and coverage ending', chartSub: '3 found since 15 Jul · 6 scans left',
     chart: chart({ beforeW: wk(5, 5, 2), after: [0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0], pad: 6, plan: [7, 15], days: 39, endVal: '3 still up', yFloor: 16 }),
     stats: [st('1', 'High risk', 'Paid content leak'), st('6', 'Scans remaining', 'Then coverage stops', { alert: true }), st('3', 'Still online today', 'Across 3 platforms', { border: P, action: 'Remove now' })],
     tableTitle: '3 links', links: LINKS.slice(0, 3), footer: 'All 3 ready to queue for removal.', bar: '3 links still up, scanning ends in 6 scans' },
   high: { beforeT: 'Before 6 July', beforeD: '~68 found per week, all of them removed.', afterT: 'After 6 July', afterD: '1,420 surfaced in a single scan on 13 Jul. Re-posts kept coming, and none were removed.', note: 'The spike gets its own card with the date and multiple. The y-axis pins to the peak scan.', tabLabel: 'Edge · Spike', why: 'A one-scan leak spike. The y-axis pins to ~110% of the peak scan, so every bar stays readable and the backlog line floats above on its own scale.',
     banner: 'Your plan ended on 6 July 2026. Takedowns are paused.', inactive: 'Inactive · 24 days',
-    headline: '2,912 infringing links found since your plan ended.', sub: '1,420 surfaced in a single scan (13 Jul). None could be removed.', cta: 'Restart takedowns',
+    headline: 'We still found 2,912 infringing links.\nNone could be removed.', sub: '1,420 surfaced in a single scan (13 Jul). None could be removed.', cta: 'Restart takedowns',
     chartTitle: 'Spike detected · no longer removed', chartSub: '24 days without removals · 6 Jul to 30 Jul 2026',
     chart: chart({ beforeW: wk(68, 6), after: [34, 33, 1420, 560, 420, 260, 185], plan: [7, 6], days: 24, endVal: '2,912 still up' }),
     stats: [st('684', 'High risk', 'Needs immediate action'), st('1,420', 'Spike · scan of 13 Jul', '42× a usual scan'), st('2,912', 'Still online today', 'Across 112 platforms', { border: P, action: 'Remove now' })],
     tableTitle: '2,912 links', links: LINKS, footer: '2,907 more links still up, ready to queue.', bar: '2,912 links still up, none removed since 6 Jul' }
 };
 const AG = {
-  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across most clients. One aggregated number frames the risk.',
-    headline: '4,028 infringing links are still up across 18 client accounts.', sub: 'Our system kept scanning for 24 days.',
+  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across 25 clients. One aggregated number frames the risk.',
+    headline: '4,028 infringing links are still up across 25 client accounts.', sub: 'Our system kept scanning for 24 days.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: dist(4028, 7, 2), plan: [7, 6], days: 24, endVal: '4,028 still up' }),
-    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('18 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
+    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
     clients: [['Andrea Lin', 121, 569, 78], ['Kai Deniz', 108, 437, 76], ['***** ****', 78, 344, 72], ['*******', 59, 265, 69], ['*******', 38, 209, 70]],
-    footer: 'Ranked across 18 affected clients', bar: '4,028 links still up across 18 clients' },
+    footer: 'Ranked across all 25 clients', bar: '4,028 links still up across 25 clients' },
   low: { beforeT: 'Before 6 July', beforeD: 'a few dozen detections a week across all clients, all removed.', afterT: 'After 6 July', afterD: 'only 11 links surfaced, concentrated in 4 clients.', tabLabel: 'Edge · Low', why: 'Only a handful of links, concentrated in a few clients. The table does the work.',
     headline: '11 links are still up across 4 client accounts.', sub: 'Most clients are clear. These four aren\'t.',
     chart: chart({ beforeW: wk(30, 6, 2), after: [1, 2, 1, 2, 1, 2, 2], plan: [7, 6], days: 24, endVal: '11 still up' }),
@@ -631,11 +633,11 @@ const AG = {
     clients: [['Andrea Lin', 1, 4, 3], ['Kai Deniz', 1, 3, 2], ['***** ****', 0, 2, 2], ['*******', 0, 2, 1]],
     footer: 'Only 4 of 25 clients affected', bar: '11 links still up across 4 clients' },
   high: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week.', afterT: 'After 6 July', afterD: 'a coordinated leak on 13 Jul added 9,800 links in one scan. 20,010 are now up.', tabLabel: 'Edge · Spike', why: 'A spike hits several clients at once. Scale and ranking matter most here.',
-    headline: '20,010 links surfaced across 23 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
+    headline: '20,010 links surfaced across 25 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: [600, 580, 9800, 4200, 2600, 1500, 730], plan: [7, 6], days: 24, endVal: '20,010 still up' }),
-    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('23 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
+    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
     clients: [['Andrea Lin', '1,240', '5,860', 212], ['Kai Deniz', 690, '3,120', 184], ['***** ****', 410, '2,470', 151], ['*******', 288, '1,930', 133], ['*******', 196, '1,410', 120]],
-    footer: 'Ranked across 23 affected clients', bar: '20,010 links still up across 23 clients' }
+    footer: 'Ranked across all 25 clients', bar: '20,010 links still up across 25 clients' }
 };
 const B2C_TABS = [['normal', 'Normal', 'Steady ~68/week'], ['zero', 'Edge · Zero', 'Nothing found'], ['low', 'Edge · Low', 'A few links'], ['high', 'Edge · Spike', 'One-scan spike']];
 const AG_TABS = [['normal', 'Normal', 'Steady detections'], ['low', 'Edge · Low', 'A handful of links'], ['high', 'Edge · Spike', 'Spike across clients']];
