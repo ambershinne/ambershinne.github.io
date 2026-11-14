@@ -230,10 +230,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
         <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">{{ b.inactive }}<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
-      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
+      <sc-if value="{{ b2cBanner }}" hint-placeholder-val="{{ true }}">
+      <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:5px 40px;background:#f3fad9;color:#33410c;font-size:12px;line-height:1.4;border-bottom:1px solid #e3efb8;">
         <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.banner }}</span>
-        <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
+        <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><button type="button" onClick="{{ closeB2cBanner }}" aria-label="Close banner" style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;background:none;border:0;padding:4px;font:inherit;color:inherit;line-height:1;">✕</button>
       </div>
+      </sc-if>
       <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;position:relative;">
         <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
@@ -355,10 +357,12 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
         <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">Agency · 26 seats<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
-    <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
+    <sc-if value="{{ agBanner }}" hint-placeholder-val="{{ true }}">
+    <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:5px 40px;background:#f3fad9;color:#33410c;font-size:12px;line-height:1.4;border-bottom:1px solid #e3efb8;">
       <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026. Takedowns are paused.</span>
-      <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
+      <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><button type="button" onClick="{{ closeAgBanner }}" aria-label="Close banner" style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;background:none;border:0;padding:4px;font:inherit;color:inherit;line-height:1;">✕</button>
     </div>
+    </sc-if>
     <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;">
       <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
         <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
@@ -620,12 +624,12 @@ const B2C = {
     tableTitle: '2,912 links', links: LINKS, footer: '2,907 more links still up, ready to queue.', bar: '2,912 links still up, none removed since 6 Jul' }
 };
 const AG = {
-  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across 25 clients. One aggregated number frames the risk.',
-    headline: '4,028 infringing links are still up across 25 client accounts.', sub: 'Our system kept scanning for 24 days.',
+  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across most clients. One aggregated number frames the risk.',
+    headline: '4,028 infringing links are still up across 18 client accounts.', sub: 'Our system kept scanning for 24 days.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: dist(4028, 7, 2), plan: [7, 6], days: 24, endVal: '4,028 still up' }),
-    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
+    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('18 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
     clients: [['Andrea Lin', 121, 569, 78], ['Kai Deniz', 108, 437, 76], ['***** ****', 78, 344, 72], ['*******', 59, 265, 69], ['*******', 38, 209, 70]],
-    footer: 'Ranked across all 25 clients', bar: '4,028 links still up across 25 clients' },
+    footer: 'Ranked across 18 affected clients', bar: '4,028 links still up across 18 clients' },
   low: { beforeT: 'Before 6 July', beforeD: 'a few dozen detections a week across all clients, all removed.', afterT: 'After 6 July', afterD: 'only 11 links surfaced, concentrated in 4 clients.', tabLabel: 'Edge · Low', why: 'Only a handful of links, concentrated in a few clients. The table does the work.',
     headline: '11 links are still up across 4 client accounts.', sub: 'Most clients are clear. These four aren\'t.',
     chart: chart({ beforeW: wk(30, 6, 2), after: [1, 2, 1, 2, 1, 2, 2], plan: [7, 6], days: 24, endVal: '11 still up' }),
@@ -633,18 +637,18 @@ const AG = {
     clients: [['Andrea Lin', 1, 4, 3], ['Kai Deniz', 1, 3, 2], ['***** ****', 0, 2, 2], ['*******', 0, 2, 1]],
     footer: 'Only 4 of 25 clients affected', bar: '11 links still up across 4 clients' },
   high: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week.', afterT: 'After 6 July', afterD: 'a coordinated leak on 13 Jul added 9,800 links in one scan. 20,010 are now up.', tabLabel: 'Edge · Spike', why: 'A spike hits several clients at once. Scale and ranking matter most here.',
-    headline: '20,010 links surfaced across 25 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
+    headline: '20,010 links surfaced across 23 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: [600, 580, 9800, 4200, 2600, 1500, 730], plan: [7, 6], days: 24, endVal: '20,010 still up' }),
-    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('25 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
+    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('23 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
     clients: [['Andrea Lin', '1,240', '5,860', 212], ['Kai Deniz', 690, '3,120', 184], ['***** ****', 410, '2,470', 151], ['*******', 288, '1,930', 133], ['*******', 196, '1,410', 120]],
-    footer: 'Ranked across all 25 clients', bar: '20,010 links still up across 25 clients' }
+    footer: 'Ranked across 23 affected clients', bar: '20,010 links still up across 23 clients' }
 };
 const B2C_TABS = [['normal', 'Normal', 'Steady ~68/week'], ['zero', 'Edge · Zero', 'Nothing found'], ['low', 'Edge · Low', 'A few links'], ['high', 'Edge · Spike', 'One-scan spike']];
 const AG_TABS = [['normal', 'Normal', 'Steady detections'], ['low', 'Edge · Low', 'A handful of links'], ['high', 'Edge · Spike', 'Spike across clients']];
 const PRESETS = { Normal: { before: 60, after: 60, days: 24, spike: 0 }, Zero: { before: 10, after: 0, days: 39, spike: 0 }, Low: { before: 3, after: 0.5, days: 39, spike: 0 }, Spike: { before: 60, after: 60, days: 24, spike: 1400 } };
 
 class Component extends DCLogic {
-  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, pg: PRESETS.Normal };
+  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, b2cBanner: true, agBanner: true, pg: PRESETS.Normal };
   componentDidMount() { this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); }
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
   b2cRef = React.createRef();
@@ -707,6 +711,9 @@ class Component extends DCLogic {
       a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites })) },
       b2cRef: this.b2cRef, agRef: this.agRef,
       b2cBar: this.state.b2cBar, agBar: this.state.agBar,
+      b2cBanner: this.state.b2cBanner, agBanner: this.state.agBanner,
+      closeB2cBanner: () => this.setState({ b2cBanner: false }),
+      closeAgBanner: () => this.setState({ agBanner: false }),
       onB2cScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.b2cBar) this.setState({ b2cBar: v }); },
       onAgScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.agBar) this.setState({ agBar: v }); },
       notes: [
