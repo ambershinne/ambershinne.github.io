@@ -213,18 +213,20 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Pick a case. Scroll inside the screen.</p>
     </div>
 
-    <div style="display:flex;flex-direction:column;">
-    <div style="display:flex;gap:4px;overflow-x:auto;">
+    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+    <div style="flex:1 0 260px;max-width:260px;display:flex;flex-direction:column;">
+    <div style="display:flex;flex-direction:column;gap:6px;">
       <sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="4">
-        <button onClick="{{ t.on }}" style="flex:1 1 0;min-width:170px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px 12px 0 0;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
-          <span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
-          <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span>
+        <button onClick="{{ t.on }}" style="flex:none;width:100%;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px;border-radius:12px;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
+          <span style="display:flex;align-items:center;gap:12px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
+          <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span></span>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.55;color:#ddd3fb;text-wrap:pretty;font-weight:500;">{{ t.why }}</span></sc-if>
         </button>
       </sc-for>
     </div>
-    <div style="padding:13px 18px;margin-top:-1px;background:#2e2547;color:#ddd3fb;font-size:14px;"><strong style="color:#fff;">{{ b.tabLabel }}:</strong> {{ b.why }}</div>
-    <div style="background:#fff;border-radius:0 0 14px 14px;overflow:hidden;border:1px solid #e4e1ea;border-top:none;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:856px;">
-      <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
+        </div>
+    <div style="flex:999 1 560px;min-width:0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4e1ea;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:782px;">
+      <div style="flex:none;zoom:0.9;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
         <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
         <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">{{ b.inactive }}<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
@@ -232,7 +234,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
         <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.banner }}</span>
         <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
       </div>
-      <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fbfafc;position:relative;">
+      <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;position:relative;">
         <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
             <div style="display:flex;flex-direction:column;gap:8px;max-width:600px;">
@@ -335,26 +337,28 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">An agency manages 25 client accounts, but not every client is hit at once. The screen shows how many are affected and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">ranks them by risk</mark>. There is no zero case: across 25 accounts, some detections almost always surface.</p>
   </div>
 
-  <div style="display:flex;flex-direction:column;">
-    <div style="display:flex;gap:4px;overflow-x:auto;">
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
+    <div style="flex:1 0 260px;max-width:260px;display:flex;flex-direction:column;">
+    <div style="display:flex;flex-direction:column;gap:6px;">
     <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="3">
-      <button onClick="{{ t.on }}" style="flex:1 1 0;min-width:170px;display:flex;align-items:center;gap:12px;padding:14px 18px;border-radius:12px 12px 0 0;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
-        <span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
-        <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span>
-      </button>
+      <button onClick="{{ t.on }}" style="flex:none;width:100%;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px;border-radius:12px;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
+        <span style="display:flex;align-items:center;gap:12px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
+        <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span></span>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.55;color:#ddd3fb;text-wrap:pretty;font-weight:500;">{{ t.why }}</span></sc-if>
+        </button>
     </sc-for>
   </div>
-    <div style="padding:13px 18px;margin-top:-1px;background:#2e2547;color:#ddd3fb;font-size:14px;"><strong style="color:#fff;">{{ a.tabLabel }}:</strong> {{ a.why }}</div>
-    <div style="background:#fff;border-radius:0 0 14px 14px;overflow:hidden;border:1px solid #e4e1ea;border-top:none;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:856px;">
-    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
+        </div>
+    <div style="flex:999 1 560px;min-width:0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4e1ea;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:782px;">
+    <div style="flex:none;zoom:0.9;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
         <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
         <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">Agency · 26 seats<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
-    <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
+    <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:10px 40px;background:#f3fad9;color:#33410c;font-size:13px;border-bottom:1px solid #e3efb8;">
       <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;"><strong>Your plan ended on 6 July 2026</strong> · Pro · 26 seats</span>
       <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
     </div>
-    <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fbfafc;">
+    <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;">
       <div style="padding:44px clamp(20px,5vw,64px) 28px;display:flex;flex-direction:column;gap:20px;">
         <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
           <div style="display:flex;flex-direction:column;gap:8px;max-width:620px;">
@@ -643,10 +647,10 @@ class Component extends DCLogic {
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
   b2cRef = React.createRef();
   agRef = React.createRef();
-  tabs(list, cur, key, ref) {
+  tabs(list, cur, key, ref, data) {
     return list.map(([id, label, sub], i) => {
       const on = id === cur;
-      return { n: i + 1, label, sub, bg: on ? '#2e2547' : '#ebe8ef', fg: on ? '#fff' : '#3d3a45', numBg: on ? '#c8f53a' : '#fff', numFg: '#2e2547', shadow: 'none',
+      return { n: i + 1, label, sub, why: data && data[id] ? data[id].why : '', open: on, bg: on ? '#2e2547' : '#f6f5f2', fg: on ? '#fff' : '#3d3a45', numBg: on ? '#c8f53a' : '#fff', numFg: '#2e2547', shadow: 'none',
         on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); } };
     });
   }
@@ -694,8 +698,8 @@ class Component extends DCLogic {
         { t: 'Impending loss', d: 'what ends soon', sep: '', bg: '#2e2547', fg: '#fff' }
       ],
       assumptions: ['60-day free scan window', 'Self-expiring links excluded', 'Clients ranked by risk', 'Single plan, no seat roles', 'Scan end shown only when results are low'],
-      b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef),
-      agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef),
+      b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef, B2C),
+      agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef, AG),
       wide: this.state.wide,
       b: { ...B2C[this.state.b2c], chart: { ...B2C[this.state.b2c].chart, legendBottom: !this.state.wide }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
       a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites })) },
