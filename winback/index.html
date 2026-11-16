@@ -417,11 +417,11 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           </div>
           <div style="position:relative;">
           <div style="overflow-x:auto;padding-bottom:40px;">
-            <div style="min-width:560px;">
-              <div style="display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr)) 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
+            <div style="min-width:640px;">
+              <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,2.2fr) minmax(0,0.6fr) 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
               <sc-for list="{{ a.clients }}" as="c" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr)) 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
-                  <span style="font-weight:700;">{{ c.name }}</span><span style="font-weight:700;">{{ c.risk }}</span><span>{{ c.det }}</span><span>{{ c.sites }}</span>
+                <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,2.2fr) minmax(0,0.6fr) 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
+                  <span style="font-weight:700;">{{ c.name }}</span><span style="font-weight:700;">{{ c.risk }}</span><span style="display:flex;align-items:center;gap:10px;min-width:0;"><span style="position:relative;flex:none;width:{{ c.track }};height:9px;border-radius:999px;background:#f3cdc9;overflow:hidden;"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ c.fill }};background:#ef7a70;"></span></span><span style="font-weight:700;white-space:nowrap;">{{ c.det }}</span></span><span>{{ c.sites }}</span>
                   <span style="justify-self:start;background:#fdf1dc;color:#8a4b00;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;">Pending removal</span>
                 </div>
               </sc-for>
@@ -717,7 +717,7 @@ class Component extends DCLogic {
       agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef, AG),
       wide: this.state.wide,
       b: { ...B2C[this.state.b2c], chart: { ...B2C[this.state.b2c].chart, legendBottom: !this.state.wide }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
-      a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites })) },
+      a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); return a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: Math.min(100, n(det) ? n(risk) / n(det) * 100 : 0).toFixed(1) + '%' })); })() },
       b2cRef: this.b2cRef, agRef: this.agRef,
       b2cBar: this.state.b2cBar, agBar: this.state.agBar,
       b2cBanner: this.state.b2cBanner, agBanner: this.state.agBanner,
