@@ -668,7 +668,7 @@ class Component extends DCLogic {
     return list.map(([id, label, sub], i) => {
       const on = id === cur;
       return { n: i + 1, label, sub, why: data && data[id] ? data[id].why : '', open: on, bg: on ? '#2e2547' : '#f6f5f2', fg: on ? '#fff' : '#3d3a45', numBg: on ? '#c8f53a' : '#fff', numFg: '#2e2547', shadow: 'none',
-        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); if (key === 'ag') this.agToBottom(); } };
+        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); if (key === 'ag' && id === 'normal') this.agToBottom(); } };
     });
   }
   playground() {
