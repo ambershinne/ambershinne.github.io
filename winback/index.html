@@ -217,9 +217,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
       <div style="display:flex;flex-direction:column;gap:10px;">
         <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">03 / CREATOR (B2C)</span>
-        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Log in, see the <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">backlog</mark> right away.</h2>
+        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Show detection running, and the <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">backlog growing</mark>.</h2>
       </div>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">A dismissed banner flags the lapse, then the screen goes right to the backlog, no extra clicks. One layout holds all four data states, from zero to a spike. Pick a case and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">scroll inside</mark>.</p>
+      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Two numbers in one chart. Bars show what each scan found, proof that detection never stopped. The line adds them up into the backlog. Together they show the work still happening and what the lapse is costing. Pick a case and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">scroll inside</mark>.</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
@@ -344,9 +344,9 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
     <div style="display:flex;flex-direction:column;gap:10px;">
       <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">04 / AGENCY (B2B)</span>
-      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Same story, portfolio scale.</h2>
+      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Keep the chart, then put the <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">riskiest clients first</mark>.</h2>
     </div>
-    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">An agency manages 25 client accounts, but not every client is hit at once. The screen shows how many are affected and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">ranks them by risk</mark>. There is no zero case: across 25 accounts, some detections almost always surface.</p>
+    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Agencies get the same chart, rolled up across every client. Then one more layer: admins think in clients, not links, so clients are ranked by risk and the most exposed account is the first thing they see. No zero case: across 25 accounts it doesn't realistically occur.</p>
   </div>
 
   <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
@@ -444,9 +444,10 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
     </div>
   </div>
   </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
-    <sc-for list="{{ agencyNotes }}" as="n" hint-placeholder-count="3">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(260px,calc(50% - 6px))),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
+    <sc-for list="{{ agencyNotes }}" as="n" hint-placeholder-count="2">
       <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;">{{ n.n }}</span>
         <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
         <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
       </div>
@@ -729,14 +730,13 @@ class Component extends DCLogic {
       onAgScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.agBar) this.setState({ agBar: v }); },
       notes: [
         { n: '01', t: 'Build trust, not alarm', d: 'Instead of loud urgency, the screen shows the work already done. Trust comes from the track record, not from warnings.' },
-        { n: '02', t: 'The lapse sits on top', d: 'Losing coverage matters, so it\u2019s stated first in a slim banner above the page. Clear, but never in the way.' },
-        { n: '03', t: 'Removed and piling up, side by side', d: 'A count of infringing links alone doesn\u2019t land. The chart shows both: what we removed before, and what has been piling up since.' },
+        { n: '02', t: 'The lapse sits on top', d: 'Losing coverage is stated first, in a slim banner above the page. Then the screen goes straight to the backlog, no extra clicks.' },
+        { n: '03', t: 'A spike never flattens the rest', d: 'When one scan spikes, the y-axis pins to that peak and the backlog line moves to its own scale. Every bar stays readable.' },
         { n: '04', t: 'Same goal, words that fit the moment', d: 'Every button leads back to the plan, but each is named for where it sits. \u201cRemove now\u201d next to the live count, \u201cRestart takedowns\u201d in the hero, \u201cReactivate\u201d in the banner.' }
       ],
       agencyNotes: [
-        { t: 'Portfolio metrics', d: 'Clients affected and regions replace weekly growth.' },
-        { t: 'Risk-ranked clients', d: 'No tier data, so exposure decides the order.' },
-        { t: 'Client report (exploratory)', d: 'A soft touchpoint. Exports resume on reactivation.' }
+        { n: '01', t: 'Riskiest client first', d: 'No tier data, so high-risk links decide the order. Each bar shows a client\u2019s detections, with the high-risk share filled in.' },
+        { n: '02', t: 'Client report (exploratory)', d: 'A soft touchpoint. Exports resume on reactivation.' }
       ],
       presets: Object.keys(PRESETS).map(label => ({ label, on: () => this.setState({ pg: PRESETS[label] }) })),
       sliders: [
