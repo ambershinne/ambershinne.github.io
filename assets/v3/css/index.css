@@ -158,3 +158,4 @@ a{color:var(--ink)}a:hover{color:#3A4560}
 @media (max-width:900px){.bpgrid{margin-top:32px}.gal{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.gal::-webkit-scrollbar{display:none}.gal>article{flex:0 0 300px;scroll-snap-align:start}}
 @media (max-width:900px){.wsplit{height:auto !important}}
 @media (max-width:440px){.bp div.mono[style*="repeat(3"]{flex-direction:column;width:100%}}
+@media (max-width:900px){.gal{scroll-padding-inline:16px}.gal>article:last-child{margin-right:16px}}

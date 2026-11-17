@@ -294,7 +294,7 @@ Browse all</button>
 
 <section id="beyond" style="border-top: 1px dashed var(--frame)">
 <div style="padding: 76px 32px 40px; display: flex; flex-direction: column; gap: 16px">
-<span class="mono" style="font-size: 12px; color: var(--muted)">Playground</span>
+<span class="mono" style="font-size: 12px; color: var(--muted)">Gallery</span>
 <h2 class="serif" style="font-family: {{ serif }}; font-weight: {{ serifWeight }}; font-variation-settings: {{ serifVar }}; letter-spacing: {{ serifTrack }}; margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1">Beyond the case studies.</h2>
 </div>
 <div class="gal gridbg" style="border-top: 1px dashed var(--frame)">
@@ -496,12 +496,12 @@ class Component extends DCLogic {
       { id: 'b2b', img: 'assets/v3/images/unused.png', rot: '-3deg', label: 'B2B SaaS', ids: ['02', '04'], side: 'L', row: 1, num: '01', icon: 'grid' },
       { id: 'mobile', img: 'assets/v3/images/unused.png', rot: '2deg', label: 'Mobile UI', ids: ['01', '03'], side: 'R', row: 2, num: '02', icon: 'phone' },
       { id: 'admin', img: 'assets/v3/images/unused.png', rot: '-2deg', label: 'Admin tools', ids: ['01', '02'], side: 'L', row: 3, num: '03', icon: 'sliders' },
-      { id: 'ai', img: 'assets/v3/images/unused.png', rot: '3deg', label: 'AI prototyping', ids: ['04'], side: 'R', row: 4, num: '04', icon: 'spark' },
+      { id: 'ai', img: 'assets/v3/images/unused.png', rot: '3deg', label: 'AI prototyping', ids: ['01', '04'], side: 'R', row: 4, num: '04', icon: 'spark' },
       { id: 'viz', label: 'Data viz', ids: ['04'], icon: 'chart' }
     ];
     const gallery = [
-      { title: 'Kindoc AI', meta: '2024', img: 'assets/v3/images/gallery-kindoc-ai.jpg', desc: 'Health assistant chat', cats: ['ai', 'mobile'], keys: 'ai chatbot conversational health assistant mobile kindoc generative genai llm healthcare design system' },
-      { title: 'Innerpink', meta: '2024–25', img: 'assets/v3/images/gallery-innerpink.jpg', desc: 'AI health results', cats: ['viz', 'ai'], keys: 'ai health results visualization data viz inthepink checkup report healthcare mobile' },
+      { title: 'Kindoc AI', meta: '2024', img: 'assets/v3/images/gallery-kindoc-ai.jpg', desc: 'Health assistant chat', cats: ['mobile'], keys: 'ai chatbot conversational health assistant mobile kindoc generative genai llm healthcare design system' },
+      { title: 'Innerpink', meta: '2024–25', img: 'assets/v3/images/gallery-innerpink.jpg', desc: 'AI health results', cats: ['viz'], keys: 'ai health results visualization data viz inthepink checkup report healthcare mobile' },
       { title: 'Huers', meta: '2026', img: 'assets/v3/images/gallery-huers.jpg', desc: 'Coffee taste app UI kit', cats: ['mobile'], keys: 'coffee app ui kit mobile personal design system components flavor taste branding' }
     ];
     const cat = this.state.cat;
