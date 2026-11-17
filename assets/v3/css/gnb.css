@@ -12,3 +12,8 @@
 .gnb__cta{font-size:14px;line-height:1.2;color:#FFFFFF;background:#141B2D;text-decoration:none;padding:10px 18px;border-radius:999px;margin-left:4px;transition:transform .25s}
 .gnb__cta:hover{color:#FFFFFF;transform:translateY(-1px)}
 @media (max-width:600px){.gnb__in{gap:8px;padding:10px 16px}.gnb__brand{gap:8px}.gnb__brand svg{width:22px;height:22px}.gnb__brand span{font-size:11px;letter-spacing:.12em;white-space:nowrap}.gnb__cv{display:none}.gnb__link{font-size:13px;padding:8px 9px}.gnb__cta{font-size:13px;padding:8px 12px;margin-left:2px}}
+/* Top spacing: the old floating nav needed a big gap, the sticky bar does not */
+.case-shell{padding-top:72px}
+.qa-hero{padding-top:40px}
+.wb-hero{padding-top:64px !important}
+@media (max-width:900px){.case-shell{padding-top:48px}.qa-hero{padding-top:24px}.wb-hero{padding-top:40px !important}}
