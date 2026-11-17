@@ -72,7 +72,7 @@ Browse all</button>
 </button>
 </div>
 <sc-if value="{{ showList }}" hint-placeholder-val="{{ false }}">
-<div class="swap" style="position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 30; background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; box-shadow: 0 24px 60px rgba(17,24,47,0.16); padding-bottom: 10px; max-height: 420px; overflow-y: auto; text-align: left">
+<div class="swap" ref="{{ setDrop }}" style="position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 30; background: #FFFFFF; border: 1px solid #E3E6EB; border-radius: 16px; box-shadow: 0 24px 60px rgba(17,24,47,0.16); padding-bottom: 10px; max-height: 420px; overflow-y: auto; text-align: left">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 22px 8px">
 <span style="font-size: 16px; font-weight: 500">{{ listTitle }}</span>
 <button type="button" onClick="{{ reset }}" style="font-family: inherit; font-size: 14px; min-height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid #E3E6EB; background: #FFFFFF; color: var(--ink); cursor: pointer; display: flex; align-items: center; gap: 8px"><span aria-hidden="true">←</span> All categories</button>
@@ -237,7 +237,7 @@ Browse all</button>
 </div>
 </sc-for>
 </div>
-<div class="wsplit" style="border-top: 1px dashed var(--frame)">
+<div class="wsplit" style="border-top: 1px dashed var(--frame); height: 631px">
 <aside class="wlist" aria-label="Case studies">
 <span class="mono" style="display: block; padding: 0 32px 16px; font-size: 10px; color: #8A93A3">Index · 04</span>
 <sc-for list="{{ works }}" as="w" hint-placeholder-count="4">
@@ -462,10 +462,10 @@ class Component extends DCLogic {
   }
   renderVals() {
     const data = [
-      { num: '01', short: 'Questionnaire editor', meta: 'Partnership · 2025', year: '2025', title: 'Complex inside, simple to fill out.', href: 'https://ambershin.com/work-questionnaire.html', cover: 'questionnaire editor', img: 'images/work-questionnaire.jpg', keys: 'admin tool branching logic mobile ux healthcare b2b' },
-      { num: '02', short: 'Back-office platform', meta: 'In-house · 2022–25', year: '2022–25', title: 'From scattered to one master system.', href: 'https://ambershin.com/work-backoffice.html', cover: 'back-office dashboard', img: 'images/work-backoffice.jpg', keys: 'b2b saas ia information architecture 0 to 1 admin operations' },
-      { num: '03', short: 'Healthcare marketplace', meta: 'In-house · 2024', year: '2024', title: 'Booking marketplace, built for conversion.', href: 'https://ambershin.com/work-kindoc-b2c.html', cover: 'booking app screens', img: 'images/work-kindocapp.jpg', keys: 'mobile app ui hierarchy conversion b2c marketplace' },
-      { num: '04', short: 'Win-back prototype', meta: 'Personal · 2026', year: '2026', title: 'Live data visualization, prototyped with AI.', href: 'https://ambershin.com/winback/', cover: 'win-back prototype', img: 'images/work-winback.jpg', keys: 'data viz visualization ai prototyping edge cases saas' }
+      { num: '01', short: 'Questionnaire editor', meta: 'Partnership · 2025', year: '2025', title: 'Complex inside, simple to fill out.', href: 'https://ambershin.com/work-questionnaire.html', cover: 'questionnaire editor', img: 'images/work-questionnaire.jpg', keys: 'admin tool branching logic mobile ux healthcare b2b hospital partnership survey form builder editor medical patient design system components mobile app responsive' },
+      { num: '02', short: 'Back-office platform', meta: 'In-house · 2022–25', year: '2022–25', title: 'From scattered to one master system.', href: 'https://ambershin.com/work-backoffice.html', cover: 'back-office dashboard', img: 'images/work-backoffice.jpg', keys: 'b2b saas ia information architecture 0 to 1 0-to-1 admin admin tool admin dashboard operations kindoc back office backoffice dashboard internal tool enterprise packages capacity design system healthcare' },
+      { num: '03', short: 'Healthcare marketplace', meta: 'In-house · 2024', year: '2024', title: 'Booking marketplace, built for conversion.', href: 'https://ambershin.com/work-kindoc-b2c.html', cover: 'booking app screens', img: 'images/work-kindocapp.jpg', keys: 'mobile mobile app ui hierarchy conversion conversion rate cvr funnel b2c marketplace kindoc healthcare booking checkup reservation design system branding growth' },
+      { num: '04', short: 'Win-back prototype', meta: 'Personal · 2026', year: '2026', title: 'Live data visualization, prototyped with AI.', href: 'https://ambershin.com/winback/', cover: 'win-back prototype', img: 'images/work-winback.jpg', keys: 'data viz visualization ai prototyping edge cases saas claude code dashboard chart retention churn reactivation win-back b2b' }
     ];
     const cats = [
       { id: 'b2b', img: 'images/unused.png', rot: '-3deg', label: 'B2B SaaS', ids: ['02', '04'], side: 'L', row: 1, num: '01', icon: 'grid' },
@@ -475,9 +475,9 @@ class Component extends DCLogic {
       { id: 'viz', label: 'Data viz', ids: ['04'], icon: 'chart' }
     ];
     const gallery = [
-      { title: 'Kindoc AI', meta: '2024', img: 'images/gallery-kindoc-ai.jpg', desc: 'Health assistant chat', cats: ['ai', 'mobile'], keys: 'ai chatbot conversational health assistant mobile' },
-      { title: 'Innerpink', meta: '2024–25', img: 'images/gallery-innerpink.jpg', desc: 'AI health results', cats: ['viz', 'ai'], keys: 'ai health results visualization data viz' },
-      { title: 'Huers', meta: '2026', img: 'images/gallery-huers.jpg', desc: 'Coffee taste app UI kit', cats: ['mobile'], keys: 'coffee app ui kit mobile personal' }
+      { title: 'Kindoc AI', meta: '2024', img: 'images/gallery-kindoc-ai.jpg', desc: 'Health assistant chat', cats: ['ai', 'mobile'], keys: 'ai chatbot conversational health assistant mobile kindoc generative genai llm healthcare design system' },
+      { title: 'Innerpink', meta: '2024–25', img: 'images/gallery-innerpink.jpg', desc: 'AI health results', cats: ['viz', 'ai'], keys: 'ai health results visualization data viz inthepink checkup report healthcare mobile' },
+      { title: 'Huers', meta: '2026', img: 'images/gallery-huers.jpg', desc: 'Coffee taste app UI kit', cats: ['mobile'], keys: 'coffee app ui kit mobile personal design system components flavor taste branding' }
     ];
     const cat = this.state.cat;
     const q = (this.state.query || '').trim().toLowerCase();
@@ -537,8 +537,10 @@ class Component extends DCLogic {
     let galleryResults = [];
     let listTitle = '';
     if (q) {
-      results = data.filter((d) => (d.title + ' ' + d.short + ' ' + d.meta + ' ' + d.keys).toLowerCase().indexOf(q) !== -1);
-      galleryResults = gallery.filter((g) => (g.title + ' ' + g.desc + ' ' + g.keys).toLowerCase().indexOf(q) !== -1);
+      const words = q.split(/\s+/).filter(Boolean);
+      const hit = (s) => { const t = s.toLowerCase(); return t.indexOf(q) !== -1 || words.every((w) => t.indexOf(w) !== -1); };
+      results = data.filter((d) => hit(d.title + ' ' + d.short + ' ' + d.meta + ' ' + d.keys));
+      galleryResults = gallery.filter((g) => hit(g.title + ' ' + g.desc + ' ' + g.meta + ' ' + g.keys));
       listTitle = 'Results for “' + this.state.query.trim() + '”';
     } else if (cat === 'all') {
       results = data;
@@ -556,6 +558,15 @@ class Component extends DCLogic {
     return {
       works: data.map((d, i) => { const on = i === (this.state.wi || 0); return { num: d.num, short: d.short, meta: d.meta, title: d.title, href: d.href, img: d.img, on, cur: on ? 'true' : 'false', hid: on ? 'false' : 'true', col: on ? 'var(--ink)' : '#8A93A3', bar: on ? 'var(--ink)' : 'transparent', grow: on ? 1 : 0, tabTop: (16 + i * 96) + 'px', tabBg: on ? 'var(--ink)' : '#FFFFFF', tabLine: on ? 'var(--ink)' : '#AEB6C3', tabCol: on ? '#FFFFFF' : 'var(--ink)', op: on ? 1 : 0, dl: on ? '.45s' : '0s', pe: on ? 'auto' : 'none', go: () => this.goWork(i) }; }),
       setFold: (el) => this.setFoldEl(el),
+      setDrop: (el) => {
+        if (!el || el === this._drop) return;
+        this._drop = el;
+        setTimeout(() => {
+          const r = el.getBoundingClientRect();
+          const over = r.bottom + 24 - window.innerHeight;
+          if (over > 0) window.scrollBy({ top: over, behavior: 'smooth' });
+        }, 60);
+      },
       setWork: (el) => this.setWorkEl(el),
       cases: data.map((d, i) => { const bp = false; return { ...d, i, line: bp ? 'images/unused.png' : '', bpo: bp ? 1 : 0 }; }),
       cInk: this.props.cInk ?? '#11182F',

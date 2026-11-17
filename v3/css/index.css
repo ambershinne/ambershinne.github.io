@@ -117,7 +117,7 @@ a{color:var(--ink)}a:hover{color:#3A4560}
 .ftab:hover path{filter:drop-shadow(0 2px 6px rgba(17,24,47,.10))}
 .fbody{position:absolute;top:0;bottom:0;left:0;width:calc(100cqw - 135px);padding:28px 60px 28px 28px;display:flex;flex-direction:column;gap:14px;transition:opacity .5s ease}
 @media (max-width:900px){.fold{flex-direction:column;height:auto;padding:20px}.fpanel{flex:none !important;margin:0 0 16px}.fclip{position:static}.ftab{display:none}.fbody{position:static;width:auto;opacity:1 !important;pointer-events:auto !important;padding:20px}.fbody .thumb{flex:none !important;aspect-ratio:16/10}}
-.wsplit{display:grid;grid-template-columns:280px minmax(0,1fr);height:720px}
+.wsplit{display:grid;grid-template-columns:minmax(0,3.4fr) minmax(0,6.6fr);height:600px}
 .wlist{padding:32px 0 40px;overflow:hidden}
 .witem{width:100%;display:grid;grid-template-columns:28px minmax(0,1fr);gap:8px;align-items:baseline;text-align:left;padding:18px 28px 18px 30px;background:transparent;border:0;border-left:2px solid transparent;cursor:pointer;font-family:inherit;transition:color .3s,border-color .3s,background .3s}
 .witem:hover{background:#F6F7F9}
