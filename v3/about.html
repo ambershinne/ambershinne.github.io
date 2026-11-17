@@ -82,7 +82,7 @@
 <span class="mono" style="font-size: 12px; color: var(--muted)">Top 5 CliftonStrengths</span>
 <h2 class="serif" style="margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1">How I think.</h2>
 </div>
-<a href="https://ambershin.com/assets/images/strengths-report.png" style="font-size: 14px; font-weight: 500; text-decoration: none; display: flex; gap: 8px; align-items: center; min-height: 44px">View full report <span aria-hidden="true">↗</span></a>
+<a href="https://ambershin.com/assets/images/strengths-report.png" onClick="{{ openReport }}" style="font-size: 14px; font-weight: 500; text-decoration: none; display: flex; gap: 8px; align-items: center; min-height: 44px">View full report <span aria-hidden="true">↗</span></a>
 </div>
 <div class="five" style="border-top: 1px dashed var(--frame)">
 <sc-for list="{{ strengths }}" as="s">
@@ -212,6 +212,12 @@
 </div>
 </div>
 </section>
+<sc-if value="{{ lbOn }}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-label="{{ lbAlt }}" onClick="{{ lbClose }}">
+<img src="{{ lbSrc }}" alt="{{ lbAlt }}" onClick="{{ lbStop }}">
+<button type="button" class="lbx" aria-label="Close" onClick="{{ lbClose }}">×</button>
+</div>
+</sc-if>
 </div>
 </template>
 <script type="text/x-dc" data-dc-script data-props='{"cInk":{"editor":"color","default":"#11182F"},"cMuted":{"editor":"color","default":"#5B6475"},"cFrame":{"editor":"color","default":"#4E5768"},"cSurface":{"editor":"color","default":"#1E2A40"},"cAccent":{"editor":"color","default":"#92cbf3"}}'>
@@ -221,6 +227,8 @@ class Component extends DCLogic {
     this.state = { time: '--:--' };
   }
   componentDidMount() {
+    this._onKey = (e) => { if (e.key === 'Escape' && this.state.lb) this.setState({ lb: null }); };
+    window.addEventListener('keydown', this._onKey);
     const tick = () => {
       try {
         const t = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit' }).format(new Date());
@@ -265,11 +273,9 @@ class Component extends DCLogic {
       { date: 'May 2020 – Jul 2021', org: 'Doctrue (Kindoc Aftercare)', project: 'Global telemedicine service', role: 'Product strategy · Planning & design', type: 'In-house' }
     ];
     const tools = [
-      { cat: 'Design', name: 'Figma', note: 'Auto layout, variables, prototyping' },
-      { cat: 'Design', name: 'Sketch', note: 'Symbol-based systems' },
+      { cat: 'Design', name: 'Figma, Claude Design', note: 'UI design & design systems' },
       { cat: 'Graphics', name: 'Illustrator, Photoshop', note: 'Brand assets' },
       { cat: 'Prototyping', name: 'Framer, Claude Design', note: 'Interaction prototyping' },
-      { cat: 'Handoff', name: 'Zeplin', note: 'Handoff & specs' },
       { cat: 'Docs & PM', name: 'Notion, Asana', note: 'Documentation & project management' },
       { cat: 'Development', name: 'HTML, CSS', note: 'GitHub deployment' }
     ];
@@ -282,6 +288,10 @@ class Component extends DCLogic {
       }),
       strengths: strengths.map((s, i) => ({ ...s, hl: i < 2 ? '100% 42%' : '0 0', i0: i === 0, i1: i === 1, i2: i === 2, i3: i === 3, i4: i === 4 })),
       skills, career, tools,
+      openReport: (e) => { if (e && e.preventDefault) e.preventDefault(); this.setState({ lb: 'https://ambershin.com/assets/images/strengths-report.png', lbAlt: 'CliftonStrengths report' }); },
+      lbOn: !!this.state.lb, lbSrc: this.state.lb || '', lbAlt: this.state.lbAlt || '',
+      lbClose: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: null }); },
+      lbStop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       time: this.state.time,
       cInk: this.props.cInk, cMuted: this.props.cMuted, cFrame: this.props.cFrame, cSurface: this.props.cSurface, cAccent: this.props.cAccent
     };

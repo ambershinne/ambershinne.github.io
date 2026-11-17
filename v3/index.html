@@ -300,9 +300,9 @@ Browse all</button>
 <div class="gal gridbg" style="border-top: 1px dashed var(--frame)">
 <sc-for list="{{ gallery }}" as="g" hint-placeholder-count="3">
 <article style="display: flex; flex-direction: column; gap: 12px">
-<div style="aspect-ratio: 3 / 2; background: #FFFFFF; border: 1px solid #D5D9E0; overflow: hidden">
+<button type="button" class="gzoom" onClick="{{ g.open }}" aria-label="Enlarge {{ g.title }}" style="aspect-ratio: 3 / 2; background: #FFFFFF; border: 1px solid #D5D9E0; overflow: hidden; padding: 0; display: block; width: 100%; cursor: zoom-in">
 <img src="{{ g.img }}" alt="{{ g.title }} screens" style="width: 100%; height: 100%; object-fit: cover; display: block">
-</div>
+</button>
 <div style="display: flex; justify-content: space-between; align-items: baseline; background: #FFFFFF; padding: 14px 18px; border: 1px solid #E3E6EB">
 <h3 style="margin: 0; font-size: 16px; font-weight: 500">{{ g.title }}</h3>
 <span class="mono" style="font-size: 11px; color: var(--muted)">{{ g.meta }}</span>
@@ -334,6 +334,12 @@ Browse all</button>
 </div>
 </div>
 </section>
+<sc-if value="{{ lbOn }}" hint-placeholder-val="{{ false }}">
+<div class="lb" role="dialog" aria-modal="true" aria-label="{{ lbAlt }}" onClick="{{ lbClose }}">
+<img src="{{ lbSrc }}" alt="{{ lbAlt }}" onClick="{{ lbStop }}">
+<button type="button" class="lbx" aria-label="Close" onClick="{{ lbClose }}">×</button>
+</div>
+</sc-if>
 </div>
 </template>
 <script type="text/x-dc" data-dc-script data-props="{&quot;bodyFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Manrope&quot;,&quot;Inter&quot;,&quot;Geist&quot;,&quot;Instrument Sans&quot;,&quot;DM Sans&quot;,&quot;Hanken Grotesk&quot;],&quot;default&quot;:&quot;Geist&quot;,&quot;section&quot;:&quot;Type&quot;,&quot;label&quot;:&quot;Body font&quot;},&quot;cInk&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#141B2D&quot;,&quot;section&quot;:&quot;Colors&quot;,&quot;label&quot;:&quot;Ink (text, buttons, lines)&quot;},&quot;cMuted&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#5B6475&quot;,&quot;section&quot;:&quot;Colors&quot;,&quot;label&quot;:&quot;Muted text&quot;},&quot;cFrame&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#4E5768&quot;,&quot;section&quot;:&quot;Colors&quot;,&quot;label&quot;:&quot;Frame lines&quot;},&quot;cSurface&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#1E2A40&quot;,&quot;section&quot;:&quot;Colors&quot;,&quot;label&quot;:&quot;Image surface&quot;},&quot;cAccent&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#9FD3F7&quot;,&quot;section&quot;:&quot;Colors&quot;,&quot;label&quot;:&quot;Accent&quot;},&quot;displayFont&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Newsreader&quot;,&quot;Instrument Serif&quot;,&quot;Fraunces&quot;,&quot;Cormorant Garamond&quot;,&quot;Playfair Display&quot;,&quot;Source Serif 4&quot;,&quot;Libre Caslon Text&quot;],&quot;default&quot;:&quot;Fraunces&quot;,&quot;section&quot;:&quot;Type&quot;},&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:3600}}">
@@ -343,6 +349,8 @@ class Component extends DCLogic {
     this.state = { cat: null, query: '', slide: 0, atEnd: false, time: '--:--' };
   }
   componentDidMount() {
+    this._onKey = (e) => { if (e.key === 'Escape' && this.state.lb) this.setState({ lb: null }); };
+    window.addEventListener('keydown', this._onKey);
     const tick = () => {
       try {
         const t = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Berlin', hour: '2-digit', minute: '2-digit' }).format(new Date());
@@ -617,7 +625,10 @@ class Component extends DCLogic {
       goBg: q ? 'var(--ink)' : '#AEB6C3',
       stop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       outside: () => { if (this.state.cat || this.state.query) this.setState({ cat: null, query: '' }); },
-      gallery,
+      gallery: gallery.map((g) => ({ ...g, open: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: g.img, lbAlt: g.title }); } })),
+      lbOn: !!this.state.lb, lbSrc: this.state.lb || '', lbAlt: this.state.lbAlt || '',
+      lbClose: (e) => { if (e && e.stopPropagation) e.stopPropagation(); this.setState({ lb: null }); },
+      lbStop: (e) => { if (e && e.stopPropagation) e.stopPropagation(); },
       time: this.state.time, capClass: this.state.compact ? 'compact' : '',
       serifWeight: font === 'Fraunces' ? 300 : 400,
       serifVar: ({ 'Fraunces': '"opsz" 48, "SOFT" 30, "WONK" 0', 'Newsreader': '"opsz" 20' })[font] || 'normal',

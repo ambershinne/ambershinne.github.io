@@ -139,3 +139,10 @@ a{color:var(--ink)}a:hover{color:#3A4560}
 .cell:hover .cart,.cell.on .cart{color:var(--ink);transform:translate(-6px,-6px)}
 .brand .m1,.brand .m2{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.brand:hover .m1{transform:translateX(-1.5px)}.brand:hover .m2{transform:translateX(1.5px)}
 .brand .mark{transition:transform .6s cubic-bezier(.2,.7,.2,1)}.brand:hover .mark{transform:rotate(90deg)}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(17,24,47,.3);display:flex;align-items:center;justify-content:center;padding:56px 48px;cursor:zoom-out}
+.lb img{display:block;max-width:min(1100px,100%);max-height:84vh;width:auto;height:auto;border-radius:10px;background:#FFFFFF;box-shadow:0 24px 60px rgba(17,24,47,.22);cursor:default}
+.lbx{position:absolute;top:20px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid #E3E6EB;background:#FFFFFF;color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+@media (prefers-reduced-motion:no-preference){.lb{animation:lbIn .3s ease}.lb img{animation:rise .4s cubic-bezier(.2,.7,.2,1)}}
+@keyframes lbIn{from{opacity:0}}
+@media (max-width:600px){.lb{padding:64px 16px 24px}}
+.gzoom img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}.gzoom:hover img{transform:scale(1.03)}
