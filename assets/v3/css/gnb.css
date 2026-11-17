@@ -32,3 +32,5 @@
 @media (max-width:600px){.gnb__cmenu{width:260px}}
 .gnb__cmenu[hidden]{display:none}.gnb__cwrap[data-open] .gnb__chev{transform:rotate(180deg)}
 @keyframes gnbRise{from{opacity:0;transform:translateY(8px)}}
+/* Case study body: wider shell (was 1100), content max stays 800 */
+@media (min-width:1025px){.case-shell{max-width:1200px}}
