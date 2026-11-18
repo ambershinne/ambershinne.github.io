@@ -284,18 +284,6 @@ Browse all</button>
 </a>
 </sc-for>
 </div>
-<div class="wsel gridbg">
-<sc-for list="{{ wcur }}" as="c" hint-placeholder-count="1">
-<a class="thumb wshot swap" href="{{ c.href }}"><img class="cover" src="{{ c.img }}" alt="{{ c.short }} case study cover"><span class="shade" aria-hidden="true"></span></a>
-<div class="wcap swap">
-<div style="display: flex; flex-direction: column; gap: 8px; min-width: 0">
-<span class="mono" style="font-size: 10px; color: #8A93A3">{{ c.num }} · {{ c.meta }}</span>
-<span style="font-size: 20px; font-weight: 400; line-height: 1.25">{{ c.title }}</span>
-</div>
-<a class="wgo" href="{{ c.href }}">View case study <span class="arrow" aria-hidden="true">→</span></a>
-</div>
-</sc-for>
-</div>
 </div>
 </section>
 
@@ -603,9 +591,9 @@ class Component extends DCLogic {
       },
       setWork: (el) => this.setWorkEl(el),
       ...(() => {
-        const mi = this.state.mi || 0;
-        const st = (k) => { const on = k === mi; return { on: on ? 'true' : 'false', ring: on ? '0 0 0 1.5px #141B2D, 0 8px 20px rgba(17,24,47,.12)' : '0 0 0 1px #AEB6C3', f: on ? 'none' : 'grayscale(.35) opacity(.8)', col: on ? '#141B2D' : '#8A93A3', go: () => this.setState({ mi: k }) }; };
-        return { wm0: st(0), wm1: st(1), wm2: st(2), wm3: st(3), wmg: { on: 'false', ring: '0 0 0 1px #C9CED6', f: 'grayscale(.5) opacity(.55)', col: '#AEB6C3', go: () => this.setState({ mi: 0 }) }, wcur: [data[mi]] };
+        const mi = this.state.wi || 0;
+        const st = (k) => { const on = k === mi; return { on: on ? 'true' : 'false', ring: on ? '0 0 0 1.5px #141B2D, 0 8px 20px rgba(17,24,47,.12)' : '0 0 0 1px #AEB6C3', f: on ? 'none' : 'grayscale(.35) opacity(.8)', col: on ? '#141B2D' : '#8A93A3', go: () => this.goWork(k) }; };
+        return { wm0: st(0), wm1: st(1), wm2: st(2), wm3: st(3), wmg: { on: 'false', ring: '0 0 0 1px #C9CED6', f: 'grayscale(.5) opacity(.55)', col: '#AEB6C3', go: () => this.goWork(0) } };
       })(),
       cases: data.map((d, i) => { const bp = false; return { ...d, i, line: bp ? 'assets/v3/images/unused.png' : '', bpo: bp ? 1 : 0 }; }),
       cInk: this.props.cInk ?? '#11182F',
