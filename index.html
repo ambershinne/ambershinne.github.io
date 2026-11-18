@@ -415,15 +415,39 @@ class Component extends DCLogic {
     this._onWheel = (e) => {
       const p = this._work; if (!p || p.scrollHeight <= p.clientHeight) return;
       if (window.matchMedia && window.matchMedia('(max-width: 900px)').matches) return;
-      const down = e.deltaY > 0;
-      const canInner = down ? p.scrollTop + p.clientHeight < p.scrollHeight - 1 : p.scrollTop > 0;
-      if (!canInner) return;
       const head = 64;
       const r = box.getBoundingClientRect();
-      if (Math.abs(r.top - head) > 200) return;
+      if (Math.abs(r.top - head) > 200) { this._wedge = 0; return; }
+      const n = p.querySelectorAll('[data-case]').length;
+      const i = this.state.wi || 0;
+      const down = e.deltaY > 0;
+      const now = Date.now();
+      // one gesture (incl. trackpad inertia) = one step: stay locked until the wheel goes quiet
+      if (this._wlock) { e.preventDefault(); this._wlast = now; return; }
+      const fresh = now - (this._wlast || 0) > 180;
+      if (fresh) this._wacc = 0;
+      this._wlast = now;
+      if (!down) this._wedge = 0;
+      if (!down && i <= 0) return;
+      if (down && i >= n - 1) {
+        // last case: the first gesture here is held, the next one scrolls the page on
+        if (this._wedge === 2) return;
+        if (fresh && this._wedge === 1) { this._wedge = 2; return; }
+        this._wedge = 1;
+        e.preventDefault();
+        return;
+      }
+      this._wedge = 0;
       e.preventDefault();
       if (Math.abs(r.top - head) > 1) window.scrollBy(0, r.top - head);
-      p.scrollTop += e.deltaY;
+      this._wacc = (this._wacc || 0) + e.deltaY;
+      if (Math.abs(this._wacc) < 30) return;
+      this._wacc = 0;
+      this._wlock = true;
+      this.goWork(i + (down ? 1 : -1));
+      const release = () => { if (Date.now() - this._wlast > 160) { this._wlock = false; } else this._wrT = setTimeout(release, 60); };
+      clearTimeout(this._wrT);
+      this._wrT = setTimeout(release, 650);
     };
     box.addEventListener('wheel', this._onWheel, { passive: false });
   }
@@ -477,6 +501,7 @@ class Component extends DCLogic {
     clearTimeout(this._fT);
     if (this._wio) this._wio.disconnect();
     clearTimeout(this._wjT);
+    clearTimeout(this._wrT);
     if (this._wbox && this._onWheel) this._wbox.removeEventListener('wheel', this._onWheel);
     clearTimeout(this._bpT);
     window.removeEventListener('scroll', this._onScroll);
