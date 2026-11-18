@@ -422,18 +422,24 @@ class Component extends DCLogic {
       const i = this.state.wi || 0;
       const down = e.deltaY > 0;
       const now = Date.now();
-      // one gesture (incl. trackpad inertia) = one step: stay locked until the wheel goes quiet
-      if (this._wlock) { e.preventDefault(); this._wlast = now; return; }
-      const fresh = now - (this._wlast || 0) > 180;
-      if (fresh) this._wacc = 0;
-      this._wlast = now;
+      const ad = Math.abs(e.deltaY);
+      const gap = now - (this._wlast || 0);
+      const prev = this._wprev || 0;
+      this._wlast = now; this._wprev = ad;
+      // a new push = a pause, a speed-up, or steady mouse-wheel notches; a fading trackpad tail is not
+      const push = gap > 150 || ad > prev * 1.25 + 1 || (ad >= 50 && ad === prev);
+      if (gap > 150) this._wacc = 0;
+      if (now < (this._wuntil || 0)) { e.preventDefault(); return; }
+      // the fading tail of the push that just moved a case never moves anything else
+      if (this._wtail && !push) { e.preventDefault(); return; }
+      this._wtail = false;
       if (!down) this._wedge = 0;
       if (!down && i <= 0) return;
       if (down && i >= n - 1) {
-        // last case: the first gesture here is held, the next one scrolls the page on
+        // last case: the first push here is held, the next one scrolls the page on
         if (this._wedge === 2) return;
-        if (fresh && this._wedge === 1) { this._wedge = 2; return; }
-        this._wedge = 1;
+        if (push && this._wedge === 1 && now > (this._wedgeAt || 0) + 350) { this._wedge = 2; return; }
+        if (!this._wedge && push) { this._wedge = 1; this._wedgeAt = now; }
         e.preventDefault();
         return;
       }
@@ -441,13 +447,11 @@ class Component extends DCLogic {
       e.preventDefault();
       if (Math.abs(r.top - head) > 1) window.scrollBy(0, r.top - head);
       this._wacc = (this._wacc || 0) + e.deltaY;
-      if (Math.abs(this._wacc) < 30) return;
+      if (Math.abs(this._wacc) < 24) return;
       this._wacc = 0;
-      this._wlock = true;
+      this._wtail = true;
+      this._wuntil = now + 420;
       this.goWork(i + (down ? 1 : -1));
-      const release = () => { if (Date.now() - this._wlast > 160) { this._wlock = false; } else this._wrT = setTimeout(release, 60); };
-      clearTimeout(this._wrT);
-      this._wrT = setTimeout(release, 650);
     };
     box.addEventListener('wheel', this._onWheel, { passive: false });
   }
@@ -501,7 +505,6 @@ class Component extends DCLogic {
     clearTimeout(this._fT);
     if (this._wio) this._wio.disconnect();
     clearTimeout(this._wjT);
-    clearTimeout(this._wrT);
     if (this._wbox && this._onWheel) this._wbox.removeEventListener('wheel', this._onWheel);
     clearTimeout(this._bpT);
     window.removeEventListener('scroll', this._onScroll);
