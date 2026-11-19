@@ -417,7 +417,10 @@ class Component extends DCLogic {
       if (window.matchMedia && window.matchMedia('(max-width: 900px)').matches) return;
       const head = 64;
       const r = box.getBoundingClientRect();
-      if (Math.abs(r.top - head) > 200) { this._wedge = 0; return; }
+      // park the section so its title stays just under the nav (eyebrow tucked away)
+      const h2 = box.parentNode.querySelector('h2');
+      const want = h2 ? head + 14 + (r.top - h2.getBoundingClientRect().top) : head;
+      if (Math.abs(r.top - want) > 200) { this._wedge = 0; return; }
       const n = p.querySelectorAll('[data-case]').length;
       const i = this.state.wi || 0;
       const down = e.deltaY > 0;
@@ -445,7 +448,7 @@ class Component extends DCLogic {
       }
       this._wedge = 0;
       e.preventDefault();
-      if (Math.abs(r.top - head) > 1) window.scrollBy(0, r.top - head);
+      if (Math.abs(r.top - want) > 1) window.scrollBy(0, r.top - want);
       this._wacc = (this._wacc || 0) + e.deltaY;
       if (Math.abs(this._wacc) < 24) return;
       this._wacc = 0;
