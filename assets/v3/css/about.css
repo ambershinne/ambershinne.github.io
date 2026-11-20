@@ -11,9 +11,8 @@ a{color:var(--ink)}a:hover{color:#3A4560}
 @keyframes pulse{50%{box-shadow:0 0 0 6px rgba(146,203,243,0)}}
 .split{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
 .split>*+*{border-left:1px dashed #C3C9D3}
-/* Education / Certification: 50/50, right column lines up with the Toolkit right column */
+/* Education / Certification: 50/50 (Toolkit column-gap 64 keeps both at 32px from the center line) */
 #education.split{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-@media (min-width:901px){#education.split>div+div{padding-left:24px !important}}
 .five{display:grid;grid-template-columns:repeat(5,minmax(0,1fr))}
 .five>*+*{border-left:1px dashed #C3C9D3}
 .trio3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
