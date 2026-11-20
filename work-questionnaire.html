@@ -456,6 +456,85 @@
   .qa-react__btn { padding: 14px; }
   .case-hero__title em { white-space: normal; }
 }
+
+/* Answer-type cards (built in code) */
+.qt-card{width:264px;height:262px;background:#fff;border:1px solid var(--line-2,#e3e6ee);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;font-family:Inter,'DM Sans',sans-serif;color:#111827;margin-bottom:14px;text-align:left;-webkit-font-smoothing:antialiased}
+.qt-hd{background:#f4f1fe;padding:10px 12px 8px;border-bottom:1px solid #ebe7fb}
+.qt-bd{display:flex;gap:5px;align-items:center;margin-bottom:4px}
+.qt-b{font-size:9.5px;font-weight:600;padding:2px 6px;border-radius:5px;background:#fff;color:#4b3bb5;border:1px solid #d9d1fb;line-height:1.4}
+.qt-b--a{background:#6d4ae8;color:#fff;border-color:#6d4ae8}
+.qt-n{font-family:var(--font-mono),monospace;font-size:9.5px;color:#9aa0ad;margin-left:2px}
+.qt-ttl{font-size:13px;font-weight:600;line-height:1.3}
+.qt-body{padding:2px 12px 4px}
+
+.qt-row{display:grid;grid-template-columns:70px minmax(0,1fr);align-items:center;gap:6px;min-height:33px;border-bottom:1px solid #f1f2f5}.qt-row:last-child{border-bottom:0}
+.qt-lb{font-size:10.5px;color:#4b5563;font-weight:500}
+.qt-in{height:24px;border:1px solid #e1e4ea;border-radius:6px;font-size:10.5px;display:flex;align-items:center;padding:0 7px;background:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.qt-ph{color:#a2a8b4}.qt-warn{background:#fff7ec;border-color:#f6dfbd;color:#9a5b12}
+.qt-chips,.qt-inline{display:flex;gap:4px;align-items:center;min-width:0}
+.qt-chip{font-size:10px;border:1px solid #e1e4ea;border-radius:6px;padding:2px 6px;background:#fff;display:inline-flex;gap:4px;align-items:center;white-space:nowrap;width:max-content}
+.qt-code{font-family:var(--font-mono),monospace;font-size:9px;color:#c0266d;background:#fdeef5;border:1px solid #f7cfe0;border-radius:3px;padding:0 4px}
+.qt-ex{font-family:var(--font-mono),monospace;font-size:9px;background:#f1f3f6;border-radius:3px;padding:1px 4px;color:#374151}
+.qt-tilde{color:#9aa0ad;font-size:10px}
+.qt-yn{display:flex;border:1px solid #e1e4ea;border-radius:6px;overflow:hidden;height:22px;flex:none}
+.qt-yn span{font-size:9.5px;width:20px;display:flex;align-items:center;justify-content:center;color:#6b7280;background:#fff}
+.qt-yn span.on{background:#2f6bf2;color:#fff;font-weight:600}
+.qt-pv{flex:1;background:#f7f8fa;border-top:1px solid #eef0f3;padding:8px 12px}
+.qt-pvl{font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#9aa0ad;font-weight:600;margin-bottom:4px}
+.qt-q{font-size:11px;font-weight:600;margin-bottom:6px;line-height:1.35}
+.qt-opt{display:flex;gap:6px}
+.qt-pill{flex:1;height:24px;border:1px solid #e1e4ea;border-radius:7px;font-size:10.5px;display:flex;align-items:center;justify-content:center;font-weight:500;background:#fff}
+.qt-pill.on{border-color:#2f6bf2;color:#2f6bf2;background:#f3f7ff;box-shadow:inset 0 0 0 1px #2f6bf2}
+.qt-cb{display:flex;align-items:center;gap:7px;font-size:10.5px;padding:2px 0}
+.qt-box{width:13px;height:13px;border-radius:3px;border:1.5px solid #c9cdd6;display:flex;align-items:center;justify-content:center;flex:none;background:#fff}
+.qt-box.on{background:#2f6bf2;border-color:#2f6bf2}
+.qt-box.on:after{content:"";width:6px;height:3px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translate(1px,-1px)}
+.qt-wbox{font-size:9px;line-height:1.4;color:#9a5b12;background:#fff7ec;border-left:2px solid #f0a646;border-radius:3px;padding:3px 6px;margin:1px 0 2px 20px}
+.qt-ta{border:1px solid #e1e4ea;border-radius:7px;height:36px;padding:6px 8px;font-size:10.5px;color:#a2a8b4;position:relative;background:#fff}
+.qt-ta i{position:absolute;right:8px;bottom:5px;font-style:normal;font-size:9px}
+.qt-ni{display:flex;align-items:center;gap:8px}
+.qt-f{flex:1;height:26px;border:1.5px solid #2f6bf2;border-radius:7px;display:flex;align-items:center;padding:0 9px;font-size:10.5px;font-weight:600;background:#fff}
+.qt-u{font-size:10.5px;color:#6b7280}
+.qt-di{height:26px;border:1px solid #e1e4ea;border-radius:7px;display:flex;align-items:center;justify-content:space-between;padding:0 9px;font-size:10.5px;color:#a2a8b4;background:#fff}
+.qt-cal{width:12px;height:11px;border:1.5px solid #9aa0ad;border-radius:2px;border-top-width:3px}
+.qt-hint{font-size:9px;color:#9aa0ad;margin-top:4px}
+.qt-cap{max-width:264px}
+.qt-hd--q{background:#eef3fe;border-bottom-color:#e1e9fb}
+.qt-b--q{background:#2f6bf2;color:#fff;border-color:#2f6bf2}
+.qt-use{margin-left:auto;display:flex;align-items:center;gap:4px;font-size:9.5px;color:#4b5563}
+.qt-use .qt-yn{height:18px}.qt-use .qt-yn span{width:16px;font-size:8.5px}
+.qt-lock{background:#f1f3f6;border-color:#f1f3f6;color:#8a909c;font-family:var(--font-mono),monospace;font-size:10px}
+.qt-step{justify-content:space-between;color:#9aa0ad}.qt-step b{color:#111827;font-weight:600}
+.qt-add{display:flex;border-top:1px solid #eef0f3;background:#fafbfc}
+.qt-add span{flex:1;text-align:center;font-size:9.5px;color:#2f6bf2;font-weight:500;padding:6px 0}
+.qt-add span+span{border-left:1px solid #eef0f3}
+.qt-chips--wrap{flex-wrap:wrap;padding:4px 0}
+.qt-more{font-size:10px;color:#6b7280;padding:2px 4px}
+/* answer-type cards v2: type on the question, answers always as boxes */
+.qa-scroll--types .qt-card{height:404px}
+.qt-sec{display:flex;align-items:center;justify-content:space-between;padding:7px 12px 4px;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:#9aa0ad;font-weight:600}
+.qt-sec em{font-style:normal;letter-spacing:0;text-transform:none;font-weight:500;color:#9aa0ad}
+.qt-abs{padding:0 12px 6px;display:flex;flex-direction:column;gap:5px}
+.qt-ab{border:1px solid #ebe7fb;border-radius:7px;background:#fff;overflow:hidden}
+.qt-abh{display:flex;align-items:center;gap:5px;padding:5px 7px;background:#faf9ff;min-width:0}
+.qt-abh .qt-b--a{font-size:8.5px;padding:1px 5px}
+.qt-abh .qt-n{margin-left:0;flex:none}
+.qt-abt{font-size:10.5px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
+.qt-abh .qt-code{flex:none}
+.qt-tag{font-size:8.5px;border-radius:4px;padding:1px 5px;flex:none;white-space:nowrap}
+.qt-tag--fu{background:#eef3fe;color:#2f6bf2}
+.qt-tag--wn{background:#fff7ec;color:#9a5b12}
+.qt-abb{display:flex;align-items:center;gap:4px;padding:5px 7px;border-top:1px solid #f3f1fc}
+.qt-abb .qt-in{height:21px;font-size:10px;padding:0 6px}
+.qt-abb .qt-in.w{flex:none;width:34px;justify-content:center}
+.qt-abb .qt-lb{font-size:9.5px;flex:none}
+.qt-abb .qt-yn{height:19px}.qt-abb .qt-yn span{width:17px;font-size:8.5px}
+.qt-fixed{display:flex;border-top:1px solid #eef0f3;background:#fafbfc}
+.qt-fixed span{flex:1;text-align:center;font-size:9.5px;color:#9aa0ad;padding:6px 0}
+.qt-rd{width:13px;height:13px;border-radius:50%;border:1.5px solid #c9cdd6;flex:none;background:#fff;display:flex;align-items:center;justify-content:center}
+.qt-rd.on{border-color:#2f6bf2}.qt-rd.on:after{content:"";width:6px;height:6px;border-radius:50%;background:#2f6bf2}
+.qt-fl{font-size:9.5px;color:#4b5563;margin:5px 0 3px}.qt-fl:first-of-type{margin-top:0}
+.qt-ni .qt-f{height:24px}
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -675,6 +754,41 @@
           </div>
         </div>
         <p class="qa-scroll-hint">← scroll to see editor states</p>
+        <h3 class="qa-subhead reveal">Every answer type, one editor</h3>
+        <p class="qa-subbody reveal">
+          Every question starts by choosing its answer type. Answers always live in their own boxes,
+          so each one carries a code and can open a follow-up. Choice types stack as many boxes as
+          they need; input types turn each box into a text, number or date field with its own rules.
+        </p>
+        <div class="qa-scroll qa-scroll--types reveal" aria-label="Answer types">
+          <div class="qa-scroll__rail">
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">2</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">Are you taking blood thinners?</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Yes / No ▾</span></div></div><div class="qt-sec">Answers<em>2 answers</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">2-1</span><span class="qt-abt">Yes</span><span class="qt-tag qt-tag--fu">↳ Q</span><span class="qt-code">AY3K9</span></div></div><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">2-2</span><span class="qt-abt">No</span><span class="qt-code">AN3K0</span></div></div></div><div class="qt-fixed"><span>Fixed · Yes and No only</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">Are you taking blood thinners?</div><div class="qt-opt"><span class="qt-pill on">Yes</span><span class="qt-pill">No</span></div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Yes / No</strong>Two fixed answer boxes. Each keeps its own code and can open a follow-up question.</p>
+            </div>
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">1-1-1</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">How well is it controlled?</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Single select ▾</span></div></div><div class="qt-sec">Answers<em>2 answers</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-1-1-1</span><span class="qt-abt">Well controlled</span><span class="qt-code">A7WHW</span></div></div><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-1-1-2</span><span class="qt-abt">Often runs high</span><span class="qt-tag qt-tag--fu">↳ Q</span><span class="qt-code">A6PKT</span></div></div></div><div class="qt-add"><span>+ Add answer</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">How well is it controlled?</div><div class="qt-cb"><span class="qt-rd"></span>Well controlled</div><div class="qt-cb"><span class="qt-rd on"></span>Often runs high</div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Single select</strong>Add as many answer boxes as needed. Patients pick one, and each answer can branch on its own.</p>
+            </div>
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">1</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">Do you have any of these conditions?</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Multi select ▾</span></div></div><div class="qt-sec">Answers<em>3 answers</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-1</span><span class="qt-abt">Hypertension</span><span class="qt-tag qt-tag--wn">!</span><span class="qt-tag qt-tag--fu">↳ Q</span><span class="qt-code">AXRQ0</span></div></div><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-2</span><span class="qt-abt">Diabetes</span><span class="qt-tag qt-tag--fu">↳ Q</span><span class="qt-code">AD7M2</span></div></div><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-3</span><span class="qt-abt">Asthma</span><span class="qt-code">AT4P8</span></div></div></div><div class="qt-add"><span>+ Add answer</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">Select all that apply.</div><div class="qt-cb"><span class="qt-box on"></span>High blood pressure</div><div class="qt-wbox">180 mmHg or higher may rule out sedation.</div><div class="qt-cb"><span class="qt-box on"></span>Diabetes</div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Multi select</strong>Patients pick one or more. Warnings, exam codes and follow-ups sit on each answer box.</p>
+            </div>
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">1-4-1</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">Tell us about the other condition.</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Text ▾</span></div></div><div class="qt-sec">Answers<em>1 answer</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-4-1-1</span><span class="qt-abt">Condition details</span><span class="qt-code">AF2T6</span></div><div class="qt-abb"><span class="qt-lb">Max</span><span class="qt-in w">100</span><span class="qt-in qt-ph">Placeholder: Up to 100 chars</span></div></div></div><div class="qt-add"><span>+ Add answer</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">Tell us about the other condition.</div><div class="qt-ta">Up to 100 characters<i>0 / 100</i></div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Text input</strong>Same answer box, with a text field inside. Placeholder and length limit shape what patients write.</p>
+            </div>
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">3-1-1</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">How much do you smoke?</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Numeric ▾</span></div></div><div class="qt-sec">Answers<em>2 answers</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">3-1-1-1</span><span class="qt-abt">Cigarettes per day</span><span class="qt-code">AC1D4</span></div><div class="qt-abb"><span class="qt-in w">0</span><span class="qt-tilde">~</span><span class="qt-in w">99</span><span class="qt-in qt-ph">Unit: per day</span></div></div><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">3-1-1-2</span><span class="qt-abt">Years smoked</span><span class="qt-code">AY8S3</span></div><div class="qt-abb"><span class="qt-in w">0</span><span class="qt-tilde">~</span><span class="qt-in w">80</span><span class="qt-in qt-ph">Unit: years</span></div></div></div><div class="qt-add"><span>+ Add answer</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">How much do you smoke?</div><div class="qt-ni"><div style="flex:1"><div class="qt-fl">Per day</div><div class="qt-ni"><span class="qt-f">12</span></div></div><div style="flex:1"><div class="qt-fl">Years</div><div class="qt-ni"><span class="qt-f">8</span></div></div></div><div class="qt-hint">Numbers only</div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Numeric input</strong>One question can hold several number fields. Each answer box sets its own range and unit.</p>
+            </div>
+            <div class="qa-scroll__item">
+              <div class="qt-card"><div class="qt-hd qt-hd--q"><div class="qt-bd"><span class="qt-b qt-b--q">Question</span><span class="qt-n">1-2-1</span><span class="qt-use">Use <span class="qt-yn"><span class="on">Y</span><span>N</span></span></span></div><div class="qt-ttl">When were you diagnosed?</div></div><div class="qt-body"><div class="qt-row"><span class="qt-lb">Type</span><span class="qt-in">Date ▾</span></div></div><div class="qt-sec">Answers<em>1 answer</em></div><div class="qt-abs"><div class="qt-ab"><div class="qt-abh"><span class="qt-b qt-b--a">A</span><span class="qt-n">1-2-1-1</span><span class="qt-abt">Date of diagnosis</span><span class="qt-code">AD5G1</span></div><div class="qt-abb"><span class="qt-in">Year · Month ▾</span><span class="qt-lb">No future</span><span class="qt-yn"><span class="on">Y</span><span>N</span></span></div></div></div><div class="qt-add"><span>+ Add answer</span></div><div class="qt-pv"><div class="qt-pvl">Patient view</div><div class="qt-q">When were you diagnosed?</div><div class="qt-di"><span>e.g. July 2022</span><span class="qt-cal"></span></div><div class="qt-hint">Future dates can't be picked</div></div></div>
+              <p class="qa-scroll__cap qt-cap"><strong>Date picker</strong>The answer box sets the format and a date limit, so answers that can't be true never get in.</p>
+            </div>
+          </div>
+        </div>
+        <p class="qa-scroll-hint">← scroll to see all answer types</p>
       </section>
 
       <!-- ===== 05 · MOBILE ===== -->
