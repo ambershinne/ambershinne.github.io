@@ -89,7 +89,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
 <header data-screen-label="Hero" style="max-width: 1130px; margin: 0 auto; padding: 56px 25px 63px; display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,422px),1fr)); gap: 42px 49px; align-items: center">
   <div style="display:flex;flex-direction:column;gap:25px;">
     <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#62686c;">CASE STUDY · PRODUCT DESIGN CHALLENGE · 2026</span>
-    <h1 style="margin: 0; font-family: 'Fraunces',serif; font-variation-settings: 'SOFT' 100,'WONK' 0; font-weight: 380; font-size: clamp(28px,3.6vw,40px); white-space: nowrap; line-height: 1; letter-spacing: -0.045em; max-width: none">Protection never paused.<br>Only removal did.</h1>
+    <h1 style="margin: 0; font-family: 'Fraunces',serif; font-variation-settings: 'SOFT' 100,'WONK' 0; font-weight: 380; font-size: clamp(28px,3.6vw,40px); white-space: nowrap; line-height: 1.1; letter-spacing: -0.045em; max-width: none">Protection never paused.<br>Only removal did.</h1>
     <p style="margin: 0; font-size: 15px; line-height: 1.65; max-width: 52ch; color: #3b4043; text-wrap: pretty">A take-home challenge for an AI brand-protection company. When users return, they see what scanning found while they were away and one clear path to restart takedowns. Designed for creators and agencies, tested against every data case from zero to a spike. The brief asked for designs. I went further and <mark style="background:none;color:inherit;padding:0;">built a working prototype</mark> you can play with below.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(106px,1fr));gap:14px;border-top:1px solid #dde0de;padding-top:16px;">
       <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'Geist Mono',monospace;font-size:11px;color:#858b8f;">ROLE</span><span style="font-size:12px;font-weight:500;">Design + prototype (solo)</span></div>
@@ -630,7 +630,7 @@ const B2C = {
     tableTitle: '0 new links', links: [], footer: 'Removals resume the moment you reactivate.', bar: 'Only 6 scans left before monitoring stops' },
   low: { beforeT: 'Before 15 July', beforeD: 'a handful found per week, all of them removed.', afterT: 'After 15 July', afterD: '3 links surfaced and stayed up. Scanning ends on 13 Sep.', note: 'Only 3 links, so the table stays short and a scans-remaining card shows when coverage ends.', tabLabel: 'Edge · Low', why: 'Just 3 links surfaced. Too small for a backlog story, so it\'s framed with the scan-end point.',
     banner: 'Your plan ended on 15 July 2026. Takedowns are paused.', inactive: 'Inactive · 39 days',
-    headline: 'We still found 3 infringing links.\nNone could be removed.', sub: 'Small now, but none are being removed, and scanning ends soon.', cta: 'Remove all 3',
+    headline: 'We still found 3 infringing links.\nNone could be removed.', sub: 'Small now, but none are being removed, and scanning ends soon.', cta: 'Restart takedowns',
     chartTitle: 'A few links, and coverage ending', chartSub: '3 found since 15 Jul · 6 scans left',
     chart: chart({ beforeW: wk(5, 5, 2), after: [0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0], pad: 6, plan: [7, 15], days: 39, endVal: '3 still up', yFloor: 16 }),
     stats: [st('1', 'High risk', 'Paid content leak'), st('6', 'Scans remaining', 'Then coverage stops', { alert: true }), st('3', 'Still online today', 'Across 3 platforms', { border: P, action: 'Remove now' })],
