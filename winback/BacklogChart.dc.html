@@ -33,12 +33,12 @@
       <div style="position:absolute;inset:0;display:flex;align-items:flex-end;">
         <sc-for list="{{ c.bars }}" as="b" hint-placeholder-count="19">
           <div style="flex:{{ b.w }};height:100%;display:flex;align-items:flex-end;justify-content:center;">
-            <div style="width:52%;max-width:16px;height:{{ b.h }};background:{{ b.bg }};border-radius:4px 4px 1px 1px;"></div>
+            <div style="width:52%;max-width:16px;height:{{ b.h }};background:{{ b.bg }};border-radius:4px 4px 1px 1px;transform-origin:bottom;animation:{{ c.barAnim }} .7s cubic-bezier(.2,.8,.2,1) {{ b.d }} both;"></div>
           </div>
         </sc-for>
       </div>
 
-      <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">
+      <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;animation:{{ c.lineAnim }} 1.3s cubic-bezier(.4,0,.2,1) .55s both;">
         <defs>
           
         </defs>
@@ -46,8 +46,8 @@
         <path d="{{ c.linePath }}" style="fill:none;stroke:#E8603F;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;"></path>
       </svg>
       <sc-if value="{{ c.endVal }}" hint-placeholder-val="{{ true }}">
-        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};width:8px;height:8px;border-radius:50%;background:#E8603F;box-shadow:0 0 0 2px #fff;transform:translate(-50%,50%);z-index:3;"></span>
-        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};transform:translate(calc(-100% - 11px),-11px);font-size:11px;font-weight:600;color:#c2410c;white-space:nowrap;z-index:3;">{{ c.endVal }}</span>
+        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};width:8px;height:8px;border-radius:50%;background:#E8603F;box-shadow:0 0 0 2px #fff;transform:translate(-50%,50%);z-index:3;animation:{{ c.fadeAnim }} .4s ease-out 1.75s both;"></span>
+        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};transform:translate(calc(-100% - 11px),-11px);font-size:11px;font-weight:600;color:#c2410c;white-space:nowrap;z-index:3;animation:{{ c.fadeAnim }} .4s ease-out 1.8s both;">{{ c.endVal }}</span>
       </sc-if>
     </div>
   </div>

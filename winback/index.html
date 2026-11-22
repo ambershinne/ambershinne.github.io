@@ -52,6 +52,11 @@ a:hover{color:#16191b;text-decoration:underline;}
 .tabp[data-st="on"]{animation:tabPulse 2.6s ease-out infinite;}
 @keyframes tabPulse{0%{box-shadow:0 0 0 0 rgba(169,203,196,0.9);}70%{box-shadow:0 0 0 7px rgba(169,203,196,0);}100%{box-shadow:0 0 0 0 rgba(169,203,196,0);}}
 @media (prefers-reduced-motion:reduce){.tabp[data-st="on"]{animation:none;}}
+@keyframes rankGrowHold{from,to{transform:scaleX(0);}}@keyframes rankGrowA{from{transform:scaleX(0);}to{transform:scaleX(1);}}@keyframes rankGrowB{from{transform:scaleX(0);}to{transform:scaleX(1);}}
+@keyframes barUpHold{from,to{transform:scaleY(0);}}@keyframes barUpA{from{transform:scaleY(0);}to{transform:scaleY(1);}}@keyframes barUpB{from{transform:scaleY(0);}to{transform:scaleY(1);}}
+@keyframes revealHold{from,to{clip-path:inset(0 100% 0 0);}}@keyframes revealA{from{clip-path:inset(-20% 100% -20% 0);}to{clip-path:inset(-20% -5% -20% 0);}}@keyframes revealB{from{clip-path:inset(-20% 100% -20% 0);}to{clip-path:inset(-20% -5% -20% 0);}}
+@keyframes fadeInHold{from,to{opacity:0;}}@keyframes fadeInA{from{opacity:0;}to{opacity:1;}}@keyframes fadeInB{from{opacity:0;}to{opacity:1;}}
+@media (prefers-reduced-motion:reduce){[style*='barUp'],[style*='reveal'],[style*='fadeIn'],[style*='rankGrow']{animation:none !important;}}
 .tabv{transition:color .2s ease,border-color .2s ease;}
 .tabv[data-st="off"]:hover{color:#16191b !important;border-left-color:#b4b8b5 !important;}
 @media (max-width:1024px){.csg{grid-template-columns:1fr !important;}.csg > div:first-child{position:static !important;}}
@@ -247,7 +252,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
         <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
       </div>
       <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;position:relative;">
-        <div style="padding:39px clamp(14px,3.2vw,35px) 25px;display:flex;flex-direction:column;gap:18px;">
+        <div style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
             <div style="display:flex;flex-direction:column;gap:7px;max-width:598px;">
               <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
@@ -374,7 +379,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
       <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
     </div>
     <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;">
-      <div style="padding:39px clamp(14px,3.2vw,35px) 25px;display:flex;flex-direction:column;gap:18px;">
+      <div style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
         <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
           <div style="display:flex;flex-direction:column;gap:7px;max-width:546px;">
             <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
@@ -411,7 +416,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
             </div>
           </sc-for>
         </div>
-        <div style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
+        <div data-rank="1" style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
           <div style="padding:14px 16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:9px;border-bottom:1px solid #e3e4e1;">
             <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:12px;font-weight:600;">Most at-risk clients</span><span style="font-size:11px;color:#62686c;">Ranked by risk, most exposed first</span></span>
             <span style="border:1px solid #d6d6d3;color:#16191b;font-size:11px;font-weight:600;padding:6px 12px;border-radius:879px;white-space:nowrap;">Export client report (PDF)</span>
@@ -422,7 +427,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
               <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,2.2fr) minmax(0,.6fr) 114px;gap:12px;padding:9px 16px;font-size:11px;color:#858b8f;font-weight:500;background:rgba(246,248,247,0.7);"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
               <sc-for list="{{ a.clients }}" as="c" hint-placeholder-count="5">
                 <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,2.2fr) minmax(0,.6fr) 114px;gap:12px;padding:11px 16px;align-items:center;border-top:1px solid #eeefec;font-size:11px;">
-                  <span style="font-weight:600;">{{ c.name }}</span><span style="font-weight:600;color:#16191b;">{{ c.risk }}</span><span style="display:flex;align-items:center;gap:9px;min-width:0;"><span aria-hidden="true" style="flex:0 1 auto;width:{{ c.track }};height:9px;border-radius:879px;background:#f7d3c9;overflow:hidden;"><span style="display:block;width:{{ c.fill }};height:100%;border-radius:879px;background:#e8603f;"></span></span><span style="font-weight:600;white-space:nowrap;">{{ c.det }}</span></span><span>{{ c.sites }}</span>
+                  <span style="font-weight:600;">{{ c.name }}</span><span style="font-weight:600;color:#16191b;">{{ c.risk }}</span><span style="display:flex;align-items:center;gap:9px;min-width:0;"><span aria-hidden="true" style="flex:0 1 auto;width:{{ c.track }};height:9px;border-radius:879px;background:#f7d3c9;overflow:hidden;transform-origin:left;animation:{{ c.anim }} .9s cubic-bezier(.2,.8,.2,1) {{ c.d }} both;"><span style="display:block;width:{{ c.fill }};height:100%;border-radius:879px;background:#e8603f;"></span></span><span style="font-weight:600;white-space:nowrap;">{{ c.det }}</span></span><span>{{ c.sites }}</span>
                   <span style="justify-self:start;background:#fbf1de;border:none;color:#7a4d0c;font-size:11px;font-weight:600;padding:4px 9px;border-radius:879px;white-space:nowrap;">Pending removal</span>
                 </div>
               </sc-for>
@@ -572,8 +577,8 @@ function chart({ beforeW, after, pad = 0, plan = [7, 6], days, endVal, yFloor = 
   const bars = all.map(b => {
     if (!b.r) cum += b.v;
     pts.push(((x + b.w / 2) / U * 100).toFixed(2) + ',' + (100 - cum / lineMax * 100).toFixed(2));
-    x += b.w;
-    return { w: b.w, h: pct(Math.min(b.v / max, 1)), bg: b.r ? '#a9cbc4' : (spike && b.v !== peak ? '#f7d3c9' : '#f2a08c') };
+    const di = x; x += b.w;
+    return { d: (di * 0.035).toFixed(3) + 's', w: b.w, h: pct(Math.min(b.v / max, 1)), bg: b.r ? '#a9cbc4' : (spike && b.v !== peak ? '#f7d3c9' : '#f2a08c') };
   });
   for (let i = 0; i < pad; i++) bars.push({ w: 1, h: '0%', bg: 'transparent' });
   const lastX = ((bU + aU - 0.5) / U * 100).toFixed(2);
@@ -668,16 +673,17 @@ const AG_TABS = [['normal', 'Normal', 'Steady detections'], ['low', 'Edge · Low
 const PRESETS = { Normal: { before: 60, after: 60, days: 24, spike: 0 }, Zero: { before: 10, after: 0, days: 39, spike: 0 }, Low: { before: 3, after: 0.5, days: 39, spike: 0 }, Spike: { before: 60, after: 60, days: 24, spike: 1400 } };
 
 class Component extends DCLogic {
-  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, pg: PRESETS.Normal };
-  componentDidMount() { this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); }
-  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  state = { heroN: 0, pgN: 0, agChartN: 0, rankN: 0, rankK: 'Hold', b2cAnimN: 0, wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, pg: PRESETS.Normal };
+  componentDidMount() { const IO = window.IntersectionObserver; const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches; this.heroT = setTimeout(() => this.setState({ heroN: 1 }), 250); if (IO && this.agRef.current) { const box = this.agRef.current; this.agIO = new IO(es => { if (!es.some(x => x.isIntersecting) || this.agDone) return; this.agDone = true; this.agIO.disconnect(); this.setState({ agChartN: 1 }); this.agT = setTimeout(() => { if (this.state.ag !== 'normal') return; box.scrollTo({ top: box.scrollHeight, behavior: reduce ? 'auto' : 'smooth' }); }, reduce ? 0 : 2400); }, { threshold: 0.5 }); this.agIO.observe(box); const card = box.querySelector('[data-rank]'); if (card) { this.rankIO = new IO(es => { if (es.some(x => x.isIntersecting) && this.state.rankK === 'Hold') this.setState(s => ({ rankN: s.rankN + 1, rankK: (s.rankN + 1) % 2 ? 'A' : 'B' })); }, { root: box, threshold: 0.4 }); this.rankIO.observe(card); } } else { this.setState({ agChartN: 1, rankK: 'A' }); } const pgEl = document.getElementById('prototype'); if (IO && pgEl) { this.pgIO = new IO(es => { if (es.some(x => x.isIntersecting) && !this.state.pgN) { this.setState({ pgN: 1 }); this.pgIO.disconnect(); } }, { threshold: 0.3 }); this.pgIO.observe(pgEl); } else { this.setState({ pgN: 1 }); } if (window.IntersectionObserver && this.b2cRef.current) { this.b2cIO = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting) && !this.state.b2cAnimN) this.setState({ b2cAnimN: 1 }); }, { threshold: 0.35 }); this.b2cIO.observe(this.b2cRef.current); } else { this.setState({ b2cAnimN: 1 }); } this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { [this.b2cIO, this.agIO, this.rankIO, this.pgIO].forEach(o => o && o.disconnect()); clearTimeout(this.agT); clearTimeout(this.heroT); window.removeEventListener('resize', this.onResize); }
+  ak(n) { const k = !n ? 'Hold' : (n % 2 ? 'A' : 'B'); return { barAnim: 'barUp' + k, lineAnim: 'reveal' + k, fadeAnim: 'fadeIn' + k }; }
   b2cRef = React.createRef();
   agRef = React.createRef();
   tabs(list, cur, key, ref, data) {
     return list.map(([id, label, sub], i) => {
       const on = id === cur;
       return { n: i + 1, label, sub, why: data && data[id] ? data[id].why : '', open: on, bg: 'none', fg: on ? '#16191b' : '#62686c', numBg: '', numFg: '', bd: on ? '#1f6f67' : '#e1e2de', st: on ? 'on' : 'off', shadow: 'none',
-        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); } };
+        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState(s => ({ [key]: id, [key + 'Bar']: false, ...(key === 'b2c' ? { b2cAnimN: (s.b2cAnimN || 0) + 1 } : {}), ...(key === 'ag' ? { agChartN: (s.agChartN || 0) + 1, rankK: 'Hold' } : {}) })); } };
     });
   }
   playground() {
@@ -708,7 +714,7 @@ class Component extends DCLogic {
     const set = k => e => this.setState(s => ({ pg: { ...s.pg, [k]: +e.target.value } }));
     const a = AG[this.state.ag];
     return {
-      brand, brandLower: brand.toLowerCase(), heroChart: { ...B2C.normal.chart, legendBottom: true },
+      brand, brandLower: brand.toLowerCase(), heroChart: { ...B2C.normal.chart, legendBottom: true, ...this.ak(this.state.heroN) },
       briefItems: [
         { k: 'Two users', v: 'A single creator with a handful of detections, or thousands. And an agency managing dozens of client accounts across sites and regions.' },
         { k: 'The user', v: 'Not a data expert. Volume can be large, so legibility and prioritisation matter as much as what is shown.' },
@@ -727,8 +733,8 @@ class Component extends DCLogic {
       b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef, B2C),
       agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef, AG),
       wide: this.state.wide,
-      b: { ...B2C[this.state.b2c], headA: B2C[this.state.b2c].headline.split('\n')[0], headB: B2C[this.state.b2c].headline.split('\n')[1] || '', chart: { ...B2C[this.state.b2c].chart, legendBottom: false }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
-      a: { ...a, headA: a.headline.split('\n')[0], headB: a.headline.split('\n')[1] || '', chart: { ...a.chart, legendBottom: false }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); return a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: (n(det) ? Math.min(100, n(risk) / n(det) * 100) : 0).toFixed(1) + '%' })); })() },
+      b: { ...B2C[this.state.b2c], headA: B2C[this.state.b2c].headline.split('\n')[0], headB: B2C[this.state.b2c].headline.split('\n')[1] || '', chart: { ...B2C[this.state.b2c].chart, legendBottom: false, ...(() => { const n = this.state.b2cAnimN; const k = !n ? 'Hold' : (n % 2 ? 'A' : 'B'); return { barAnim: 'barUp' + k, lineAnim: 'reveal' + k, fadeAnim: 'fadeIn' + k }; })() }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
+      a: { ...a, headA: a.headline.split('\n')[0], headB: a.headline.split('\n')[1] || '', chart: { ...a.chart, legendBottom: false, ...this.ak(this.state.agChartN) }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); const ak = this.state.rankK || 'Hold'; return a.clients.map(([name, risk, det, sites], ci) => ({ anim: 'rankGrow' + ak, d: (ci * 0.12).toFixed(2) + 's', name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: (n(det) ? Math.min(100, n(risk) / n(det) * 100) : 0).toFixed(1) + '%' })); })() },
       b2cRef: this.b2cRef, agRef: this.agRef,
       b2cBar: this.state.b2cBar, agBar: this.state.agBar,
       onB2cScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.b2cBar) this.setState({ b2cBar: v }); },
@@ -750,7 +756,7 @@ class Component extends DCLogic {
         { label: 'Days since lapse', min: 1, max: 60, step: 1, value: pg.days, display: pg.days + ' days', on: set('days') },
         { label: 'One-scan spike', min: 0, max: 2000, step: 50, value: pg.spike, display: fmt(pg.spike), on: set('spike') }
       ].map(s => ({ ...s, pct: (((s.value - s.min) / (s.max - s.min)) * 100).toFixed(1) + '%' })),
-      pg: this.playground()
+      pg: (() => { const g = this.playground(); return { ...g, chart: { ...g.chart, ...this.ak(this.state.pgN) } }; })()
     };
   }
 }
