@@ -41,33 +41,36 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://ambershin.com/assets/images/work-winback.png">
 <meta property="og:url" content="https://ambershin.com/winback/">
-<link rel="stylesheet" href="../assets/css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&family=JetBrains+Mono:wght@400;500&family=DM+Sans:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..700&amp;family=Geist+Mono:wght@400..600&amp;family=Fraunces:opsz,wght,SOFT,WONK@9..144,300..600,0..100,0..1&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#f6f5f2;color:#17151c;-webkit-font-smoothing:antialiased;}
-a{color:#6331d9;text-decoration:none;}
-a:hover{color:#2e2547;text-decoration:underline;}
-input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:8px;border-radius:999px;background:linear-gradient(180deg,#3a2c63,#4a3a7a);box-shadow:inset 0 1px 3px rgba(0,0,0,0.55),inset 0 -1px 0 rgba(255,255,255,0.06);outline:none;cursor:pointer;margin:8px 0;}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-7px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#ffffff,#efe9fb 55%,#cdbcf4);border:1px solid rgba(123,58,245,0.85);box-shadow:0 3px 6px rgba(0,0,0,0.42),inset 0 1px 0 rgba(255,255,255,0.7),0 0 0 4px rgba(123,58,245,0.22);cursor:pointer;transition:box-shadow .15s ease,transform .1s ease;}
-input[type=range]::-webkit-slider-runnable-track{height:8px;border-radius:999px;background:transparent;}
-input[type=range]::-webkit-slider-thumb:hover{box-shadow:0 5px 11px rgba(0,0,0,0.5),inset 0 1px 0 rgba(255,255,255,0.7),0 0 0 6px rgba(123,58,245,0.3);}
-input[type=range]:active::-webkit-slider-thumb{transform:scale(1.1);box-shadow:0 2px 5px rgba(0,0,0,0.5),0 0 0 7px rgba(123,58,245,0.38);}
-input[type=range]::-moz-range-track{height:8px;border-radius:999px;background:#4a3a7a;box-shadow:inset 0 1px 3px rgba(0,0,0,0.55);}
-input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 36% 30%,#ffffff,#cdbcf4);border:1px solid rgba(123,58,245,0.85);box-shadow:0 3px 6px rgba(0,0,0,0.42),0 0 0 4px rgba(123,58,245,0.22);cursor:pointer;}
-.wb-back{color:#737373;text-decoration:none;transition:color .2s ease;}
-.wb-back:hover{color:#0a0a0a;text-decoration:none;}
-/* Site nav (shared .nav component from ../assets/css/style.css).
-   Winback-only: keep links underline-free against this page's global a:hover,
-   and on desktop morph the top pill into a right-side vertical icon rail once scrolled. */
-.nav a:hover,.nav .nav__link:hover,.nav .nav__menu-item:hover{text-decoration:none;}
-@media (min-width:1000px){
-  .nav.nav--rail{top:28px;left:auto;right:20px;transform:none;padding:6px;}
-  .nav.nav--rail .nav__links{flex-direction:column;gap:4px;align-items:stretch;}
-  .nav.nav--rail .nav__link{font-size:0;gap:0;padding:12px;justify-content:center;}
-  .nav.nav--rail .nav__ico{width:17px;height:17px;}
-  .nav.nav--rail .nav__chevron{display:none;}
-}
+body{margin:0;background:#ffffff;color:#16191b;-webkit-font-smoothing:antialiased;}
+a{color:#16191b;text-decoration:none;}
+a:hover{color:#16191b;text-decoration:underline;}
+.tabp{transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;}
+.tabp[data-st="off"]:hover{border-color:#16191b !important;color:#16191b !important;transform:translateY(-1px);}
+.tabp[data-st="on"]{animation:tabPulse 2.6s ease-out infinite;}
+@keyframes tabPulse{0%{box-shadow:0 0 0 0 rgba(169,203,196,0.9);}70%{box-shadow:0 0 0 7px rgba(169,203,196,0);}100%{box-shadow:0 0 0 0 rgba(169,203,196,0);}}
+@media (prefers-reduced-motion:reduce){.tabp[data-st="on"]{animation:none;}}
+.tabv{transition:color .2s ease,border-color .2s ease;}
+.tabv[data-st="off"]:hover{color:#16191b !important;border-left-color:#b4b8b5 !important;}
+@media (max-width:1024px){.csg{grid-template-columns:1fr !important;}.csg > div:first-child{position:static !important;}}
+.nal{margin-left:216px;}
+@media (max-width:1024px){.nal{margin-left:0;}}
+.scr{margin-left:11px;margin-right:11px;}
+@media (max-width:901px){.scr{margin-left:0;margin-right:0;}}
+.cap::first-letter{text-transform:uppercase;}
+input[type=range]{accent-color:#16191b;width:100%;}
+input.sld{-webkit-appearance:none;appearance:none;height:6px;border-radius:999px;background:linear-gradient(to right,#9aa09d 0,#9aa09d var(--p),#eceeeb var(--p),#eceeeb 100%);outline:none;margin:6px 0;cursor:pointer;}
+input.sld::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 1px rgba(16,24,22,0.08),0 2px 6px rgba(16,24,22,0.18);transition:transform .15s ease;}
+input.sld::-webkit-slider-thumb:hover{transform:scale(1.1);}
+input.sld::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 1px rgba(16,24,22,0.08),0 2px 6px rgba(16,24,22,0.18);}
+input.sld::-moz-range-track{height:6px;border-radius:999px;background:transparent;}
+input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27,0.15),0 2px 6px rgba(16,24,22,0.18);}
+/* Site GNB + back link (site integration) */
+.gnb a:hover{text-decoration:none;}
+.wb-back{color:#858b8f;text-decoration:none;transition:color .2s ease;}
+.wb-back:hover{color:#16191b;text-decoration:none;}
 </style>
 </helmet>
 <header class="gnb">
@@ -80,408 +83,403 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 </div>
 </nav>
 </header>
-<div style="font-family:'Manrope',sans-serif;background:#f6f5f2;color:#17151c;min-height:100vh;zoom:0.88;">
+<div style="font-family:'Plus Jakarta Sans',sans-serif;background:#ffffff;color:#16191b;min-height:100vh;">
 
-<header data-screen-label="Hero" class="wb-hero" style="max-width:1280px;margin:0 auto;padding:120px 28px 72px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,480px),1fr));gap:48px 56px;align-items:center;">
-  <div style="display:flex;flex-direction:column;gap:28px;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#6b6874;">CASE STUDY · PRODUCT DESIGN CHALLENGE · 2026</span>
-    <h1 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:380;font-size:clamp(32px,3.6vw,56px);white-space:nowrap;line-height:1;letter-spacing:-0.045em;max-width:none;">Live data visualization, <br>prototyped with AI.</h1>
-    <p style="margin:0;font-size:19px;line-height:1.55;max-width:50ch;color:#3d3a45;text-wrap:pretty;">A take-home challenge for an AI brand-protection company. When users return, they see what scanning found while they were away and one clear path to restart takedowns. Designed for creators and agencies, tested against every data case from zero to a spike. The brief asked for designs. I went further and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">built a working prototype</mark> you can play with below.</p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:16px;border-top:1px solid #dedbe3;padding-top:18px;">
-      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">ROLE</span><span style="font-size:14px;font-weight:600;">Design + prototype (solo)</span></div>
-      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">TIME</span><span style="font-size:14px;font-weight:600;">Figma 1.5 days<br>Prototype 1 day</span></div>
-      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">GOAL</span><span style="font-size:14px;font-weight:600;">Make it work in every data case</span></div>
+<header data-screen-label="Hero" style="max-width: 1021px; margin: 0 auto; padding: 56px 25px 63px; display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,422px),1fr)); gap: 42px 49px; align-items: center">
+  <div style="display:flex;flex-direction:column;gap:25px;">
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#62686c;">CASE STUDY · PRODUCT DESIGN CHALLENGE · 2026</span>
+    <h1 style="margin: 0; font-family: 'Fraunces',serif; font-variation-settings: 'SOFT' 100,'WONK' 0; font-weight: 380; font-size: clamp(28px,3.6vw,40px); white-space: nowrap; line-height: 1; letter-spacing: -0.045em; max-width: none">Protection never paused.<br>Only removal did.</h1>
+    <p style="margin: 0; font-size: 15px; line-height: 1.65; max-width: 52ch; color: #3b4043; text-wrap: pretty">A take-home challenge for an AI brand-protection company. When users return, they see what scanning found while they were away and one clear path to restart takedowns. Designed for creators and agencies, tested against every data case from zero to a spike. The brief asked for designs. I went further and <mark style="background:none;color:inherit;padding:0;">built a working prototype</mark> you can play with below.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(106px,1fr));gap:14px;border-top:1px solid #dde0de;padding-top:16px;">
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'Geist Mono',monospace;font-size:11px;color:#858b8f;">ROLE</span><span style="font-size:12px;font-weight:500;">Design + prototype (solo)</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'Geist Mono',monospace;font-size:11px;color:#858b8f;">TIME</span><span style="font-size:12px;font-weight:500;">Figma 1 day<br>Prototype 1 day</span></div>
+      <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-family:'Geist Mono',monospace;font-size:11px;color:#858b8f;">GOAL</span><span style="font-size:12px;font-weight:500;">Reactivation and long-term trust</span></div>
     </div>
   </div>
   <div>
-    <div style="background:#fff;border-radius:14px;overflow:hidden;border:1px solid rgba(46,37,71,0.08);box-shadow:0 1px 2px rgba(30,15,60,0.04),0 8px 20px -8px rgba(30,15,60,0.10),0 40px 80px -32px rgba(60,30,140,0.28);">
-      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 12px;text-align:center;padding:8px 36px;background:#f3fad9;color:#33410c;font-size:11px;border-bottom:1px solid #e3efb8;"><span>Your plan ended on 6 July 2026. Takedowns are paused.</span><span style="color:#4b22b8;font-weight:700;text-decoration:underline;">Reactivate</span><span style="position:absolute;right:14px;top:50%;transform:translateY(-50%);opacity:0.6;">✕</span></div>
-      <div style="padding:20px 18px;display:flex;flex-direction:column;gap:16px;background:#fbfafc;">
-        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px;">
-          <span style="font-size:clamp(17px,1.8vw,22px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;max-width:22ch;">We still found 233 infringing links. None could be removed.</span>
-          <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:12px;padding:9px 16px;border-radius:999px;white-space:nowrap;">Restart takedowns</span>
+    <div style="background:#fff;border-radius:12px;overflow:hidden;border:1px solid rgba(16,24,22,0.06);box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -20px rgba(16,24,22,0.22);">
+      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;text-align:center;padding:4px 28px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;"><span>Your plan ended on 6 July 2026. Takedowns are paused.</span><span style="color:#16191b;font-weight:600;text-decoration:underline;">Reactivate</span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:0.6;">✕</span></div>
+      <div style="padding:18px 16px;display:flex;flex-direction:column;gap:14px;background:#fff;">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:11px;">
+          <span style="font-size:clamp(15px,1.8vw,19px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;max-width:22ch;">We still found 233 infringing links. None could be removed.</span>
+          <span style="background:#16191b;color:#fff;font-weight:600;box-shadow:0 1px 2px rgba(22,25,27,0.2),0 8px 18px -8px rgba(22,25,27,0.55);font-size:11px;padding:8px 14px;border-radius:879px;white-space:nowrap;">Restart takedowns</span>
         </div>
-        <div style="background:#fff;border:1px solid #eeecf1;border-radius:10px;padding:14px;">
+        <div style="background:#fff;border:1px solid #d0d2ce;border-radius:9px;box-shadow:0 1px 2px rgba(16,24,22,0.04),0 6px 16px -10px rgba(16,24,22,0.14);padding:12px;">
           <dc-import name="BacklogChart" c="{{ heroChart }}" hint-size="100%,270px"></dc-import>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;">
-          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">233</span><span style="font-size:11px;color:#6b6874;">Still online</span></div>
-          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">52</span><span style="font-size:11px;color:#6b6874;">High risk</span></div>
-          <div style="background:#fff;border-radius:10px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:10px 12px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:800;">~68</span><span style="font-size:11px;color:#6b6874;">Added weekly</span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #d0d2ce;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.04),0 6px 16px -10px rgba(16,24,22,0.14);overflow:hidden;">
+          <div style="background:transparent;box-shadow:-1px 0 0 #e1e2de,0 -1px 0 #e1e2de;padding:9px 11px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:700;">233</span><span style="font-size:11px;color:#62686c;">Still online</span></div>
+          <div style="background:transparent;box-shadow:-1px 0 0 #e1e2de,0 -1px 0 #e1e2de;padding:9px 11px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:700;">52</span><span style="font-size:11px;color:#62686c;">High risk</span></div>
+          <div style="background:transparent;box-shadow:-1px 0 0 #e1e2de,0 -1px 0 #e1e2de;padding:9px 11px;display:flex;flex-direction:column;gap:2px;"><span style="font-size:18px;font-weight:700;">~68</span><span style="font-size:11px;color:#62686c;">Added weekly</span></div>
         </div>
       </div>
     </div>
   </div>
 </header>
 
-<section id="brief" data-screen-label="01 Brief" style="background:#fff;">
-  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:36px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px 64px;margin-bottom:24px;">
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">01 / THE BRIEF</span>
-        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Design a win-back experience for returning users.</h2>
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="brief" data-screen-label="01 Brief" style="background:#ffffff;">
+  <div style="max-width:1021px;margin:0 auto;padding:77px 25px;display:flex;flex-direction:column;gap:32px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,299px),1fr));gap:18px 56px;margin-bottom:21px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">01 / THE BRIEF</span>
+        <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">Design a win-back experience for returning users.</h2>
       </div>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;text-wrap:pretty;align-self:end;">Subscriptions lapse, but detection keeps running in the background, and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">the user never sees what was found</mark>. When they log back in: show what was found, and give a clear path to reactivate.</p>
+      <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">Subscriptions lapse, but detection keeps running in the background, and <mark style="background:none;color:inherit;padding:0;">the user never sees what was found</mark>. When they log back in: show what was found, and give a clear path to reactivate.</p>
     </div>
-    <div style="display:flex;flex-direction:column;gap:14px;padding:28px;border:1px solid #e8e5ec;border-radius:18px;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:10px;align-items:stretch;">
-        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 1</span>
-          <span style="font-size:17px;font-weight:800;">Subscribed</span>
-          <span style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3d3a45;">
-            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Scanning · on</span>
-            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Removing · on</span>
-          </span>
+    <div style="display:flex;flex-direction:column;gap:49px;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:28px 25px;">
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:2px solid #16191b;position:relative;">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#16191b;box-shadow:0 0 0 4px #fff;"></span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#16191b;">STEP 01</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">Subscribed</span>
+          <span style="font-size:12px;line-height:1.55;color:#4a5054;">Everything runs as expected.</span>
+          <span style="display:flex;flex-direction:column;gap:4px;font-family:'Geist Mono',monospace;font-size:11px;color:#4a5054;"><span>SCANNING · ON</span><span>REMOVING · ON</span></span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 2</span>
-          <span style="font-size:17px;font-weight:800;">Plan lapses</span>
-          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Cancelled, or payment fails.</span>
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:2px solid #16191b;position:relative;">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#16191b;box-shadow:0 0 0 4px #fff;"></span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#16191b;">STEP 02</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">Plan lapses</span>
+          <span style="font-size:12px;line-height:1.55;color:#4a5054;">Cancelled, or payment fails.</span>
         </div>
-        <div style="position:relative;display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:rgba(214,255,58,0.28);border:1.5px dashed #9cc21a;">
-          <span style="position:absolute;top:-16px;right:16px;width:32px;height:32px;border-radius:50%;background:#2e2547;color:#d6ff3a;font-size:17px;font-weight:800;display:flex;align-items:center;justify-content:center;">?</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#4d6100;">STEP 3 · THE GAP</span>
-          <span style="font-size:17px;font-weight:800;">Still scanning, not removing</span>
-          <span style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#3d3a45;">
-            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#7b3af5;"></span>Scanning · on</span>
-            <span style="display:flex;align-items:center;gap:8px;"><span style="width:8px;height:8px;border-radius:50%;border:1.5px solid #8a8794;box-sizing:border-box;"></span>Removing · off</span>
-          </span>
-          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Links pile up. The user never sees them.</span>
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:2px dashed #e8603f;position:relative;">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#c2410c;box-shadow:0 0 0 4px #fff;"></span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#c2410c;">STEP 03 · THE GAP</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">Still scanning, not removing</span>
+          <span style="font-size:12px;line-height:1.55;color:#4a5054;">Links pile up. The user never sees them.</span>
+          <span style="display:flex;flex-direction:column;gap:4px;font-family:'Geist Mono',monospace;font-size:11px;color:#4a5054;"><span>SCANNING · ON</span><span>REMOVING · OFF</span></span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#2e2547;color:#fff;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#d6ff3a;">STEP 4 · THIS PROJECT</span>
-          <span style="font-size:17px;font-weight:800;">The win-back screen</span>
-          <span style="font-size:13px;line-height:1.5;color:#ddd3fb;">Reveal what happened in the gap, then one path back.</span>
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:3px solid #1f6f67;position:relative;">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#1f6f67;box-shadow:0 0 0 4px #fff;"></span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#1f6f67;">STEP 04 · THIS PROJECT</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">The win-back screen</span>
+          <span style="font-size:12px;line-height:1.55;color:#4a5054;">Reveal what happened in the gap, then one path back.</span>
         </div>
-        <div style="display:flex;flex-direction:column;gap:12px;padding:18px;border-radius:14px;background:#f6f5f2;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">STEP 5</span>
-          <span style="font-size:17px;font-weight:800;">Reactivated</span>
-          <span style="font-size:13px;line-height:1.5;color:#3d3a45;">Removals resume on the backlog.</span>
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:2px solid #c9cbcc;position:relative;">
+          <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#858b8f;box-shadow:0 0 0 4px #fff;"></span>
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;">STEP 05</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">Reactivated</span>
+          <span style="font-size:12px;line-height:1.55;color:#4a5054;">Removals resume on the backlog.</span>
         </div>
       </div>
-      <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px;padding-top:6px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;white-space:nowrap;">THE TASK</span>
-        <span style="font-size:18px;font-weight:700;color:#17151c;">How might we get users who cancelled to subscribe again?</span>
+      <div style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:9px;">THE TASK</span>
+        <span style="font-size:19px;font-weight:500;line-height:1.3;letter-spacing:-0.02em;">How might we get users who cancelled to subscribe again?</span>
+      </div>
+      <div style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:4px;">WHO IT'S FOR</span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,229px),1fr));gap:21px 35px;">
+          <sc-for list="{{ briefItems }}" as="b" hint-placeholder-count="2">
+            <div style="display:flex;flex-direction:column;gap:7px;"><span style="font-size:12px;font-weight:600;">{{ b.k }}</span><span style="font-size:14px;line-height:1.6;color:#3b4043;">{{ b.v }}</span></div>
+          </sc-for>
+        </div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;">
-      <sc-for list="{{ briefItems }}" as="b" hint-placeholder-count="2">
-        <div style="display:flex;flex-direction:column;gap:8px;padding:20px;border-radius:14px;background:#f6f5f2;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6331d9;">{{ b.k }}</span>
-          <span style="font-size:15px;line-height:1.55;color:#17151c;">{{ b.v }}</span>
-        </div>
+  </div>
+</section>
+
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="approach" data-screen-label="02 How I read it" style="max-width:1021px;margin:0 auto;padding:77px 25px 84px;display:flex;flex-direction:column;gap:28px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,299px),1fr));gap:18px 56px;margin-bottom:21px;">
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">02 / HOW I READ IT</span>
+      <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">Show the track record, not a warning.</h2>
+    </div>
+    <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">I read this screen as two things at once: a landing page that has to win users back, and a dashboard they still rely on. That raised my question: how do we bring people in the gap back without scaring them? My answer: <mark style="background:none;color:inherit;padding:0;">design for a moment of loss without exploiting the fear</mark>. Build trust by showing the work already done.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,246px),1fr));gap:35px;">
+    <sc-for list="{{ readings }}" as="r" hint-placeholder-count="3">
+      <div style="display:flex;flex-direction:column;gap:12px;padding-top:21px;border-top:2px solid #16191b;">
+        <span style="font-size:12px;color:#858b8f;text-decoration:line-through;text-decoration-color:rgba(22,25,27,0.35);">{{ r.said }}</span>
+        <span style="font-size:19px;font-weight:500;line-height:1.2;letter-spacing:-0.02em;white-space:pre-line;">{{ r.read }}</span>
+        <span style="font-size:13px;line-height:1.6;color:#4a5054;">{{ r.d }}</span>
+      </div>
+    </sc-for>
+  </div>
+  <div style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 10px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:7px;">THE STORY</span>
+    <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 16px;">
+      <sc-for list="{{ arc }}" as="a" hint-placeholder-count="3">
+        <span style="display:inline-flex;align-items:baseline;gap:16px;white-space:nowrap;"><span style="display:inline-flex;flex-direction:column;gap:2px;"><span style="font-size:16px;font-weight:500;letter-spacing:-0.01em;">{{ a.t }}</span><span style="font-size:12px;color:#62686c;">{{ a.d }}</span></span><span style="font-size:16px;color:#c9cbcc;">{{ a.sep }}</span></span>
       </sc-for>
     </div>
   </div>
-</section>
-
-<section id="approach" data-screen-label="02 How I read it" style="max-width:1280px;margin:0 auto;padding:88px 28px 96px;display:flex;flex-direction:column;gap:32px;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px 64px;margin-bottom:24px;">
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">02 / HOW I READ IT</span>
-      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Show the track record, not a warning.</h2>
+  <div style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 14px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
+    <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;">ASSUMED</span>
+    <div style="display:flex;flex-wrap:wrap;gap:7px 25px;font-size:12px;color:#3b4043;">
+      <sc-for list="{{ assumptions }}" as="t" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;flex:none;background:#16191b;"></span>{{ t }}</span></sc-for>
     </div>
-    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;text-wrap:pretty;align-self:end;">I read this screen as two things at once: a landing page that has to win users back, and a dashboard they still rely on. That raised my question: how do we bring people in the gap back without scaring them? My answer: <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">design for a moment of loss without exploiting the fear</mark>. Build trust by showing the work already done.</p>
-  </div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:12px;">
-    <sc-for list="{{ readings }}" as="r" hint-placeholder-count="3">
-      <div style="position:relative;display:flex;flex-direction:column;gap:18px;padding:24px;border-radius:16px;background:{{ r.bg }};border:1.5px solid {{ r.border }};box-shadow:0 1px 3px rgba(20,10,40,0.06),0 10px 24px -12px rgba(20,10,40,0.12);">
-        <sc-if value="{{ r.tag }}" hint-placeholder-val="{{ false }}"><span style="align-self:flex-start;font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;padding:4px 8px;border-radius:999px;background:#d6ff3a;color:#2e2547;">{{ r.tag }}</span></sc-if>
-        
-        <div style="display:flex;flex-direction:column;gap:8px;">
-          <span style="font-size:15px;color:#8a8794;text-decoration:line-through;text-decoration-color:rgba(123,58,245,0.5);">{{ r.said }}</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#7b3af5;">↓</span>
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#6331d9;">MY TAKE</span>
-          <span style="font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:420;font-size:26px;line-height:1.15;letter-spacing:-0.03em;white-space:pre-line;">{{ r.read }}</span>
-          <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ r.d }}</span>
-        </div>
-      </div>
-    </sc-for>
-  </div>
-  <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;margin-right:4px;white-space:nowrap;">THE STORY</span>
-    <sc-for list="{{ arc }}" as="a" hint-placeholder-count="3">
-      <span style="display:flex;align-items:center;gap:10px;font-size:14px;white-space:nowrap;"><span style="display:flex;align-items:center;gap:6px;padding:8px 16px;border-radius:999px;background:#2e2547;color:#fff;"><span style="font-weight:700;">{{ a.t }}</span><span style="opacity:0.6;">·</span><span style="font-weight:400;color:#ddd3fb;">{{ a.d }}</span></span><span style="color:#8a8794;">{{ a.sep }}</span></span>
-    </sc-for>
-  </div>
-  <div style="display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:#4a4752;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;margin-right:4px;white-space:nowrap;">ASSUMED</span>
-    <sc-for list="{{ assumptions }}" as="t" hint-placeholder-count="3">
-      <span style="padding:6px 12px;border:1px solid #dedbe3;border-radius:999px;background:#fff;white-space:nowrap;">{{ t }}</span>
-    </sc-for>
   </div>
 </section>
 
-<section id="creator" data-screen-label="03 Creator view" style="background:#fff;">
-  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">03 / CREATOR (B2C)</span>
-        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Show detection running, and the <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">backlog growing</mark>.</h2>
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="creator" data-screen-label="03 Creator view" style="background:#ffffff;">
+  <div style="max-width:1021px;margin:0 auto;padding:77px 25px;display:flex;flex-direction:column;gap:21px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,264px),1fr));gap:18px 56px;margin-bottom:21px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">03 / CREATOR (B2C)</span>
+        <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">Show detection running, and the <mark style="background:none;color:inherit;padding:0;">backlog growing</mark>.</h2>
       </div>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Two numbers in one chart. Bars show what each scan found, proof that detection never stopped. The line adds them up into the backlog. Together they show the work still happening and what the lapse is costing. Pick a case and <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">scroll inside</mark>.</p>
+      <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">Two numbers in one chart. Bars show what each scan found, proof that detection never stopped. The line adds them up into the backlog. Together they show the work still happening and what the lapse is costing. Pick a case and scroll inside.</p>
     </div>
 
-    <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-    <div style="flex:1 0 260px;max-width:260px;display:flex;flex-direction:column;">
-    <div style="display:flex;flex-direction:column;gap:6px;">
+    <div class="csg" style="display:grid;grid-template-columns:188px minmax(0,1fr);gap:28px;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+    <div style="position:sticky;top:24px;display:flex;flex-direction:column;">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
       <sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="4">
-        <button onClick="{{ t.on }}" style="flex:none;width:100%;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px;border-radius:12px;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
-          <span style="display:flex;align-items:center;gap:12px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
-          <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span></span>
-          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.55;color:#ddd3fb;text-wrap:pretty;font-weight:500;">{{ t.why }}</span></sc-if>
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+          <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
+          <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
         </button>
       </sc-for>
     </div>
-        </div>
-    <div style="flex:999 1 560px;min-width:0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4e1ea;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:782px;">
-      <div style="flex:none;zoom:0.9;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
-        <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
-        <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">{{ b.inactive }}<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
+    </div>
+    <div style="flex:none;min-width:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e3e4e1;box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -24px rgba(16,24,22,0.22);display:flex;flex-direction:column;height:712px;">
+      <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:11px clamp(14px,3.2vw,35px);border-bottom:1px solid #e3e4e1;">
+        <span style="display:flex;align-items:center;gap:7px;font-weight:600;font-size:15px;letter-spacing:-0.03em;color:#16191b;"><span style="width:13px;height:13px;border-radius:4px;background:#16191b;transform:rotate(45deg);"></span>{{ brandLower }}</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:11px;color:#62686c;">{{ b.inactive }}<span style="width:26px;height:26px;border-radius:50%;background:#f0f0ee;color:#16191b;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
-      <sc-if value="{{ b2cBanner }}" hint-placeholder-val="{{ true }}">
-      <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:5px 40px;background:#f3fad9;color:#33410c;font-size:12px;line-height:1.4;border-bottom:1px solid #e3efb8;">
+      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:11px;text-align:center;padding:5px 35px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;">
         <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.banner }}</span>
-        <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><button type="button" onClick="{{ closeB2cBanner }}" aria-label="Close banner" style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;background:none;border:0;padding:4px;font:inherit;color:inherit;line-height:1;">✕</button>
+        <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
       </div>
-      </sc-if>
-      <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;position:relative;">
-        <div style="padding:44px clamp(20px,5vw,64px) 56px;display:flex;flex-direction:column;gap:20px;">
-          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
-            <div style="display:flex;flex-direction:column;gap:8px;max-width:680px;">
-              <span style="font-size:13px;color:#6b6874;">Welcome back, Amber Shin</span>
-              <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;white-space:pre-line;">{{ b.headline }}</span>
-              <span style="font-size:14px;color:#5d5a66;">{{ b.sub }}</span>
+      <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;position:relative;">
+        <div style="padding:39px clamp(14px,3.2vw,35px) 25px;display:flex;flex-direction:column;gap:18px;">
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
+            <div style="display:flex;flex-direction:column;gap:7px;max-width:598px;">
+              <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
+              <span style="display:flex;flex-direction:column;gap:2px;font-size:clamp(19px,2.8vw,26px);letter-spacing:-0.02em;line-height:1.2;text-wrap:balance;"><span style="font-weight:600;color:#16191b;">{{ b.headA }}</span><span style="font-weight:600;color:#16191b;">{{ b.headB }}</span></span>
+              <span style="font-size:11px;color:#5a6064;">{{ b.sub }}</span>
             </div>
-            <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;white-space:nowrap;">{{ b.cta }}</span>
+            <span style="background:#16191b;color:#fff;font-weight:600;box-shadow:0 1px 2px rgba(22,25,27,0.2),0 8px 18px -8px rgba(22,25,27,0.55);font-size:11px;padding:11px 19px;border-radius:879px;white-space:nowrap;">{{ b.cta }}</span>
           </div>
-          <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px;">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
-              <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:15px;font-weight:700;">{{ b.chartTitle }}</span><span style="font-size:12px;color:#6b6874;">{{ b.chartSub }}</span></div>
-              <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:11px;color:#5d5a66;">
-                <div style="display:flex;gap:16px;">
-                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#b9bdf2;"></span>Found per scan · removed</span>
-                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#ee8f87;"></span>Found per scan · not removed</span>
-                </div>
-                <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:14px;height:2.5px;background:#c8322b;"></span>Unremoved backlog (cumulative)</span>
+          <div style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);padding:18px;display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;">
+              <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:12px;font-weight:600;">{{ b.chartTitle }}</span><span style="font-size:11px;color:#62686c;">{{ b.chartSub }}</span></div>
+              <div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px 14px;padding-top:2px;font-size:11px;font-weight:500;color:#5a6064;">
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#a9cbc4;"></span>Removed</span>
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#f2a08c;"></span>Not removed</span>
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:12px;height:2px;border-radius:2px;background:#E8603F;"></span>Backlog</span>
               </div>
-            </sc-if>
             </div>
-            <dc-import name="BacklogChart" c="{{ b.chart }}" hint-size="100%,270px"></dc-import>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px 24px;border-top:1px solid #f1eff4;padding-top:14px;margin-top:4px;font-size:12px;line-height:1.55;color:#5d5a66;">
-              <span><strong style="color:#17151c;">{{ b.beforeT }}:</strong> {{ b.beforeD }}</span>
-              <span><strong style="color:#17151c;">{{ b.afterT }}:</strong> {{ b.afterD }}</span>
+            <div style="display:flex;flex-wrap:wrap;gap:18px 25px;align-items:stretch;margin-top:7px;">
+              <div style="flex:999 1 334px;min-width:0;">
+                <dc-import name="BacklogChart" c="{{ b.chart }}" hint-size="100%,270px"></dc-import>
+              </div>
+              <div style="flex:1 1 176px;max-width:220px;display:flex;flex-direction:column;justify-content:center;gap:19px;padding-left:21px;border-left:1px solid #eeefec;font-size:11px;line-height:1.6;color:#5a6064;">
+                <div style="display:flex;flex-direction:column;gap:5px;"><span style="display:flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:#3f7f74;font-weight:500;"><span style="width:7px;height:7px;border-radius:2px;background:#a9cbc4;"></span>{{ b.beforeT }}</span><span class="cap" style="display:block;">{{ b.beforeD }}</span></div>
+                <div style="display:flex;flex-direction:column;gap:5px;"><span style="display:flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:#c2410c;font-weight:500;"><span style="width:7px;height:7px;border-radius:2px;background:#f2a08c;"></span>{{ b.afterT }}</span><span class="cap" style="display:block;color:#3b4043;">{{ b.afterD }}</span></div>
+              </div>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;">
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
             <sc-for list="{{ b.stats }}" as="s" hint-placeholder-count="3">
-              <div style="grid-column:{{ s.span }};background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
-                <div style="display:flex;flex-direction:column;gap:4px;">
-                  <span style="font-size:26px;font-weight:800;color:{{ s.color }};">{{ s.v }}</span>
-                  <span style="font-size:13px;font-weight:700;">{{ s.label }}</span>
-                  <span style="font-size:12px;color:{{ s.subColor }};font-weight:{{ s.subWeight }};">{{ s.sub }}</span>
+              <div style="grid-column:{{ s.span }};background:transparent;box-shadow:-1px 0 0 #eeefec,0 -1px 0 #eeefec;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
+                <div style="display:flex;flex-direction:column;gap:5px;">
+                  <span style="font-size:11px;font-weight:500;color:#62686c;">{{ s.label }}</span>
+                  <span style="font-size:19px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums;color:{{ s.color }};">{{ s.v }}<span style="font-size:12px;font-weight:500;color:#a3a8ab;margin-left:4px;">{{ s.of }}</span></span>
+                  <span style="font-size:11px;color:{{ s.subColor }};font-weight:{{ s.subWeight }};">{{ s.sub }}</span>
                 </div>
-                <sc-if value="{{ s.action }}" hint-placeholder-val="{{ false }}"><span style="border:1.5px solid #7b3af5;color:#6331d9;font-size:14px;font-weight:700;padding:9px 20px;border-radius:999px;white-space:nowrap;">{{ s.action }}</span></sc-if>
+                <sc-if value="{{ s.action }}" hint-placeholder-val="{{ false }}"><span style="border:1px solid #16191b;color:#16191b;font-size:11px;font-weight:600;padding:8px 18px;border-radius:879px;white-space:nowrap;">{{ s.action }}</span></sc-if>
               </div>
             </sc-for>
           </div>
-          <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;overflow:hidden;">
-            <div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #eeecf1;"><span style="font-size:15px;font-weight:700;">{{ b.tableTitle }}</span><span style="font-size:12px;color:#6b6874;">Ranked by risk, most urgent first.</span></div>
+          <div style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
+            <div style="padding:14px 16px;display:flex;flex-direction:column;gap:2px;border-bottom:1px solid #e3e4e1;"><span style="font-size:12px;font-weight:600;">{{ b.tableTitle }}</span><span style="font-size:11px;color:#62686c;">Ranked by risk, most urgent first.</span></div>
             <sc-if value="{{ b.hasLinks }}" hint-placeholder-val="{{ true }}">
               <div style="position:relative;">
-              <div style="overflow-x:auto;padding-bottom:40px;">
-                <div style="min-width:620px;">
-                  <div style="display:grid;grid-template-columns:52px minmax(0,1.4fr) minmax(0,1.2fr) 56px 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Preview</span><span>Where it is live</span><span>What it is</span><span>Match</span><span>Removal</span></div>
+              <div style="overflow-x:auto;padding-bottom:35px;">
+                <div style="min-width:546px;">
+                  <div style="display:grid;grid-template-columns:46px minmax(0,1.4fr) minmax(0,1.2fr) 49px 114px;gap:12px;padding:9px 16px;font-size:11px;color:#858b8f;font-weight:500;background:rgba(246,248,247,0.7);"><span>Preview</span><span>Where it is live</span><span>What it is</span><span>Match</span><span>Removal</span></div>
                   <sc-for list="{{ b.links }}" as="l" hint-placeholder-count="5">
-                    <div style="display:grid;grid-template-columns:52px minmax(0,1.4fr) minmax(0,1.2fr) 56px 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
-                      <span style="width:42px;height:30px;border-radius:6px;background:repeating-linear-gradient(135deg,#e7e3ee 0 4px,#f1eef6 4px 8px);"></span>
-                      <span style="display:flex;flex-direction:column;gap:2px;min-width:0;"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;">{{ l.site }}</span><span style="font-size:11px;color:#8a8794;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ l.path }}</span></span>
-                      <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-weight:600;">{{ l.what }}</span><span style="font-size:11px;color:#8a8794;">found {{ l.date }}</span></span>
-                      <span style="font-weight:700;">{{ l.match }}</span>
-                      <span style="justify-self:start;background:#fdf1dc;color:#8a4b00;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;">Pending removal</span>
+                    <div style="display:grid;grid-template-columns:46px minmax(0,1.4fr) minmax(0,1.2fr) 49px 114px;gap:12px;padding:11px 16px;align-items:center;border-top:1px solid #eeefec;font-size:11px;">
+                      <span style="width:37px;height:26px;border-radius:5px;background:repeating-linear-gradient(135deg,#e5e8e6 0 4px,#f0f2f0 4px 7px);"></span>
+                      <span style="display:flex;flex-direction:column;gap:2px;min-width:0;"><span style="font-family:'Geist Mono',monospace;font-size:11px;">{{ l.site }}</span><span style="font-size:11px;color:#858b8f;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ l.path }}</span></span>
+                      <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-weight:500;">{{ l.what }}</span><span style="font-size:11px;color:#858b8f;">found {{ l.date }}</span></span>
+                      <span style="font-weight:600;">{{ l.match }}</span>
+                      <span style="justify-self:start;background:#fbf1de;border:none;color:#7a4d0c;font-size:11px;font-weight:600;padding:4px 9px;border-radius:879px;white-space:nowrap;">Pending removal</span>
                     </div>
                   </sc-for>
                 </div>
               </div>
-                <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.85) 55%,#fff 100%);pointer-events:none;"></div>
-                <div style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:min(88%,420px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px;background:#fff;border:1px solid #eeecf1;border-radius:12px;box-shadow:0 2px 4px rgba(20,10,40,0.05),0 12px 28px -10px rgba(20,10,40,0.18);text-align:center;">
-                  <span style="font-size:13px;font-weight:700;color:#17151c;">{{ b.footer }}</span>
-                  <span style="font-size:15px;font-weight:700;color:#7b3af5;cursor:pointer;">Unlocks on reactivation →</span>
+                <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 55%,rgba(255,255,255,0.95) 100%);pointer-events:none;"></div>
+                <div style="position:absolute;left:50%;bottom:19px;transform:translateX(-50%);width:min(88%,370px);display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 18px;background:#fff;border:1px solid rgba(16,24,22,0.06);border-radius:11px;text-align:center;box-shadow:0 12px 32px -10px rgba(16,24,22,0.22),0 2px 6px rgba(16,24,22,0.05);">
+                  <span style="font-size:11px;font-weight:600;color:#16191b;">{{ b.footer }}</span>
+                  <span style="font-size:12px;font-weight:600;color:#1f6f67;cursor:pointer;">Unlocks on reactivation →</span>
                 </div>
               </div>
             </sc-if>
             <sc-if value="{{ b.noLinks }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:36px 18px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;"><span style="font-size:15px;font-weight:700;">Nothing new found since 15 Jul</span><span style="font-size:13px;color:#6b6874;">Free scanning stops after 6 more scans.</span><span style="font-size:13px;color:#6b6874;">{{ b.footer }}</span></div>
+              <div style="padding:32px 16px;display:flex;flex-direction:column;align-items:center;gap:5px;text-align:center;"><span style="font-size:12px;font-weight:600;">Nothing new found since 15 Jul</span><span style="font-size:11px;color:#62686c;">Free scanning stops after 6 more scans.</span><span style="font-size:11px;color:#62686c;">{{ b.footer }}</span></div>
             </sc-if>
             
           </div>
         </div>
         <sc-if value="{{ b2cBar }}" hint-placeholder-val="{{ false }}">
-          <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px clamp(20px,5vw,64px);background:#17151c;color:#fff;font-size:13px;">
-            <span style="display:flex;align-items:center;gap:10px;"><span style="color:#c8f53a;">⚠</span>{{ b.bar }}</span>
-            <span style="background:#7b3af5;font-weight:700;padding:8px 18px;border-radius:999px;">Reactivate</span>
+          <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:11px;flex-wrap:wrap;padding:11px clamp(14px,3.2vw,35px);background:#16191b;color:#fff;font-size:11px;">
+            <span style="display:flex;align-items:center;gap:9px;"><span style="color:#f2a08c;">⚠</span>{{ b.bar }}</span>
+            <span style="background:#fff;color:#16191b;font-weight:600;padding:7px 16px;border-radius:879px;">Reactivate</span>
           </div>
         </sc-if>
       </div>
     </div>
 
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(260px,calc(50% - 6px))),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
+    <div class="nal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px;margin-top:36px;">
       <sc-for list="{{ notes }}" as="n" hint-placeholder-count="4">
-        <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
-          <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;">{{ n.n }}</span>
-          <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
-          <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
+        <div style="display:flex;flex-direction:column;gap:9px;padding-top:16px;border-top:1px solid #e1e2de;">
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;">{{ n.n }}</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">{{ n.t }}</span>
+          <span style="font-size:12px;line-height:1.6;color:#4a5054;">{{ n.d }}</span>
         </div>
       </sc-for>
     </div>
   </div>
 </section>
 
-<section id="agency" data-screen-label="04 Agency view" style="background:#fff;">
-<div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:24px;">
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">04 / AGENCY (B2B)</span>
-      <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Keep the chart, then put the <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">riskiest clients first</mark>.</h2>
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="agency" data-screen-label="04 Agency view" style="background:#ffffff;">
+<div style="max-width:1021px;margin:0 auto;padding:77px 25px;display:flex;flex-direction:column;gap:21px;">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,264px),1fr));gap:18px 56px;margin-bottom:21px;">
+    <div style="display:flex;flex-direction:column;gap:9px;">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">04 / AGENCY (B2B)</span>
+      <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">Keep the chart, then put the <mark style="background:none;color:inherit;padding:0;">riskiest clients first</mark>.</h2>
     </div>
-    <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">Agencies get the same chart, rolled up across every client. Then one more layer: admins think in clients, not links, so clients are ranked by risk and the most exposed account is the first thing they see. No zero case: across 25 accounts it doesn't realistically occur.</p>
+    <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">Agencies get the same chart, rolled up across every client. Then one more layer: admins think in clients, not links, so clients are ranked by risk and the most exposed account is the first thing they see. No zero case: across 25 accounts it doesn't realistically occur.</p>
   </div>
 
-  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-start;">
-    <div style="flex:1 0 260px;max-width:260px;display:flex;flex-direction:column;">
-    <div style="display:flex;flex-direction:column;gap:6px;">
-    <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="3">
-      <button onClick="{{ t.on }}" style="flex:none;width:100%;display:flex;flex-direction:column;align-items:stretch;gap:12px;padding:16px 18px;border-radius:12px;border:none;cursor:pointer;text-align:left;font-family:'Manrope',sans-serif;background:{{ t.bg }};color:{{ t.fg }};box-shadow:{{ t.shadow }};">
-        <span style="display:flex;align-items:center;gap:12px;"><span style="flex:none;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;background:{{ t.numBg }};color:{{ t.numFg }};">{{ t.n }}</span>
-        <span style="display:flex;flex-direction:column;gap:1px;min-width:0;"><span style="font-size:15px;font-weight:800;white-space:nowrap;">{{ t.label }}</span><span style="font-size:12px;opacity:0.75;white-space:nowrap;">{{ t.sub }}</span></span></span>
-          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="font-size:13px;line-height:1.55;color:#ddd3fb;text-wrap:pretty;font-weight:500;">{{ t.why }}</span></sc-if>
+  <div class="csg" style="display:grid;grid-template-columns:188px minmax(0,1fr);gap:28px;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+    <div style="position:sticky;top:24px;display:flex;flex-direction:column;">
+      <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
+      <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="4">
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+          <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
+          <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
         </button>
-    </sc-for>
-  </div>
-        </div>
-    <div style="flex:999 1 560px;min-width:0;background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e4e1ea;box-shadow:0 20px 50px -30px rgba(30,10,70,0.35);display:flex;flex-direction:column;height:782px;">
-    <div style="flex:none;zoom:0.9;display:flex;align-items:center;justify-content:space-between;padding:12px clamp(20px,5vw,64px);border-bottom:1px solid #eeecf1;">
-        <span style="display:flex;align-items:center;gap:8px;font-weight:800;font-size:19px;letter-spacing:-0.03em;color:#2e2547;"><span style="width:15px;height:15px;border-radius:5px;background:#7b3af5;transform:rotate(45deg);"></span>{{ brandLower }}</span>
-        <span style="display:flex;align-items:center;gap:10px;font-size:12px;color:#6b6874;">Agency · 26 seats<span style="width:30px;height:30px;border-radius:50%;background:#ece4fe;color:#4b22b8;font-weight:800;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
-      </div>
-    <sc-if value="{{ agBanner }}" hint-placeholder-val="{{ true }}">
-    <div style="zoom:0.9;flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:12px;text-align:center;padding:5px 40px;background:#f3fad9;color:#33410c;font-size:12px;line-height:1.4;border-bottom:1px solid #e3efb8;">
-      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026. Takedowns are paused.</span>
-      <span style="color:#4b22b8;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><button type="button" onClick="{{ closeAgBanner }}" aria-label="Close banner" style="position:absolute;right:clamp(20px,5vw,64px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;background:none;border:0;padding:4px;font:inherit;color:inherit;line-height:1;">✕</button>
+      </sc-for>
     </div>
-    </sc-if>
-    <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;zoom:0.9;overflow-y:auto;background:#fbfafc;">
-      <div style="padding:44px clamp(20px,5vw,64px) 56px;display:flex;flex-direction:column;gap:20px;">
-        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;">
-          <div style="display:flex;flex-direction:column;gap:8px;max-width:620px;">
-            <span style="font-size:13px;color:#6b6874;">Welcome back, Amber Shin</span>
-            <span style="font-size:clamp(22px,3vw,32px);font-weight:800;letter-spacing:-0.02em;line-height:1.15;text-wrap:balance;">{{ a.headline }}</span>
-            <span style="font-size:14px;color:#5d5a66;">{{ a.sub }}</span>
+    </div>
+    <div style="flex:none;min-width:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e3e4e1;box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -24px rgba(16,24,22,0.22);display:flex;flex-direction:column;height:712px;">
+    <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:11px clamp(14px,3.2vw,35px);border-bottom:1px solid #e3e4e1;">
+        <span style="display:flex;align-items:center;gap:7px;font-weight:600;font-size:15px;letter-spacing:-0.03em;color:#16191b;"><span style="width:13px;height:13px;border-radius:4px;background:#16191b;transform:rotate(45deg);"></span>{{ brandLower }}</span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:11px;color:#62686c;">Agency · 26 seats<span style="width:26px;height:26px;border-radius:50%;background:#f0f0ee;color:#16191b;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
+      </div>
+    <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:11px;text-align:center;padding:5px 35px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;">
+      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026. Takedowns are paused.</span>
+      <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
+    </div>
+    <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;">
+      <div style="padding:39px clamp(14px,3.2vw,35px) 25px;display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
+          <div style="display:flex;flex-direction:column;gap:7px;max-width:546px;">
+            <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
+            <span style="font-size:clamp(19px,2.8vw,26px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;text-wrap:balance;">{{ a.headline }}</span>
+            <span style="font-size:11px;color:#5a6064;">{{ a.sub }}</span>
           </div>
-          <span style="background:#7b3af5;color:#fff;font-weight:700;font-size:14px;padding:12px 22px;border-radius:999px;white-space:nowrap;">Restart takedowns</span>
+          <span style="background:#16191b;color:#fff;font-weight:600;box-shadow:0 1px 2px rgba(22,25,27,0.2),0 8px 18px -8px rgba(22,25,27,0.55);font-size:11px;padding:11px 19px;border-radius:879px;white-space:nowrap;">Restart takedowns</span>
         </div>
-        <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:6px;">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;">
-            <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:15px;font-weight:700;">Still detected · no longer removed</span><span style="font-size:12px;color:#6b6874;">24 days without removals · 6 Jul to 30 Jul 2026</span></div>
-            <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
-              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px;font-size:11px;color:#5d5a66;">
-                <div style="display:flex;gap:16px;">
-                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#b9bdf2;"></span>Found per scan · removed</span>
-                  <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#ee8f87;"></span>Found per scan · not removed</span>
-                </div>
-                <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:14px;height:2.5px;background:#c8322b;"></span>Unremoved backlog (cumulative)</span>
+        <div style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);padding:18px;display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;">
+            <div style="display:flex;flex-direction:column;gap:4px;"><span style="font-size:12px;font-weight:600;">Still detected · no longer removed</span><span style="font-size:11px;color:#62686c;">24 days without removals · 6 Jul to 30 Jul 2026</span></div>
+            <div style="display:flex;flex-wrap:wrap;justify-content:flex-end;gap:5px 14px;padding-top:2px;font-size:11px;font-weight:500;color:#5a6064;">
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#a9cbc4;"></span>Removed</span>
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#f2a08c;"></span>Not removed</span>
+                <span style="display:flex;align-items:center;gap:5px;white-space:nowrap;"><span style="width:12px;height:2px;border-radius:2px;background:#E8603F;"></span>Backlog</span>
               </div>
-            </sc-if>
           </div>
-          <dc-import name="BacklogChart" c="{{ a.chart }}" hint-size="100%,270px"></dc-import>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:10px 24px;border-top:1px solid #f1eff4;padding-top:14px;margin-top:4px;font-size:12px;line-height:1.55;color:#5d5a66;">
-              <span><strong style="color:#17151c;">{{ a.beforeT }}:</strong> {{ a.beforeD }}</span>
-              <span><strong style="color:#17151c;">{{ a.afterT }}:</strong> {{ a.afterD }}</span>
+          <div style="display:flex;flex-wrap:wrap;gap:18px 25px;align-items:stretch;margin-top:7px;">
+              <div style="flex:999 1 334px;min-width:0;">
+                <dc-import name="BacklogChart" c="{{ a.chart }}" hint-size="100%,270px"></dc-import>
+              </div>
+              <div style="flex:1 1 176px;max-width:220px;display:flex;flex-direction:column;justify-content:center;gap:19px;padding-left:21px;border-left:1px solid #eeefec;font-size:11px;line-height:1.6;color:#5a6064;">
+                <div style="display:flex;flex-direction:column;gap:5px;"><span style="display:flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:#3f7f74;font-weight:500;"><span style="width:7px;height:7px;border-radius:2px;background:#a9cbc4;"></span>{{ a.beforeT }}</span><span class="cap" style="display:block;">{{ a.beforeD }}</span></div>
+                <div style="display:flex;flex-direction:column;gap:5px;"><span style="display:flex;align-items:center;gap:6px;font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.04em;text-transform:uppercase;color:#c2410c;font-weight:500;"><span style="width:7px;height:7px;border-radius:2px;background:#f2a08c;"></span>{{ a.afterT }}</span><span class="cap" style="display:block;color:#3b4043;">{{ a.afterD }}</span></div>
+              </div>
             </div>
         </div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:0;background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
           <sc-for list="{{ a.stats }}" as="s" hint-placeholder-count="4">
-            <div style="background:#fff;border-radius:12px;box-shadow:0 1px 3px rgba(20,10,40,0.08),0 6px 16px -6px rgba(20,10,40,0.08);padding:16px;display:flex;flex-direction:column;gap:4px;">
-              <span style="font-size:26px;font-weight:800;color:{{ s.color }};">{{ s.v }}</span>
-              <span style="font-size:13px;font-weight:700;">{{ s.label }}</span>
-              <span style="font-size:12px;color:#6b6874;">{{ s.sub }}</span>
+            <div style="background:transparent;box-shadow:-1px 0 0 #eeefec,0 -1px 0 #eeefec;padding:16px 18px;display:flex;flex-direction:column;gap:5px;">
+              <span style="font-size:11px;font-weight:500;color:#62686c;">{{ s.label }}</span>
+              <span style="font-size:19px;font-weight:700;letter-spacing:-0.02em;line-height:1.1;font-variant-numeric:tabular-nums;color:{{ s.color }};">{{ s.v }}<span style="font-size:12px;font-weight:500;color:#a3a8ab;margin-left:4px;">{{ s.of }}</span></span>
+              <span style="font-size:11px;color:#858b8f;">{{ s.sub }}</span>
             </div>
           </sc-for>
         </div>
-        <div style="background:#fff;border:1px solid #eeecf1;border-radius:12px;overflow:hidden;">
-          <div style="padding:16px 18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;border-bottom:1px solid #eeecf1;">
-            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:15px;font-weight:700;">Most at-risk clients</span><span style="font-size:12px;color:#6b6874;">Ranked by risk, most exposed first</span></span>
-            <span style="border:1px solid #d9ccfb;color:#6331d9;font-size:12px;font-weight:700;padding:7px 14px;border-radius:999px;white-space:nowrap;">Export client report (PDF)</span>
+        <div style="background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
+          <div style="padding:14px 16px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:9px;border-bottom:1px solid #e3e4e1;">
+            <span style="display:flex;flex-direction:column;gap:2px;"><span style="font-size:12px;font-weight:600;">Most at-risk clients</span><span style="font-size:11px;color:#62686c;">Ranked by risk, most exposed first</span></span>
+            <span style="border:1px solid #d6d6d3;color:#16191b;font-size:11px;font-weight:600;padding:6px 12px;border-radius:879px;white-space:nowrap;">Export client report (PDF)</span>
           </div>
           <div style="position:relative;">
-          <div style="overflow-x:auto;padding-bottom:40px;">
-            <div style="min-width:640px;">
-              <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,2.2fr) minmax(0,0.6fr) 130px;gap:14px;padding:10px 18px;font-size:11px;color:#8a8794;font-weight:600;background:#faf9fb;"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
+          <div style="overflow-x:auto;padding-bottom:35px;">
+            <div style="min-width:563px;">
+              <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,2.2fr) minmax(0,.6fr) 114px;gap:12px;padding:9px 16px;font-size:11px;color:#858b8f;font-weight:500;background:rgba(246,248,247,0.7);"><span>Client</span><span>High risk</span><span>Detections</span><span>Sites</span><span>Status</span></div>
               <sc-for list="{{ a.clients }}" as="c" hint-placeholder-count="5">
-                <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,0.7fr) minmax(0,2.2fr) minmax(0,0.6fr) 130px;gap:14px;padding:12px 18px;align-items:center;border-top:1px solid #f1eff4;font-size:13px;">
-                  <span style="font-weight:700;">{{ c.name }}</span><span style="font-weight:700;">{{ c.risk }}</span><span style="display:flex;align-items:center;gap:10px;min-width:0;"><span style="position:relative;flex:none;width:{{ c.track }};height:9px;border-radius:999px;background:#f3cdc9;overflow:hidden;"><span style="position:absolute;left:0;top:0;bottom:0;width:{{ c.fill }};background:#ef7a70;"></span></span><span style="font-weight:700;white-space:nowrap;">{{ c.det }}</span></span><span>{{ c.sites }}</span>
-                  <span style="justify-self:start;background:#fdf1dc;color:#8a4b00;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;">Pending removal</span>
+                <div style="display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,.7fr) minmax(0,2.2fr) minmax(0,.6fr) 114px;gap:12px;padding:11px 16px;align-items:center;border-top:1px solid #eeefec;font-size:11px;">
+                  <span style="font-weight:600;">{{ c.name }}</span><span style="font-weight:600;color:#16191b;">{{ c.risk }}</span><span style="display:flex;align-items:center;gap:9px;min-width:0;"><span aria-hidden="true" style="flex:0 1 auto;width:{{ c.track }};height:9px;border-radius:879px;background:#f7d3c9;overflow:hidden;"><span style="display:block;width:{{ c.fill }};height:100%;border-radius:879px;background:#e8603f;"></span></span><span style="font-weight:600;white-space:nowrap;">{{ c.det }}</span></span><span>{{ c.sites }}</span>
+                  <span style="justify-self:start;background:#fbf1de;border:none;color:#7a4d0c;font-size:11px;font-weight:600;padding:4px 9px;border-radius:879px;white-space:nowrap;">Pending removal</span>
                 </div>
               </sc-for>
             </div>
           </div>
-            <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.85) 55%,#fff 100%);pointer-events:none;"></div>
-                <div style="position:absolute;left:50%;bottom:22px;transform:translateX(-50%);width:min(88%,420px);display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 20px;background:#fff;border:1px solid #eeecf1;border-radius:12px;box-shadow:0 2px 4px rgba(20,10,40,0.05),0 12px 28px -10px rgba(20,10,40,0.18);text-align:center;">
-                  <span style="font-size:13px;font-weight:700;color:#17151c;">{{ a.footer }}</span>
-                  <span style="font-size:15px;font-weight:700;color:#7b3af5;cursor:pointer;">Unlock full ranking →</span>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:70%;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0.75) 55%,rgba(255,255,255,0.95) 100%);pointer-events:none;"></div>
+                <div style="position:absolute;left:50%;bottom:19px;transform:translateX(-50%);width:min(88%,370px);display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 18px;background:#fff;border:1px solid rgba(16,24,22,0.06);border-radius:11px;text-align:center;box-shadow:0 12px 32px -10px rgba(16,24,22,0.22),0 2px 6px rgba(16,24,22,0.05);">
+                  <span style="font-size:11px;font-weight:600;color:#16191b;">{{ a.footer }}</span>
+                  <span style="font-size:12px;font-weight:600;color:#1f6f67;cursor:pointer;">Unlock full ranking →</span>
                 </div>
           </div>
         </div>
       </div>
       <sc-if value="{{ agBar }}" hint-placeholder-val="{{ false }}">
-        <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px clamp(20px,5vw,64px);background:#17151c;color:#fff;font-size:13px;">
-          <span style="display:flex;align-items:center;gap:10px;"><span style="color:#c8f53a;">⚠</span>{{ a.bar }}</span>
-          <span style="background:#7b3af5;font-weight:700;padding:8px 18px;border-radius:999px;">Reactivate</span>
+        <div style="position:sticky;bottom:0;display:flex;align-items:center;justify-content:space-between;gap:11px;flex-wrap:wrap;padding:11px clamp(14px,3.2vw,35px);background:#16191b;color:#fff;font-size:11px;">
+          <span style="display:flex;align-items:center;gap:9px;"><span style="color:#f2a08c;">⚠</span>{{ a.bar }}</span>
+          <span style="background:#fff;color:#16191b;font-weight:600;padding:7px 16px;border-radius:879px;">Reactivate</span>
         </div>
       </sc-if>
     </div>
   </div>
   </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,max(260px,calc(50% - 6px))),1fr));gap:12px;margin-top:16px;margin-left:clamp(0px,(100% - 840px) * 999,280px);">
+    <div class="nal" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px 40px;margin-top:36px;">
     <sc-for list="{{ agencyNotes }}" as="n" hint-placeholder-count="2">
-      <div style="display:flex;flex-direction:column;gap:8px;padding:20px;background:#f6f5f2;border-radius:12px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#7b3af5;">{{ n.n }}</span>
-        <span style="font-size:18px;font-weight:700;">{{ n.t }}</span>
-        <span style="font-size:14px;line-height:1.55;color:#4a4752;">{{ n.d }}</span>
-      </div>
+      <div style="display:flex;flex-direction:column;gap:9px;padding-top:16px;border-top:1px solid #e1e2de;">
+          <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;">{{ n.n }}</span>
+          <span style="font-size:15px;font-weight:500;letter-spacing:-0.01em;">{{ n.t }}</span>
+          <span style="font-size:12px;line-height:1.6;color:#4a5054;">{{ n.d }}</span>
+        </div>
     </sc-for>
   </div>
 </div>
 </section>
 
-<section id="prototype" data-screen-label="05 Chart prototype">
-  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:28px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;margin-bottom:24px;">
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#7b3af5;">05 / TRY IT</span>
-        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Try every case yourself.</h2>
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="prototype" data-screen-label="05 Chart prototype" style="">
+  <div style="max-width:1021px;margin:0 auto;padding:77px 25px;display:flex;flex-direction:column;gap:25px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,264px),1fr));gap:18px 56px;margin-bottom:21px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">05 / PROTOTYPE</span>
+        <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">The chart logic, working.</h2>
       </div>
-      <p style="margin:0;font-size:17px;line-height:1.65;color:#3d3a45;align-self:end;">This wasn't part of the brief. Static screens show four cases, but not everything in between. Move the sliders to <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">apply any numbers</mark>, from zero to a sudden spike. The chart rescales and the copy switches case on its own.</p>
+      <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">This wasn’t part of the brief. Static screens could show four cases, but not prove the chart holds up between them. So I built it. Change the inputs: the y-axis rescales, and <mark style="background:none;color:inherit;padding:0;">the copy switches case on its own</mark>.</p>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;align-items:stretch;">
-      <div style="background:#2e2547;color:#fff;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:20px;">
-        <div style="display:flex;flex-direction:column;gap:10px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#c4adff;">Pick a preset or adjust the numbers</span>
-        <div style="display:flex;flex-wrap:wrap;gap:6px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,264px),1fr));gap:14px;align-items:stretch;">
+      <div style="background:#fff;color:#16191b;border:1px solid #d6d8d4;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:18px;">
+        <div style="display:flex;flex-wrap:wrap;gap:5px;">
           <sc-for list="{{ presets }}" as="p" hint-placeholder-count="4">
-            <button onClick="{{ p.on }}" style="border:1px solid #6b52b3;background:transparent;color:#fff;font-family:'Manrope',sans-serif;font-size:12px;font-weight:700;padding:7px 12px;border-radius:999px;cursor:pointer;">{{ p.label }}</button>
+            <button onClick="{{ p.on }}" style="border:none;background:#f1f2ef;color:#3b4043;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;padding:7px 13px;border-radius:999px;cursor:pointer;">{{ p.label }}</button>
           </sc-for>
         </div>
-        </div>
         <sc-for list="{{ sliders }}" as="s" hint-placeholder-count="4">
-          <label style="display:flex;flex-direction:column;gap:8px;">
-            <span style="display:flex;justify-content:space-between;gap:12px;font-size:13px;"><span style="color:#ddd3fb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ s.label }}</span><span style="font-family:'JetBrains Mono',monospace;font-weight:500;">{{ s.display }}</span></span>
-            <input type="range" min="{{ s.min }}" max="{{ s.max }}" step="{{ s.step }}" value="{{ s.value }}" onChange="{{ s.on }}">
+          <label style="display:flex;flex-direction:column;gap:7px;">
+            <span style="display:flex;justify-content:space-between;gap:11px;font-size:12px;"><span style="color:#4a5054;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ s.label }}</span><span style="font-family:'Geist Mono',monospace;font-weight:500;">{{ s.display }}</span></span>
+            <input class="sld" type="range" style="--p:{{ s.pct }};" min="{{ s.min }}" max="{{ s.max }}" step="{{ s.step }}" value="{{ s.value }}" onChange="{{ s.on }}">
           </label>
         </sc-for>
-        <div style="display:flex;flex-direction:column;gap:4px;border-top:1px solid #5a428f;padding-top:16px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#c4adff;line-height:1.7;">
+        <div style="display:flex;flex-direction:column;gap:4px;border-top:1px solid #e1e2de;padding-top:14px;font-family:'Geist Mono',monospace;font-size:11px;color:#62686c;line-height:1.7;">
           <span>zero → 0 links after lapse</span>
           <span>low → 1–10 links</span>
           <span>1 bar = 1 scan (2× / week)</span>
@@ -492,45 +490,46 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
           <span>spike → y-axis pinned to ~110% of peak scan; backlog line on its own scale</span>
         </div>
       </div>
-      <div style="position:relative;background:#fff;color:#17151c;border:1px solid #e4e1ea;border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px;min-width:0;">
-        <span style="position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;color:#8a8794;">y-max {{ pg.yMax }}</span>
-        <span style="font-size:clamp(20px,2.4vw,26px);font-weight:800;letter-spacing:-0.02em;line-height:1.2;text-wrap:balance;min-height:2.4em;display:flex;align-items:flex-start;padding-right:90px;">{{ pg.headline }}</span>
+      <div style="position:relative;background:#fff;color:#16191b;border:1px solid #d6d8d4;border-radius:12px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;min-width:0;">
+        <span style="position:absolute;top:24px;right:28px;font-family:'Geist Mono',monospace;font-size:11px;color:#858b8f;">y-max {{ pg.yMax }}</span>
+        <span style="font-size:clamp(18px,2.4vw,23px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;text-wrap:balance;min-height:2.4em;display:flex;align-items:flex-start;padding-right:79px;">{{ pg.headline }}</span>
         <dc-import name="BacklogChart" c="{{ pg.chart }}" hint-size="100%,270px"></dc-import>
-        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:auto;padding-top:12px;">
+        <div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;background:#fff;border:1px solid #d0d2ce;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.04),0 6px 16px -10px rgba(16,24,22,0.14);overflow:hidden;">
           <sc-for list="{{ pg.stats }}" as="s" hint-placeholder-count="3">
-            <div style="display:flex;flex-direction:column;gap:2px;padding:12px;border:1px solid #eeecf1;border-radius:10px;">
-              <span style="font-size:20px;font-weight:800;">{{ s.v }}</span>
-              <span style="font-size:12px;color:#6b6874;white-space:nowrap;">{{ s.label }}</span>
+            <div style="background:transparent;box-shadow:-1px 0 0 #e1e2de,0 -1px 0 #e1e2de;display:flex;flex-direction:column;gap:3px;padding:14px 16px;">
+              <span style="font-size:18px;font-weight:700;">{{ s.v }}</span>
+              <span style="font-size:11px;color:#62686c;white-space:nowrap;">{{ s.label }}</span>
             </div>
           </sc-for>
-        </div>
+        </div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="next" data-screen-label="06 Reflection" style="background:#17151c;color:#f6f5f2;">
-  <div style="max-width:1280px;margin:0 auto;padding:88px 28px;display:flex;flex-direction:column;gap:48px;">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 64px;">
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#c4adff;">06 / REFLECTION</span>
-        <h2 style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:400;font-size:40px;line-height:1.08;letter-spacing:-0.035em;">Why this is in my portfolio.</h2>
-        <p style="margin:8px 0 0;font-size:16px;line-height:1.65;color:#bdb9c6;max-width:44ch;text-wrap:pretty;">I've always loved designing charts and data. This project is less about the result and more about an experiment: how far can I get on my own, in a short time, with AI?</p>
+<div aria-hidden="true" style="height:49px;background:repeating-linear-gradient(135deg,transparent 0 8px,#e4e4e0 8px 9px);border-top:1px solid #e1e2de;border-bottom:1px solid #e1e2de;"></div>
+<section id="next" data-screen-label="06 Reflection" style="background:#ffffff;color:#16191b;">
+  <div style="max-width:1021px;margin:0 auto;padding:77px 25px;display:flex;flex-direction:column;gap:42px;">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,264px),1fr));gap:18px 56px;">
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <span style="font-family:'Geist Mono',monospace;font-size:11px;color:#1f6f67;font-weight:500;letter-spacing:0.06em;">06 / REFLECTION</span>
+        <h2 style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:500;font-size:26px;line-height:1.15;letter-spacing:-0.03em;">Why this is in my portfolio.</h2>
+        <p style="margin:7px 0 0;font-size:14px;line-height:1.65;color:#4a5054;max-width:44ch;text-wrap:pretty;">I've always loved designing charts and data. This project is less about the result and more about an experiment: how far can I get on my own, in a short time, with AI?</p>
       </div>
       <div style="display:flex;flex-direction:column;">
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">Before</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">Chart work used to be slow. I set the display rules and values, then reviewed and fixed them with developers over many rounds.</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">Now</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">With AI, I can test edge cases and catch rule errors on my own, much faster.</span></div>
-        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px;padding:16px 0;border-top:1px solid #3a3742;"><span style="font-size:15px;font-weight:700;">The experiment</span><span style="font-size:15px;line-height:1.6;color:#bdb9c6;">The challenge only asked for Figma screens. I built the prototype to prove I can use that speed well.</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px;padding:14px 0;border-top:1px solid #d6d8d4;"><span style="font-size:14px;font-weight:600;">Before</span><span style="font-size:14px;line-height:1.6;color:#4a5054;">Chart work used to be slow. I set the display rules and values, then reviewed and fixed them with developers over many rounds.</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px;padding:14px 0;border-top:1px solid #d6d8d4;"><span style="font-size:14px;font-weight:600;">Now</span><span style="font-size:14px;line-height:1.6;color:#4a5054;">With AI, I can test edge cases and catch rule errors on my own, much faster.</span></div>
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px;padding:14px 0;border-top:1px solid #d6d8d4;"><span style="font-size:14px;font-weight:600;">The experiment</span><span style="font-size:14px;line-height:1.6;color:#4a5054;">The challenge only asked for Figma screens. I built the prototype to prove I can use that speed well.</span></div>
       </div>
     </div>
-    <p style="margin:0;font-family:'Fraunces',serif;font-variation-settings:'SOFT' 100,'WONK' 0;font-weight:350;font-size:clamp(26px,3.4vw,40px);line-height:1.3;letter-spacing:-0.03em;max-width:none;text-wrap:pretty;">Faster checks lead to <mark style="background:linear-gradient(transparent 52%,rgba(214,255,58,0.45) 52%,rgba(214,255,58,0.45) 92%,transparent 92%);color:inherit;padding:0 2px;">better decisions</mark>.</p>
+    <p style="margin:0;font-family:'Plus Jakarta Sans',sans-serif;font-weight:400;font-size:clamp(23px,3.4vw,35px);line-height:1.3;letter-spacing:-0.03em;max-width:none;text-wrap:pretty;">Faster checks lead to <mark style="background:none;color:inherit;padding:0;">better decisions</mark>.</p>
   </div>
 </section>
 
-<div style="max-width:1280px;margin:0 auto;padding:40px 28px;display:flex;justify-content:center;">
-  <a href="../index.html#work" class="wb-back" style="font-family:'DM Sans',sans-serif;font-size:calc(13px / 0.88);">← All projects</a>
+<div style="max-width:1021px;margin:0 auto;padding:35px 25px;display:flex;justify-content:center;">
+  <a href="../index.html#work" class="wb-back" style="font-size:13px;">← All projects</a>
 </div>
-<footer style="max-width:1280px;margin:0 auto;padding:32px 28px 48px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:12px;color:#8a8794;">
+<footer style="max-width:1021px;margin:0 auto;padding:28px 25px 42px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:11px;font-size:11px;color:#858b8f;">
   <span>Amber Shin · 2026</span>
   <span>Take-home challenge. Company, brand and UI anonymized. All data fictional.</span>
 </footer>
@@ -553,6 +552,7 @@ const MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','
 const dlabel = (m, d, off) => { const t = new Date(Date.UTC(2026, m - 1, d + Math.round(off))); return t.getUTCDate() + ' ' + MON[t.getUTCMonth()]; };
 const wk = (avg, n, seed = 1) => Array.from({ length: n }, (_, i) => Math.round(avg * (1 + 0.08 * Math.sin(i * 2.1 + seed))));
 const dist = (total, n, seed = 1) => { const w = Array.from({ length: n }, (_, i) => 1 + 0.18 * Math.sin(i * 2.3 + seed)); const sw = w.reduce((a, b) => a + b, 0); const o = w.map(x => Math.floor(x / sw * total)); let r = total - o.reduce((a, b) => a + b, 0); for (let i = 0; r > 0; i = (i + 1) % n) { o[i]++; r--; } return o; };
+const mono = p => { const n = p.length; if (n < 2) return ''; const dx = [], m = [], t = []; for (let i = 0; i < n - 1; i++) { dx[i] = (p[i + 1][0] - p[i][0]) || 1e-6; m[i] = (p[i + 1][1] - p[i][1]) / dx[i]; } t[0] = m[0]; t[n - 1] = m[n - 2]; for (let i = 1; i < n - 1; i++) t[i] = m[i - 1] * m[i] <= 0 ? 0 : 3 * (dx[i - 1] + dx[i]) / ((2 * dx[i] + dx[i - 1]) / m[i - 1] + (dx[i] + 2 * dx[i - 1]) / m[i]); let d = 'M' + p[0][0] + ',' + p[0][1]; for (let i = 0; i < n - 1; i++) { const h = dx[i] / 3; d += ' C' + (p[i][0] + h).toFixed(2) + ',' + (p[i][1] + t[i] * h).toFixed(2) + ' ' + (p[i + 1][0] - h).toFixed(2) + ',' + (p[i + 1][1] - t[i + 1] * h).toFixed(2) + ' ' + p[i + 1][0] + ',' + p[i + 1][1]; } return d; };
 // beforeW: weekly values before lapse; after: per-scan values (2 scans / week); pad: remaining free scans
 function chart({ beforeW, after, pad = 0, plan = [7, 6], days, endVal, yFloor = 0, todayLabel }) {
   const bBars = beforeW.flatMap(v => [{ v: Math.ceil(v / 2), w: 1, r: 1 }, { v: Math.floor(v / 2), w: 1, r: 1 }]);
@@ -572,16 +572,25 @@ function chart({ beforeW, after, pad = 0, plan = [7, 6], days, endVal, yFloor = 
     if (!b.r) cum += b.v;
     pts.push(((x + b.w / 2) / U * 100).toFixed(2) + ',' + (100 - cum / lineMax * 100).toFixed(2));
     x += b.w;
-    return { w: b.w, h: pct(Math.min(b.v / max, 1)), bg: b.r ? '#b9bdf2' : (spike && b.v !== peak ? '#f3b7b1' : '#ee8f87') };
+    return { w: b.w, h: pct(Math.min(b.v / max, 1)), bg: b.r ? '#a9cbc4' : (spike && b.v !== peak ? '#f7d3c9' : '#f2a08c') };
   });
   for (let i = 0; i < pad; i++) bars.push({ w: 1, h: '0%', bg: 'transparent' });
   const lastX = ((bU + aU - 0.5) / U * 100).toFixed(2);
   const area = total > 0 ? [pts[bBars.length - 1].split(',')[0] + ',100', ...pts.slice(bBars.length - 1), lastX + ',100'].join(' ') : '';
+  const P = pts.map(s => s.split(',').map(Number));
+  const si = Math.max(0, bBars.length - 1);
+  const linePath = mono(P);
+  const areaPath = total > 0 ? mono(P.slice(si)) + ' L' + lastX + ',100 L' + P[si][0] + ',100 Z' : '';
+  const SP = all.map((b, i) => [+((i + 0.5) / U * 100).toFixed(2), +(100 - Math.min(b.v / max, 1) * 100).toFixed(2)]);
+  const scanEndX = +((bU + aU) / U * 100).toFixed(2);
+  const SPx = [[0, SP[0][1]], ...SP, [scanEndX, SP[SP.length - 1][1]]];
+  const scanPath = mono(SPx);
+  const scanArea = scanPath + ' L' + scanEndX + ',100 L0,100 Z';
   const [m, d] = plan;
   const xl = [[0, dlabel(m, d, -beforeW.length * 7), '0%'], [bU, dlabel(m, d, 0), '-50%'], [bU + aU, todayLabel || dlabel(m, d, days), pad ? '-50%' : '-100%']];
   if (pad) xl.push([U, dlabel(m, d, 60), '-100%']);
   return {
-    bars, points: pts.join(' '), area, spike, yMax: fmt(ticks[ticks.length - 1]),
+    bars, points: pts.join(' '), area, linePath, areaPath, scanPath, scanArea, spike, yMax: fmt(ticks[ticks.length - 1]),
     split: pct(bU / U), showWin: pad > 0, winL: pct((bU + aU) / U), winW: pct(pad / U),
     yTicks: ticks.map(t => ({ label: t >= 1000 ? (t / 1000) + 'k' : t, bottom: pct(t / max) })),
     xLabels: xl.map(([u, t, tx]) => ({ t, tx, left: pct(u / U) })),
@@ -598,8 +607,8 @@ const LINKS = [
   { site: 'l************.net', path: '/u/album', what: 'Image set, 41 files', date: '13 Jul', match: '94%' },
   { site: 'g********.com', path: 'search result · 3 keywords', what: 'Indexed leak page', date: '9 Jul', match: '97%' }
 ];
-const P = '#7b3af5', N = '#eeecf1', RED = '#c2261f', AMB = '#c77d12', INK = '#17151c';
-const st = (v, label, sub, o = {}) => ({ v, label, sub, border: o.border || N, color: o.color || INK, action: o.action || '', span: o.action ? 'span 2' : 'span 1', subColor: o.alert ? '#b42318' : '#6b6874', subWeight: o.alert ? 700 : 400 });
+const P = '#16191b', N = '#eceeec', RED = '#c2410c', AMB = '#c77d12', INK = '#16191b';
+const st = (v, label, sub, o = {}) => ({ v, label, sub, of: o.of || '', border: o.border || N, accent: 'none', color: o.color || INK, action: o.action || '', span: o.action ? 'span 2' : 'span 1', subColor: o.alert ? '#b4401f' : '#62686c', subWeight: o.alert ? 600 : 400 });
 
 const ZB = wk(10.3, 5, 4);
 const ZB_SUM = 144;
@@ -634,42 +643,40 @@ const B2C = {
     tableTitle: '2,912 links', links: LINKS, footer: '2,907 more links still up, ready to queue.', bar: '2,912 links still up, none removed since 6 Jul' }
 };
 const AG = {
-  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across most clients. One aggregated number frames the risk.',
-    headline: '4,028 infringing links are still up across 18 client accounts.', sub: 'Our system kept scanning for 24 days.',
+  normal: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week. Backlogs stayed near zero.', afterT: 'After 6 July', afterD: 'detection kept running across all 25 clients, but nothing was removed. 4,028 links piled up.', tabLabel: 'Normal', why: 'Steady detections across 25 clients. One aggregated number frames the risk.',
+    headline: '4,028 infringing links are still up across 25 client accounts.', sub: 'Our system kept scanning for 24 days.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: dist(4028, 7, 2), plan: [7, 6], days: 24, endVal: '4,028 still up' }),
-    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('18 / 25', 'Clients affected', ''), st('16', 'Regions', 'Spread across regions')],
+    stats: [st('4,028', 'Still online today', 'As of 30 Jul', { border: P }), st('509', 'High risk', 'Needs action'), st('25', 'Clients affected', 'Every account has open links', { of: '/ 25' }), st('16', 'Regions', 'Where links surfaced')],
     clients: [['Andrea Lin', 121, 569, 78], ['Kai Deniz', 108, 437, 76], ['***** ****', 78, 344, 72], ['*******', 59, 265, 69], ['*******', 38, 209, 70]],
-    footer: 'Ranked across 18 affected clients', bar: '4,028 links still up across 18 clients' },
+    footer: 'Ranked across all 25 clients', bar: '4,028 links still up across 25 clients' },
   low: { beforeT: 'Before 6 July', beforeD: 'a few dozen detections a week across all clients, all removed.', afterT: 'After 6 July', afterD: 'only 11 links surfaced, concentrated in 4 clients.', tabLabel: 'Edge · Low', why: 'Only a handful of links, concentrated in a few clients. The table does the work.',
     headline: '11 links are still up across 4 client accounts.', sub: 'Most clients are clear. These four aren\'t.',
     chart: chart({ beforeW: wk(30, 6, 2), after: [1, 2, 1, 2, 1, 2, 2], plan: [7, 6], days: 24, endVal: '11 still up' }),
-    stats: [st('11', 'Still online today', 'As of 30 Jul', { border: P }), st('2', 'High risk', 'Needs action'), st('4 / 25', 'Clients affected', ''), st('3', 'Regions', 'Spread across regions')],
+    stats: [st('11', 'Still online today', 'As of 30 Jul', { border: P }), st('2', 'High risk', 'Needs action'), st('4', 'Clients affected', '21 accounts are clear', { of: '/ 25' }), st('3', 'Regions', 'Where links surfaced')],
     clients: [['Andrea Lin', 1, 4, 3], ['Kai Deniz', 1, 3, 2], ['***** ****', 0, 2, 2], ['*******', 0, 2, 1]],
     footer: 'Only 4 of 25 clients affected', bar: '11 links still up across 4 clients' },
   high: { beforeT: 'Before 6 July', beforeD: 'detections cleared across all clients each week.', afterT: 'After 6 July', afterD: 'a coordinated leak on 13 Jul added 9,800 links in one scan. 20,010 are now up.', tabLabel: 'Edge · Spike', why: 'A spike hits several clients at once. Scale and ranking matter most here.',
-    headline: '20,010 links surfaced across 23 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
+    headline: '20,010 links surfaced across 25 clients, 9,800 in a single scan.', sub: 'A coordinated leak on 13 Jul. None could be removed.',
     chart: chart({ beforeW: wk(1175, 6, 3), after: [600, 580, 9800, 4200, 2600, 1500, 730], plan: [7, 6], days: 24, endVal: '20,010 still up' }),
-    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('23 / 25', 'Clients affected', ''), st('21', 'Regions', 'Spread across regions')],
+    stats: [st('20,010', 'Still online today', 'As of 30 Jul', { border: P }), st('3,420', 'High risk', 'Needs action'), st('25', 'Clients affected', 'Every account has open links', { of: '/ 25' }), st('21', 'Regions', 'Where links surfaced')],
     clients: [['Andrea Lin', '1,240', '5,860', 212], ['Kai Deniz', 690, '3,120', 184], ['***** ****', 410, '2,470', 151], ['*******', 288, '1,930', 133], ['*******', 196, '1,410', 120]],
-    footer: 'Ranked across 23 affected clients', bar: '20,010 links still up across 23 clients' }
+    footer: 'Ranked across all 25 clients', bar: '20,010 links still up across 25 clients' }
 };
 const B2C_TABS = [['normal', 'Normal', 'Steady ~68/week'], ['zero', 'Edge · Zero', 'Nothing found'], ['low', 'Edge · Low', 'A few links'], ['high', 'Edge · Spike', 'One-scan spike']];
 const AG_TABS = [['normal', 'Normal', 'Steady detections'], ['low', 'Edge · Low', 'A handful of links'], ['high', 'Edge · Spike', 'Spike across clients']];
 const PRESETS = { Normal: { before: 60, after: 60, days: 24, spike: 0 }, Zero: { before: 10, after: 0, days: 39, spike: 0 }, Low: { before: 3, after: 0.5, days: 39, spike: 0 }, Spike: { before: 60, after: 60, days: 24, spike: 1400 } };
 
 class Component extends DCLogic {
-  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, b2cBanner: true, agBanner: true, pg: PRESETS.Normal };
-  componentDidMount() { this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); this.agToBottom(); }
-  // Agency screen opens scrolled to the bottom (table + sticky bar in view)
-  agToBottom() { const go = () => { const el = this.agRef.current; if (el) el.scrollTop = el.scrollHeight; }; requestAnimationFrame(() => requestAnimationFrame(go)); setTimeout(go, 120); setTimeout(go, 320); }
+  state = { wide: true, b2c: 'normal', ag: 'normal', b2cBar: false, agBar: false, pg: PRESETS.Normal };
+  componentDidMount() { this.onResize = () => { const w = window.innerWidth >= 760; if (w !== this.state.wide) this.setState({ wide: w }); }; this.onResize(); window.addEventListener('resize', this.onResize); }
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
   b2cRef = React.createRef();
   agRef = React.createRef();
   tabs(list, cur, key, ref, data) {
     return list.map(([id, label, sub], i) => {
       const on = id === cur;
-      return { n: i + 1, label, sub, why: data && data[id] ? data[id].why : '', open: on, bg: on ? '#2e2547' : '#f6f5f2', fg: on ? '#fff' : '#3d3a45', numBg: on ? '#c8f53a' : '#fff', numFg: '#2e2547', shadow: 'none',
-        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); if (key === 'ag' && id === 'normal') this.agToBottom(); } };
+      return { n: i + 1, label, sub, why: data && data[id] ? data[id].why : '', open: on, bg: 'none', fg: on ? '#16191b' : '#62686c', numBg: '', numFg: '', bd: on ? '#1f6f67' : '#e1e2de', st: on ? 'on' : 'off', shadow: 'none',
+        on: () => { if (ref.current) ref.current.scrollTop = 0; this.setState({ [key]: id, [key + 'Bar']: false }); } };
     });
   }
   playground() {
@@ -702,8 +709,8 @@ class Component extends DCLogic {
     return {
       brand, brandLower: brand.toLowerCase(), heroChart: { ...B2C.normal.chart, legendBottom: true },
       briefItems: [
-        { k: 'TWO USERS', v: 'A single creator with a handful of detections, or thousands. And an agency managing dozens of client accounts across sites and regions.' },
-        { k: 'THE USER', v: 'Not a data expert. Volume can be large, so legibility and prioritisation matter as much as what is shown.' },
+        { k: 'Two users', v: 'A single creator with a handful of detections, or thousands. And an agency managing dozens of client accounts across sites and regions.' },
+        { k: 'The user', v: 'Not a data expert. Volume can be large, so legibility and prioritisation matter as much as what is shown.' },
       ],
       readings: [
         { said: 'One big warning number', read: 'Show the track record.', d: 'The chart leads with weeks of links found and removed, then marks the moment removal stopped. The record comes first, the gap second.', bg: '#fff', border: 'transparent', tag: '' },
@@ -711,31 +718,28 @@ class Component extends DCLogic {
         { said: 'Design the average case, patch the rest', read: 'Built for every case.', d: 'Normal and spike share one structure. Zero and low swap the backlog for a scan-end countdown. Agencies add a client layer.', bg: '#fff', border: 'transparent', tag: '' }
       ],
       arc: [
-        { t: 'Past value', d: 'what we removed', sep: '→', bg: '#2e2547', fg: '#fff' },
-        { t: 'Unseen effort', d: 'what kept scanning', sep: '→', bg: '#2e2547', fg: '#fff' },
-        { t: 'Impending loss', d: 'what ends soon', sep: '', bg: '#2e2547', fg: '#fff' }
+        { t: 'Past value', d: 'what we removed', sep: '→', bg: '#16191b', fg: '#fff' },
+        { t: 'Unseen effort', d: 'what kept scanning', sep: '→', bg: '#16191b', fg: '#fff' },
+        { t: 'Impending loss', d: 'what ends soon', sep: '', bg: '#16191b', fg: '#fff' }
       ],
       assumptions: ['60-day free scan window', 'Self-expiring links excluded', 'Clients ranked by risk', 'Single plan, no seat roles', 'Scan end shown only when results are low'],
       b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef, B2C),
       agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef, AG),
       wide: this.state.wide,
-      b: { ...B2C[this.state.b2c], chart: { ...B2C[this.state.b2c].chart, legendBottom: !this.state.wide }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
-      a: { ...a, chart: { ...a.chart, legendBottom: !this.state.wide }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); return a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: Math.min(100, n(det) ? n(risk) / n(det) * 100 : 0).toFixed(1) + '%' })); })() },
+      b: { ...B2C[this.state.b2c], headA: B2C[this.state.b2c].headline.split('\n')[0], headB: B2C[this.state.b2c].headline.split('\n')[1] || '', chart: { ...B2C[this.state.b2c].chart, legendBottom: false }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
+      a: { ...a, chart: { ...a.chart, legendBottom: false }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); return a.clients.map(([name, risk, det, sites]) => ({ name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: (n(det) ? Math.min(100, n(risk) / n(det) * 100) : 0).toFixed(1) + '%' })); })() },
       b2cRef: this.b2cRef, agRef: this.agRef,
       b2cBar: this.state.b2cBar, agBar: this.state.agBar,
-      b2cBanner: this.state.b2cBanner, agBanner: this.state.agBanner,
-      closeB2cBanner: () => this.setState({ b2cBanner: false }),
-      closeAgBanner: () => this.setState({ agBanner: false }),
       onB2cScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.b2cBar) this.setState({ b2cBar: v }); },
       onAgScroll: e => { const v = e.currentTarget.scrollTop > 180; if (v !== this.state.agBar) this.setState({ agBar: v }); },
       notes: [
         { n: '01', t: 'Build trust, not alarm', d: 'Instead of loud urgency, the screen shows the work already done. Trust comes from the track record, not from warnings.' },
-        { n: '02', t: 'The lapse sits on top', d: 'Losing coverage is stated first, in a slim banner above the page. Then the screen goes straight to the backlog, no extra clicks.' },
-        { n: '03', t: 'A spike never flattens the rest', d: 'When one scan spikes, the y-axis pins to that peak and the backlog line moves to its own scale. Every bar stays readable.' },
+        { n: '02', t: 'The lapse sits on top', d: 'Losing coverage is stated first, in a slim banner above the page. Then the screen goes straight to the backlog, no extra clicks.', _old: 'Losing coverage matters, so it\u2019s stated first in a slim banner above the page. Clear, but never in the way.' },
+        { n: '03', t: 'A spike never flattens the rest', d: 'When one scan spikes, the y-axis pins to that peak and the backlog line moves to its own scale. Every bar stays readable.', _old: 'A count of infringing links alone doesn\u2019t land. One chart holds both: bars for what each scan found, a line for how much has piled up. You see the pace and the total at once.' },
         { n: '04', t: 'Same goal, words that fit the moment', d: 'Every button leads back to the plan, but each is named for where it sits. \u201cRemove now\u201d next to the live count, \u201cRestart takedowns\u201d in the hero, \u201cReactivate\u201d in the banner.' }
       ],
       agencyNotes: [
-        { n: '01', t: 'Riskiest client first', d: 'No tier data, so high-risk links decide the order. Each bar shows a client\u2019s detections, with the high-risk share filled in.' },
+        { n: '01', t: 'Riskiest client first', d: 'No tier data, so high-risk links decide the order. Each bar shows a client’s detections, with the high-risk share filled in.' },
         { n: '02', t: 'Client report (exploratory)', d: 'A soft touchpoint. Exports resume on reactivation.' }
       ],
       presets: Object.keys(PRESETS).map(label => ({ label, on: () => this.setState({ pg: PRESETS[label] }) })),
@@ -744,28 +748,13 @@ class Component extends DCLogic {
         { label: 'Per week, after lapse', min: 0, max: 200, step: 0.5, value: pg.after, display: pg.after, on: set('after') },
         { label: 'Days since lapse', min: 1, max: 60, step: 1, value: pg.days, display: pg.days + ' days', on: set('days') },
         { label: 'One-scan spike', min: 0, max: 2000, step: 50, value: pg.spike, display: fmt(pg.spike), on: set('spike') }
-      ],
+      ].map(s => ({ ...s, pct: (((s.value - s.min) / (s.max - s.min)) * 100).toFixed(1) + '%' })),
       pg: this.playground()
     };
   }
 }
 </script>
 <script src="../assets/js/main.js"></script>
-<script>
-// Winback-only: re-query .nav each time (the x-dc runtime may re-render the tree),
-// keep the shared is-stuck shadow in sync, and morph into the right-side icon rail once scrolled.
-(function(){
-  function sync(){
-    var n=document.querySelector('.nav'); if(!n) return;
-    var y=window.scrollY||0;
-    n.classList.toggle('is-stuck', y>8);
-    n.classList.toggle('nav--rail', y>80);
-  }
-  addEventListener('scroll', sync, {passive:true});
-  addEventListener('load', sync);
-  sync();
-})();
-</script>
 <script src="../assets/v3/js/logo.js" defer></script>
 </body>
 </html>

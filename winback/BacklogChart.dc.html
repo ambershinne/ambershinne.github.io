@@ -3,60 +3,64 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300..700&display=swap" rel="stylesheet">
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
-<div style="display:flex;flex-direction:column;gap:10px;width:100%;font-family:'Manrope',sans-serif;">
-    <div style="display:flex;gap:8px;padding-top:46px;">
-    <div style="position:relative;width:36px;height:200px;flex:none;">
+<div style="display:flex;flex-direction:column;gap:11px;width:100%;font-family:'Plus Jakarta Sans',sans-serif;">
+  <div style="display:flex;gap:9px;padding-top:37px;">
+    <div style="position:relative;width:26px;height:185px;flex:none;">
       <sc-for list="{{ c.yTicks }}" as="t" hint-placeholder-count="4">
-        <span style="position:absolute;right:4px;bottom:{{ t.bottom }};transform:translateY(50%);font-size:10px;color:#8a8794;">{{ t.label }}</span>
+        <span style="position:absolute;right:2px;bottom:{{ t.bottom }};transform:translateY(50%);font-size:11px;font-weight:500;color:#aeabb6;font-variant-numeric:tabular-nums;">{{ t.label }}</span>
       </sc-for>
-      <span style="position:absolute;right:4px;bottom:0;font-size:10px;color:#8a8794;">links</span>
     </div>
-    <div style="position:relative;flex:1;min-width:0;height:200px;border-bottom:1px solid #d9d6df;">
+    <div style="position:relative;flex:1;min-width:0;height:185px;">
       <sc-for list="{{ c.yTicks }}" as="t" hint-placeholder-count="4">
-        <div style="position:absolute;left:0;right:0;bottom:{{ t.bottom }};border-top:1px dashed #ebe8f0;"></div>
+        <div style="position:absolute;left:0;right:0;bottom:{{ t.bottom }};border-top:1px solid #efefec;"></div>
       </sc-for>
-      
+      <div style="position:absolute;left:0;right:0;bottom:0;border-top:1px solid #d2d3cf;"></div>
+
       <sc-if value="{{ c.showWin }}" hint-placeholder-val="{{ false }}">
-        <div style="position:absolute;top:0;bottom:0;left:{{ c.winL }};width:{{ c.winW }};background:repeating-linear-gradient(135deg,#f8e1df 0 6px,#fdf2f1 6px 12px);border-left:1.5px dashed #c8322b;">
-          <span style="position:absolute;top:-20px;right:2px;font-size:10px;font-weight:700;color:#c8322b;white-space:nowrap;">Scan ends</span>
+        <div style="position:absolute;top:0;bottom:0;left:{{ c.winL }};width:{{ c.winW }};background:repeating-linear-gradient(135deg,rgba(232,96,63,0.07) 0 4px,rgba(255,255,255,0) 4px 9px);border-left:1px dashed rgba(232,96,63,0.6);">
+          <span style="position:absolute;top:-26px;left:0;transform:translateX(-50%);font-size:11px;font-weight:500;color:#c2410c;background:#fff;border:1px solid #f6d3c8;padding:3px 8px;border-radius:879px;white-space:nowrap;">Scan ends</span>
         </div>
       </sc-if>
-      <div style="position:absolute;top:-44px;bottom:0;left:{{ c.split }};border-left:1.5px dashed #2e2547;z-index:2;">
-        <span style="position:absolute;top:0;right:6px;font-size:10px;font-weight:700;color:#2e2547;white-space:nowrap;">Plan ended</span>
+      <div style="position:absolute;top:-32px;bottom:0;left:{{ c.split }};border-left:1.5px dashed rgba(22,25,27,0.45);z-index:2;">
+        <span style="position:absolute;top:0;left:0;transform:translateX(-50%);font-size:11px;font-weight:500;color:#16191b;background:#fff;border:1px solid #b4b8b5;padding:3px 9px;border-radius:879px;white-space:nowrap;">Plan ended</span>
       </div>
+
       <div style="position:absolute;inset:0;display:flex;align-items:flex-end;">
         <sc-for list="{{ c.bars }}" as="b" hint-placeholder-count="19">
           <div style="flex:{{ b.w }};height:100%;display:flex;align-items:flex-end;justify-content:center;">
-            <div style="width:74%;max-width:34px;height:{{ b.h }};background:{{ b.bg }};border-radius:3px 3px 0 0;"></div>
+            <div style="width:52%;max-width:16px;height:{{ b.h }};background:{{ b.bg }};border-radius:4px 4px 1px 1px;"></div>
           </div>
         </sc-for>
       </div>
+
       <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;overflow:visible;">
-        <defs><linearGradient id="bkGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff8f8a" stop-opacity="0.55"></stop><stop offset="1" stop-color="#ffd6d3" stop-opacity="0.08"></stop></linearGradient></defs>
-        <polygon points="{{ c.area }}" style="fill:url(#bkGrad);stroke:none;"></polygon>
-        <polyline points="{{ c.points }}" style="fill:none;stroke:#c8322b;stroke-width:2.5;vector-effect:non-scaling-stroke;stroke-linejoin:round;"></polyline>
+        <defs>
+          
+        </defs>
+        <path d="{{ c.areaPath }}" style="fill:rgba(232,96,63,0.10);stroke:none;"></path>
+        <path d="{{ c.linePath }}" style="fill:none;stroke:#E8603F;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linejoin:round;stroke-linecap:round;"></path>
       </svg>
       <sc-if value="{{ c.endVal }}" hint-placeholder-val="{{ true }}">
-        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};transform:translate(-100%,-10px);background:#c8322b;color:#fff;font-size:11px;font-weight:800;padding:3px 8px;border-radius:999px;white-space:nowrap;">{{ c.endVal }}</span>
+        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};width:8px;height:8px;border-radius:50%;background:#E8603F;box-shadow:0 0 0 2px #fff;transform:translate(-50%,50%);z-index:3;"></span>
+        <span style="position:absolute;left:{{ c.endL }};bottom:{{ c.endB }};transform:translate(calc(-100% - 11px),-11px);font-size:11px;font-weight:600;color:#c2410c;white-space:nowrap;z-index:3;">{{ c.endVal }}</span>
       </sc-if>
     </div>
   </div>
-  <div style="position:relative;height:14px;margin-left:44px;">
+  <div style="position:relative;height:14px;margin-left:35px;">
     <sc-for list="{{ c.xLabels }}" as="l" hint-placeholder-count="6">
-      <span style="position:absolute;left:{{ l.left }};transform:translateX({{ l.tx }});font-size:10px;color:#8a8794;white-space:nowrap;">{{ l.t }}</span>
+      <span style="position:absolute;left:{{ l.left }};transform:translateX({{ l.tx }});font-size:11px;font-weight:500;color:#62686c;white-space:nowrap;">{{ l.t }}</span>
     </sc-for>
   </div>
   <sc-if value="{{ c.legendBottom }}" hint-placeholder-val="{{ false }}">
-  <div style="display:flex;flex-direction:column;align-items:flex-start;margin-left:44px;margin-top:{{ c.legendMt }};gap:6px;font-size:11px;color:#5d5a66;">
-    <div style="display:flex;flex-wrap:wrap;gap:6px 16px;">
-    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#b9bdf2;"></span>Found per scan · removed</span>
-    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:10px;height:10px;border-radius:2px;background:#ee8f87;"></span>Found per scan · not removed</span>
-    </div>
-    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:14px;height:2.5px;background:#c8322b;"></span>Unremoved backlog (cumulative)</span>
+  <div style="display:flex;flex-wrap:wrap;gap:5px 16px;margin-left:35px;margin-top:{{ c.legendMt }};font-size:11px;font-weight:500;color:#3b4043;">
+    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#a9cbc4;"></span>Found per scan · removed</span>
+    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:7px;height:7px;border-radius:2px;background:#f2a08c;"></span>Found per scan · not removed</span>
+    <span style="display:flex;align-items:center;gap:6px;white-space:nowrap;"><span style="width:12px;height:2px;border-radius:2px;background:#E8603F;"></span>Unremoved backlog (cumulative)</span>
   </div>
   </sc-if>
 </div>
