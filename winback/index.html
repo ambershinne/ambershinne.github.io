@@ -56,7 +56,8 @@ a:hover{color:#16191b;text-decoration:underline;}
 @keyframes barUpHold{from,to{transform:scaleY(0);}}@keyframes barUpA{from{transform:scaleY(0);}to{transform:scaleY(1);}}@keyframes barUpB{from{transform:scaleY(0);}to{transform:scaleY(1);}}
 @keyframes revealHold{from,to{clip-path:inset(0 100% 0 0);}}@keyframes revealA{from{clip-path:inset(-20% 100% -20% 0);}to{clip-path:inset(-20% -5% -20% 0);}}@keyframes revealB{from{clip-path:inset(-20% 100% -20% 0);}to{clip-path:inset(-20% -5% -20% 0);}}
 @keyframes fadeInHold{from,to{opacity:0;}}@keyframes fadeInA{from{opacity:0;}to{opacity:1;}}@keyframes fadeInB{from{opacity:0;}to{opacity:1;}}
-@media (prefers-reduced-motion:reduce){[style*='barUp'],[style*='reveal'],[style*='fadeIn'],[style*='rankGrow']{animation:none !important;}}
+@keyframes endPulse{0%{transform:scale(1);opacity:.55;}80%,100%{transform:scale(3.4);opacity:0;}}
+@media (prefers-reduced-motion:reduce){[style*='endPulse'],[style*='barUp'],[style*='reveal'],[style*='fadeIn'],[style*='rankGrow']{animation:none !important;}}
 .tabv{transition:color .2s ease,border-color .2s ease;}
 .tabv[data-st="off"]:hover{color:#16191b !important;border-left-color:#b4b8b5 !important;}
 @media (max-width:1024px){.csg{grid-template-columns:1fr !important;}.csg > div:first-child{position:static !important;}}
@@ -600,7 +601,7 @@ function chart({ beforeW, after, pad = 0, plan = [7, 6], days, endVal, yFloor = 
     split: pct(bU / U), showWin: pad > 0, winL: pct((bU + aU) / U), winW: pct(pad / U),
     yTicks: ticks.map(t => ({ label: t >= 1000 ? (t / 1000) + 'k' : t, bottom: pct(t / max) })),
     xLabels: xl.map(([u, t, tx]) => ({ t, tx, left: pct(u / U) })),
-    endVal: endVal ? endVal + (spike ? ' ↗' : '') : '', endL: lastX + '%', endB: pct(cum / lineMax)
+    endVal: endVal ? endVal + ' ↗' : '', endL: lastX + '%', endB: pct(cum / lineMax)
   };
 }
 const WK = ['13 Apr', '4 May', '25 May', '15 Jun', '6 Jul', '27 Jul', '17 Aug'].map((t, k) => [k * 3, t]);
