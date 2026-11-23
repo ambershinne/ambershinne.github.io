@@ -73,6 +73,27 @@ input.sld::-webkit-slider-thumb:hover{transform:scale(1.1);}
 input.sld::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 1px rgba(16,24,22,0.08),0 2px 6px rgba(16,24,22,0.18);}
 input.sld::-moz-range-track{height:6px;border-radius:999px;background:transparent;}
 input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27,0.15),0 2px 6px rgba(16,24,22,0.18);}
+/* Mobile layout (site integration) */
+.wb-why{display:none;}
+@media (max-width:1024px){
+  .csg{grid-template-columns:minmax(0,1fr) !important;row-gap:24px !important;}
+  .csg > div{min-width:0;}
+  .wb-tabs{display:grid !important;grid-template-columns:repeat(4,max-content);overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;}
+  .wb-tabs::-webkit-scrollbar{display:none;}
+  .wb-tabs > span{grid-column:1/-1;}
+  .wb-tabs .tabv{border-left:none !important;border-bottom:2px solid var(--bd) !important;padding:10px 20px 12px 0 !important;white-space:nowrap;}
+  .tabv[data-st="off"]:hover{border-bottom-color:#b4b8b5 !important;}
+  .wb-twhy{display:none !important;}
+  .wb-why{display:block;font-size:12px;line-height:1.55;color:#4a5054;}
+}
+@media (max-width:600px){
+  [style*="max-width:1130px"],[style*="max-width: 1130px"]{padding-left:16px !important;padding-right:16px !important;}
+  .wb-steps{grid-template-columns:1fr 1fr !important;gap:28px 16px !important;}
+  .wb-lbl{grid-template-columns:88px minmax(0,1fr) !important;column-gap:16px !important;}
+  .wb-stats{grid-template-columns:1fr 1fr !important;}
+  .wb-stats > div{grid-column:auto !important;}
+  .wb-stats > div:last-child{grid-column:1/-1 !important;}
+}
 /* Site GNB + back link (site integration) */
 *,*::before,*::after{box-sizing:border-box;}
 .gnb a:hover{text-decoration:none;}
@@ -135,7 +156,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
       <p style="margin:0;font-size:14px;line-height:1.65;color:#3b4043;text-wrap:pretty;align-self:end;max-width:52ch;">Subscriptions lapse, but detection keeps running in the background, and <mark style="background:none;color:inherit;padding:0;">the user never sees what was found</mark>. When they log back in: show what was found, and give a clear path to reactivate.</p>
     </div>
     <div style="display:flex;flex-direction:column;gap:49px;">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:28px 25px;">
+      <div class="wb-steps" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,158px),1fr));gap:28px 25px;">
         <div style="display:flex;flex-direction:column;gap:9px;padding-top:19px;border-top:2px solid #16191b;position:relative;">
           <span style="position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#16191b;box-shadow:0 0 0 4px #fff;"></span>
           <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#16191b;">STEP 01</span>
@@ -169,11 +190,11 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
           <span style="font-size:12px;line-height:1.55;color:#4a5054;">Removals resume on the backlog.</span>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
+      <div class="wb-lbl" style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
         <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:9px;">THE TASK</span>
         <span style="font-size:19px;font-weight:500;line-height:1.3;letter-spacing:-0.02em;">How might we get users who cancelled to subscribe again?</span>
       </div>
-      <div style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
+      <div class="wb-lbl" style="display:grid;grid-template-columns:minmax(0,176px) minmax(0,1fr);gap:14px 35px;padding-top:25px;border-top:1px solid #e1e2de;">
         <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:4px;">WHO IT'S FOR</span>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,229px),1fr));gap:21px 35px;">
           <sc-for list="{{ briefItems }}" as="b" hint-placeholder-count="2">
@@ -203,7 +224,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
       </div>
     </sc-for>
   </div>
-  <div style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 10px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
+  <div class="wb-lbl" style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 10px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
     <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;padding-top:7px;">THE STORY</span>
     <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:7px 16px;">
       <sc-for list="{{ arc }}" as="a" hint-placeholder-count="3">
@@ -211,7 +232,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
       </sc-for>
     </div>
   </div>
-  <div style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 14px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
+  <div class="wb-lbl" style="display: grid; grid-template-columns: minmax(0,176px) minmax(0,1fr); gap: 14px 12px; padding-top: 25px; border-top: 1px solid #e1e2de">
     <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#62686c;">ASSUMED</span>
     <div style="display:flex;flex-wrap:wrap;gap:7px 25px;font-size:12px;color:#3b4043;">
       <sc-for list="{{ assumptions }}" as="t" hint-placeholder-count="3"><span style="display:inline-flex;align-items:center;gap:7px;"><span style="width:4px;height:4px;flex:none;background:#16191b;"></span>{{ t }}</span></sc-for>
@@ -232,16 +253,17 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
 
     <div class="csg" style="display:grid;grid-template-columns:188px minmax(0,1fr);gap:68px;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:12px;">
-    <div style="position:sticky;top:24px;display:flex;flex-direction:column;">
+    <div class="wb-tabs" style="position:sticky;top:24px;display:flex;flex-direction:column;">
       <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
       <sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="4">
-        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;--bd:{{ t.bd }};border-left:2px solid var(--bd);text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
           <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
           <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
-          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span class="wb-twhy" style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
         </button>
       </sc-for>
     </div>
+    <div class="wb-why"><sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="1"><sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span>{{ t.why }}</span></sc-if></sc-for></div>
     </div>
     <div style="flex:none;min-width:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e3e4e1;box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -24px rgba(16,24,22,0.22);display:flex;flex-direction:column;height:712px;">
       <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:11px clamp(14px,3.2vw,35px);border-bottom:1px solid #e3e4e1;">
@@ -281,7 +303,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
               </div>
             </div>
           </div>
-          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
+          <div class="wb-stats" style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:#fff;border:1px solid #e3e4e1;border-radius:11px;box-shadow:0 1px 2px rgba(16,24,22,0.03),0 4px 14px -8px rgba(16,24,22,0.10);overflow:hidden;">
             <sc-for list="{{ b.stats }}" as="s" hint-placeholder-count="3">
               <div style="grid-column:{{ s.span }};background:transparent;box-shadow:-1px 0 0 #eeefec,0 -1px 0 #eeefec;padding:16px 18px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;">
                 <div style="display:flex;flex-direction:column;gap:5px;">
@@ -359,16 +381,17 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
 
   <div class="csg" style="display:grid;grid-template-columns:188px minmax(0,1fr);gap:68px;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:12px;">
-    <div style="position:sticky;top:24px;display:flex;flex-direction:column;">
+    <div class="wb-tabs" style="position:sticky;top:24px;display:flex;flex-direction:column;">
       <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
       <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="4">
-        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;--bd:{{ t.bd }};border-left:2px solid var(--bd);text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
           <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
           <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
-          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
+          <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span class="wb-twhy" style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
         </button>
       </sc-for>
     </div>
+    <div class="wb-why"><sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="1"><sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span>{{ t.why }}</span></sc-if></sc-for></div>
     </div>
     <div style="flex:none;min-width:0;background:#fff;border-radius:12px;overflow:hidden;border:1px solid #e3e4e1;box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -24px rgba(16,24,22,0.22);display:flex;flex-direction:column;height:712px;">
     <div style="flex:none;display:flex;align-items:center;justify-content:space-between;padding:11px clamp(14px,3.2vw,35px);border-bottom:1px solid #e3e4e1;">
