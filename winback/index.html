@@ -91,9 +91,10 @@ html,body,#dc-root,#dc-root > .sc-host{height:auto !important;min-height:100%;}
   .wb-twhy{display:none !important;}
   .wb-why{display:block;margin-top:-12px;font-size:12px;line-height:1.55;color:#4a5054;}
   body.wbs-creator #creator .wb-tabs,body.wbs-agency #agency .wb-tabs{box-shadow:0 8px 12px -10px rgba(16,24,22,0.25);}
-  [style*="clamp(14px,3.2vw,35px) 98px"]{padding-bottom:32px !important;}
+  .wb-scrpad{padding-bottom:32px !important;}
 }
 @media (max-width:600px){
+  .wb-bn2{display:none;}
   [style*="max-width:1130px"],[style*="max-width: 1130px"]{padding-left:16px !important;padding-right:16px !important;}
   .wb-steps{grid-template-columns:1fr 1fr !important;gap:28px 16px !important;}
   .wb-lbl{grid-template-columns:88px minmax(0,1fr) !important;column-gap:16px !important;}
@@ -133,7 +134,7 @@ html,body,#dc-root,#dc-root > .sc-host{height:auto !important;min-height:100%;}
   </div>
   <div>
     <div style="background:#fff;border-radius:12px;overflow:hidden;border:1px solid rgba(16,24,22,0.06);box-shadow:0 2px 4px rgba(16,24,22,0.04),0 24px 48px -20px rgba(16,24,22,0.22);">
-      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;text-align:center;padding:4px 28px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;"><span>Your plan ended on 6 July 2026. Takedowns are paused.</span><span style="color:#16191b;font-weight:600;text-decoration:underline;">Reactivate</span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:0.6;">✕</span></div>
+      <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px 10px;text-align:center;padding:4px 28px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;"><span>Your plan ended on 6 July 2026.<span class="wb-bn2"> Takedowns are paused.</span></span><span style="color:#16191b;font-weight:600;text-decoration:underline;">Reactivate</span><span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);opacity:0.6;">✕</span></div>
       <div style="padding:18px 16px;display:flex;flex-direction:column;gap:14px;background:#fff;">
         <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:11px;">
           <span style="font-size:clamp(15px,1.8vw,19px);font-weight:600;letter-spacing:-0.02em;line-height:1.2;max-width:22ch;">We still found 233 infringing links. None could be removed.</span>
@@ -278,11 +279,11 @@ html,body,#dc-root,#dc-root > .sc-host{height:auto !important;min-height:100%;}
         <span style="display:flex;align-items:center;gap:9px;font-size:11px;color:#62686c;">{{ b.inactive }}<span style="width:26px;height:26px;border-radius:50%;background:#f0f0ee;color:#16191b;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
       <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:11px;text-align:center;padding:5px 35px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;">
-        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.banner }}</span>
+        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">{{ b.bannerA }}<span class="wb-bn2"> {{ b.bannerB }}</span></span>
         <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
       </div>
       <div ref="{{ b2cRef }}" onScroll="{{ onB2cScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;position:relative;">
-        <div style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
+        <div class="wb-scrpad" style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
           <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
             <div style="display:flex;flex-direction:column;gap:7px;max-width:598px;">
               <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
@@ -406,11 +407,11 @@ html,body,#dc-root,#dc-root > .sc-host{height:auto !important;min-height:100%;}
         <span style="display:flex;align-items:center;gap:9px;font-size:11px;color:#62686c;">Agency · 26 seats<span style="width:26px;height:26px;border-radius:50%;background:#f0f0ee;color:#16191b;font-weight:600;font-size:11px;display:flex;align-items:center;justify-content:center;">AS</span></span>
       </div>
     <div style="flex:none;position:relative;display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:11px;text-align:center;padding:5px 35px;line-height:1.4;background:#fbf1de;color:#5c3d0a;font-size:11px;border-bottom:1px solid #f0deb6;">
-      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026. Takedowns are paused.</span>
+      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;">Your plan ended on 6 July 2026.<span class="wb-bn2"> Takedowns are paused.</span></span>
       <span style="color:#16191b;font-weight:600;text-decoration:underline;text-underline-offset:3px;">Reactivate</span><span style="position:absolute;right:clamp(14px,3.2vw,35px);top:50%;transform:translateY(-50%);opacity:0.6;cursor:pointer;">✕</span>
     </div>
     <div ref="{{ agRef }}" onScroll="{{ onAgScroll }}" style="flex:1;min-height:0;overflow-y:auto;background:#fff;">
-      <div style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
+      <div class="wb-scrpad" style="padding:39px clamp(14px,3.2vw,35px) 98px;display:flex;flex-direction:column;gap:18px;">
         <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:14px;">
           <div style="display:flex;flex-direction:column;gap:7px;max-width:546px;">
             <span style="font-size:11px;color:#62686c;">Welcome back, Amber Shin</span>
@@ -764,7 +765,7 @@ class Component extends DCLogic {
       b2cTabs: this.tabs(B2C_TABS, this.state.b2c, 'b2c', this.b2cRef, B2C),
       agTabs: this.tabs(AG_TABS, this.state.ag, 'ag', this.agRef, AG),
       wide: this.state.wide,
-      b: { ...B2C[this.state.b2c], headA: B2C[this.state.b2c].headline.split('\n')[0], headB: B2C[this.state.b2c].headline.split('\n')[1] || '', chart: { ...B2C[this.state.b2c].chart, legendBottom: false, ...(() => { const n = this.state.b2cAnimN; const k = !n ? 'Hold' : (n % 2 ? 'A' : 'B'); return { barAnim: 'barUp' + k, lineAnim: 'reveal' + k, fadeAnim: 'fadeIn' + k }; })() }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
+      b: { ...B2C[this.state.b2c], bannerA: B2C[this.state.b2c].banner.split('. ')[0] + '.', bannerB: B2C[this.state.b2c].banner.split('. ').slice(1).join('. '), headA: B2C[this.state.b2c].headline.split('\n')[0], headB: B2C[this.state.b2c].headline.split('\n')[1] || '', chart: { ...B2C[this.state.b2c].chart, legendBottom: false, ...(() => { const n = this.state.b2cAnimN; const k = !n ? 'Hold' : (n % 2 ? 'A' : 'B'); return { barAnim: 'barUp' + k, lineAnim: 'reveal' + k, fadeAnim: 'fadeIn' + k }; })() }, hasLinks: B2C[this.state.b2c].links.length > 0, noLinks: B2C[this.state.b2c].links.length === 0 },
       a: { ...a, headA: a.headline.split('\n')[0], headB: a.headline.split('\n')[1] || '', chart: { ...a.chart, legendBottom: false, ...this.ak(this.state.agChartN) }, clients: (() => { const n = v => Number(String(v).replace(/,/g, '')) || 0; const max = Math.max(1, ...a.clients.map(c => n(c[2]))); const ak = this.state.rankK || 'Hold'; return a.clients.map(([name, risk, det, sites], ci) => ({ anim: 'rankGrow' + ak, d: (ci * 0.12).toFixed(2) + 's', name, risk, det, sites, track: Math.max(8, n(det) / max * 72).toFixed(1) + '%', fill: (n(det) ? Math.min(100, n(risk) / n(det) * 100) : 0).toFixed(1) + '%' })); })() },
       b2cRef: this.b2cRef, agRef: this.agRef,
       b2cBar: this.state.b2cBar, agBar: this.state.agBar,
