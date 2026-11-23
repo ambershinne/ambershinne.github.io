@@ -73,19 +73,25 @@ input.sld::-webkit-slider-thumb:hover{transform:scale(1.1);}
 input.sld::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:none;box-shadow:0 0 0 1px rgba(16,24,22,0.08),0 2px 6px rgba(16,24,22,0.18);}
 input.sld::-moz-range-track{height:6px;border-radius:999px;background:transparent;}
 input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27,0.15),0 2px 6px rgba(16,24,22,0.18);}
+/* Let the page grow past one screen so the sticky GNB (and mobile case tabs) can follow the scroll */
+html,body,#dc-root,#dc-root > .sc-host{height:auto !important;min-height:100%;}
 /* Mobile layout (site integration) */
 .wb-why{display:none;}
+.wb-tabs{top:calc(var(--gnbh,65px) + 24px) !important;}
 @media (max-width:1024px){
   .csg{grid-template-columns:minmax(0,1fr) !important;row-gap:24px !important;}
   .csg > div{min-width:0;}
-  .wb-tabs{position:static !important;display:grid !important;grid-template-columns:repeat(4,max-content);overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;}
+  .csg > div:first-child{display:contents !important;}
+  .wb-tabs{position:sticky !important;top:calc(var(--gnbh,65px) - 22px) !important;z-index:20;background:#fff;transition:box-shadow .2s ease;display:grid !important;grid-template-columns:repeat(4,max-content);overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;}
   .wb-tabs::-webkit-scrollbar{display:none;}
   .wb-tabs > span{grid-column:1/-1;}
   .wb-tabs .tabv{border-left:none !important;border-bottom:2px solid #e1e2de !important;padding:10px 20px 12px 0 !important;white-space:nowrap;}
   .wb-tabs .tabv[data-st="on"]{border-bottom-color:#1f6f67 !important;}
   .tabv[data-st="off"]:hover{border-bottom-color:#b4b8b5 !important;}
   .wb-twhy{display:none !important;}
-  .wb-why{display:block;font-size:12px;line-height:1.55;color:#4a5054;}
+  .wb-why{display:block;margin-top:-12px;font-size:12px;line-height:1.55;color:#4a5054;}
+  body.wbs-creator #creator .wb-tabs,body.wbs-agency #agency .wb-tabs{box-shadow:0 8px 12px -10px rgba(16,24,22,0.25);}
+  [style*="clamp(14px,3.2vw,35px) 98px"]{padding-bottom:32px !important;}
 }
 @media (max-width:600px){
   [style*="max-width:1130px"],[style*="max-width: 1130px"]{padding-left:16px !important;padding-right:16px !important;}
@@ -788,5 +794,23 @@ class Component extends DCLogic {
 </script>
 <script src="../assets/js/main.js"></script>
 <script src="../assets/v3/js/logo.js" defer></script>
+<script>
+// Winback mobile: case tabs stick under the GNB (the CASES label tucks behind it); add a soft shadow while stuck.
+(function(){
+  function sync(){
+    var g=document.querySelector('.gnb'), h=g?g.offsetHeight:0;
+    document.documentElement.style.setProperty('--gnbh', h+'px');
+    ['creator','agency'].forEach(function(id){
+      var t=document.querySelector('#'+id+' .wb-tabs'); if(!t) return;
+      var stuck=getComputedStyle(t).position==='sticky' && innerWidth<=1024 && t.getBoundingClientRect().top<=h-21 && window.scrollY>0;
+      document.body.classList.toggle('wbs-'+id, stuck);
+    });
+  }
+  addEventListener('scroll', sync, {passive:true});
+  addEventListener('resize', sync);
+  addEventListener('load', sync);
+  setTimeout(sync, 300);
+})();
+</script>
 </body>
 </html>
