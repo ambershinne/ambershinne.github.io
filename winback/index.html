@@ -78,10 +78,11 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
 @media (max-width:1024px){
   .csg{grid-template-columns:minmax(0,1fr) !important;row-gap:24px !important;}
   .csg > div{min-width:0;}
-  .wb-tabs{display:grid !important;grid-template-columns:repeat(4,max-content);overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;}
+  .wb-tabs{position:static !important;display:grid !important;grid-template-columns:repeat(4,max-content);overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px;}
   .wb-tabs::-webkit-scrollbar{display:none;}
   .wb-tabs > span{grid-column:1/-1;}
-  .wb-tabs .tabv{border-left:none !important;border-bottom:2px solid var(--bd) !important;padding:10px 20px 12px 0 !important;white-space:nowrap;}
+  .wb-tabs .tabv{border-left:none !important;border-bottom:2px solid #e1e2de !important;padding:10px 20px 12px 0 !important;white-space:nowrap;}
+  .wb-tabs .tabv[data-st="on"]{border-bottom-color:#1f6f67 !important;}
   .tabv[data-st="off"]:hover{border-bottom-color:#b4b8b5 !important;}
   .wb-twhy{display:none !important;}
   .wb-why{display:block;font-size:12px;line-height:1.55;color:#4a5054;}
@@ -256,7 +257,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
     <div class="wb-tabs" style="position:sticky;top:24px;display:flex;flex-direction:column;">
       <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
       <sc-for list="{{ b2cTabs }}" as="t" hint-placeholder-count="4">
-        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;--bd:{{ t.bd }};border-left:2px solid var(--bd);text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
           <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
           <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
           <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span class="wb-twhy" style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
@@ -384,7 +385,7 @@ input.sld:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 3px rgba(22,25,27
     <div class="wb-tabs" style="position:sticky;top:24px;display:flex;flex-direction:column;">
       <span style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:0.06em;color:#858b8f;margin-bottom:8px;">CASES</span>
       <sc-for list="{{ agTabs }}" as="t" hint-placeholder-count="4">
-        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;--bd:{{ t.bd }};border-left:2px solid var(--bd);text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
+        <button class="tabv" data-st="{{ t.st }}" onClick="{{ t.on }}" style="display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;padding:12px 0 12px 14px;background:none;border:none;border-left:2px solid {{ t.bd }};text-align:left;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;color:{{ t.fg }};">
           <span style="font-size:14px;font-weight:500;">{{ t.label }}</span>
           <span style="font-size:12px;font-weight:400;color:#858b8f;">{{ t.sub }}</span>
           <sc-if value="{{ t.open }}" hint-placeholder-val="{{ false }}"><span class="wb-twhy" style="margin-top:6px;font-size:12px;line-height:1.55;color:#4a5054;">{{ t.why }}</span></sc-if>
