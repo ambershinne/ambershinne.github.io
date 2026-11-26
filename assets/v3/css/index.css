@@ -190,3 +190,6 @@ a{color:var(--ink)}a:hover{color:#3A4560}
 .wmini .mp .nm{font-size:11px;line-height:1.25;background:#FBFCFD;padding:1px 6px;border-radius:3px;width:124px;text-align:center;transition:color .3s}
 .wmini .mp:hover .th{transform:translateY(-2px)}
 @media (max-width:900px){.wmini{display:none}}
+
+/* "#top" links (logo, Back to top) land at the very top, not under the sticky header */
+#top{scroll-margin-top:100vh}
