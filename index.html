@@ -46,7 +46,7 @@
 <template id="tpl">
 <div class="hatch" onClick="{{ outside }}" style="--ink: {{ cInk }}; --muted: {{ cMuted }}; --frame: {{ cFrame }}; --surface: {{ cSurface }}; --accent: {{ cAccent }}; width: 100%; font-family: {{ sans }}; color: var(--ink); background-color: #FFFFFF">
 
-<a href="#contact" style="display: block; background: var(--ink); color: #FFFFFF; text-align: center; padding: 12px 20px; font-size: 14px; text-decoration: none">Open to product design roles in Berlin. <span style="text-decoration: underline; text-underline-offset: 4px; color: #C9D3E3">Get in touch →</span></a>
+<a href="#contact" style="display: block; background: var(--ink); color: #FFFFFF; text-align: center; padding: 10px 20px; font-size: 14px; text-decoration: none">Open to product design roles in Berlin. <span style="text-decoration: underline; text-underline-offset: 4px; color: #C9D3E3">Get in touch →</span></a>
 
 <header style="border-bottom: 1px solid #E3E6EB; background: rgba(255,255,255,0.92); position: sticky; top: 0; z-index: 10; -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px)">
 <nav aria-label="Main" style="max-width: 1280px; margin: 0 auto; padding: 10px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-right: 20px; padding-left: 20px">
@@ -279,11 +279,11 @@ Browse all</button>
 <span class="alb mono l" aria-hidden="true">Structure</span>
 <span class="alb mono r" aria-hidden="true">Surface</span>
 <span class="qlink" aria-hidden="true" style="left: 36.7%; top: 38.4%; height: 25.4%"></span>
-<button type="button" class="mp" onClick="{{ wm0.go }}" aria-pressed="{{ wm0.on }}" style="left: 36.7%; top: 38.4%"><img class="th" src="assets/v3/images/work-questionnaire.jpg" alt="" style="box-shadow: {{ wm0.ring }}; filter: {{ wm0.f }}"><span class="nm" style="color: {{ wm0.col }}">01 · Questionnaire</span></button>
+<button type="button" class="mp" onClick="{{ wm0.go }}" aria-pressed="{{ wm0.on }}" style="left: 36.7%; top: 38.4%"><img class="th" src="assets/v3/images/map-questionnaire-admin.jpg" alt="" style="box-shadow: {{ wm0.ring }}; filter: {{ wm0.f }}"><span class="nm" style="color: {{ wm0.col }}">01 · Questionnaire</span></button>
 <button type="button" class="mp" onClick="{{ wm1.go }}" aria-pressed="{{ wm1.on }}" style="left: 29.6%; top: 23.2%"><img class="th" src="assets/v3/images/work-backoffice.jpg" alt="" style="box-shadow: {{ wm1.ring }}; filter: {{ wm1.f }}"><span class="nm" style="color: {{ wm1.col }}">02 · Back-office</span></button>
 <button type="button" class="mp" onClick="{{ wm2.go }}" aria-pressed="{{ wm2.on }}" style="left: 76.2%; top: 61.8%"><img class="th" src="assets/v3/images/work-kindocapp.jpg" alt="" style="box-shadow: {{ wm2.ring }}; filter: {{ wm2.f }}"><span class="nm" style="color: {{ wm2.col }}">03 · Healthcare marketplace</span></button>
 <button type="button" class="mp" onClick="{{ wm3.go }}" aria-pressed="{{ wm3.on }}" style="left: 55.7%; top: 78.7%"><img class="th" src="assets/v3/images/work-winback.jpg" alt="" style="box-shadow: {{ wm3.ring }}; filter: {{ wm3.f }}"><span class="nm" style="color: {{ wm3.col }}">04 · Win-back</span></button>
-<button type="button" class="mp ghost" onClick="{{ wmg.go }}" aria-pressed="{{ wmg.on }}" style="left: 36.7%; top: 63.8%"><img class="th" src="assets/v3/images/work-questionnaire.jpg" alt="" style="box-shadow: {{ wmg.ring }}; filter: {{ wmg.f }}"><span class="nm" style="color: {{ wmg.col }}">01 · Questionnaire</span></button>
+<button type="button" class="mp" onClick="{{ wmg.go }}" aria-pressed="{{ wmg.on }}" style="left: 36.7%; top: 63.8%"><img class="th" src="assets/v3/images/map-questionnaire-mobile.jpg" alt="" style="box-shadow: {{ wmg.ring }}; filter: {{ wmg.f }}"><span class="nm" style="color: {{ wmg.col }}">01 · Questionnaire</span></button>
 </div>
 <div class="wstage gridbg" ref="{{ setWork }}">
 <sc-for list="{{ cases }}" as="cs" hint-placeholder-count="4">
@@ -641,7 +641,7 @@ class Component extends DCLogic {
       ...(() => {
         const mi = this.state.wi || 0;
         const st = (k) => { const on = k === mi; return { on: on ? 'true' : 'false', ring: on ? '0 0 0 1.5px #141B2D, 0 8px 20px rgba(17,24,47,.12)' : '0 0 0 1px #AEB6C3', f: on ? 'none' : 'grayscale(.35) opacity(.8)', col: on ? '#141B2D' : '#8A93A3', go: () => this.goWork(k) }; };
-        return { wm0: st(0), wm1: st(1), wm2: st(2), wm3: st(3), wmg: { on: 'false', ring: '0 0 0 1px #C9CED6', f: 'grayscale(.5) opacity(.55)', col: '#AEB6C3', go: () => this.goWork(0) } };
+        return { wm0: st(0), wm1: st(1), wm2: st(2), wm3: st(3), wmg: st(0) };
       })(),
       cases: data.map((d, i) => { const bp = false; return { ...d, i, line: bp ? 'assets/v3/images/unused.png' : '', bpo: bp ? 1 : 0 }; }),
       cInk: this.props.cInk ?? '#11182F',
